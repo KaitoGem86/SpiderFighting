@@ -1,0 +1,7 @@
+[ index - index_case - name_in_editor - references_class - references_object_in_editor]
+
+Register:
+    1 - 1 - OnInventoryCloseToCook - CookingAction - CookingAction
+
+Raise:
+    1 - 1 - GetInventoryScreen - TestInventoryController - GetInventoryScreen

@@ -1,0 +1,3 @@
+stt - case - tên_event_SO         - tên object raise            - tên class raise     - tên object đăng ký(trên editor) - tên class sử dụng (Cho Serialize Event)
+
+1   -   1  - OnUpdatePlayerHealth - PlayerStatComponent(Player) - PlayerStatComponent - HP_Bar (GamePlayScreen)         - [Mono]

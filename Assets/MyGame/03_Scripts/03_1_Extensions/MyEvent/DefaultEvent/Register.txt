@@ -1,0 +1,3 @@
+DefaultSerializeEventListener: 
+    1. InteractionWithObjectState
+    2. PlayerStateComponent

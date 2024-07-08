@@ -1,0 +1,3 @@
+DefaultEvent: [name_in_editor - references_class - references_object_in_editor]
+    1. OnFinishInteractWithObject - InteractableObject - []
+    2. OnClickPlayerInteract - - []
