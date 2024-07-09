@@ -37,7 +37,7 @@ namespace Core.GamePlay.Player
 
         public AnimancerState PlayAnimation(AnimationClip animationClip, float normalizedTime = 0f)
         {
-            return _animacer.Play(animationClip, normalizedTime);
+            return _animacer.Play(animationClip);
         }
 
         public AnimancerState PlayAnimation(LinearMixerTransition manualMixerTransition, float normalizedTime = 0f, PlayerTypeAnimMask playerTypeAnimMask = PlayerTypeAnimMask.Base)

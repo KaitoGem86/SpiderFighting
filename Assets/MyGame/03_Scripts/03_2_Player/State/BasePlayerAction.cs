@@ -60,20 +60,12 @@ namespace Core.GamePlay.Player
 
         public virtual void Enter()
         {
-            // if (_state == null)
-            // {
             _state = _displayContainer.PlayAnimation(_animationClip.Clip, _animationClip.FadeDuration);
-            _state.Speed = _animationClip.Speed;
             _state.Events = _animationClip.Events;
             if (Priortiy == PriorityEnum.Critical)
             {
                 _stateContainer.ChangeAction(ActionEnum.None);
             }
-            // }
-            // else{
-            //     _state.Time = 0;
-            //     _state.StartFade(1, _animationClip.FadeDuration);
-            // }
         }
 
         public virtual bool Exit(ActionEnum actionAfter)
