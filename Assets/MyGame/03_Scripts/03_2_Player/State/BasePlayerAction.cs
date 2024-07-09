@@ -33,6 +33,7 @@ namespace Core.GamePlay.Player
         InteractWithObject,
         Cooking,
         Die,
+        Swing
     }
 
     [Serializable]

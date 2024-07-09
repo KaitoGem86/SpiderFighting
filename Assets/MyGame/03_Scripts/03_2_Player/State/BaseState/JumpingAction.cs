@@ -30,6 +30,15 @@ namespace Core.GamePlay.Player
             Debug.Log(_playerController.CharacterMovement.velocity.y);
         }
 
+        public override void Update()
+        {
+            base.Update();
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                _stateContainer.ChangeAction(ActionEnum.Swing);
+            }
+        }
+
         public override void LateUpdate()
         {
             base.LateUpdate();

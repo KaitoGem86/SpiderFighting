@@ -18,11 +18,11 @@ namespace Core.GamePlay
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
             _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             var tmp = RaycastCheckGround();
-            if(tmp.Item2 > _heightThreshHold)
+            if (tmp.Item2 > _heightThreshHold)
                 _priority = PriorityEnum.Critical;
             else
                 _priority = PriorityEnum.High;
-            if(_stateContainer.CurrentInteractionAction == ActionEnum.None || _priority != PriorityEnum.Critical)
+            if (_stateContainer.CurrentInteractionAction == ActionEnum.None || _priority != PriorityEnum.Critical)
                 base.Enter();
             _speed = 5;
         }
@@ -30,12 +30,16 @@ namespace Core.GamePlay
         public override void Update()
         {
             base.Update();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _stateContainer.ChangeAction(ActionEnum.Swing);
+            }
         }
 
         public override void LateUpdate()
         {
             base.LateUpdate();
-            if(_playerController.CharacterMovement.isOnGround)
+            if (_playerController.CharacterMovement.isOnGround)
             {
                 _stateContainer.ChangeAction(ActionEnum.Landing);
                 return;
