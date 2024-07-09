@@ -11,7 +11,7 @@ namespace Core.GamePlay
         protected float _speed;
         protected Vector3 _moveDirection;
         protected Vector3 _rotateDirection;
-        protected Vector3 _joystickDirection;
+        protected Vector3 _direction;
         protected Vector3 _surfaceNormal;
         protected float _maxAngularSlopes;
         protected Transform _cameraTransform;
@@ -26,6 +26,7 @@ namespace Core.GamePlay
 
         protected virtual void MoveInAir(){
             Vector3 targetPos = Vector3.Lerp(_playerController.transform.position, _playerController.transform.position + _moveDirection * _speed, Time.deltaTime);
+            Debug.Log(_moveDirection);
             _playerController.CharacterMovement.Move(_moveDirection * _speed );
         }
 
@@ -45,11 +46,11 @@ namespace Core.GamePlay
             forward.y = 0;
             Vector3 x = joyStick.x * right.normalized;
             Vector3 y = joyStick.y * forward.normalized;
-            _joystickDirection = x + y;
+            _direction = x + y;
 
-            _joystickDirection.y = 0;
-            _moveDirection = _joystickDirection;
-            _rotateDirection = _joystickDirection;
+            _direction.y = 0;
+            _moveDirection = _direction;
+            _rotateDirection = _direction;
         }
 
         protected virtual (bool, float) RaycastCheckGround()

@@ -13,14 +13,55 @@ MonoBehaviour:
   m_Name: PlayerJumping
   m_EditorClassIdentifier: 
   _animationClip:
-    _FadeDuration: 0.25
+    _FadeDuration: 0.020000001
     _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
+      _NormalizedTimes:
+      - 0.90909094
+      - 0.9725275
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: Core.GamePlay.Player.JumpingAction, Assembly-CSharp
+            m_MethodName: KeepJumping
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       _Names: []
-    _Clip: {fileID: 0}
+    _Clip: {fileID: 7400000, guid: 718edff39fafda9419dd6063f650d529, type: 3}
     _Speed: 1
-    _NormalizedStartTime: NaN
+    _NormalizedStartTime: 0
   _priority: 0
   _canChangeToItself: 0
   _healthCostPerFixedUpdate: 0
+  _keepJumping:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.850303
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: Core.GamePlay.Player.JumpingAction, Assembly-CSharp
+            m_MethodName: FallingDown
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 583df2234e2d1194689d9b5b62d3154c, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN

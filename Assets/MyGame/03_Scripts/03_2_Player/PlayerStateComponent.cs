@@ -50,14 +50,7 @@ namespace Core.GamePlay.Player
 
         public bool ChangeAction(ActionEnum action)
         {
-            if (GetStateTypeEnum(action) == StateTypeEnum.Movement)
-            {
-                return ChangeMovement(action);
-            }
-            else
-            {
-                return ChangeInteraction(action);
-            }
+            return ChangeMovement(action);
         }
 
         private bool ChangeMovement(ActionEnum action)
@@ -128,19 +121,19 @@ namespace Core.GamePlay.Player
         public override void OnCollisionEnter(UnityEngine.Collision collision)
         {
             _dictPlayerMovementActions[_currentMovementAction].OnCollisionEnter(collision);
-            _dictPlayerInteractionActions[_currentInteractionAction].OnCollisionEnter(collision);
+            //_dictPlayerInteractionActions[_currentInteractionAction].OnCollisionEnter(collision);
         }
 
         public override void OnCollisionStay(UnityEngine.Collision collision)
         {
             _dictPlayerMovementActions[_currentMovementAction].OnCollisionStay(collision);
-            _dictPlayerInteractionActions[_currentInteractionAction].OnCollisionStay(collision);
+            //_dictPlayerInteractionActions[_currentInteractionAction].OnCollisionStay(collision);
         }
 
         public override void OnCollisionExit(UnityEngine.Collision collision)
         {
             _dictPlayerMovementActions[_currentMovementAction].OnCollisionExit(collision);
-            _dictPlayerInteractionActions[_currentInteractionAction].OnCollisionExit(collision);
+            //_dictPlayerInteractionActions[_currentInteractionAction].OnCollisionExit(collision);
         }
 
         private void ApplyVerticalVelocity()
@@ -179,11 +172,6 @@ namespace Core.GamePlay.Player
             VerticalVelocityValue += 9.8f * Time.deltaTime;
             _playerController.CharacterMovement.Move(Vector3.down * VerticalVelocityValue * Time.deltaTime);
         }
-
-        // public void SetTargetInteractableObject(InteractInfo info)
-        // {
-        //     TargetInteractableObject = info.interactableObject;
-        // }
 
         public float VerticalVelocityValue { get; set; }
         public bool UseGravity { get; set; } = true;

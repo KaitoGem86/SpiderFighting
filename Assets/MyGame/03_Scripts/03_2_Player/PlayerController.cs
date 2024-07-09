@@ -6,41 +6,28 @@ using UnityEngine;
 namespace Core.GamePlay.Player
 {
     [RequireComponent(typeof(CharacterMovement))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Character
     {
-        [SerializeField] private Transform _cameraTransform;
+        [SerializeField] private Transform _cameraTransformObject;
         [SerializeField] private Transform _playerDisplay;
-        [SerializeField] private CharacterMovement _characterMovement;
+        [SerializeField] private CharacterMovement _characterMovementObject;
         [SerializeField] private Transform _holdPivot;
         public Transform MeleeWeapon;
-        private bool _isSprint = false;
 
         [SerializeField] private SerializedDictionary<PlayerComponentEnum, BasePlayerComponent> _dictPlayerComponents;
         private ActionEnum _beforeAction;
 
-        private void Awake()
+        protected override void Awake()
         {
-            _characterMovement.detectCollisions = true;
+            base.Awake();   
             Init();
         }
 
-        private void Init()
-        {;
-           // _dictPlayerComponents[PlayerComponentEnum.Display].Init(this);
-            _dictPlayerComponents[PlayerComponentEnum.State].Init(this);
-           // _dictPlayerComponents[PlayerComponentEnum.Action].Init(this);
-           // _dictPlayerComponents[PlayerComponentEnum.Stat].Init(this);
-        }
 
-        private void Update()
+        private void Init()
         {
-            Debug.Log(InputManager.instance.move);
-            if(Input.GetKeyDown(KeyCode.F)){
-                ResolveComponent<PlayerStateComponent>(PlayerComponentEnum.State).ChangeAction(ActionEnum.HoldMelee);
-            }
-            if(Input.GetKeyDown(KeyCode.I)){
-                ResolveComponent<PlayerStateComponent>(PlayerComponentEnum.State).ChangeAction(ActionEnum.InteractWithObject);
-            }
+            _dictPlayerComponents[PlayerComponentEnum.Display].Init(this);
+            _dictPlayerComponents[PlayerComponentEnum.State].Init(this);
         }
 
         /// <summary>
@@ -48,11 +35,11 @@ namespace Core.GamePlay.Player
         /// touching another rigidbody/collider.
         /// </summary>
         /// <param name="other">The Collision data associated with this collision.</param>
-        private void OnCollisionEnter(Collision other)
+        protected void OnCollisionEnter(Collision other)
         {
             foreach (var item in _dictPlayerComponents)
             {
-                if(item.Value is IPlayerLoop)
+                if (item.Value is IPlayerLoop)
                     item.Value.OnCollisionEnter(other);
             }
         }
@@ -66,7 +53,7 @@ namespace Core.GamePlay.Player
         {
             foreach (var item in _dictPlayerComponents)
             {
-                if(item.Value is IPlayerLoop)
+                if (item.Value is IPlayerLoop)
                     item.Value.OnCollisionExit(other);
             }
         }
@@ -80,7 +67,7 @@ namespace Core.GamePlay.Player
         {
             foreach (var item in _dictPlayerComponents)
             {
-                if(item.Value is IPlayerLoop)
+                if (item.Value is IPlayerLoop)
                     item.Value.OnCollisionStay(other);
             }
         }
@@ -89,11 +76,11 @@ namespace Core.GamePlay.Player
         /// OnTriggerEnter is called when the Collider other enters the trigger.
         /// </summary>
         /// <param name="other">The other Collider involved in this collision.</param>
-        private void OnTriggerEnter(Collider other)
+        protected override void OnTriggerEnter(Collider other)
         {
             foreach (var item in _dictPlayerComponents)
             {
-                if(item.Value is IPlayerLoop)
+                if (item.Value is IPlayerLoop)
                     item.Value.OnTriggerEnter(other);
             }
         }
@@ -107,16 +94,16 @@ namespace Core.GamePlay.Player
         {
             foreach (var item in _dictPlayerComponents)
             {
-                if(item.Value is IPlayerLoop)
+                if (item.Value is IPlayerLoop)
                     item.Value.OnTriggerStay(other);
             }
         }
 
-        private void OnTriggerExit(Collider other)
+        protected override void OnTriggerExit(Collider other)
         {
             foreach (var item in _dictPlayerComponents)
             {
-                if(item.Value is IPlayerLoop)
+                if (item.Value is IPlayerLoop)
                     item.Value.OnTriggerExit(other);
             }
         }
@@ -132,11 +119,10 @@ namespace Core.GamePlay.Player
         }
 
         public Transform PlayerDisplay => _playerDisplay;
-        public Transform CameraTransform => _cameraTransform;
+        public Transform CameraTransform => _cameraTransformObject;
         public Transform HoldPivot => _holdPivot;
         public ActionEnum BeforeAction => _beforeAction;
         public bool IsCanMove { get; set; }
-        public bool IsSprinting => _isSprint;
-        public CharacterMovement CharacterMovement => _characterMovement;
+        public CharacterMovement CharacterMovement => _characterMovementObject;
     }
 }

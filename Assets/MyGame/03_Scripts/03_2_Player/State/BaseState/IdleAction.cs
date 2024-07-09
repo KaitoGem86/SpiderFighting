@@ -23,11 +23,15 @@ namespace Core.GamePlay.Player
             return base.Exit(actionAfter);
         }
 
-        public override void LateUpdate()
+        public override void Update()
         {
+            if(InputManager.instance.jump)
+            {
+                _stateContainer.ChangeAction(ActionEnum.Jumping);
+                return;
+            }
             if(InputManager.instance.move.magnitude > 0.1f)
             {
-                Debug.Log("IdleAction: Moving");
                 _stateContainer.ChangeAction(ActionEnum.Moving);
                 return;
             }

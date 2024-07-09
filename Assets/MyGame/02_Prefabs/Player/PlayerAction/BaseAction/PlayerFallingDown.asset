@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: PlayerFallingDown
   m_EditorClassIdentifier: 
   _animationClip:
-    _FadeDuration: 0.25
+    _FadeDuration: 0
     _Events:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 0}
+    _Clip: {fileID: 7400000, guid: 1f7a93442b82e564ab956b4cd8a0bc07, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
-  _priority: 0
+  _priority: 2
   _canChangeToItself: 0
   _healthCostPerFixedUpdate: 0
   _heightThreshHold: 2

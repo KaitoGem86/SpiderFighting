@@ -1,5 +1,6 @@
 using Animancer;
 using Core.SystemGame;
+using SFRemastered.InputSystem;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
@@ -8,69 +9,55 @@ namespace Core.GamePlay.Player
     public class LandingAction : LocalmotionAction
     {
         [SerializeField] private ClipTransition _criticalLanding;
+        [SerializeField] private ClipTransition _waitLanding;
         [SerializeField] private float _landingVelocityThreshold = 5;
 
         public override void Enter()
         {
-            if (_stateContainer.VerticalVelocityValue > _landingVelocityThreshold)
-            {
-                _state = _displayContainer.PlayAnimation(_criticalLanding.Clip, _criticalLanding.FadeDuration, PlayerTypeAnimMask.Base);
+            var velocity = _playerController.CharacterMovement.velocity.magnitude;
+            if(velocity < 0.1f){
+                _state = _displayContainer.PlayAnimation(_waitLanding.Clip, _waitLanding.FadeDuration);
+                _state.Speed = _waitLanding.Speed;
+                _state.Events = _waitLanding.Events;
+            }
+            else if (velocity < _landingVelocityThreshold){
+                _state = _displayContainer.PlayAnimation(_animationClip.Clip, _animationClip.FadeDuration);
                 _state.Speed = _animationClip.Speed;
                 _state.Events = _animationClip.Events;
-                _stateContainer.VerticalVelocityValue = 0;
-                _speed = 5;
-                return;
             }
-            base.Enter();
-            _stateContainer.VerticalVelocityValue = 0;
+            else if (_playerController.CharacterMovement.velocity.magnitude > _landingVelocityThreshold)
+            {
+                _state = _displayContainer.PlayAnimation(_criticalLanding.Clip, _criticalLanding.FadeDuration);
+                _state.Speed = _animationClip.Speed;
+                _state.Events = _animationClip.Events;
+            }
             _speed = 5;
         }
 
         public void CompleteLanding()
         {
-            //if)
-            if (InputSystem.Instance.IsJump)
-            {
-                _stateContainer.ChangeAction(ActionEnum.Jumping);
-                return;
-            }
-            if (InputSystem.Instance.InputJoyStick.Direction.magnitude > 0.1f)
-            {
-                if (InputSystem.Instance.IsSprint)
-                {
-                    _stateContainer.ChangeAction(ActionEnum.Sprinting);
-                    return;
-                }
-                else
-                {
-                    _stateContainer.ChangeAction(ActionEnum.Moving);
-                    return;
-                }
-            }
-            else
-            {
+            if(_playerController.CharacterMovement.velocity.magnitude < 0.1f){
                 _stateContainer.ChangeAction(ActionEnum.Idle);
                 return;
             }
+            _stateContainer.ChangeAction(ActionEnum.Moving);
+            return;
         }
 
         public override void LateUpdate()
         {
             GetInput();
-
-            var rayCheckGround = RaycastCheckGround();
-            if (!rayCheckGround.Item1 && rayCheckGround.Item2 > 3)
-            {
-                _stateContainer.ChangeAction(ActionEnum.FallingDown);
-                return;
-            }
             MoveInAir();
             Rotate();
         }
 
         public override bool Exit(ActionEnum actionAfter)
         {
+            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            _playerController.CharacterMovement.rigidbody.useGravity = false;
+            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
+
         }
     }
 }

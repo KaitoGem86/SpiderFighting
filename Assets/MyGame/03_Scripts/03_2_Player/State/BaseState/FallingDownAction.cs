@@ -14,6 +14,9 @@ namespace Core.GamePlay
 
         public override void Enter()
         {
+            _playerController.CharacterMovement.rigidbody.useGravity = true;
+            _playerController.CharacterMovement.rigidbody.isKinematic = false;
+            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             var tmp = RaycastCheckGround();
             if(tmp.Item2 > _heightThreshHold)
                 _priority = PriorityEnum.Critical;
@@ -32,31 +35,12 @@ namespace Core.GamePlay
         public override void LateUpdate()
         {
             base.LateUpdate();
+            if(_playerController.CharacterMovement.isOnGround)
+            {
+                _stateContainer.ChangeAction(ActionEnum.Landing);
+                return;
+            }
             GetInput();
-            if (RaycastCheckGround().Item1)
-            {
-                if (Vector3.Angle(_surfaceNormal, Vector3.up) > 45f)
-                {
-                    if (_rotateDirection != Vector3.zero)
-                        Rotate();
-                    if(_playerController.CharacterMovement.isGrounded)
-                    {
-                        if(Physics.Raycast(_playerController.CharacterMovement.transform.position, Vector3.down, out RaycastHit hit)){
-                            if(Vector3.Angle(hit.normal, Vector3.up) < 45f)
-                                _stateContainer.ChangeAction(ActionEnum.Landing);
-                        }
-                    }
-                    return;
-                }
-            }
-            if (RaycastCheckGround().Item2 < 0.6f)
-            {
-                if (Vector3.Angle(_surfaceNormal, Vector3.up) < 45f)
-                {
-                    _stateContainer.ChangeAction(ActionEnum.Landing);
-                    return;
-                }
-            }
             if (_rotateDirection != Vector3.zero)
                 Rotate();
             MoveInAir();

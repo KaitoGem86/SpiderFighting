@@ -7,43 +7,53 @@ namespace Core.GamePlay.Player
     [CreateAssetMenu(fileName = nameof(BasePlayerAction), menuName = ("PlayerState/" + nameof(JumpingAction)), order = 0)]
     public class JumpingAction : LocalmotionAction
     {
+        [SerializeField] private ClipTransition _keepJumping;
         private bool _isJumping = false;
-        private bool _isStartedJumping = false;
         private float _jumpVelocity = 0;
-        private float _jumpLength = 0;
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
             base.Init(playerController, actionEnum);
             _isJumping = false;
-            _jumpVelocity = 10;
+            _jumpVelocity = 5f;
+            _speed = 10;
         }
 
         public override void Enter()
         {
             if (_isJumping) return;
             base.Enter();
-            _isStartedJumping = false;
-            _jumpLength = InputSystem.Instance.InputJoyStick.Direction.magnitude;
             _speed = 5;
+            _playerController.CharacterMovement.rigidbody.useGravity = true;
+            _playerController.CharacterMovement.rigidbody.isKinematic = false;
+            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            _playerController.CharacterMovement.AddForce(Vector3.up * _jumpVelocity, ForceMode.Force);
+            Debug.Log(_playerController.CharacterMovement.velocity.y);
         }
 
         public override void LateUpdate()
         {
             base.LateUpdate();
             GetInput();
+            Rotate();
             MoveInAir();
         }
 
-        public void Jump()
+        public void KeepJumping()
         {
-            _isStartedJumping = true;
-            _isJumping = true;
-            _stateContainer.VerticalVelocityValue = -_jumpVelocity;
+            _state = _displayContainer.PlayAnimation(_keepJumping.Clip, _keepJumping.FadeDuration);
+            _state.Speed = _keepJumping.Speed;
+            _state.Events = _keepJumping.Events;
+        }
+
+        protected override void MoveInAir()
+        {
+            Vector3 tmp = _moveDirection * _speed;
+            tmp.y = _playerController.CharacterMovement.velocity.y;
+            _playerController.CharacterMovement.Move(tmp );
         }
 
         public override bool Exit(ActionEnum actionAfter)
         {
-            if (actionAfter == ActionEnum.Sprinting) return false;
             _isJumping = false;
             return base.Exit(actionAfter);
         }
