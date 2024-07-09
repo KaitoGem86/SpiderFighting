@@ -122,7 +122,7 @@ namespace Core.GamePlay.Player
         {
             _dictPlayerMovementActions[_currentMovementAction].FixedUpdate();
             //_dictPlayerInteractionActions[_currentInteractionAction].FixedUpdate();
-            ApplyVerticalVelocity();
+            //ApplyVerticalVelocity();
         }
 
         public override void OnCollisionEnter(UnityEngine.Collision collision)

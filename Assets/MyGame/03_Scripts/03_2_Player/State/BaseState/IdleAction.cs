@@ -25,31 +25,11 @@ namespace Core.GamePlay.Player
 
         public override void LateUpdate()
         {
-            // if (InputSystem.Instance.InputJoyStick?.Direction.magnitude > 0.1f)
-            // {
-            //     _stateContainer.ChangeAction(ActionEnum.StartMoving);
-            //     return;
-            // }
-            // if (InputSystem.Instance.IsJump)
-            // {
-            //     _stateContainer.ChangeAction(ActionEnum.Jumping);
-            //     return;
-            // 
             if(InputManager.instance.move.magnitude > 0.1f)
             {
                 Debug.Log("IdleAction: Moving");
                 _stateContainer.ChangeAction(ActionEnum.Moving);
                 return;
-            }
-        }
-
-
-        public override void OnCollisionStay(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Slopes"))
-            {
-                Vector3 normal = collision.contacts[0].normal;
-                float angle = Vector3.Angle(Vector3.up, normal);
             }
         }
     }

@@ -23,7 +23,7 @@ namespace Core.GamePlay.Player
             _playerController.IsCanMove = true;
             //_moveDirection = Vector3.zero;
             GetInput();
-            _speed = 4f;
+            _speed = 8f;
             // if (_playerController.IsSprinting)
             // {
             //     _stateContainer.ChangeAction(ActionEnum.Sprinting);
