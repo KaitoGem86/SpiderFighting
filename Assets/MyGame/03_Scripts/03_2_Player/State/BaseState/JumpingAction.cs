@@ -33,7 +33,7 @@ namespace Core.GamePlay.Player
         public override void Update()
         {
             base.Update();
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 _stateContainer.ChangeAction(ActionEnum.Swing);
             }
@@ -58,12 +58,15 @@ namespace Core.GamePlay.Player
         {
             Vector3 tmp = _moveDirection * _speed;
             tmp.y = _playerController.CharacterMovement.velocity.y;
-            _playerController.CharacterMovement.Move(tmp );
+            _playerController.CharacterMovement.Move(tmp);
         }
 
         public override bool Exit(ActionEnum actionAfter)
         {
             _isJumping = false;
+            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            _playerController.CharacterMovement.rigidbody.useGravity = false;
+            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
         }
 

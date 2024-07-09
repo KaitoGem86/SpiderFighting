@@ -18,10 +18,10 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: d4de8b146bbebdd44b83cf5883c11719, type: 2}
+    _Clip: {fileID: 7400000, guid: a56de8826a9b53149b5a31edf92bd3b1, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
   _priority: 0
   _canChangeToItself: 0
   _healthCostPerFixedUpdate: 0
-  _zValue: 3
+  _angular: 30

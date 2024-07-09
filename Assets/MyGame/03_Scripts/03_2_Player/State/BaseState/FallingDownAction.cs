@@ -52,6 +52,9 @@ namespace Core.GamePlay
 
         public override bool Exit(ActionEnum actionAfter)
         {
+            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            _playerController.CharacterMovement.rigidbody.useGravity = false;
+            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
         }
     }
