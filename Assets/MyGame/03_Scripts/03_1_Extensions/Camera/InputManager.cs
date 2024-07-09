@@ -14,7 +14,7 @@ namespace SFRemastered.InputSystem
         public float camsensitivity = 1f;
 
         [Header("Input modules")]
-        public FixedJoystick joystickMove;
+        public VariableJoystick joystickMove;
         public GameObject lookPanel;
 
         [Header("Input value(Readonly)")]
@@ -172,11 +172,11 @@ namespace SFRemastered.InputSystem
             look.y = 0;
         }
 
-        // if (TimeManager.instance.pause)
-        // {
-        //     look = Vector2.zero;
-        //     targetLook = Vector2.zero;
-        // }
+        if (TimeManager.instance.pause)
+        {
+            look = Vector2.zero;
+            targetLook = Vector2.zero;
+        }
 
 #endif
         }
