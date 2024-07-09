@@ -32,7 +32,7 @@ namespace Core.GamePlay.Player{
 
         private void FindPivot(){
             var tmp = _playerController.PlayerDisplay.transform.forward;
-            var tempFindDirection = new Vector3(tmp.x, 1, _zValue);
+            var tempFindDirection = new Vector3(tmp.x, 1, tmp.z);
             if(Physics.Raycast(_holdPivot.position, tempFindDirection, out RaycastHit hit, 100f))
                 _pivot = hit.point;
         }
