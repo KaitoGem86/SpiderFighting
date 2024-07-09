@@ -1,5 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using EasyCharacterMovement;
+using SFRemastered.InputSystem;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
@@ -25,14 +26,15 @@ namespace Core.GamePlay.Player
 
         private void Init()
         {;
-            _dictPlayerComponents[PlayerComponentEnum.Display].Init(this);
-            _dictPlayerComponents[PlayerComponentEnum.State].Init(this);
-            _dictPlayerComponents[PlayerComponentEnum.Action].Init(this);
-            _dictPlayerComponents[PlayerComponentEnum.Stat].Init(this);
+           // _dictPlayerComponents[PlayerComponentEnum.Display].Init(this);
+            //_dictPlayerComponents[PlayerComponentEnum.State].Init(this);
+           // _dictPlayerComponents[PlayerComponentEnum.Action].Init(this);
+           // _dictPlayerComponents[PlayerComponentEnum.Stat].Init(this);
         }
 
         private void Update()
         {
+            Debug.Log(InputManager.instance.move);
             if(Input.GetKeyDown(KeyCode.F)){
                 ResolveComponent<PlayerStateComponent>(PlayerComponentEnum.State).ChangeAction(ActionEnum.HoldMelee);
             }

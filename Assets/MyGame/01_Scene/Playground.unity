@@ -6096,6 +6096,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &722721862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722721857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c33f6ce9bd4f14c8d90516f41433f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraTransform: {fileID: 0}
+  _playerDisplay: {fileID: 0}
+  _characterMovement: {fileID: 722721859}
+  _holdPivot: {fileID: 0}
+  MeleeWeapon: {fileID: 0}
+  _dictPlayerComponents:
+    _serializedList: []
 --- !u!1 &741214270
 GameObject:
   m_ObjectHideFlags: 0
@@ -15584,6 +15603,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5482327496165697713, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 722721859}
+    - targetCorrespondingSourceObject: {fileID: 5482327496165697713, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 722721862}
   m_SourcePrefab: {fileID: 100100000, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
 --- !u!1001 &8851246979688706763
 PrefabInstance:

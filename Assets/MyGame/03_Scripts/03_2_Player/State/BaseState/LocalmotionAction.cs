@@ -1,6 +1,7 @@
 using UnityEngine;
 using Core.GamePlay.Player;
 using Core.SystemGame;
+using SFRemastered.InputSystem;
 
 namespace Core.GamePlay
 {
@@ -37,7 +38,7 @@ namespace Core.GamePlay
 
         protected virtual void GetInput()
         {
-            var joyStick = InputSystem.Instance.InputJoyStick;
+            var joyStick = InputManager.instance.joystickMove;
             Vector3 x = joyStick.Horizontal * _cameraTransform.right;
             Vector3 y = joyStick.Vertical * _cameraTransform.forward;
             _joystickDirection = x + y;
