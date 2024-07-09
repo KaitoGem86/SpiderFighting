@@ -62,10 +62,6 @@ namespace Core.GamePlay.Player
         {
             _state = _displayContainer.PlayAnimation(_animationClip.Clip, _animationClip.FadeDuration);
             _state.Events = _animationClip.Events;
-            if (Priortiy == PriorityEnum.Critical)
-            {
-                _stateContainer.ChangeAction(ActionEnum.None);
-            }
         }
 
         public virtual bool Exit(ActionEnum actionAfter)

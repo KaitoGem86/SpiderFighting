@@ -1,5 +1,6 @@
 using Animancer;
 using Core.SystemGame;
+using DG.Tweening.Plugins.Options;
 using SFRemastered.InputSystem;
 using UnityEngine;
 
@@ -14,29 +15,34 @@ namespace Core.GamePlay.Player
 
         public override void Enter()
         {
-            var velocity = _playerController.CharacterMovement.velocity.magnitude;
-            if(velocity < 0.1f){
+            _speed = 5;
+            var velocityVec3 = _playerController.CharacterMovement.velocity;
+            var vel = velocityVec3.magnitude;
+            velocityVec3.y = _playerController.CharacterMovement.rigidbody.velocity.y;
+            var velocity = velocityVec3.magnitude;
+            if(vel < 0.1f){
                 _state = _displayContainer.PlayAnimation(_waitLanding.Clip, _waitLanding.FadeDuration);
                 _state.Speed = _waitLanding.Speed;
                 _state.Events = _waitLanding.Events;
+                return;
             }
-            else if (velocity < _landingVelocityThreshold){
+            if (velocity < _landingVelocityThreshold){
                 _state = _displayContainer.PlayAnimation(_animationClip.Clip, _animationClip.FadeDuration);
                 _state.Speed = _animationClip.Speed;
                 _state.Events = _animationClip.Events;
             }
-            else if (_playerController.CharacterMovement.velocity.magnitude > _landingVelocityThreshold)
+            else
             {
                 _state = _displayContainer.PlayAnimation(_criticalLanding.Clip, _criticalLanding.FadeDuration);
                 _state.Speed = _animationClip.Speed;
                 _state.Events = _animationClip.Events;
             }
-            _speed = 5;
         }
 
         public void CompleteLanding()
         {
-            if(_playerController.CharacterMovement.velocity.magnitude < 0.1f){
+            var velocity = _playerController.CharacterMovement.velocity;
+            if(velocity.magnitude < 0.1f){
                 _stateContainer.ChangeAction(ActionEnum.Idle);
                 return;
             }

@@ -48,7 +48,6 @@ namespace Core.GamePlay
 
         public override bool Exit(ActionEnum actionAfter)
         {
-            if (actionAfter != ActionEnum.Landing && actionAfter != ActionEnum.Sliding) return false;
             return base.Exit(actionAfter);
         }
     }

@@ -67,6 +67,7 @@ namespace Core.GamePlay.Player
 
             if (_currentMovementAction == ActionEnum.None || _dictPlayerMovementActions[_currentMovementAction].Exit(action))
             {
+                //Debug.Log("ChangeMovement from " + _currentMovementAction.ToString() + " to " + action.ToString() );
                 _beforeMovementAction = _currentMovementAction;
                 _currentMovementAction = action;
                 _dictPlayerMovementActions[_currentMovementAction].Enter();

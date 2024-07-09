@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IdleAction
   m_EditorClassIdentifier: 
   _animationClip:
-    _FadeDuration: 0.3
+    _FadeDuration: 0.9
     _Events:
       _NormalizedTimes:
       - 0.8681319

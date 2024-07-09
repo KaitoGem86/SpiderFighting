@@ -90,4 +90,4 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: 14a9f4eee4398794b8abdd5e0153b188, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
-  _landingVelocityThreshold: 7
+  _landingVelocityThreshold: 10
