@@ -24,3 +24,22 @@ MonoBehaviour:
   _priority: 0
   _canChangeToItself: 0
   _healthCostPerFixedUpdate: 0
+  _linearMixerTransition:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
+    - {fileID: 7400000, guid: fd6e0d48a65905843a5f784b7acb18f0, type: 2}
+    - {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 1
+    - 2
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1

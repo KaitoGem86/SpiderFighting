@@ -26,7 +26,7 @@ namespace Core.GamePlay
 
         protected virtual void MoveInAir(){
             Vector3 targetPos = Vector3.Lerp(_playerController.transform.position, _playerController.transform.position + _moveDirection * _speed, Time.deltaTime);
-            _playerController.CharacterMovement.Move(_moveDirection * _speed * Time.deltaTime);
+            _playerController.CharacterMovement.Move(_moveDirection * _speed );
         }
 
         protected virtual void Rotate()
@@ -38,9 +38,13 @@ namespace Core.GamePlay
 
         protected virtual void GetInput()
         {
-            var joyStick = InputManager.instance.joystickMove;
-            Vector3 x = joyStick.Horizontal * _cameraTransform.right;
-            Vector3 y = joyStick.Vertical * _cameraTransform.forward;
+            var joyStick = InputManager.instance.move;
+            var right = _cameraTransform.right;
+            right.y = 0;
+            var forward = _cameraTransform.forward;
+            forward.y = 0;
+            Vector3 x = joyStick.x * right.normalized;
+            Vector3 y = joyStick.y * forward.normalized;
             _joystickDirection = x + y;
 
             _joystickDirection.y = 0;

@@ -111,9 +111,9 @@ namespace Core.GamePlay.Player
         }
 
         private bool CheckLoseGame(){
-            if(_playerStats[PlayerStatType.Health].value <= 0){
-                return true;
-            }
+            // if(_playerStats[PlayerStatType.Health].value <= 0){
+            //     return true;
+            // }
             return false;
         }
     }

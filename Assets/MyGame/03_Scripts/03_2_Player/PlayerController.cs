@@ -27,7 +27,7 @@ namespace Core.GamePlay.Player
         private void Init()
         {;
            // _dictPlayerComponents[PlayerComponentEnum.Display].Init(this);
-            //_dictPlayerComponents[PlayerComponentEnum.State].Init(this);
+            _dictPlayerComponents[PlayerComponentEnum.State].Init(this);
            // _dictPlayerComponents[PlayerComponentEnum.Action].Init(this);
            // _dictPlayerComponents[PlayerComponentEnum.Stat].Init(this);
         }

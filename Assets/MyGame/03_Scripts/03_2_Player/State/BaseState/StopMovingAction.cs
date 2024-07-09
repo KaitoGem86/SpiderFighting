@@ -1,4 +1,5 @@
 using Core.SystemGame;
+using SFRemastered.InputSystem;
 using UnityEngine;
 
 namespace Core.GamePlay.Player{
@@ -18,24 +19,20 @@ namespace Core.GamePlay.Player{
         public override void LateUpdate()
         {
             GetInput();
-            if(InputSystem.Instance.IsSprint && _moveDirection.magnitude > 0.1f){
-                _stateContainer.ChangeAction(ActionEnum.Sprinting);
-                return;
-            }
-            if(InputSystem.Instance.InputJoyStick.Direction.magnitude > 0.1f){
+            if(InputManager.instance.move.magnitude > 0.1f){
                 _stateContainer.ChangeAction(ActionEnum.Moving);
                 return;
             }
-            if(InputSystem.Instance.IsJump){
-                _stateContainer.ChangeAction(ActionEnum.Jumping);
-                return;
-            }
+            // if(InputSystem.Instance.IsJump){
+            //     _stateContainer.ChangeAction(ActionEnum.Jumping);
+            //     return;
+            // }
             _speed = Mathf.Lerp(_speed, _targetSpeed, _damping * Time.deltaTime);
             if(_speed < 0.1f){
                 _speed = _targetSpeed;
             }
             _moveDirection = _remainMoveDirection;
-            MoveInAir();
+            //MoveInAir();
             base.LateUpdate();
             _remainMoveDirection = Vector3.Lerp(_remainMoveDirection, Vector3.zero, _damping * Time.deltaTime);
         }
@@ -46,15 +43,15 @@ namespace Core.GamePlay.Player{
         }
 
         public void CheckMoving(){
-            if(InputSystem.Instance.InputJoyStick.Direction.magnitude > 0.1f){
-                if(InputSystem.Instance.IsSprint){
-                    _stateContainer.ChangeAction(ActionEnum.Sprinting);
-                    return;
-                }
-                else{
+            if(InputManager.instance.move.magnitude > 0.1f){
+                // if(InputSystem.Instance.IsSprint){
+                //     _stateContainer.ChangeAction(ActionEnum.Sprinting);
+                //     return;
+                // }
+                //else{
                     _stateContainer.ChangeAction(ActionEnum.Moving);
                     return;
-                }
+                //}
             }
             else{
                 _stateContainer.ChangeAction(ActionEnum.Idle);

@@ -15,10 +15,26 @@ MonoBehaviour:
   _animationClip:
     _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
+      _NormalizedTimes:
+      - 0.73430544
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: Core.GamePlay.Player.StopMovingAction, Assembly-CSharp
+            m_MethodName: CheckMoving
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       _Names: []
-    _Clip: {fileID: 0}
+    _Clip: {fileID: 7400000, guid: 244b8b759a9ccd740b2829c4256f4ae8, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
   _priority: 0

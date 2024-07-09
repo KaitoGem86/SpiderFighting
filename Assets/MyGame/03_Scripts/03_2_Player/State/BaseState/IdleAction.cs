@@ -1,4 +1,5 @@
 using Core.SystemGame;
+using SFRemastered.InputSystem;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
@@ -24,14 +25,20 @@ namespace Core.GamePlay.Player
 
         public override void LateUpdate()
         {
-            if (InputSystem.Instance.InputJoyStick?.Direction.magnitude > 0.1f)
+            // if (InputSystem.Instance.InputJoyStick?.Direction.magnitude > 0.1f)
+            // {
+            //     _stateContainer.ChangeAction(ActionEnum.StartMoving);
+            //     return;
+            // }
+            // if (InputSystem.Instance.IsJump)
+            // {
+            //     _stateContainer.ChangeAction(ActionEnum.Jumping);
+            //     return;
+            // 
+            if(InputManager.instance.move.magnitude > 0.1f)
             {
-                _stateContainer.ChangeAction(ActionEnum.StartMoving);
-                return;
-            }
-            if (InputSystem.Instance.IsJump)
-            {
-                _stateContainer.ChangeAction(ActionEnum.Jumping);
+                Debug.Log("IdleAction: Moving");
+                _stateContainer.ChangeAction(ActionEnum.Moving);
                 return;
             }
         }

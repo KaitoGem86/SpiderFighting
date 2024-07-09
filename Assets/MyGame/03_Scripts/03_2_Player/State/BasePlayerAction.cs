@@ -62,7 +62,7 @@ namespace Core.GamePlay.Player
         {
             // if (_state == null)
             // {
-            _state = _displayContainer.PlayAnimation(_animationClip.Clip, _animationClip.FadeDuration, PlayerTypeAnimMask.Base);
+            _state = _displayContainer.PlayAnimation(_animationClip.Clip, _animationClip.FadeDuration);
             _state.Speed = _animationClip.Speed;
             _state.Events = _animationClip.Events;
             if (Priortiy == PriorityEnum.Critical)
@@ -89,7 +89,7 @@ namespace Core.GamePlay.Player
 
         public virtual void FixedUpdate()
         {
-            _statManager.OnUpdatePlayerRuntimeValue(PlayerStatType.Health, -_healthCostPerFixedUpdate, false);
+            //_statManager.OnUpdatePlayerRuntimeValue(PlayerStatType.Health, -_healthCostPerFixedUpdate, false);
             //throw new System.NotImplementedException();
         }
 

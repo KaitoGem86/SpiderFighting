@@ -41,7 +41,7 @@ namespace Core.GamePlay.Player
                 item.Key);
             }
             ChangeAction(ActionEnum.Idle);
-            ChangeAction(ActionEnum.None);
+            //ChangeAction(ActionEnum.None);
         }
 
         private void InitEvent(PlayerController playerController)
@@ -98,7 +98,7 @@ namespace Core.GamePlay.Player
             if (_dictPlayerInteractionActions[_currentInteractionAction].Exit(action))
             {
                 _currentInteractionAction = action;
-                _dictPlayerInteractionActions[_currentInteractionAction].Enter();
+                //_dictPlayerInteractionActions[_currentInteractionAction].Enter();
                 return true;
             }
             else
@@ -109,19 +109,19 @@ namespace Core.GamePlay.Player
         {
             //Debug.Log(_currentAction.ToString());
             _dictPlayerMovementActions[_currentMovementAction].Update();
-            _dictPlayerInteractionActions[_currentInteractionAction].Update();
+            //_dictPlayerInteractionActions[_currentInteractionAction].Update();
         }
 
         public void LateUpdate()
         {
             _dictPlayerMovementActions[_currentMovementAction].LateUpdate();
-            _dictPlayerInteractionActions[_currentInteractionAction].LateUpdate();
+            //_dictPlayerInteractionActions[_currentInteractionAction].LateUpdate();
         }
 
         public void FixedUpdate()
         {
             _dictPlayerMovementActions[_currentMovementAction].FixedUpdate();
-            _dictPlayerInteractionActions[_currentInteractionAction].FixedUpdate();
+            //_dictPlayerInteractionActions[_currentInteractionAction].FixedUpdate();
             ApplyVerticalVelocity();
         }
 

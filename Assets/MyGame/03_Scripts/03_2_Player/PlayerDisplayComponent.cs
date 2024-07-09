@@ -42,6 +42,9 @@ namespace Core.GamePlay.Player
 
         public AnimancerState PlayAnimation(LinearMixerTransition manualMixerTransition, float normalizedTime = 0f, PlayerTypeAnimMask playerTypeAnimMask = PlayerTypeAnimMask.Base)
         {
+            if(playerTypeAnimMask == PlayerTypeAnimMask.Base){
+                return _animacer.Play(manualMixerTransition, normalizedTime);
+            }
             return _dictLayerControls[playerTypeAnimMask].Layer.Play(manualMixerTransition, normalizedTime);
         }
 
