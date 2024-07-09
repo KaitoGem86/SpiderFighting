@@ -9,7 +9,7 @@ namespace Core.GamePlay.Player
     {
         [SerializeField] private ClipTransition _keepJumping;
         private bool _isJumping = false;
-        private float _jumpVelocity = 0;
+        protected float _jumpVelocity = 0;
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
             base.Init(playerController, actionEnum);
@@ -26,8 +26,13 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.useGravity = true;
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
             _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            _playerController.CharacterMovement.AddForce(Vector3.up * _jumpVelocity, ForceMode.Force);
+            _playerController.CharacterMovement.AddForce(JumpDirection(), ForceMode.Force);
             Debug.Log(_playerController.CharacterMovement.velocity.y);
+        }
+
+        protected virtual Vector3 JumpDirection()
+        {
+            return Vector3.up * _jumpVelocity;
         }
 
         public override void Update()

@@ -16,17 +16,22 @@ namespace Core.GamePlay.Player{
             _remainMoveDirection = _playerController.PlayerDisplay.transform.forward * 0.3f;
         }
 
-        public override void LateUpdate()
+        public override void Update()
         {
-            GetInput();
+            base.Update();
             if(InputManager.instance.move.magnitude > 0.1f){
                 _stateContainer.ChangeAction(ActionEnum.Moving);
                 return;
             }
-            // if(InputSystem.Instance.IsJump){
-            //     _stateContainer.ChangeAction(ActionEnum.Jumping);
-            //     return;
-            // }
+            if(InputManager.instance.jump){
+                _stateContainer.ChangeAction(ActionEnum.Jumping);
+                return;
+            }
+        }
+
+        public override void LateUpdate()
+        {
+            GetInput();
             _speed = Mathf.Lerp(_speed, _targetSpeed, _damping * Time.deltaTime);
             if(_speed < 0.1f){
                 _speed = _targetSpeed;

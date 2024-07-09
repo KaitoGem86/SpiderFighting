@@ -27,6 +27,7 @@ namespace Core.GamePlay.Player
         private Vector3 _velocity;
 
         private float _mechanicalEnergy;
+        private float _t;
 
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -49,6 +50,12 @@ namespace Core.GamePlay.Player
             FindPivot();
         }
 
+        public override bool Exit(ActionEnum actionAfter)
+        {
+            _playerController.PlayerDisplay.transform.up = Vector3.up;
+            return base.Exit(actionAfter); 
+        }
+
         private void FindPivot()
         {
             var tmp = InputManager.instance.move;
@@ -59,19 +66,31 @@ namespace Core.GamePlay.Player
             var tmpDirection = forward + right;
             var tempFindDirection = new Vector3(tmpDirection.x, tmpDirection.magnitude, tmpDirection.z);
             Debug.DrawRay(_holdPivot.position, tempFindDirection * 100, Color.red, 1000f);
-            if (Physics.Raycast(_holdPivot.position + _playerController.PlayerDisplay.right * Random.Range(-5f, 5f), tempFindDirection, out RaycastHit hit, 100f))
+            if (Physics.Raycast(_holdPivot.position + _playerController.PlayerDisplay.right * Random.Range(-15f, 15f), tempFindDirection, out RaycastHit hit, 100f))
                 _pivot = hit.point;
             else
             {
                 Debug.Log("No Hit");
             }
             restLength = Vector3.Distance(_holdPivot.position, _pivot);
+            _t = 2 * Mathf.PI * Mathf.Sqrt(restLength / -_playerController.gravity.y) * 2 / 3;
+            Debug.Log(_t);
         }
 
         public override void Update()
         {
+            if(_playerController.CharacterMovement.velocity.magnitude > 35 && (Vector3.Angle(_playerController.GetVelocity(), Vector3.down) < 15)){
+                _stateContainer.ChangeAction(ActionEnum.JumpFromSwing);
+            }
+            if(_t < 0.1f){
+                _stateContainer.ChangeAction(ActionEnum.FallingDown);
+                return;
+            }
+            _t -= Time.deltaTime;
+            Debug.Log(_t);
             base.Update();
             _lineRenderer.SetPositions(new Vector3[] { _holdPivot.position, _pivot });
+
         }
 
         public override void FixedUpdate()

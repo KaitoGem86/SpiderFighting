@@ -50,6 +50,15 @@ namespace Core.GamePlay
             MoveInAir();
         }
 
+        protected override void MoveInAir()
+        {
+            Vector3 tmp = _moveDirection * _speed;
+            tmp.y = _playerController.CharacterMovement.velocity.y;
+            _playerController.CharacterMovement.Move(tmp);
+
+        }
+
+
         public override bool Exit(ActionEnum actionAfter)
         {
             _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
