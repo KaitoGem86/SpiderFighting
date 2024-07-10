@@ -10,7 +10,7 @@ namespace Core.GamePlay.Player
         [SerializeField] private float _angular;
 
         public Transform connectedBody;   // The Rigidbody to which the spring is connected
-        public float springForce = 5; // The spring constant (k)
+        public float springForce = 50; // The spring constant (k)
         public float damperForce = 5.0f;  // The damping coefficient (c)
         public float restLength = 1.0f;   // The rest length of the spring
         public float speed = 10f;       // Speed for manual control
@@ -25,6 +25,7 @@ namespace Core.GamePlay.Player
         private Vector3 _remainingDirection;
         private Vector3 _lastDirection;
         private Vector3 _velocity;
+        private float _targetReslength;
 
         private float _mechanicalEnergy;
         private float _t;
@@ -73,6 +74,7 @@ namespace Core.GamePlay.Player
                 Debug.Log("No Hit");
             }
             restLength = Vector3.Distance(_holdPivot.position, _pivot);
+            _targetReslength = restLength * 0.8f;
             _t = 2 * Mathf.PI * Mathf.Sqrt(restLength / -_playerController.gravity.y) * 2 / 3;
             Debug.Log(_t);
         }
@@ -90,7 +92,6 @@ namespace Core.GamePlay.Player
                 return;
             }
             _t -= Time.deltaTime;
-            Debug.Log(_t);
             base.Update();
             _lineRenderer.SetPositions(new Vector3[] { _holdPivot.position, _pivot });
 
@@ -104,6 +105,8 @@ namespace Core.GamePlay.Player
 
         private void Swing()
         {
+            Debug.Log(Vector3.Distance(_pivot, _holdPivot.position));
+            restLength = Mathf.Lerp(restLength, _targetReslength, Time.deltaTime * 2);
             Vector3 input = InputManager.instance.move.normalized;
             var forward = _playerController.CameraTransform.forward * input.y;
             forward.y = 0;

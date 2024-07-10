@@ -27,7 +27,6 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
             _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             _playerController.CharacterMovement.AddForce(JumpDirection(), ForceMode.Force);
-            Debug.Log(_playerController.CharacterMovement.velocity.y);
         }
 
         protected virtual Vector3 JumpDirection()
