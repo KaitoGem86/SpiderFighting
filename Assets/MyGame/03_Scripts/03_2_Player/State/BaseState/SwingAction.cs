@@ -82,6 +82,9 @@ namespace Core.GamePlay.Player
             if(_playerController.CharacterMovement.velocity.magnitude > 35 && (Vector3.Angle(_playerController.GetVelocity(), Vector3.down) < 15)){
                 _stateContainer.ChangeAction(ActionEnum.JumpFromSwing);
             }
+            if(Input.GetKeyUp(KeyCode.Space)){
+                _stateContainer.ChangeAction(ActionEnum.JumpFromSwing);
+            }
             if(_t < 0.1f){
                 _stateContainer.ChangeAction(ActionEnum.FallingDown);
                 return;
