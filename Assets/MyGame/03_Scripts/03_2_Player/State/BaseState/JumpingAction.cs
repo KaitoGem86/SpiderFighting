@@ -9,6 +9,7 @@ namespace Core.GamePlay.Player
     {
         [SerializeField] private ClipTransition _keepJumping;
         private bool _isJumping = false;
+        private bool _isStartJumping = false;
         protected float _jumpVelocity = 0;
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -27,6 +28,7 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
             _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             _playerController.CharacterMovement.AddForce(JumpDirection(), ForceMode.Force);
+            _isStartJumping = true;
         }
 
         protected virtual Vector3 JumpDirection()
@@ -46,9 +48,23 @@ namespace Core.GamePlay.Player
         public override void LateUpdate()
         {
             base.LateUpdate();
+            if (_playerController.CharacterMovement.isOnGround && !_isStartJumping)
+            {
+                _stateContainer.ChangeAction(ActionEnum.Landing);
+                return;
+            }
             GetInput();
             Rotate();
             MoveInAir();
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            if (_isStartJumping)
+            {
+                _isStartJumping = false;
+            }
         }
 
         public void KeepJumping()

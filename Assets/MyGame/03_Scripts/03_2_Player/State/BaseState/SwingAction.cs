@@ -106,7 +106,7 @@ namespace Core.GamePlay.Player
         private void Swing()
         {
             Debug.Log(Vector3.Distance(_pivot, _holdPivot.position));
-            restLength = Mathf.Lerp(restLength, _targetReslength, Time.deltaTime * 2);
+            //restLength = Mathf.Lerp(restLength, _targetReslength, Time.deltaTime * 2);
             Vector3 input = InputManager.instance.move.normalized;
             var forward = _playerController.CameraTransform.forward * input.y;
             forward.y = 0;
@@ -123,6 +123,9 @@ namespace Core.GamePlay.Player
             float swingMagnitude = springForce * (currentLength - restLength);
 
             Vector3 velocity = _playerController.CharacterMovement.velocity;
+
+            float swingMagnitude1 = velocity.magnitude * velocity.magnitude / currentLength * _playerController.mass ;
+            Debug.Log(velocity.magnitude +" " + swingMagnitude1 + " " + swingMagnitude);
             float dampingMagnitude = damperForce * Vector3.Dot(velocity, direction);
 
             Vector3 force = (swingMagnitude + dampingMagnitude) * direction;

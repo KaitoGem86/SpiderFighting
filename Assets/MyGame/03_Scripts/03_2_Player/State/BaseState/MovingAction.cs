@@ -54,7 +54,7 @@ namespace Core.GamePlay.Player
             }
             MoveInAir();
             Rotate();
-            _linearMixerTransition.State.Parameter = _moveDirection.magnitude * 2;
+            _linearMixerTransition.State.Parameter = _moveDirection.magnitude * Mathf.Sqrt(2);
         }
 
         public override void FixedUpdate()

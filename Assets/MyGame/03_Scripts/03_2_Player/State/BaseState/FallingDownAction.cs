@@ -34,16 +34,17 @@ namespace Core.GamePlay
             {
                 _stateContainer.ChangeAction(ActionEnum.Swing);
             }
-        }
 
-        public override void LateUpdate()
-        {
-            base.LateUpdate();
             if (_playerController.CharacterMovement.isOnGround)
             {
                 _stateContainer.ChangeAction(ActionEnum.Landing);
                 return;
             }
+        }
+
+        public override void LateUpdate()
+        {
+            base.LateUpdate();
             GetInput();
             if (_rotateDirection != Vector3.zero)
                 Rotate();
