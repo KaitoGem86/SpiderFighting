@@ -68,11 +68,14 @@ namespace Core.GamePlay.Player
             var tmpDirection = forward + right;
             var tempFindDirection = new Vector3(tmpDirection.x, tmpDirection.magnitude, tmpDirection.z);
             Debug.DrawRay(_holdPivot.position, tempFindDirection * 100, Color.red, 1000f);
-            if (Physics.Raycast(_holdPivot.position + _playerController.PlayerDisplay.right * Random.Range(-15f, 15f), tempFindDirection, out RaycastHit hit, 100f))
+            if (Physics.Raycast(_holdPivot.position + _playerController.PlayerDisplay.right * Random.Range(-5f, 5), tempFindDirection, out RaycastHit hit, 100f))
                 _pivot = hit.point;
+                if (Vector3.Distance(_playerController.transform.position, _pivot) < 20){
+                    _pivot = _playerController.transform.position + (_pivot - _playerController.transform.position).normalized * 20 + _playerController.PlayerDisplay.right * Random.Range(-15f, 15f);
+                }
             else
             {
-                Debug.Log("No Hit");
+                _pivot = _playerController.transform.position + _playerController.PlayerDisplay.up * 20 + _playerController.PlayerDisplay.right * Random.Range(-15f, 15f) + _playerController.PlayerDisplay.forward * 5;
             }
             restLength = Vector3.Distance(_holdPivot.position, _pivot);
             _targetReslength = restLength * 0.8f;
