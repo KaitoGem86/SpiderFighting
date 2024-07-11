@@ -75,7 +75,7 @@ namespace Core.UI
             {
                 UISystemProfilerApi.AddMarker("Button.onClick", this);
                 _onClick.Invoke();
-                MyTools.Sound.MySoundManager.Instance.PlaySound(MyTools.Sound._SoundType.ClickUIButton);
+                //MyTools.Sound.MySoundManager.Instance.PlaySound(MyTools.Sound._SoundType.ClickUIButton);
             }
         }
 
