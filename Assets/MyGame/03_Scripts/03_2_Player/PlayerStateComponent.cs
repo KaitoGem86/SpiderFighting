@@ -173,7 +173,7 @@ namespace Core.GamePlay.Player
             VerticalVelocityValue += 9.8f * Time.deltaTime;
             _playerController.CharacterMovement.Move(Vector3.down * VerticalVelocityValue * Time.deltaTime);
         }
-
+        public Vector3 SurfaceNormal;
         public float VerticalVelocityValue { get; set; }
         public bool UseGravity { get; set; } = true;
         public ActionEnum CurrentMovementAction => _currentMovementAction;
@@ -190,6 +190,9 @@ namespace Core.GamePlay.Player
 
         private StateTypeEnum GetStateTypeEnum(ActionEnum actionEnum)
         {
+            if(actionEnum == ActionEnum.Landing) {
+                Debug.Log(_currentMovementAction);
+            }
             return actionEnum switch
             {
                 ActionEnum.PickingUp => StateTypeEnum.Interaction,

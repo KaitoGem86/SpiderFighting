@@ -125,5 +125,6 @@ namespace Core.GamePlay.Player
         public ActionEnum BeforeAction => _beforeAction;
         public bool IsCanMove { get; set; }
         public CharacterMovement CharacterMovement => _characterMovementObject;
+        public GameObject PlaneToSwing;
     }
 }

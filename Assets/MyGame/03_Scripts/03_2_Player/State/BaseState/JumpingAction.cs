@@ -5,10 +5,11 @@ using UnityEngine;
 namespace Core.GamePlay.Player
 {
     [CreateAssetMenu(fileName = nameof(BasePlayerAction), menuName = ("PlayerState/" + nameof(JumpingAction)), order = 0)]
-    public class JumpingAction : LocalmotionAction
+    public class JumpingAction : InAirAction
     {
         [SerializeField] private ClipTransition _keepJumping;
         private bool _isJumping = false;
+        private float _elapsedTime = 1f;
         private bool _isStartJumping = false;
         protected float _jumpVelocity = 0;
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
@@ -24,11 +25,9 @@ namespace Core.GamePlay.Player
             if (_isJumping) return;
             base.Enter();
             _speed = 5;
-            _playerController.CharacterMovement.rigidbody.useGravity = true;
-            _playerController.CharacterMovement.rigidbody.isKinematic = false;
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             _playerController.CharacterMovement.AddForce(JumpDirection(), ForceMode.Force);
             _isStartJumping = true;
+            _elapsedTime = 0.3f;
         }
 
         protected virtual Vector3 JumpDirection()
@@ -43,28 +42,24 @@ namespace Core.GamePlay.Player
             {
                 _stateContainer.ChangeAction(ActionEnum.Swing);
             }
+            _elapsedTime -= Time.deltaTime;
         }
 
         public override void LateUpdate()
         {
-            base.LateUpdate();
-            if (_playerController.CharacterMovement.isOnGround && !_isStartJumping)
+            if (_playerController.CharacterMovement.isOnGround && _isStartJumping && _elapsedTime < 0)
             {
+                Debug.Log("Landing");
                 _stateContainer.ChangeAction(ActionEnum.Landing);
+                _isStartJumping = false;
                 return;
             }
-            GetInput();
-            Rotate();
-            MoveInAir();
+            base.LateUpdate();
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (_isStartJumping)
-            {
-                _isStartJumping = false;
-            }
         }
 
         public void KeepJumping()
@@ -74,19 +69,9 @@ namespace Core.GamePlay.Player
             _state.Events = _keepJumping.Events;
         }
 
-        protected override void MoveInAir()
-        {
-            Vector3 tmp = _moveDirection * _speed;
-            tmp.y = _playerController.CharacterMovement.velocity.y;
-            _playerController.CharacterMovement.Move(tmp);
-        }
-
         public override bool Exit(ActionEnum actionAfter)
         {
             _isJumping = false;
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            _playerController.CharacterMovement.rigidbody.useGravity = false;
-            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
         }
 
@@ -97,6 +82,7 @@ namespace Core.GamePlay.Player
 
         public override void OnCollisionEnter(Collision collision)
         {
+            if(_isStartJumping) return;
             base.OnCollisionEnter(collision);
         }
 

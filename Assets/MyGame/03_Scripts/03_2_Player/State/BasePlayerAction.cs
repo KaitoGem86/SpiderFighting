@@ -24,17 +24,15 @@ namespace Core.GamePlay.Player
         Sprinting,
         Sliding,
         Landing,
-        StartMoving,
         StopMoving,
         PickingUp,
         Holding,
         HoldMelee,
-        CuttingTree,
-        InteractWithObject,
         Cooking,
         Die,
         Swing,
         JumpFromSwing,
+        Climbing,
     }
 
     [Serializable]

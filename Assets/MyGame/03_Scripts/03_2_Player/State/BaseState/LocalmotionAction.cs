@@ -51,23 +51,5 @@ namespace Core.GamePlay
             _moveDirection = _direction;
             _rotateDirection = _direction;
         }
-
-        protected virtual (bool, float) RaycastCheckGround()
-        {
-            float checkRadius = 0.2f; // Adjust this value as needed
-            RaycastHit hit;
-            Physics.SphereCast(_playerController.transform.position + Vector3.up * 0.4f, checkRadius, Vector3.down, out hit, 100, 2);
-            if (hit.collider != null && hit.distance < 0.4f)
-            {
-                _surfaceNormal = hit.normal;
-                _groundCollider = hit.collider;
-                return (true, hit.distance);
-            }
-            else
-            {
-                _surfaceNormal = hit.collider == null ? Vector3.zero : hit.normal;
-                return (false, hit.collider == null ? 100 : hit.distance);
-            }
-        }
     }
 }

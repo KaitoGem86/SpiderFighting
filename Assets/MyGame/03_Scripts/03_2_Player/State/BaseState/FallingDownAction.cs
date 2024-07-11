@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Core.GamePlay
 {
     [CreateAssetMenu(fileName = nameof(BasePlayerAction), menuName = ("PlayerState/" + nameof(FallingDownAction)), order = 0)]
-    public class FallingDownAction : LocalmotionAction
+    public class FallingDownAction : InAirAction
     {
         [SerializeField] private float _heightThreshHold = 2f;
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
@@ -14,22 +14,14 @@ namespace Core.GamePlay
 
         public override void Enter()
         {
-            _playerController.CharacterMovement.rigidbody.useGravity = true;
-            _playerController.CharacterMovement.rigidbody.isKinematic = false;
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            var tmp = RaycastCheckGround();
-            if (tmp.Item2 > _heightThreshHold)
-                _priority = PriorityEnum.Critical;
-            else
-                _priority = PriorityEnum.High;
-            if (_stateContainer.CurrentInteractionAction == ActionEnum.None || _priority != PriorityEnum.Critical)
-                base.Enter();
+            base.Enter();
             _speed = 5;
         }
 
         public override void Update()
         {
             base.Update();
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _stateContainer.ChangeAction(ActionEnum.Swing);
@@ -42,29 +34,8 @@ namespace Core.GamePlay
             }
         }
 
-        public override void LateUpdate()
-        {
-            base.LateUpdate();
-            GetInput();
-            if (_rotateDirection != Vector3.zero)
-                Rotate();
-            MoveInAir();
-        }
-
-        protected override void MoveInAir()
-        {
-            Vector3 tmp = _moveDirection * _speed;
-            tmp.y = _playerController.CharacterMovement.velocity.y;
-            _playerController.CharacterMovement.Move(tmp);
-
-        }
-
-
         public override bool Exit(ActionEnum actionAfter)
         {
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            _playerController.CharacterMovement.rigidbody.useGravity = false;
-            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
         }
     }

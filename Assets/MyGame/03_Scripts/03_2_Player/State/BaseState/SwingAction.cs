@@ -1,11 +1,12 @@
 using EasyCharacterMovement;
 using SFRemastered.InputSystem;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
 {
     [CreateAssetMenu(fileName = nameof(SwingAction), menuName = ("GamePlay/Player/State/MovementState/" + nameof(SwingAction)), order = 0)]
-    public class SwingAction : BasePlayerAction
+    public class SwingAction : InAirAction
     {
         [SerializeField] private float _angular;
 
@@ -54,7 +55,7 @@ namespace Core.GamePlay.Player
         public override bool Exit(ActionEnum actionAfter)
         {
             _playerController.PlayerDisplay.transform.up = Vector3.up;
-            return base.Exit(actionAfter); 
+            return base.Exit(actionAfter);
         }
 
         private void FindPivot()
@@ -76,18 +77,23 @@ namespace Core.GamePlay.Player
             restLength = Vector3.Distance(_holdPivot.position, _pivot);
             _targetReslength = restLength * 0.8f;
             _t = 2 * Mathf.PI * Mathf.Sqrt(restLength / -_playerController.gravity.y) * 2 / 3;
-            Debug.Log(_t);
         }
 
         public override void Update()
         {
-            if(_playerController.CharacterMovement.velocity.magnitude > 35 && (Vector3.Angle(_playerController.GetVelocity(), Vector3.down) < 15)){
+            _playerController.PlaneToSwing.transform.position = _playerController.transform.position + Vector3.up * 20;
+            if (_playerController.CharacterMovement.velocity.magnitude > 35 && (Vector3.Angle(_playerController.GetVelocity(), Vector3.down) < 15))
+            {
                 _stateContainer.ChangeAction(ActionEnum.JumpFromSwing);
+                return;
             }
-            if(Input.GetKeyUp(KeyCode.Space)){
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
                 _stateContainer.ChangeAction(ActionEnum.JumpFromSwing);
+                return;
             }
-            if(_t < 0.1f){
+            if (_t < 0.1f)
+            {
                 _stateContainer.ChangeAction(ActionEnum.FallingDown);
                 return;
             }
@@ -99,13 +105,16 @@ namespace Core.GamePlay.Player
 
         public override void FixedUpdate()
         {
-            base.LateUpdate();
+            base.FixedUpdate();
             Swing();
+        }
+
+        public override void LateUpdate()
+        {
         }
 
         private void Swing()
         {
-            Debug.Log(Vector3.Distance(_pivot, _holdPivot.position));
             //restLength = Mathf.Lerp(restLength, _targetReslength, Time.deltaTime * 2);
             Vector3 input = InputManager.instance.move.normalized;
             var forward = _playerController.CameraTransform.forward * input.y;
@@ -124,8 +133,7 @@ namespace Core.GamePlay.Player
 
             Vector3 velocity = _playerController.CharacterMovement.velocity;
 
-            float swingMagnitude1 = velocity.magnitude * velocity.magnitude / currentLength * _playerController.mass ;
-            Debug.Log(velocity.magnitude +" " + swingMagnitude1 + " " + swingMagnitude);
+            float swingMagnitude1 = velocity.magnitude * velocity.magnitude / currentLength * _playerController.mass;
             float dampingMagnitude = damperForce * Vector3.Dot(velocity, direction);
 
             Vector3 force = (swingMagnitude + dampingMagnitude) * direction;
@@ -151,6 +159,11 @@ namespace Core.GamePlay.Player
             Debug.Log(_mechanicalEnergy - _playerController.gravity.y * h);
             var v = Mathf.Sqrt(2 * Mathf.Abs(_mechanicalEnergy - _playerController.gravity.y * h));
             _velocity = _velocity.normalized * v;
+        }
+
+        protected override void EndStateToClimb()
+        {
+            _playerController.SetVelocity(Vector3.zero);
         }
     }
 }

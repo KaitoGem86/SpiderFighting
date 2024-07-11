@@ -42,6 +42,7 @@ namespace Core.GamePlay.Player
         public void CompleteLanding()
         {
             var velocity = _playerController.CharacterMovement.velocity;
+            velocity.y = 0;
             if(velocity.magnitude < 0.1f){
                 _stateContainer.ChangeAction(ActionEnum.Idle);
                 return;

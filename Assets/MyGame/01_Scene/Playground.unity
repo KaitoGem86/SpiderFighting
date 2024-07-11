@@ -225,7 +225,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12, y: 0, z: 44}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1630550324}
@@ -3835,6 +3835,11 @@ MonoBehaviour:
   _slopeBehaviour: 1
   _slopeLimit: 0
   _slopeLimitCos: 1
+--- !u!1 &381833417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3742579451918281633, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
+  m_PrefabInstance: {fileID: 540376505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &400986250
 GameObject:
   m_ObjectHideFlags: 0
@@ -5413,7 +5418,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 722721858}
+    m_TransformParent: {fileID: 977588639}
     m_Modifications:
     - target: {fileID: 2396375828323077002, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_Layer
@@ -5444,12 +5449,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4088002383373906203, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088002383373906203, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088002383373906203, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088002383373906203, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4088002383373906203, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30
+      value: 35.04
       objectReference: {fileID: 0}
     - target: {fileID: 4088002383373906203, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5483,6 +5500,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4088002383373906203, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4553484467025401590, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_Size.x
       value: 1000
@@ -5490,6 +5511,10 @@ PrefabInstance:
     - target: {fileID: 4553484467025401590, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_Size.z
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553484467025401590, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3255352370613138474, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
@@ -6609,6 +6634,7 @@ MonoBehaviour:
       Value: {fileID: 745654757}
     - Key: 5
       Value: {fileID: 1177127488}
+  PlaneToSwing: {fileID: 381833417}
 --- !u!1 &741214270
 GameObject:
   m_ObjectHideFlags: 0
@@ -8829,6 +8855,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 540376506}
   - {fileID: 1393543524}
   - {fileID: 1826161331}
   - {fileID: 136096492}
@@ -16704,9 +16731,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dictPlayerMovementActions:
     _serializedList:
-    - Key: 18
+    - Key: 16
+      Value: {fileID: 11400000, guid: d01916f49a69daa42b61499b6e6c7cf5, type: 2}
+    - Key: 15
       Value: {fileID: 11400000, guid: a548ae381fa9b094ea8b3a28344cc125, type: 2}
-    - Key: 17
+    - Key: 14
       Value: {fileID: 11400000, guid: 0fe32768200271144a4a69dc97083858, type: 2}
     - Key: 1
       Value: {fileID: 11400000, guid: 689da5705ff7a494d87ae5ca5f92cfa5, type: 2}
@@ -16718,10 +16747,11 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: 3a21fb38495c58d4aa123a0bc9970e97, type: 2}
     - Key: 2
       Value: {fileID: 11400000, guid: 32d0a4b58a1191b4684433cacbd81de8, type: 2}
-    - Key: 9
+    - Key: 8
       Value: {fileID: 11400000, guid: e231e314f9054d04c8679c09aed0e88b, type: 2}
   _dictPlayerInteractionActions:
     _serializedList: []
+  SurfaceNormal: {x: 0, y: 0, z: 0}
 --- !u!1 &2059641462
 GameObject:
   m_ObjectHideFlags: 0
@@ -17837,9 +17867,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1648226126}
-    - targetCorrespondingSourceObject: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 540376506}
     - targetCorrespondingSourceObject: {fileID: 4510488058017607747, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 417169551}
