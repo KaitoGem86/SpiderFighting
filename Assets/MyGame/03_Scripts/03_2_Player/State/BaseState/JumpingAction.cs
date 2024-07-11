@@ -47,13 +47,6 @@ namespace Core.GamePlay.Player
 
         public override void LateUpdate()
         {
-            if (_playerController.CharacterMovement.isOnGround && _isStartJumping && _elapsedTime < 0)
-            {
-                Debug.Log("Landing");
-                _stateContainer.ChangeAction(ActionEnum.Landing);
-                _isStartJumping = false;
-                return;
-            }
             base.LateUpdate();
         }
 
@@ -82,12 +75,13 @@ namespace Core.GamePlay.Player
 
         public override void OnCollisionEnter(Collision collision)
         {
-            if(_isStartJumping) return;
-            base.OnCollisionEnter(collision);
+            if(_isStartJumping && _elapsedTime < 0)
+                base.OnCollisionEnter(collision);
         }
 
         public override void OnCollisionStay(Collision collision)
         {
+            
         }
 
         public override void OnCollisionExit(Collision collision)
