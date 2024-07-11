@@ -19,7 +19,7 @@ MonoBehaviour:
       - 0.8681319
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
+    _Clip: {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
   _priority: 2
