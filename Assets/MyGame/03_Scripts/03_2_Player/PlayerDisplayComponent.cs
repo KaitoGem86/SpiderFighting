@@ -29,10 +29,6 @@ namespace Core.GamePlay.Player
         public override void Init(PlayerController playerController)
         {
             base.Init(playerController);
-            // for(int i = 0; i < _dictLayerControls.Count; i++){
-            //     _dictLayerControls[(PlayerTypeAnimMask)i].Layer = _animacer.Layers[i];
-            //     _dictLayerControls[(PlayerTypeAnimMask)i].Init();
-            // }
         }
 
         public AnimancerState PlayAnimation(AnimationClip animationClip, float normalizedTime = 0f)

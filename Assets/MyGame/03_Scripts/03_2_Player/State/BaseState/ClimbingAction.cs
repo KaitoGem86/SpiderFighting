@@ -83,9 +83,11 @@ namespace Core.GamePlay.Player{
         }
 
         private void EndClimbing(){
+            Debug.Log("End Climbing");
             _playerController.gravity = Vector3.down * 9.8f;
             _state = _displayContainer.PlayAnimation(_climbingUpTransition.Clip);
             _state.Events = _climbingUpTransition.Events;
+            _isEndClimbing = true;
         }
 
         private float GetAngle(Vector3 markVector, Vector3 targetVector){

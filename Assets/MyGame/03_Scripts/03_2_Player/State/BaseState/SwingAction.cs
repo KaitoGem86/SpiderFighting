@@ -71,7 +71,7 @@ namespace Core.GamePlay.Player
             if (Physics.Raycast(_holdPivot.position + _playerController.PlayerDisplay.right * Random.Range(-5f, 5), tempFindDirection, out RaycastHit hit, 100f))
                 _pivot = hit.point;
                 if (Vector3.Distance(_playerController.transform.position, _pivot) < 20){
-                    _pivot = _playerController.transform.position + (_pivot - _playerController.transform.position).normalized * 20 + _playerController.PlayerDisplay.right * Random.Range(-15f, 15f);
+                    _pivot = _playerController.transform.position + (_pivot - _playerController.transform.position).normalized * 20;
                 }
             else
             {
