@@ -60,8 +60,7 @@ namespace Core.GamePlay.Player
 
         public virtual void Enter()
         {
-            _state = _displayContainer.PlayAnimation(_animationClip.Clip, _animationClip.FadeDuration);
-            _state.Events = _animationClip.Events;
+            _state = _displayContainer.PlayAnimation(_animationClip);
         }
 
         public virtual bool Exit(ActionEnum actionAfter)

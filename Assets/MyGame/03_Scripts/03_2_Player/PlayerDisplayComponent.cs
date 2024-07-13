@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Animancer;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
@@ -23,17 +24,24 @@ namespace Core.GamePlay.Player
     public class PlayerDisplayComponent : BasePlayerComponent
     {
         [SerializeField]private AnimancerComponent _animacer;
-        [SerializeField] private SerializedDictionary<PlayerTypeAnimMask, LayerControl> _dictLayerControls;
-        
+        [SerializeField] private SerializedDictionary<PlayerTypeAnimMask, LayerControl> _dictLayerControls;       
 
         public override void Init(PlayerController playerController)
         {
             base.Init(playerController);
         }
 
+        public void ApplyRootMotion(bool value){
+            _animacer.Animator.applyRootMotion = value;
+        }
+
         public AnimancerState PlayAnimation(AnimationClip animationClip, float normalizedTime = 0f)
         {
             return _animacer.Play(animationClip);
+        }
+
+        public AnimancerState PlayAnimation(ClipTransition clipTransition){
+            return _animacer.Play(clipTransition);
         }
 
         public AnimancerState PlayAnimation(LinearMixerTransition manualMixerTransition, float normalizedTime = 0f, PlayerTypeAnimMask playerTypeAnimMask = PlayerTypeAnimMask.Base)

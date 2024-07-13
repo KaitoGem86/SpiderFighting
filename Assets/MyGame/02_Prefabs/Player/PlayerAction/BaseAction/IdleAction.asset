@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: IdleAction
   m_EditorClassIdentifier: 
   _animationClip:
-    _FadeDuration: 0.9
+    _FadeDuration: 0.105
     _Events:
       _NormalizedTimes:
-      - 0.8681319
+      - 0.9413424
       _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
     _Speed: 1
-    _NormalizedStartTime: 0
+    _NormalizedStartTime: NaN
   _priority: 2
   _canChangeToItself: 0
   _healthCostPerFixedUpdate: 0

@@ -17,7 +17,7 @@ MonoBehaviour:
     _Events:
       _NormalizedTimes:
       - 0.7912544
-      - 0.9
+      - 0.9133996
       _Callbacks:
       - m_PersistentCalls:
           m_Calls:
@@ -45,7 +45,7 @@ MonoBehaviour:
     _Events:
       _NormalizedTimes:
       - 0.7976873
-      - 0.9
+      - 0.93914574
       _Callbacks:
       - m_PersistentCalls:
           m_Calls:
@@ -70,7 +70,7 @@ MonoBehaviour:
     _Events:
       _NormalizedTimes:
       - 0.8473907
-      - 0.9
+      - 0.9157402
       _Callbacks:
       - m_PersistentCalls:
           m_Calls:

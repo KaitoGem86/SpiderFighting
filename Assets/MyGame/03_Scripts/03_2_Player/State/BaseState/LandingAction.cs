@@ -21,21 +21,15 @@ namespace Core.GamePlay.Player
             velocityVec3.y = _playerController.CharacterMovement.rigidbody.velocity.y;
             var velocity = velocityVec3.magnitude;
             if(vel < 0.1f){
-                _state = _displayContainer.PlayAnimation(_waitLanding.Clip, _waitLanding.FadeDuration);
-                _state.Speed = _waitLanding.Speed;
-                _state.Events = _waitLanding.Events;
+                _state = _displayContainer.PlayAnimation(_waitLanding);
                 return;
             }
             if (velocity < _landingVelocityThreshold){
-                _state = _displayContainer.PlayAnimation(_animationClip.Clip, _animationClip.FadeDuration);
-                _state.Speed = _animationClip.Speed;
-                _state.Events = _animationClip.Events;
+                _state = _displayContainer.PlayAnimation(_animationClip);
             }
             else
             {
-                _state = _displayContainer.PlayAnimation(_criticalLanding.Clip, _criticalLanding.FadeDuration);
-                _state.Speed = _animationClip.Speed;
-                _state.Events = _animationClip.Events;
+                _state = _displayContainer.PlayAnimation(_criticalLanding);
             }
         }
 

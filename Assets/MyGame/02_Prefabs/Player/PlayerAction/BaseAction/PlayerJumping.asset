@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerJumping
   m_EditorClassIdentifier: 
   _animationClip:
-    _FadeDuration: 0.020000001
+    _FadeDuration: 0.02666667
     _Events:
       _NormalizedTimes:
       - 0.90909094
