@@ -24,6 +24,81 @@ MonoBehaviour:
   _priority: 2
   _canChangeToItself: 0
   _healthCostPerFixedUpdate: 0
+  _startClimbingUpTransition:
+    _FadeDuration: 0.07000001
+    _Events:
+      _NormalizedTimes:
+      - 0.8988356
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: Core.GamePlay.Player.ClimbingAction, Assembly-CSharp
+            m_MethodName: CompleteClimbing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: ce17b99218fa5bc4ba50ddc2c60445d3, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _startClimbingUpLeftTransition:
+    _FadeDuration: 0.22500001
+    _Events:
+      _NormalizedTimes:
+      - 0.8735512
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: Core.GamePlay.Player.ClimbingAction, Assembly-CSharp
+            m_MethodName: CompleteClimbing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 661e508e89e174347be7e4f3b8f08728, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _startClimbingUpRightTransition:
+    _FadeDuration: 0.22500001
+    _Events:
+      _NormalizedTimes:
+      - 0.8222056
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: Core.GamePlay.Player.ClimbingAction, Assembly-CSharp
+            m_MethodName: CompleteClimbing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: cf9c83cc93909bf41a644b457204d91b, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
   _climbingForwardTransition:
     _FadeDuration: 0.25
     _Events:

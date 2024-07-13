@@ -10,7 +10,9 @@ namespace Core.GamePlay.Player
     [CreateAssetMenu(fileName = nameof(ClimbingAction), menuName = ("PlayerState/" + nameof(ClimbingAction)), order = 0)]
     public class ClimbingAction : LocalmotionAction
     {
-
+        [SerializeField] private ClipTransition _startClimbingUpTransition;
+        [SerializeField] private ClipTransition _startClimbingUpLeftTransition;
+        [SerializeField] private ClipTransition _startClimbingUpRightTransition;
         [SerializeField] private LinearMixerTransition _climbingForwardTransition;
         [SerializeField] private LinearMixerTransition _climbingLeftTranstion;
         [SerializeField] private LinearMixerTransition _climbingRightTransition;
@@ -20,17 +22,24 @@ namespace Core.GamePlay.Player
 
         LinearMixerState _currentState;
         private bool _isEndClimbing = false;
+        private bool _isCompleteStartClimbing = false;
 
         public override void Enter()
         {
-            _currentState = (LinearMixerState)_displayContainer.PlayAnimation(_climbingForwardTransition);
+            //_currentState = (LinearMixerState)_displayContainer.PlayAnimation(_climbingForwardTransition);
             _speed = 8f;
             _playerController.gravity = Vector3.zero;
             _isEndClimbing = false;
+            _isCompleteStartClimbing = false;
+            StartClimbing();
         }
 
         public override void LateUpdate()
         {
+            if (!_isCompleteStartClimbing)
+            {
+                return;
+            }
             GetInput();
             if (_isEndClimbing)
             {
@@ -101,6 +110,24 @@ namespace Core.GamePlay.Player
             EndClimbing();
         }
 
+        private void StartClimbing()
+        {
+            GetInput();
+            var angle = GetAngle(_direction, Vector3.ProjectOnPlane(Vector3.up, _surfaceNormal));
+            if (angle > 45 && _moveDirection.magnitude * _speed > 0.1f)
+            {
+                _state = _displayContainer.PlayAnimation(_startClimbingUpRightTransition);
+            }
+            else if (angle < -45 && _moveDirection.magnitude * _speed > 0.1f)
+            {
+                _state = _displayContainer.PlayAnimation(_startClimbingUpLeftTransition);
+            }
+            else
+            {
+                _state = _displayContainer.PlayAnimation(_startClimbingUpTransition);
+            }
+        }
+
         private void EndClimbing()
         {
             _playerController.gravity = Vector3.down * 9.8f;
@@ -146,6 +173,11 @@ namespace Core.GamePlay.Player
         {
             _displayContainer.ApplyRootMotion(false);
             _stateContainer.ChangeAction(ActionEnum.FallingDown);
+        }
+
+        public void CompleteClimbing()
+        {
+            _isCompleteStartClimbing = true;
         }
     }
 }
