@@ -27,8 +27,7 @@ MonoBehaviour:
   _linearMixerTransition:
     _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes:
-      - 0.7967033
+      _NormalizedTimes: []
       _Callbacks: []
       _Names: []
     _Speed: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStopMoving
   m_EditorClassIdentifier: 
   _animationClip:
-    _FadeDuration: 0.16200002
+    _FadeDuration: 0.18
     _Events:
       _NormalizedTimes:
       - 0.73430544
