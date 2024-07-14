@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerLanding
   m_EditorClassIdentifier: 
   _animationClip:
-    _FadeDuration: 0.25
+    _FadeDuration: 0.08666668
     _Events:
       _NormalizedTimes:
       - 0.7912544
@@ -41,7 +41,7 @@ MonoBehaviour:
   _canChangeToItself: 0
   _healthCostPerFixedUpdate: 0
   _criticalLanding:
-    _FadeDuration: 0.25
+    _FadeDuration: 0.11333335
     _Events:
       _NormalizedTimes:
       - 0.7976873
@@ -66,7 +66,7 @@ MonoBehaviour:
     _Speed: 1
     _NormalizedStartTime: NaN
   _waitLanding:
-    _FadeDuration: 0.25
+    _FadeDuration: 0.08666668
     _Events:
       _NormalizedTimes:
       - 0.8473907

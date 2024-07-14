@@ -16798,6 +16798,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dictPlayerMovementActions:
     _serializedList:
+    - Key: 17
+      Value: {fileID: 11400000, guid: ae7327b764c00f5448271fe5aa02ef1c, type: 2}
     - Key: 16
       Value: {fileID: 11400000, guid: d01916f49a69daa42b61499b6e6c7cf5, type: 2}
     - Key: 15

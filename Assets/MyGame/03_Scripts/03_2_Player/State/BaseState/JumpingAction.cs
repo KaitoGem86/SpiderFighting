@@ -57,9 +57,10 @@ namespace Core.GamePlay.Player
 
         public void KeepJumping()
         {
-            _state = _displayContainer.PlayAnimation(_keepJumping.Clip, _keepJumping.FadeDuration);
-            _state.Speed = _keepJumping.Speed;
-            _state.Events = _keepJumping.Events;
+            if (_keepJumping.Clip != null)
+                _state = _displayContainer.PlayAnimation(_keepJumping);
+            else
+                FallingDown();
         }
 
         public override bool Exit(ActionEnum actionAfter)
@@ -75,13 +76,13 @@ namespace Core.GamePlay.Player
 
         public override void OnCollisionEnter(Collision collision)
         {
-            if(_isStartJumping && _elapsedTime < 0)
+            if (_isStartJumping && _elapsedTime < 0)
                 base.OnCollisionEnter(collision);
         }
 
         public override void OnCollisionStay(Collision collision)
         {
-            
+
         }
 
         public override void OnCollisionExit(Collision collision)

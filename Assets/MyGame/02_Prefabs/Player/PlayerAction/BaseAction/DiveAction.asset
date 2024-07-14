@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad5e2ec00ac9a984ab420d2251a57fd6, type: 3}
-  m_Name: PlayerFallingDown
+  m_Script: {fileID: 11500000, guid: b70cc573071407c44b94d525833baba8, type: 3}
+  m_Name: DiveAction
   m_EditorClassIdentifier: 
   _animationClip:
-    _FadeDuration: 0.040000003
+    _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes: []
+      _NormalizedTimes:
+      - 0.8
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 464e2ec8787e02947add01b088d50437, type: 2}
+    _Clip: {fileID: 7400000, guid: 436530df1cf7a6f4e8c55fb5690f4fb6, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
   _priority: 2
   _canChangeToItself: 0
   _healthCostPerFixedUpdate: 0
-  _velocityThreshHold: 2

@@ -34,7 +34,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       _Names: []
-    _Clip: {fileID: 7400000, guid: 718edff39fafda9419dd6063f650d529, type: 3}
+    _Clip: {fileID: 7400000, guid: 8ca0505a36084c14e8698843eb828c63, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
   _priority: 0
@@ -62,6 +62,6 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       _Names: []
-    _Clip: {fileID: 7400000, guid: 583df2234e2d1194689d9b5b62d3154c, type: 3}
+    _Clip: {fileID: 0}
     _Speed: 1
     _NormalizedStartTime: NaN

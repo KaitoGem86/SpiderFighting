@@ -33,6 +33,7 @@ namespace Core.GamePlay.Player
         Swing,
         JumpFromSwing,
         Climbing,
+        Dive
     }
 
     [Serializable]
