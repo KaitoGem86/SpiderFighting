@@ -25,7 +25,6 @@ namespace Core.GamePlay.Player
             switch (beforeAction)
             {
                 case ActionEnum.Zip :
-                    Debug.Log("Zip");
                     _speed = 10;
                     _playerController.Jump();
                     _isStartJumping = true;
