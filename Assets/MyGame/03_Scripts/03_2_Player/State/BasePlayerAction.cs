@@ -48,7 +48,7 @@ namespace Core.GamePlay.Player
         protected PlayerDisplayComponent _displayContainer;
         protected PlayerStatComponent _statManager;
         [SerializeField] protected ClipTransition _animationClip;
-        [SerializeField] protected PriorityEnum _priority;
+        [SerializeField] protected bool _fixedAnim;
         [SerializeField] private bool _canChangeToItself = false;
         [SerializeField] protected SerializedDictionary<ActionEnum, List<PlayerAnimTransition>> _dictPlayerAnimTransition;
         protected AnimancerState _state;
@@ -75,44 +75,63 @@ namespace Core.GamePlay.Player
             return true;
         }
 
-        public virtual void Update(){}
+        public virtual void Update() { }
 
-        public virtual void FixedUpdate(){}
+        public virtual void FixedUpdate() { }
 
-        public virtual void LateUpdate(){}
+        public virtual void LateUpdate() { }
 
-        public virtual void OnCollisionEnter(Collision collision){}
+        public virtual void OnCollisionEnter(Collision collision) { }
 
-        public virtual void OnCollisionExit(Collision collision){}
+        public virtual void OnCollisionExit(Collision collision) { }
 
-        public virtual void OnCollisionStay(Collision collision){}
+        public virtual void OnCollisionStay(Collision collision) { }
 
-        public virtual void OnTriggerEnter(Collider other){}
+        public virtual void OnTriggerEnter(Collider other) { }
 
-        public virtual void OnTriggerExit(Collider other){}
+        public virtual void OnTriggerExit(Collider other) { }
 
-        public virtual void OnTriggerStay(Collider other){}
+        public virtual void OnTriggerStay(Collider other) { }
 
-        public PriorityEnum Priortiy => _priority;
         public bool CanChangeToItself => _canChangeToItself;
 
-        protected void StartAction(ActionEnum actionBefore, int index){
-            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[actionBefore][index].startAnimation);
-            _state.Events.OnEnd += () => KeepAction(actionBefore, index);
+        protected void StartAction(ActionEnum actionBefore, int index)
+        {
+            if (_dictPlayerAnimTransition[actionBefore][index].startAnimation.Clip != null)
+            {
+                _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[actionBefore][index].startAnimation);
+                _state.Events.OnEnd += () => KeepAction(actionBefore, index);
+            }
+            else
+            {
+                KeepAction(actionBefore, index);
+            }
         }
 
-        protected virtual void KeepAction(ActionEnum actionBefore, int index){
+        protected virtual void KeepAction(ActionEnum actionBefore, int index)
+        {
+            if(_state != null)
+                _state.Events.OnEnd = null;
+            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][index].keepAnimation);
+        }
+
+        protected void EndAction(ActionEnum actionBefore, int index)
+        {
+            if(_dictPlayerAnimTransition[actionBefore][index].endAnimation.Clip == null)
+            {
+                ExitAction();
+                return;
+            }
             _state.Events.OnEnd = null;
-            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[actionBefore][index].keepAnimation);
+            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][index].endAnimation);
+            _state.Events.OnEnd += ExitAction;
         }
 
-        protected void EndAction(ActionEnum actionBefore, int index){
-            _state.Events.OnEnd = null;
-            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[actionBefore][index].endAnimation);
-        }
+        protected virtual void ExitAction(){}
 
-        private int GetRandomTransition(ActionEnum actionBefore){
-            return UnityEngine.Random.Range(0, _dictPlayerAnimTransition[actionBefore].Count);
+        private int GetRandomTransition(ActionEnum actionBefore)
+        {
+            return UnityEngine.Random.Range(0, _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore].Count);
         }
     }
 }
