@@ -58,7 +58,6 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.useGravity = false;
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
-
         }
     }
 }

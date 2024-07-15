@@ -1,6 +1,4 @@
-using EasyCharacterMovement;
 using SFRemastered.InputSystem;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
@@ -87,12 +85,12 @@ namespace Core.GamePlay.Player
             _playerController.PlaneToSwing.transform.position = _playerController.transform.position + Vector3.up * 20;
             if (_playerController.CharacterMovement.velocity.magnitude > 35 && (Vector3.Angle(_playerController.GetVelocity(), Vector3.down) < 15))
             {
-                _stateContainer.ChangeAction(ActionEnum.JumpFromSwing);
+                _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
             }
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                _stateContainer.ChangeAction(ActionEnum.JumpFromSwing);
+                _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
             }
             if (_t < 0.1f)
@@ -103,7 +101,6 @@ namespace Core.GamePlay.Player
             _t -= Time.deltaTime;
             base.Update();
             _lineRenderer.SetPositions(new Vector3[] { _holdPivot.position, _pivot });
-
         }
 
         public override void FixedUpdate()

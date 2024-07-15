@@ -6353,7 +6353,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 122001522}
         m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
-        m_MethodName: OnClickJump
+        m_MethodName: OnClickZip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12176,7 +12176,7 @@ Transform:
   m_GameObject: {fileID: 1408434821}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2402404, y: -0.000000016702462, z: 0.0000000041336667, w: 0.97071344}
-  m_LocalPosition: {x: -5.64, y: 7.94, z: -3.47}
+  m_LocalPosition: {x: -4.47, y: 6.9214993, z: 1.7219999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17064,8 +17064,6 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: 32d0a4b58a1191b4684433cacbd81de8, type: 2}
     - Key: 8
       Value: {fileID: 11400000, guid: e231e314f9054d04c8679c09aed0e88b, type: 2}
-  _dictPlayerInteractionActions:
-    _serializedList: []
   SurfaceNormal: {x: 0, y: 0, z: 0}
 --- !u!114 &2057918261
 MonoBehaviour:
@@ -17945,15 +17943,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.64
+      value: -4.47
       objectReference: {fileID: 0}
     - target: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.04
+      value: 4.021499
       objectReference: {fileID: 0}
     - target: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5.192
       objectReference: {fileID: 0}
     - target: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: m_LocalRotation.w

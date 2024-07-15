@@ -102,7 +102,6 @@ namespace Core.GamePlay.Player
             if (_currentTransition.startAnimation.Clip != null)
             {
                 _displayContainer.PlayAnimation(_currentTransition.startAnimation);
-                _currentTransition.startAnimation.Events.OnEnd += KeepAction;
             }
             else
             {
@@ -110,9 +109,9 @@ namespace Core.GamePlay.Player
             }
         }
 
-        protected virtual void KeepAction()
+        public virtual void KeepAction()
         {
-            _currentTransition.startAnimation.Events.OnEnd = null;
+            if(_currentTransition.keepAnimation.Animations.Length == 0) return;
             _displayContainer.PlayAnimation(_currentTransition.keepAnimation);
         }
 

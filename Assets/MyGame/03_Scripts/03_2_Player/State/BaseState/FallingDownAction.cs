@@ -27,9 +27,9 @@ namespace Core.GamePlay
                 _stateContainer.ChangeAction(ActionEnum.Swing);
             }
 
-            if(_playerController.CharacterMovement.velocity.magnitude > _velocityThreshHold){
-                _stateContainer.ChangeAction(ActionEnum.Dive);
-            }
+            // if(_playerController.CharacterMovement.velocity.magnitude > _velocityThreshHold){
+            //     _stateContainer.ChangeAction(ActionEnum.Dive);
+            // }
 
             if (_playerController.CharacterMovement.isOnGround)
             {
