@@ -22,7 +22,7 @@ namespace Core.GamePlay
         {
             base.Update();
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 _stateContainer.ChangeAction(ActionEnum.Swing);
             }

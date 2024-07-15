@@ -92,7 +92,7 @@ namespace Core.GamePlay.Player
             }
             if (_t < 0.1f)
             {
-                _stateContainer.ChangeAction(ActionEnum.FallingDown);
+                _stateContainer.ChangeAction(ActionEnum.Dive);
                 return;
             }
             _t -= Time.deltaTime;

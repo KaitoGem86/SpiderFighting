@@ -21,15 +21,294 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: a56de8826a9b53149b5a31edf92bd3b1, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
-  _fixedAnim: 0
+  _fixedAnim: 1
   _canChangeToItself: 0
   _dictPlayerAnimTransition:
     _serializedList:
     - Key: 0
-      Value: []
+      Value:
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 53c857245476c7141a5d0581d4f33dce, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: a0ad726909f2f8141a6f74043f92a5f5, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 5d2e0b95a2363294f98bde6f15d7a07f, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: b7f387605185b224fa726f74129f0948, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 1227928cea9a448428449756988fd1a4, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 4ebdbad341b13d442b3917fa5dfb8940, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 89581c7378dc88d4cb084892c18b0a53, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: a525ea9c8a29a3b40a94563bcd6c4a39, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 9ca2d364858e1ed4089993047f57c607, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 0
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
   _angular: 30
   connectedBody: {fileID: 0}
   springForce: 50
   damperForce: 5
-  restLength: 1
+  restLength: 19.049282
   speed: 10

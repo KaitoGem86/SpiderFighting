@@ -9191,6 +9191,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &1083233883 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2786564477363336959, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+  m_PrefabInstance: {fileID: 7389204908034313019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1098355430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17074,6 +17079,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1408434825}
+    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      propertyPath: _holdPivot
+      value: 
+      objectReference: {fileID: 1083233883}
     - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: PlaneToSwing
       value: 

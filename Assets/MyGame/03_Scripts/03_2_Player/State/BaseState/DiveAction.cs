@@ -15,6 +15,9 @@ namespace Core.GamePlay.Player{
                 _stateContainer.ChangeAction(ActionEnum.Landing);
                 return;
             }
+            if(Input.GetKey(KeyCode.Space)){
+                _stateContainer.ChangeAction(ActionEnum.Swing);
+            }
             base.Update();
         }
     }
