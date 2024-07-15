@@ -35,11 +35,6 @@ namespace Core.GamePlay.Player
             _animacer.Animator.applyRootMotion = value;
         }
 
-        public AnimancerState PlayAnimation(AnimationClip animationClip, float normalizedTime = 0f)
-        {
-            return _animacer.Play(animationClip);
-        }
-
         public AnimancerState PlayAnimation(ClipTransition clipTransition){
             return _animacer.Play(clipTransition);
         }
@@ -47,29 +42,9 @@ namespace Core.GamePlay.Player
         public AnimancerState PlayAnimation(LinearMixerTransition manualMixerTransition, float normalizedTime = 0f, PlayerTypeAnimMask playerTypeAnimMask = PlayerTypeAnimMask.Base)
         {
             if(playerTypeAnimMask == PlayerTypeAnimMask.Base){
-                return _animacer.Play(manualMixerTransition, normalizedTime);
+                return _animacer.Play(manualMixerTransition);
             }
             return _dictLayerControls[playerTypeAnimMask].Layer.Play(manualMixerTransition, normalizedTime);
-        }
-
-        public AnimancerState PlayAnimation(AnimationClip animationClip, float normalizedTime, PlayerTypeAnimMask playerTypeAnimMask)
-        {
-            return _dictLayerControls[playerTypeAnimMask].Layer.Play(animationClip, normalizedTime);
-        }
-
-        public void StopAnimation(PlayerTypeAnimMask playerTypeAnimMask){
-            _dictLayerControls[playerTypeAnimMask].Layer.StartFade(0, 0.5f);
-        }
-
-        public void ChangeBaseLayerToLayerAction(PlayerTypeAnimMask mask){
-            var state = _dictLayerControls[PlayerTypeAnimMask.Base].Layer.CurrentState;
-            _dictLayerControls[mask].Layer.Play(state.Clip);
-            _dictLayerControls[PlayerTypeAnimMask.Base].Layer.StartFade(0, 0.5f);
-        }
-
-        public bool CheckHasAnimation(PlayerTypeAnimMask mask)
-        {
-            return _dictLayerControls[mask].Layer.IsPlayingAndNotEnding();
         }
     }
 }

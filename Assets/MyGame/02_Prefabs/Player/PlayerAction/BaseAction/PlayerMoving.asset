@@ -21,9 +21,49 @@ MonoBehaviour:
     _Clip: {fileID: 0}
     _Speed: 1
     _NormalizedStartTime: NaN
-  _priority: 0
+  _fixedAnim: 1
   _canChangeToItself: 0
-  _healthCostPerFixedUpdate: 0
+  _dictPlayerAnimTransition:
+    _serializedList:
+    - Key: 0
+      Value:
+      - startAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+        keepAnimation:
+          _FadeDuration: 0.21
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: 1
+          _Animations:
+          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          - {fileID: 7400000, guid: bc3ec7cc7a9f85a408f77b0b86adcdbb, type: 2}
+          - {fileID: 7400000, guid: b385d793d0dea29468c98679761e64da, type: 2}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          - 1
+          - 2
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 1
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
   _linearMixerTransition:
     _FadeDuration: 0.25
     _Events:

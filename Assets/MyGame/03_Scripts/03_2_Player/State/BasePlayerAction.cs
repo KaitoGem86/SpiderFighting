@@ -52,6 +52,7 @@ namespace Core.GamePlay.Player
         [SerializeField] private bool _canChangeToItself = false;
         [SerializeField] protected SerializedDictionary<ActionEnum, List<PlayerAnimTransition>> _dictPlayerAnimTransition;
         protected AnimancerState _state;
+        protected PlayerAnimTransition _currentTransition;
         private int _randomTransition;
 
         public virtual void Init(PlayerController playerController, ActionEnum actionEnum)
@@ -66,7 +67,8 @@ namespace Core.GamePlay.Player
         public virtual void Enter(ActionEnum actionBefore)
         {
             _randomTransition = GetRandomTransition(actionBefore);
-            StartAction(actionBefore, _randomTransition);
+            _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_randomTransition];
+            StartAction();
         }
 
         public virtual bool Exit(ActionEnum actionAfter)
@@ -95,36 +97,34 @@ namespace Core.GamePlay.Player
 
         public bool CanChangeToItself => _canChangeToItself;
 
-        protected void StartAction(ActionEnum actionBefore, int index)
+        protected void StartAction()
         {
-            if (_dictPlayerAnimTransition[actionBefore][index].startAnimation.Clip != null)
+            if (_currentTransition.startAnimation.Clip != null)
             {
-                _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[actionBefore][index].startAnimation);
-                _state.Events.OnEnd += () => KeepAction(actionBefore, index);
+                _displayContainer.PlayAnimation(_currentTransition.startAnimation);
+                _currentTransition.startAnimation.Events.OnEnd += KeepAction;
             }
             else
             {
-                KeepAction(actionBefore, index);
+                KeepAction();
             }
         }
 
-        protected virtual void KeepAction(ActionEnum actionBefore, int index)
+        protected virtual void KeepAction()
         {
-            if(_state != null)
-                _state.Events.OnEnd = null;
-            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][index].keepAnimation);
+            _currentTransition.startAnimation.Events.OnEnd = null;
+            _displayContainer.PlayAnimation(_currentTransition.keepAnimation);
         }
 
-        protected void EndAction(ActionEnum actionBefore, int index)
+        public void EndAction()
         {
-            if(_dictPlayerAnimTransition[actionBefore][index].endAnimation.Clip == null)
+            if(_currentTransition.endAnimation.Clip == null)
             {
                 ExitAction();
                 return;
             }
-            _state.Events.OnEnd = null;
-            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][index].endAnimation);
-            _state.Events.OnEnd += ExitAction;
+            _displayContainer.PlayAnimation(_currentTransition.endAnimation);
+            _currentTransition.endAnimation.Events.OnEnd += ExitAction;
         }
 
         protected virtual void ExitAction(){}
