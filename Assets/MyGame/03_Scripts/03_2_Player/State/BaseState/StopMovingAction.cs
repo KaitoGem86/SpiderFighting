@@ -8,9 +8,9 @@ namespace Core.GamePlay.Player{
         [SerializeField] private float _damping = 0f;
         private float _targetSpeed = 0;
         private Vector3 _remainMoveDirection = Vector3.zero;
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
-            base.Enter();
+            base.Enter(beforeAction);
             _speed = 5;
             _targetSpeed = 0;
             _remainMoveDirection = _playerController.PlayerDisplay.transform.forward * 0.3f;

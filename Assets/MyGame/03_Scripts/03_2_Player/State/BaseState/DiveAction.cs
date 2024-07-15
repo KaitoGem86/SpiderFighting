@@ -3,9 +3,9 @@ using UnityEngine;
 namespace Core.GamePlay.Player{
     [CreateAssetMenu(fileName = nameof(BasePlayerAction), menuName = ("PlayerState/" + nameof(DiveAction)), order = 0)]
     public class DiveAction : InAirAction{
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
-            base.Enter();
+            base.Enter(beforeAction);
             _speed = 8;
         }
 

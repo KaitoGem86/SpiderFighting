@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Animancer;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -48,8 +50,9 @@ namespace Core.GamePlay.Player
         [SerializeField] protected ClipTransition _animationClip;
         [SerializeField] protected PriorityEnum _priority;
         [SerializeField] private bool _canChangeToItself = false;
-        [SerializeField] private float _healthCostPerFixedUpdate;
+        [SerializeField] protected SerializedDictionary<ActionEnum, List<PlayerAnimTransition>> _dictPlayerAnimTransition;
         protected AnimancerState _state;
+        private int _randomTransition;
 
         public virtual void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -62,7 +65,8 @@ namespace Core.GamePlay.Player
 
         public virtual void Enter(ActionEnum actionBefore)
         {
-            _state = _displayContainer.PlayAnimation(_animationClip);
+            _randomTransition = GetRandomTransition(actionBefore);
+            StartAction(actionBefore, _randomTransition);
         }
 
         public virtual bool Exit(ActionEnum actionAfter)
@@ -71,57 +75,44 @@ namespace Core.GamePlay.Player
             return true;
         }
 
-        public virtual void Update()
-        {
-            //throw new System.NotImplementedException();
-        }
+        public virtual void Update(){}
 
-        public virtual void FixedUpdate()
-        {
-            //_statManager.OnUpdatePlayerRuntimeValue(PlayerStatType.Health, -_healthCostPerFixedUpdate, false);
-            //throw new System.NotImplementedException();
-        }
+        public virtual void FixedUpdate(){}
 
-        public virtual void LateUpdate()
-        {
-            //throw new System.NotImplementedException();
-        }
+        public virtual void LateUpdate(){}
 
-        public virtual void OnCollisionEnter(Collision collision)
-        {
-            //throw new System.NotImplementedException();
-        }
+        public virtual void OnCollisionEnter(Collision collision){}
 
-        public virtual void OnCollisionExit(Collision collision)
-        {
-            //throw new System.NotImplementedException();
-        }
+        public virtual void OnCollisionExit(Collision collision){}
 
-        public virtual void OnCollisionStay(Collision collision)
-        {
-            //throw new System.NotImplementedException();
-        }
+        public virtual void OnCollisionStay(Collision collision){}
 
-        public virtual void OnTriggerEnter(Collider other)
-        {
-            //throw new System.NotImplementedException();
-        }
+        public virtual void OnTriggerEnter(Collider other){}
 
-        public virtual void OnTriggerExit(Collider other)
-        {
-            //throw new System.NotImplementedException();
-        }
+        public virtual void OnTriggerExit(Collider other){}
 
-        public virtual void OnTriggerStay(Collider other)
-        {
-            //throw new System.NotImplementedException();
-        }
+        public virtual void OnTriggerStay(Collider other){}
 
         public PriorityEnum Priortiy => _priority;
         public bool CanChangeToItself => _canChangeToItself;
 
-        // private Action RunEvent(int i){
-        //     return  _actionEvents[i].Event.Invoke;
-        // }
+        protected void StartAction(ActionEnum actionBefore, int index){
+            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[actionBefore][index].startAnimation);
+            _state.Events.OnEnd += () => KeepAction(actionBefore, index);
+        }
+
+        protected virtual void KeepAction(ActionEnum actionBefore, int index){
+            _state.Events.OnEnd = null;
+            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[actionBefore][index].keepAnimation);
+        }
+
+        protected void EndAction(ActionEnum actionBefore, int index){
+            _state.Events.OnEnd = null;
+            _state = _displayContainer.PlayAnimation(_dictPlayerAnimTransition[actionBefore][index].endAnimation);
+        }
+
+        private int GetRandomTransition(ActionEnum actionBefore){
+            return UnityEngine.Random.Range(0, _dictPlayerAnimTransition[actionBefore].Count);
+        }
     }
 }

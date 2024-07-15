@@ -39,9 +39,9 @@ namespace Core.GamePlay.Player
             _lineRenderer = _playerController.Line;
         }
 
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
-            base.Enter();
+            base.Enter(beforeAction);
             _velocity = _playerController.CharacterMovement.rigidbody.velocity;
             _playerController.CharacterMovement.rigidbody.useGravity = true;
             _playerController.CharacterMovement.rigidbody.isKinematic = false;

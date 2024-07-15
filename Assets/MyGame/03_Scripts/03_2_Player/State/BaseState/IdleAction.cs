@@ -12,9 +12,9 @@ namespace Core.GamePlay.Player
             base.Init(playerController, actionEnum);
         }
 
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
-            base.Enter();
+            base.Enter(beforeAction);
         }
 
         public override bool Exit(ActionEnum actionAfter)

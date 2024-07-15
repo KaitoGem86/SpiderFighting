@@ -13,7 +13,7 @@ namespace Core.GamePlay.Player
         [SerializeField] private ClipTransition _waitLanding;
         [SerializeField] private float _landingVelocityThreshold = 5;
 
-        public override void Enter()
+        public override void Enter(ActionEnum before)
         {
             _speed = 5;
             var velocityVec3 = _playerController.CharacterMovement.velocity;
