@@ -26,6 +26,7 @@ namespace Core.GamePlay.Player
 
         public override void Enter()
         {
+            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             _speed = 8f;
             _playerController.gravity = Vector3.zero;
             _playerController.SetVelocity(Vector3.zero);
@@ -100,6 +101,7 @@ namespace Core.GamePlay.Player
             RaycastHit hit;
             if (Physics.Raycast(_playerController.transform.position, _playerController.PlayerDisplay.forward, out hit, 100))
             {
+                Debug.Log(hit.collider.gameObject.name);
                 if (hit.distance < 0.8f)
                 {
                     _surfaceNormal = hit.normal;

@@ -7,6 +7,7 @@ namespace Core.GamePlay.Player
         public override void Enter()
         {
             base.Enter();
+            _playerController.CharacterMovement.rigidbody.isKinematic = false;
         }
 
         public override void LateUpdate()
