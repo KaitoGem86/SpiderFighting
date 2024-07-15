@@ -1,13 +1,19 @@
 using System.Collections;
+using MyTools.Event;
 using SFRemastered.InputSystem;
 using UnityEngine;
 
 namespace Core.UI{
     public class TestGamePlayScreen : MonoBehaviour
     {
+        public DefaultEvent onZip;
+        
         public void Update(){
             if(Input.GetKeyDown(KeyCode.Space)){
                 OnClickJump();
+            }
+            if(Input.GetKeyDown(KeyCode.Z)){
+                OnClickZip();
             }
         }
 
@@ -16,6 +22,10 @@ namespace Core.UI{
         {
             InputManager.instance.jump = true;
             StartCoroutine(AfterClickJump());
+        }
+
+        public void OnClickZip(){
+            onZip?.Raise();
         }
     
     

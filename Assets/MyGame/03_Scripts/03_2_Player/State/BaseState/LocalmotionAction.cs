@@ -25,8 +25,7 @@ namespace Core.GamePlay
         }
 
         protected virtual void MoveInAir(){
-            Vector3 targetPos = Vector3.Lerp(_playerController.transform.position, _playerController.transform.position + _moveDirection * _speed, Time.deltaTime);
-            _playerController.CharacterMovement.Move(_moveDirection * _speed );
+            _playerController.SetMovementDirection(_moveDirection * _speed);
         }
 
         protected virtual void Rotate()

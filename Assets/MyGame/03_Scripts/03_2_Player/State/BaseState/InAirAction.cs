@@ -6,9 +6,6 @@ namespace Core.GamePlay.Player
     {
         public override void Enter()
         {
-            _playerController.CharacterMovement.rigidbody.useGravity = true;
-            _playerController.CharacterMovement.rigidbody.isKinematic = false;
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             base.Enter();
         }
 
@@ -23,15 +20,12 @@ namespace Core.GamePlay.Player
         protected override void MoveInAir()
         {
             Vector3 tmp = _moveDirection * _speed;
-            tmp.y = _playerController.CharacterMovement.velocity.y;
-            _playerController.CharacterMovement.Move(tmp);
+            tmp.y = _playerController.GetVelocity().y;
+            _playerController.SetVelocity(tmp);
         }
 
         public override bool Exit(ActionEnum actionAfter)
         {
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            _playerController.CharacterMovement.rigidbody.useGravity = false;
-            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
         }
 

@@ -137,6 +137,11 @@ namespace Core.GamePlay.Player
             //_dictPlayerInteractionActions[_currentInteractionAction].OnCollisionExit(collision);
         }
 
+        public void Zip()
+        {
+            ChangeAction(ActionEnum.Zip);
+        }
+
         private void ApplyVerticalVelocity()
         {
             if (VerticalVelocityValue > 0)

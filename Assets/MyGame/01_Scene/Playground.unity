@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17757884, g: 0.2223225, b: 0.3045184, a: 1}
+  m_IndirectSpecularColor: {r: 0.17757848, g: 0.22232172, b: 0.30451703, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1463,6 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee6ce1a396f1b24c9200b964ccb7341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onZip: {fileID: 11400000, guid: 71c7e6fd360d2d7499a19c5aa65232d4, type: 2}
 --- !u!1 &128922987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,7 +5492,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2396375828323077002, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2396375828323077002, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_TagString
@@ -5503,7 +5504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3742579451918281633, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3742579451918281633, guid: cf835ff7834dfc94ea877abf63f4306b, type: 3}
       propertyPath: m_IsActive
@@ -6732,6 +6733,7 @@ MonoBehaviour:
     - Key: 5
       Value: {fileID: 1177127488}
   PlaneToSwing: {fileID: 381833417}
+  DisplayZipPoint: {fileID: 1165438296}
 --- !u!1 &736393755
 GameObject:
   m_ObjectHideFlags: 0
@@ -10140,12 +10142,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165438296}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.64, y: -5.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 722721858}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1171117686
 GameObject:
@@ -17003,6 +17005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2057918259}
   - component: {fileID: 2057918260}
+  - component: {fileID: 2057918261}
   m_Layer: 6
   m_Name: PlayerStateComponent
   m_TagString: Untagged
@@ -17039,6 +17042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dictPlayerMovementActions:
     _serializedList:
+    - Key: 18
+      Value: {fileID: 11400000, guid: 68aba4149d7d62549b67ce84406176d6, type: 2}
     - Key: 17
       Value: {fileID: 11400000, guid: ae7327b764c00f5448271fe5aa02ef1c, type: 2}
     - Key: 16
@@ -17062,6 +17067,34 @@ MonoBehaviour:
   _dictPlayerInteractionActions:
     _serializedList: []
   SurfaceNormal: {x: 0, y: 0, z: 0}
+--- !u!114 &2057918261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057918258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 71c7e6fd360d2d7499a19c5aa65232d4, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2057918260}
+        m_TargetAssemblyTypeName: Core.GamePlay.Player.PlayerStateComponent, Assembly-CSharp
+        m_MethodName: Zip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2059641462
 GameObject:
   m_ObjectHideFlags: 0
@@ -18255,6 +18288,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1648226126}
+    - targetCorrespondingSourceObject: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1165438300}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5482327496165697713, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       insertIndex: -1
@@ -18348,4 +18384,3 @@ SceneRoots:
   - {fileID: 833324367}
   - {fileID: 1585743152}
   - {fileID: 579762586}
-  - {fileID: 1165438300}

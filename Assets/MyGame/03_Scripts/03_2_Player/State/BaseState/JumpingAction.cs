@@ -25,7 +25,7 @@ namespace Core.GamePlay.Player
             if (_isJumping) return;
             base.Enter();
             _speed = 5;
-            _playerController.CharacterMovement.AddForce(JumpDirection(), ForceMode.Force);
+            _playerController.Jump();
             _isStartJumping = true;
             _elapsedTime = 0.3f;
         }

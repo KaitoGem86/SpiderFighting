@@ -26,9 +26,9 @@ namespace Core.GamePlay.Player
 
         public override void Enter()
         {
-            //_currentState = (LinearMixerState)_displayContainer.PlayAnimation(_climbingForwardTransition);
             _speed = 8f;
             _playerController.gravity = Vector3.zero;
+            _playerController.SetVelocity(Vector3.zero);
             _isEndClimbing = false;
             _isCompleteStartClimbing = false;
             StartClimbing();
