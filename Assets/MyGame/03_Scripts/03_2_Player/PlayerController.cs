@@ -126,5 +126,6 @@ namespace Core.GamePlay.Player
         public bool IsCanMove { get; set; }
         public CharacterMovement CharacterMovement => _characterMovementObject;
         public GameObject PlaneToSwing;
+        public GameObject DisplayZipPoint;
     }
 }
