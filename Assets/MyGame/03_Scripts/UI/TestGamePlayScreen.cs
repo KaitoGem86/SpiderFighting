@@ -9,7 +9,7 @@ namespace Core.UI{
         public DefaultEvent onZip;
         
         public void Update(){
-            if(Input.GetKeyDown(KeyCode.Space)){
+            if(Input.GetKeyDown(KeyCode.J)){
                 OnClickJump();
             }
             if(Input.GetKeyDown(KeyCode.Z)){
