@@ -26,7 +26,7 @@ MonoBehaviour:
   _healthCostPerFixedUpdate: 0
   _zipTransition:
     startAnimation:
-      _FadeDuration: 0.25
+      _FadeDuration: 0.10833334
       _Events:
         _NormalizedTimes: []
         _Callbacks: []
@@ -35,7 +35,7 @@ MonoBehaviour:
       _Speed: 1
       _NormalizedStartTime: NaN
     keepAnimation:
-      _FadeDuration: 0.25
+      _FadeDuration: 0.19166668
       _Events:
         _NormalizedTimes: []
         _Callbacks: []
@@ -44,7 +44,7 @@ MonoBehaviour:
       _Speed: 1
       _NormalizedStartTime: NaN
     endAnimation:
-      _FadeDuration: 0.25
+      _FadeDuration: 0.112500004
       _Events:
         _NormalizedTimes: []
         _Callbacks: []

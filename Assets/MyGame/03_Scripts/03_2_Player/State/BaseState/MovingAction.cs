@@ -39,7 +39,6 @@ namespace Core.GamePlay.Player
             }
             if(!_playerController.CharacterMovement.isOnGround)
             {
-                Debug.Log("Falling Down");
                 _stateContainer.ChangeAction(ActionEnum.FallingDown);
                 return;
             }

@@ -42,7 +42,6 @@ namespace Core.GamePlay.Player{
                 return;
             }
             base.LateUpdate();
-            Debug.Log(_zipPoint);
             _moveDirection = (_zipPoint - _playerController.PlayerDisplay.position);
             
             //_playerController.transform.position += _moveDirection.normalized * _speed * Time.deltaTime;
