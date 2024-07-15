@@ -41,9 +41,6 @@ namespace Core.GamePlay.Player
         {
             base.Enter(beforeAction);
             _velocity = _playerController.CharacterMovement.rigidbody.velocity;
-            _playerController.CharacterMovement.rigidbody.useGravity = true;
-            _playerController.CharacterMovement.rigidbody.isKinematic = false;
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             _handToUse = (_handToUse + 1) % 2;
             _mechanicalEnergy = _playerController.gravity.y * _playerController.CharacterMovement.transform.position.y + 1 / 2 * _playerController.CharacterMovement.velocity.sqrMagnitude;
             _playerController.CharacterMovement.velocity = Vector3.zero;

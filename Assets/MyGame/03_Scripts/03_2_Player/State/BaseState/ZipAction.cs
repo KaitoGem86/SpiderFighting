@@ -48,7 +48,7 @@ namespace Core.GamePlay.Player{
         public void CompleteZip(){
             _isZip = true;
             _playerController.transform.DOMove(_zipPoint, Vector3.Distance(_zipPoint, _playerController.transform.position) / _speed)
-                .SetEase(Ease.OutQuart)
+                .SetEase(Ease.OutCubic)
                 .OnComplete(EndAction);
             Debug.DrawRay(_playerController.PlayerDisplay.position, _moveDirection, Color.red, 10);
             _rotateDirection = Vector3.Cross(_moveDirection.normalized, _playerController.PlayerDisplay.right);

@@ -21,7 +21,15 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: a56de8826a9b53149b5a31edf92bd3b1, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
-  _priority: 0
+  _fixedAnim: 0
   _canChangeToItself: 0
-  _healthCostPerFixedUpdate: 0
+  _dictPlayerAnimTransition:
+    _serializedList:
+    - Key: 0
+      Value: []
   _angular: 30
+  connectedBody: {fileID: 0}
+  springForce: 50
+  damperForce: 5
+  restLength: 1
+  speed: 10

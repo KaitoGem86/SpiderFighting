@@ -48,10 +48,6 @@ namespace Core.GamePlay.Player
         public override void Update()
         {
             base.Update();
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _stateContainer.ChangeAction(ActionEnum.Swing);
-            }
             _elapsedTime -= Time.deltaTime;
         }
 
@@ -68,6 +64,8 @@ namespace Core.GamePlay.Player
         }
 
         protected override void ExitAction()
+
+        
         {
             FallingDown();
         }

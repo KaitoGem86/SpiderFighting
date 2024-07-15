@@ -101,7 +101,6 @@ namespace Core.GamePlay.Player
             RaycastHit hit;
             if (Physics.Raycast(_playerController.transform.position, _playerController.PlayerDisplay.forward, out hit, 100))
             {
-                Debug.Log(hit.collider.gameObject.name);
                 if (hit.distance < 0.8f)
                 {
                     _surfaceNormal = hit.normal;

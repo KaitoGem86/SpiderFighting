@@ -37,12 +37,10 @@ namespace Core.GamePlay.Player
             var angle = Vector3.Angle(Vector3.up, surfaceNormal);
             if (angle < 45)
             {
-                Debug.Log("Landing " + collision.gameObject.name);
                 _stateContainer.ChangeAction(ActionEnum.Landing);
             }
             else
             {
-                //EndStateToClimb();
                 _stateContainer.SurfaceNormal = surfaceNormal;
                 _stateContainer.ChangeAction(ActionEnum.Climbing);
             }
