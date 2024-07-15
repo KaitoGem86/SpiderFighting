@@ -20,10 +20,10 @@ namespace Core.GamePlay.Player
             _speed = 10;
         }
 
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
             if (_isJumping) return;
-            base.Enter();
+            base.Enter(beforeAction);
             _speed = 5;
             _playerController.Jump();
             _isStartJumping = true;

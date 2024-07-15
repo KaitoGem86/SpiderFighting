@@ -17,7 +17,7 @@ namespace Core.GamePlay.Player
             _speed = 4f;
         }
 
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
             _state = _displayContainer.PlayAnimation(_linearMixerTransition, _linearMixerTransition.FadeDuration);
             _playerController.IsCanMove = true;

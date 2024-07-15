@@ -17,13 +17,10 @@ namespace Core.GamePlay.Player
     {
         [SerializeField] private SerializedDictionary<ActionEnum, BasePlayerAction> _dictPlayerMovementActions;
 
-        [SerializeField] private SerializedDictionary<ActionEnum, BasePlayerAction> _dictPlayerInteractionActions;
-        private ActionEnum _currentMovementAction = ActionEnum.None;
-        private ActionEnum _currentInteractionAction = ActionEnum.None;
-        private ActionEnum _beforeMovementAction;
+        private ActionEnum _currentAction = ActionEnum.None;
         public override void Init(PlayerController playerController)
         {
-            _currentMovementAction = ActionEnum.None;
+            _currentAction = ActionEnum.None;
             base.Init(playerController);
             InitDictAction(_playerController);
             InitEvent(_playerController);
@@ -35,106 +32,66 @@ namespace Core.GamePlay.Player
             {
                 item.Value.Init(playerController, item.Key);
             }
-            foreach (var item in _dictPlayerInteractionActions)
-            {
-                item.Value.Init(playerController,
-                item.Key);
-            }
             ChangeAction(ActionEnum.Idle);
-            //ChangeAction(ActionEnum.None);
         }
 
         private void InitEvent(PlayerController playerController)
         {
         }
 
-        public bool ChangeAction(ActionEnum action)
+        public void ChangeAction(ActionEnum action)
         {
-            return ChangeMovement(action);
+            ChangeMovement(action);
         }
 
-        private bool ChangeMovement(ActionEnum action)
+        private void ChangeMovement(ActionEnum action)
         {
-            if (_currentMovementAction == action)
+            if (_currentAction == action)
             {
-                if (_dictPlayerMovementActions[_currentMovementAction].CanChangeToItself)
+                if (_dictPlayerMovementActions[_currentAction].CanChangeToItself)
                 {
-                    _dictPlayerMovementActions[_currentMovementAction].Enter();
-                    return true;
+                    _dictPlayerMovementActions[_currentAction].Enter(_currentAction);
                 }
-                return false;
+                return;
             }
 
-            if (_currentMovementAction == ActionEnum.None || _dictPlayerMovementActions[_currentMovementAction].Exit(action))
+            if (_currentAction == ActionEnum.None || _dictPlayerMovementActions[_currentAction].Exit(action))
             {
-                //Debug.Log("ChangeMovement from " + _currentMovementAction.ToString() + " to " + action.ToString() );
-                _beforeMovementAction = _currentMovementAction;
-                _currentMovementAction = action;
-                _dictPlayerMovementActions[_currentMovementAction].Enter();
-                return true;
+                var beforeAction = _currentAction;
+                _currentAction = action;
+                _dictPlayerMovementActions[_currentAction].Enter(beforeAction);
             }
-            else
-                return false;
         }
 
-        private bool ChangeInteraction(ActionEnum action)
-        {
-            if (_currentInteractionAction == action)
-            {
-                if (_dictPlayerInteractionActions[_currentInteractionAction].CanChangeToItself)
-                {
-                    Debug.Log("ChangeInteraction");
-                    _dictPlayerInteractionActions[_currentInteractionAction].Enter();
-                    return true;
-                }
-                return false;
-            }
-            if (_dictPlayerInteractionActions[_currentInteractionAction].Exit(action))
-            {
-                _currentInteractionAction = action;
-                //_dictPlayerInteractionActions[_currentInteractionAction].Enter();
-                return true;
-            }
-            else
-                return false;
-        }
 
         public void Update()
         {
-            //Debug.Log(_currentAction.ToString());
-            _dictPlayerMovementActions[_currentMovementAction].Update();
-            //_dictPlayerInteractionActions[_currentInteractionAction].Update();
+            _dictPlayerMovementActions[_currentAction].Update();
         }
 
         public void LateUpdate()
         {
-            _dictPlayerMovementActions[_currentMovementAction].LateUpdate();
-            //_dictPlayerInteractionActions[_currentInteractionAction].LateUpdate();
+            _dictPlayerMovementActions[_currentAction].LateUpdate();
         }
 
         public void FixedUpdate()
         {
-            _dictPlayerMovementActions[_currentMovementAction].FixedUpdate();
-            //_dictPlayerInteractionActions[_currentInteractionAction].FixedUpdate();
-            //ApplyVerticalVelocity();
+            _dictPlayerMovementActions[_currentAction].FixedUpdate();
         }
 
         public override void OnCollisionEnter(UnityEngine.Collision collision)
         {
-            _dictPlayerMovementActions[_currentMovementAction].OnCollisionEnter(collision);
-            //_dictPlayerInteractionActions[_currentInteractionAction].OnCollisionEnter(collision);
+            _dictPlayerMovementActions[_currentAction].OnCollisionEnter(collision);
         }
 
         public override void OnCollisionStay(UnityEngine.Collision collision)
         {
-            _dictPlayerMovementActions[_currentMovementAction].OnCollisionStay(collision);
-            //_dictPlayerInteractionActions[_currentInteractionAction].OnCollisionStay(collision);
+            _dictPlayerMovementActions[_currentAction].OnCollisionStay(collision);
         }
 
         public override void OnCollisionExit(UnityEngine.Collision collision)
         {
-            _dictPlayerMovementActions[_currentMovementAction].OnCollisionExit(collision);
-            //_dictPlayerInteractionActions[_currentInteractionAction].OnCollisionExit(collision);
+            _dictPlayerMovementActions[_currentAction].OnCollisionExit(collision);
         }
 
         public void Zip()
@@ -181,13 +138,11 @@ namespace Core.GamePlay.Player
         public Vector3 SurfaceNormal;
         public float VerticalVelocityValue { get; set; }
         public bool UseGravity { get; set; } = true;
-        public ActionEnum CurrentMovementAction => _currentMovementAction;
-        public ActionEnum CurrentInteractionAction => _currentInteractionAction;
+        public ActionEnum CurrentMovementAction => _currentAction;
         public BasePlayerAction GetAction(ActionEnum actionEnum)
         {
             return GetStateTypeEnum(actionEnum) switch
             {
-                StateTypeEnum.Interaction => _dictPlayerInteractionActions[actionEnum],
                 StateTypeEnum.Movement => _dictPlayerMovementActions[actionEnum],
                 _ => null
             };
@@ -196,7 +151,7 @@ namespace Core.GamePlay.Player
         private StateTypeEnum GetStateTypeEnum(ActionEnum actionEnum)
         {
             if(actionEnum == ActionEnum.Landing) {
-                Debug.Log(_currentMovementAction);
+                Debug.Log(_currentAction);
             }
             return actionEnum switch
             {

@@ -24,7 +24,7 @@ namespace Core.GamePlay.Player
         private bool _isEndClimbing = false;
         private bool _isCompleteStartClimbing = false;
 
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
             _speed = 8f;

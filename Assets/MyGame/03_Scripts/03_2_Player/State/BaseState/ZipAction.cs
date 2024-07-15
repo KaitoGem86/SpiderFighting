@@ -15,7 +15,7 @@ namespace Core.GamePlay.Player{
             _displayZipPoint = playerController.DisplayZipPoint;
         }
 
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
             //base.Enter();
             _state = _displayContainer.PlayAnimation(_zipTransition.startAnimation);

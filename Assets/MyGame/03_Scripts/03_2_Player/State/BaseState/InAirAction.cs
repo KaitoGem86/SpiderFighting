@@ -4,9 +4,9 @@ namespace Core.GamePlay.Player
 {
     public class InAirAction : LocalmotionAction
     {
-        public override void Enter()
+        public override void Enter(ActionEnum beforeAction)
         {
-            base.Enter();
+            base.Enter(beforeAction);
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
         }
 

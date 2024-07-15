@@ -60,7 +60,7 @@ namespace Core.GamePlay.Player
             _statManager = _playerController.ResolveComponent<PlayerStatComponent>(PlayerComponentEnum.Stat);
         }
 
-        public virtual void Enter()
+        public virtual void Enter(ActionEnum actionBefore)
         {
             _state = _displayContainer.PlayAnimation(_animationClip);
         }
