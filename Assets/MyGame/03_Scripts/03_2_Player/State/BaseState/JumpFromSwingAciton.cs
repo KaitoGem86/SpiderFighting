@@ -6,6 +6,7 @@ namespace Core.GamePlay.Player{
         public override void Enter()
         {
             base.Enter();
+            _playerController.SetVelocity(JumpDirection());
         }
 
         protected override Vector3 JumpDirection()

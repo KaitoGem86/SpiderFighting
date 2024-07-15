@@ -98,7 +98,7 @@ namespace Core.GamePlay.Player
                 return;
             }
             RaycastHit hit;
-            if (Physics.Raycast(_playerController.transform.position, -_stateContainer.SurfaceNormal, out hit, 100))
+            if (Physics.Raycast(_playerController.transform.position, _playerController.PlayerDisplay.forward, out hit, 100))
             {
                 if (hit.distance < 0.8f)
                 {
@@ -161,12 +161,6 @@ namespace Core.GamePlay.Player
                 angle = -angle;
             }
             return angle;
-        }
-
-        public override void OnCollisionStay(Collision collision)
-        {
-            base.OnCollisionStay(collision);
-            _surfaceNormal = collision.contacts[0].normal;
         }
 
         public void FallingDown()
