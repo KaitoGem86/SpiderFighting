@@ -23,7 +23,6 @@ namespace Core.GamePlay.Player
             _currentAction = ActionEnum.None;
             base.Init(playerController);
             InitDictAction(_playerController);
-            InitEvent(_playerController);
         }
 
         private void InitDictAction(PlayerController playerController)
@@ -33,10 +32,6 @@ namespace Core.GamePlay.Player
                 item.Value.Init(playerController, item.Key);
             }
             ChangeAction(ActionEnum.Idle);
-        }
-
-        private void InitEvent(PlayerController playerController)
-        {
         }
 
         public void ChangeAction(ActionEnum action)
@@ -99,69 +94,7 @@ namespace Core.GamePlay.Player
             ChangeAction(ActionEnum.Zip);
         }
 
-        private void ApplyVerticalVelocity()
-        {
-            if (VerticalVelocityValue > 0)
-            {
-                if (_playerController.CharacterMovement.isGrounded)
-                {
-                    if (Physics.Raycast(_playerController.CharacterMovement.transform.position, Vector3.down, out RaycastHit hit))
-                    {
-                        if (Vector3.Angle(hit.normal, Vector3.up) < 45f)
-                        {
-                            VerticalVelocityValue = 0;
-                            return;
-                        }
-                        else
-                        {
-                            //VerticalVelocityValue = Vector3.ProjectOnPlane(VerticalVelocityValue * Vector3.down, hit.normal).magnitude;
-                            VerticalVelocityValue += 9.8f * Time.deltaTime * 2;
-                            _playerController.CharacterMovement.Move(Vector3.ProjectOnPlane(VerticalVelocityValue * Vector3.down, hit.normal) * Time.deltaTime);
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        VerticalVelocityValue = 0;
-                        return;
-                    }
-                }
-                if (!UseGravity)
-                {
-                    VerticalVelocityValue = 0;
-                    return;
-                }
-            }
-            VerticalVelocityValue += 9.8f * Time.deltaTime;
-            _playerController.CharacterMovement.Move(Vector3.down * VerticalVelocityValue * Time.deltaTime);
-        }
         public Vector3 SurfaceNormal;
-        public float VerticalVelocityValue { get; set; }
-        public bool UseGravity { get; set; } = true;
         public ActionEnum CurrentMovementAction => _currentAction;
-        public BasePlayerAction GetAction(ActionEnum actionEnum)
-        {
-            return GetStateTypeEnum(actionEnum) switch
-            {
-                StateTypeEnum.Movement => _dictPlayerMovementActions[actionEnum],
-                _ => null
-            };
-        }
-
-        private StateTypeEnum GetStateTypeEnum(ActionEnum actionEnum)
-        {
-            if(actionEnum == ActionEnum.Landing) {
-                Debug.Log(_currentAction);
-            }
-            return actionEnum switch
-            {
-                ActionEnum.PickingUp => StateTypeEnum.Interaction,
-                ActionEnum.Holding => StateTypeEnum.Interaction,
-                ActionEnum.None => StateTypeEnum.Interaction,
-                ActionEnum.HoldMelee => StateTypeEnum.Interaction,
-                _ => StateTypeEnum.Movement
-            };
-        }
-
     }
 }
