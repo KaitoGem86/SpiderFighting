@@ -28,27 +28,27 @@ namespace Core.GamePlay.Player
             switch (beforeAction)
             {
                 case ActionEnum.Zip:
-                    _speed = 10;
+                    _speed = 15;
                     _playerController.Jump();
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
                 case ActionEnum.Swing:
-                    _speed = 10;
+                    _speed = 15;
                     _jumpVelocity = 20;
                     _playerController.SetVelocity(JumpDirection());
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
                 case ActionEnum.Climbing:
-                    _speed = 5;
+                    _speed = 15;
                     _jumpVelocity = 5;
                     _playerController.CharacterMovement.rigidbody.velocity = -_playerController.PlayerDisplay.transform.forward * 5  + Vector3.up * 20;
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
                 default:
-                    _speed = 5;
+                    _speed = 10;
                     _playerController.Jump();
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
@@ -58,7 +58,7 @@ namespace Core.GamePlay.Player
 
         protected virtual Vector3 JumpDirection()
         {
-            return Vector3.up * _jumpVelocity + _playerController.CharacterMovement.velocity;
+            return _playerController.PlayerDisplay.forward * _playerController.GlobalVelocity.magnitude + Vector3.up * _jumpVelocity;
         }
 
         public override void Update()

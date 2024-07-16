@@ -19,11 +19,12 @@ namespace Core.GamePlay.Player
         {
             base.Enter(beforeAction);
             GetInput();
-            _speed = 8f;
+            _speed = 15f;
         }
 
         public override bool Exit(ActionEnum actionAfter)
         {
+            _playerController.GlobalVelocity = _playerController.GetVelocity();
             return base.Exit(actionAfter);
         }
 
@@ -50,7 +51,7 @@ namespace Core.GamePlay.Player
         {
             Move();
             Rotate();
-            _currentTransition.keepAnimation.State.Parameter = _moveDirection.magnitude * 2;
+            _currentTransition.keepAnimation.State.Parameter = _moveDirection.magnitude * _speed;
         }
 
         protected virtual void OnDontMove()

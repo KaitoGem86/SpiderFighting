@@ -127,5 +127,6 @@ namespace Core.GamePlay.Player
         public GameObject PlaneToSwing;
         public GameObject DisplayZipPoint;
         public Rigidbody swingPivot;
+        public Vector3 GlobalVelocity;
     }
 }

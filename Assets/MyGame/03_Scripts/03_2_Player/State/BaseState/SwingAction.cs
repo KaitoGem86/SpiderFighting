@@ -41,7 +41,7 @@ namespace Core.GamePlay.Player
         {
             FindPivot();
             base.Enter(beforeAction);
-            _velocity = _playerController.GetVelocity();
+            _velocity = _playerController.GlobalVelocity;
             _playerController.SetMovementMode(MovementMode.None);
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
             _playerController.CharacterMovement.rigidbody.useGravity = true;
@@ -53,6 +53,7 @@ namespace Core.GamePlay.Player
         public override bool Exit(ActionEnum actionAfter)
         {
             _playerController.PlayerDisplay.transform.up = Vector3.up;
+            _playerController.GlobalVelocity = _playerController.CharacterMovement.rigidbody.velocity;
             Destroy(_springJoint);
             _playerController.SetMovementMode(MovementMode.Walking);
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
@@ -69,8 +70,14 @@ namespace Core.GamePlay.Player
             right.y = 0;
             var tmpDirection = forward + right;
             var tempFindDirection = new Vector3(tmpDirection.x, tmpDirection.magnitude, tmpDirection.z);
+            if(_playerController.transform.position.y < 10)
             {
+                _speed = 30;
                 _pivot = _playerController.transform.position + forward.normalized * 10 + right.normalized * 10 * _handToUse + Vector3.up * 20;
+            }
+            else{
+                _speed = 50;
+                _pivot = _playerController.transform.position + forward.normalized * 20 + right.normalized * 10 * _handToUse + Vector3.up * 20;
             }
             restLength = Vector3.Distance(_holdPivot.position, _pivot);
             _targetReslength = restLength * 0.8f;
@@ -98,7 +105,7 @@ namespace Core.GamePlay.Player
         {
             base.FixedUpdate();
             GetInput();
-            _playerController.CharacterMovement.rigidbody.AddForce(_moveDirection * 10, ForceMode.Force);
+            _playerController.CharacterMovement.rigidbody.AddForce(_moveDirection * _speed, ForceMode.Force);
             RotateCharacterFlowVelocity();
         }
 

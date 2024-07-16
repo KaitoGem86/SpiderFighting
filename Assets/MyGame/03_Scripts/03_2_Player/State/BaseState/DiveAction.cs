@@ -6,7 +6,7 @@ namespace Core.GamePlay.Player{
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
-            _speed = 15;
+            _speed = 25;
         }
 
         public override void Update()
@@ -19,6 +19,12 @@ namespace Core.GamePlay.Player{
                 _stateContainer.ChangeAction(ActionEnum.Swing);
             }
             base.Update();
+        }
+
+        public override bool Exit(ActionEnum actionAfter)
+        {
+            _playerController.GlobalVelocity = _playerController.GetVelocity();
+            return base.Exit(actionAfter);
         }
     }
 }
