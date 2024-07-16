@@ -10,9 +10,14 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
         }
 
+        public override void Update()
+        {
+            base.Update();
+            GetInput();
+        }
+
         public override void LateUpdate()
         {
-            GetInput();
             MoveInAir();
             if (_rotateDirection != Vector3.zero)
                 Rotate();

@@ -11,7 +11,7 @@ namespace Core.GamePlay.Player
         private float _elapsedTime = 1f;
         private bool _isStartJumping = false;
         protected float _jumpVelocity = 0;
-        private bool _isJumpingFromSwing = false;
+        private ActionEnum _beforeAction;   
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
             base.Init(playerController, actionEnum);
@@ -23,7 +23,7 @@ namespace Core.GamePlay.Player
         {
             if (_isJumping) return;
             base.Enter(beforeAction);
-            _isJumpingFromSwing = beforeAction == ActionEnum.Swing;
+            _beforeAction = beforeAction;
             _playerController.gravity = Vector3.down * 9.8f;
             switch (beforeAction)
             {
@@ -66,6 +66,10 @@ namespace Core.GamePlay.Player
         {
             base.Update();
             _elapsedTime -= Time.deltaTime;
+            if(_beforeAction == ActionEnum.Climbing){
+                _moveDirection = Vector3.zero;
+                _rotateDirection = Vector3.zero;
+            }
         }
 
         public override bool Exit(ActionEnum actionAfter)
@@ -77,15 +81,13 @@ namespace Core.GamePlay.Player
 
         private void FallingDown()
         {
-            if (!_isJumpingFromSwing)
+            if (_beforeAction != ActionEnum.Swing)
                 _stateContainer.ChangeAction(ActionEnum.FallingDown);
             else
                 _stateContainer.ChangeAction(ActionEnum.Dive);
         }
 
         protected override void ExitAction()
-
-
         {
             FallingDown();
         }
