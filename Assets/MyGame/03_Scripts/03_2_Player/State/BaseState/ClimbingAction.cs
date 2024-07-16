@@ -1,6 +1,6 @@
 using System;
 using Animancer;
-using DG.Tweening.Plugins.Options;
+using DG.Tweening;
 using EasyCharacterMovement;
 using SFRemastered.InputSystem;
 using UnityEngine;
@@ -27,19 +27,24 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum beforeAction)
         {
+            Debug.Log("Climbing");
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
-            _playerController.gravity = Vector3.zero;
             _playerController.SetMovementMode(MovementMode.None);
             _speed = 15f;
             _isEndClimbing = false;
             _isCompleteStartClimbing = false;
-            StartClimbing();
-            _playerController.SetMovementDirection(Vector3.zero);
+            _playerController.PlayerDisplay.DORotate(Quaternion.LookRotation(-_stateContainer.SurfaceNormal).eulerAngles, 0.1f)
+                .OnComplete(StartClimbing);
         }
 
         public override void Update()
         {
-            if(Input.GetKeyDown(KeyCode.C)){
+            if (!_isCompleteStartClimbing)
+            {
+                return;
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
                 _isEndClimbing = true;
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
             }
@@ -63,14 +68,16 @@ namespace Core.GamePlay.Player
             if (angle > 45)
             {
                 _currentState = (LinearMixerState)_displayContainer.PlayAnimation(_climbingRightTransition);
-                if(angle > 90){
+                if (angle > 90)
+                {
                     _moveDirection = _playerController.PlayerDisplay.right;
                 }
             }
             else if (angle < -45)
             {
                 _currentState = (LinearMixerState)_displayContainer.PlayAnimation(_climbingLeftTranstion);
-                if(angle < -90){
+                if (angle < -90)
+                {
                     _moveDirection = -_playerController.PlayerDisplay.right;
                 }
             }
@@ -127,6 +134,14 @@ namespace Core.GamePlay.Player
                     _surfaceNormal = hit.normal;
                     return;
                 }
+                else
+                {
+                    Debug.Log("End Climbing by Raycast distance");
+                }
+            }
+            else
+            {
+                Debug.Log("End Climbing by Raycast");
             }
             _isEndClimbing = true;
             EndClimbing();
@@ -139,10 +154,12 @@ namespace Core.GamePlay.Player
             if (angle > 45 && _moveDirection.magnitude * _speed > 0.1f)
             {
                 _state = _displayContainer.PlayAnimation(_startClimbingUpRightTransition);
+                _playerController.CharacterMovement.rigidbody.velocity = _playerController.PlayerDisplay.right * 5;
             }
             else if (angle < -45 && _moveDirection.magnitude * _speed > 0.1f)
             {
                 _state = _displayContainer.PlayAnimation(_startClimbingUpLeftTransition);
+                _playerController.CharacterMovement.rigidbody.velocity = -_playerController.PlayerDisplay.right * 5;
             }
             else
             {
@@ -152,6 +169,7 @@ namespace Core.GamePlay.Player
 
         private void EndClimbing()
         {
+            Debug.Log("End Climbing");
             _playerController.gravity = Vector3.down * 9.8f;
             _isEndClimbing = true;
             _stateContainer.ChangeAction(ActionEnum.FallingDown);
@@ -182,6 +200,7 @@ namespace Core.GamePlay.Player
         public override bool Exit(ActionEnum actionAfter)
         {
             _playerController.SetMovementMode(MovementMode.Walking);
+            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
         }
     }

@@ -103,24 +103,24 @@ namespace Core.GamePlay.Player
 
         public override void OnCollisionEnter(Collision collision)
         {
-            base.OnCollisionEnter(collision);
-            var surfaceNormal = collision.contacts[0].normal;
-            var angle = Vector3.Angle(Vector3.up, surfaceNormal);
-            if (angle > 45)
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(_playerController.transform.position, _moveDirection, out hit, 100))
-                {
-                    if (hit.distance < 0.8f)
-                    {
-                        _surfaceNormal = hit.normal;
-                        _stateContainer.SurfaceNormal = _surfaceNormal;
-                        _stateContainer.ChangeAction(ActionEnum.Climbing);
-                        return;
-                    }
-                }
-            }
-            EndAction();
+            // base.OnCollisionEnter(collision);
+            // var surfaceNormal = collision.contacts[0].normal;
+            // var angle = Vector3.Angle(Vector3.up, surfaceNormal);
+            // if (angle > 45)
+            // {
+            //     RaycastHit hit;
+            //     if (Physics.Raycast(_playerController.transform.position, _moveDirection, out hit, 100))
+            //     {
+            //         if (hit.distance < 0.8f)
+            //         {
+            //             _surfaceNormal = hit.normal;
+            //             _stateContainer.SurfaceNormal = _surfaceNormal;
+            //             _stateContainer.ChangeAction(ActionEnum.Climbing);
+            //             return;
+            //         }
+            //     }
+            // }
+            // EndAction();
         }
 
         protected override void ExitAction()
