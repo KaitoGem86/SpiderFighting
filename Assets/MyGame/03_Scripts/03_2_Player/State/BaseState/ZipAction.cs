@@ -78,7 +78,7 @@ namespace Core.GamePlay.Player
                 return;
             }
             base.LateUpdate();
-            Move();
+            //Move();
         }
 
         protected override void Move()
@@ -96,6 +96,8 @@ namespace Core.GamePlay.Player
         {
             base.KeepAction();
             _playerController.SetMovementMode(MovementMode.Flying);
+            _playerController.transform.DOMove(_zipPoint, 0.5f)
+                .OnComplete(EndAction);
             _isZip = true;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
             _rotateDirection = _moveDirection.normalized;
@@ -124,7 +126,7 @@ namespace Core.GamePlay.Player
             // EndAction();
         }
 
-        protected override void ExitAction()
+        public override void ExitAction()
         {
             EndZip();
         }

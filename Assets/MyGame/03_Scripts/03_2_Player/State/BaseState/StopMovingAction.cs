@@ -65,7 +65,7 @@ namespace Core.GamePlay.Player
             }
         }
 
-        protected override void ExitAction()
+        public override void ExitAction()
         {
             CheckMoving();
         }

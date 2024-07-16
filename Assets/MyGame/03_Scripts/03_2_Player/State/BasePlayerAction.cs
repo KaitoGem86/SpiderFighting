@@ -36,7 +36,8 @@ namespace Core.GamePlay.Player
         JumpFromSwing,
         Climbing,
         Dive,
-        Zip
+        Zip,
+        Spawn
     }
 
     [Serializable]
@@ -123,10 +124,10 @@ namespace Core.GamePlay.Player
                 return;
             }
             _displayContainer.PlayAnimation(_currentTransition.endAnimation);
-            _currentTransition.endAnimation.Events.OnEnd += ExitAction;
+            //_currentTransition.endAnimation.Events.OnEnd += ExitAction;
         }
 
-        protected virtual void ExitAction(){}
+        public virtual void ExitAction(){}
 
         protected virtual int GetTransition(ActionEnum actionBefore)
         {

@@ -31,7 +31,7 @@ namespace Core.GamePlay.Player
             {
                 item.Value.Init(playerController, item.Key);
             }
-            ChangeAction(ActionEnum.Idle);
+            ChangeAction(ActionEnum.Spawn);
         }
 
         public void ChangeAction(ActionEnum action)

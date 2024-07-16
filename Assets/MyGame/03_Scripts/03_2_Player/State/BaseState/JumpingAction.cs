@@ -62,7 +62,7 @@ namespace Core.GamePlay.Player
             var forward = _playerController.PlayerDisplay.forward;
             forward.y = 0;
             var tmp = forward * _speed + _playerController.GlobalVelocity;
-            tmp.y = Mathf.Min(tmp.y, 10);
+            tmp.y = Mathf.Clamp(tmp.y, 20, 30);
             return tmp;
         }
 
@@ -91,7 +91,7 @@ namespace Core.GamePlay.Player
                 _stateContainer.ChangeAction(ActionEnum.Dive);
         }
 
-        protected override void ExitAction()
+        public override void ExitAction()
         {
             FallingDown();
         }
