@@ -32,6 +32,11 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum beforeAction)
         {
+            if(_displayZipPoint.activeSelf == false)
+            {
+                _stateContainer.ChangeAction(beforeAction);
+                return;
+            }
             base.Enter(beforeAction);
             _playerController.SetMovementMode(MovementMode.None);
             _zipPoint = new Vector3(_displayZipPoint.transform.position.x, _displayZipPoint.transform.position.y, _displayZipPoint.transform.position.z);
@@ -39,7 +44,7 @@ namespace Core.GamePlay.Player
             _isZip = false;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
             _rotateDirection = _moveDirection.normalized;
-
+            _isStartShootSilk = false;
         }
 
         public override void Update()

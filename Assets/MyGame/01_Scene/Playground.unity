@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 12059906}
   - component: {fileID: 12059905}
   - component: {fileID: 12059904}
+  - component: {fileID: 12059907}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -435,6 +436,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &12059907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12059900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 115757412}
+    EndPoint: {fileID: 1435706262}
+  - StartPoint: {fileID: 1435706262}
+    EndPoint: {fileID: 218125062}
+  - StartPoint: {fileID: 218125062}
+    EndPoint: {fileID: 825687503}
+  - StartPoint: {fileID: 825687503}
+    EndPoint: {fileID: 115757412}
 --- !u!1 &12690751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,6 +1991,7 @@ GameObject:
   - component: {fileID: 80641502}
   - component: {fileID: 80641501}
   - component: {fileID: 80641500}
+  - component: {fileID: 80641503}
   m_Layer: 0
   m_Name: Cube (15)
   m_TagString: Untagged
@@ -2067,6 +2090,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &80641503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80641496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 574461910}
+    EndPoint: {fileID: 979735990}
+  - StartPoint: {fileID: 979735990}
+    EndPoint: {fileID: 1183670275}
+  - StartPoint: {fileID: 1183670275}
+    EndPoint: {fileID: 1934271458}
+  - StartPoint: {fileID: 1934271458}
+    EndPoint: {fileID: 574461910}
 --- !u!1 &81737132
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,6 +3361,7 @@ GameObject:
   - component: {fileID: 128382784}
   - component: {fileID: 128382783}
   - component: {fileID: 128382782}
+  - component: {fileID: 128382785}
   m_Layer: 0
   m_Name: Cube (22)
   m_TagString: Untagged
@@ -3415,6 +3460,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &128382785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128382778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 1250246609}
+    EndPoint: {fileID: 125164511}
+  - StartPoint: {fileID: 125164511}
+    EndPoint: {fileID: 1967652045}
+  - StartPoint: {fileID: 1967652045}
+    EndPoint: {fileID: 1565661062}
+  - StartPoint: {fileID: 1565661062}
+    EndPoint: {fileID: 1250246609}
 --- !u!1 &128391945
 GameObject:
   m_ObjectHideFlags: 0
@@ -6562,6 +6628,7 @@ GameObject:
   - component: {fileID: 275401065}
   - component: {fileID: 275401064}
   - component: {fileID: 275401063}
+  - component: {fileID: 275401066}
   m_Layer: 0
   m_Name: Cube (14)
   m_TagString: Untagged
@@ -6660,6 +6727,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &275401066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275401059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 111824832}
+    EndPoint: {fileID: 1060136938}
+  - StartPoint: {fileID: 1060136938}
+    EndPoint: {fileID: 1912458470}
+  - StartPoint: {fileID: 1912458470}
+    EndPoint: {fileID: 311462090}
+  - StartPoint: {fileID: 311462090}
+    EndPoint: {fileID: 111824832}
 --- !u!1 &277003843
 GameObject:
   m_ObjectHideFlags: 0
@@ -11628,13 +11716,14 @@ GameObject:
   - component: {fileID: 491085476}
   - component: {fileID: 491085475}
   - component: {fileID: 491085474}
+  - component: {fileID: 491085477}
   m_Layer: 0
   m_Name: Cube (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &491085471
 Transform:
   m_ObjectHideFlags: 0
@@ -11726,6 +11815,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &491085477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491085470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 320960812}
+    EndPoint: {fileID: 1835361934}
+  - StartPoint: {fileID: 1835361934}
+    EndPoint: {fileID: 330137176}
+  - StartPoint: {fileID: 330137176}
+    EndPoint: {fileID: 521289503}
+  - StartPoint: {fileID: 521289503}
+    EndPoint: {fileID: 320960812}
 --- !u!1 &496345292
 GameObject:
   m_ObjectHideFlags: 0
@@ -13172,6 +13282,11 @@ Transform:
   - {fileID: 40227836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &581455302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+  m_PrefabInstance: {fileID: 7389204908034313019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &581786465
 GameObject:
   m_ObjectHideFlags: 0
@@ -13215,6 +13330,7 @@ GameObject:
   - component: {fileID: 587395347}
   - component: {fileID: 587395346}
   - component: {fileID: 587395345}
+  - component: {fileID: 587395348}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -13313,6 +13429,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &587395348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587395341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 938128318}
+    EndPoint: {fileID: 1131211269}
+  - StartPoint: {fileID: 1131211269}
+    EndPoint: {fileID: 2000012868}
+  - StartPoint: {fileID: 2000012868}
+    EndPoint: {fileID: 1283133686}
+  - StartPoint: {fileID: 1283133686}
+    EndPoint: {fileID: 938128318}
 --- !u!1 &588894714
 GameObject:
   m_ObjectHideFlags: 0
@@ -15507,6 +15644,7 @@ GameObject:
   - component: {fileID: 693757973}
   - component: {fileID: 693757972}
   - component: {fileID: 693757971}
+  - component: {fileID: 693757974}
   m_Layer: 0
   m_Name: Cube (8)
   m_TagString: Untagged
@@ -15605,6 +15743,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &693757974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693757967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 965898342}
+    EndPoint: {fileID: 1406076508}
+  - StartPoint: {fileID: 1406076508}
+    EndPoint: {fileID: 522436514}
+  - StartPoint: {fileID: 522436514}
+    EndPoint: {fileID: 1232811021}
+  - StartPoint: {fileID: 1232811021}
+    EndPoint: {fileID: 965898342}
 --- !u!1 &694786094
 GameObject:
   m_ObjectHideFlags: 0
@@ -16110,6 +16269,7 @@ GameObject:
   - component: {fileID: 709477299}
   - component: {fileID: 709477298}
   - component: {fileID: 709477297}
+  - component: {fileID: 709477300}
   m_Layer: 0
   m_Name: Cube (16)
   m_TagString: Untagged
@@ -16208,6 +16368,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &709477300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709477293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 1491377678}
+    EndPoint: {fileID: 1118011179}
+  - StartPoint: {fileID: 1118011179}
+    EndPoint: {fileID: 1742067316}
+  - StartPoint: {fileID: 1742067316}
+    EndPoint: {fileID: 1196863782}
+  - StartPoint: {fileID: 1196863782}
+    EndPoint: {fileID: 1491377678}
 --- !u!1 &709889475
 GameObject:
   m_ObjectHideFlags: 0
@@ -17563,6 +17744,7 @@ GameObject:
   - component: {fileID: 793134159}
   - component: {fileID: 793134158}
   - component: {fileID: 793134157}
+  - component: {fileID: 793134160}
   m_Layer: 0
   m_Name: Cube (10)
   m_TagString: Untagged
@@ -17661,6 +17843,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &793134160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793134153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 592528244}
+    EndPoint: {fileID: 1349534791}
+  - StartPoint: {fileID: 1349534791}
+    EndPoint: {fileID: 1446442733}
+  - StartPoint: {fileID: 1446442733}
+    EndPoint: {fileID: 1188649033}
+  - StartPoint: {fileID: 1188649033}
+    EndPoint: {fileID: 592528244}
 --- !u!1 &799731250
 GameObject:
   m_ObjectHideFlags: 0
@@ -18155,6 +18358,7 @@ GameObject:
   - component: {fileID: 814864380}
   - component: {fileID: 814864379}
   - component: {fileID: 814864378}
+  - component: {fileID: 814864381}
   m_Layer: 0
   m_Name: Cube (7)
   m_TagString: Untagged
@@ -18253,6 +18457,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &814864381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814864374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 1276600836}
+    EndPoint: {fileID: 5482471}
+  - StartPoint: {fileID: 5482471}
+    EndPoint: {fileID: 711524050}
+  - StartPoint: {fileID: 711524050}
+    EndPoint: {fileID: 42983074}
+  - StartPoint: {fileID: 42983074}
+    EndPoint: {fileID: 1276600836}
 --- !u!1 &815487613
 GameObject:
   m_ObjectHideFlags: 0
@@ -20964,6 +21189,7 @@ GameObject:
   - component: {fileID: 979934155}
   - component: {fileID: 979934154}
   - component: {fileID: 979934153}
+  - component: {fileID: 979934156}
   m_Layer: 0
   m_Name: Cube (21)
   m_TagString: Untagged
@@ -21062,6 +21288,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &979934156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979934149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 939044783}
+    EndPoint: {fileID: 1682919344}
+  - StartPoint: {fileID: 1682919344}
+    EndPoint: {fileID: 131569482}
+  - StartPoint: {fileID: 131569482}
+    EndPoint: {fileID: 774141756}
+  - StartPoint: {fileID: 774141756}
+    EndPoint: {fileID: 939044783}
 --- !u!1 &982060722
 GameObject:
   m_ObjectHideFlags: 0
@@ -22107,6 +22354,7 @@ GameObject:
   - component: {fileID: 1031347562}
   - component: {fileID: 1031347561}
   - component: {fileID: 1031347560}
+  - component: {fileID: 1031347563}
   m_Layer: 0
   m_Name: Cube (11)
   m_TagString: Untagged
@@ -22205,6 +22453,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1031347563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031347556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 302155853}
+    EndPoint: {fileID: 1159186843}
+  - StartPoint: {fileID: 1159186843}
+    EndPoint: {fileID: 820300655}
+  - StartPoint: {fileID: 820300655}
+    EndPoint: {fileID: 1669962668}
+  - StartPoint: {fileID: 1669962668}
+    EndPoint: {fileID: 302155853}
 --- !u!1 &1031852521
 GameObject:
   m_ObjectHideFlags: 0
@@ -23792,6 +24061,7 @@ GameObject:
   - component: {fileID: 1121956274}
   - component: {fileID: 1121956273}
   - component: {fileID: 1121956272}
+  - component: {fileID: 1121956275}
   m_Layer: 0
   m_Name: Cube (13)
   m_TagString: Untagged
@@ -23890,6 +24160,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1121956275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121956268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 624695961}
+    EndPoint: {fileID: 870060067}
+  - StartPoint: {fileID: 870060067}
+    EndPoint: {fileID: 1742693970}
+  - StartPoint: {fileID: 1742693970}
+    EndPoint: {fileID: 744061865}
+  - StartPoint: {fileID: 744061865}
+    EndPoint: {fileID: 624695961}
 --- !u!1 &1127388758
 GameObject:
   m_ObjectHideFlags: 0
@@ -25833,6 +26124,7 @@ GameObject:
   - component: {fileID: 1242853061}
   - component: {fileID: 1242853060}
   - component: {fileID: 1242853059}
+  - component: {fileID: 1242853062}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -25931,6 +26223,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1242853062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242853055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 1127388759}
+    EndPoint: {fileID: 349737149}
+  - StartPoint: {fileID: 349737149}
+    EndPoint: {fileID: 1661936460}
+  - StartPoint: {fileID: 1661936460}
+    EndPoint: {fileID: 659935041}
+  - StartPoint: {fileID: 659935041}
+    EndPoint: {fileID: 1127388759}
 --- !u!1 &1248677447
 GameObject:
   m_ObjectHideFlags: 0
@@ -26985,6 +27298,7 @@ GameObject:
   - component: {fileID: 1318633150}
   - component: {fileID: 1318633149}
   - component: {fileID: 1318633148}
+  - component: {fileID: 1318633151}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -27083,6 +27397,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1318633151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318633144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 1695005060}
+    EndPoint: {fileID: 1015573311}
+  - StartPoint: {fileID: 1015573311}
+    EndPoint: {fileID: 294566373}
+  - StartPoint: {fileID: 294566373}
+    EndPoint: {fileID: 1196269349}
+  - StartPoint: {fileID: 1196269349}
+    EndPoint: {fileID: 1695005060}
 --- !u!1 &1334200959
 GameObject:
   m_ObjectHideFlags: 0
@@ -27126,6 +27461,7 @@ GameObject:
   - component: {fileID: 1337256035}
   - component: {fileID: 1337256034}
   - component: {fileID: 1337256033}
+  - component: {fileID: 1337256036}
   m_Layer: 0
   m_Name: Cube (19)
   m_TagString: Untagged
@@ -27224,6 +27560,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1337256036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337256029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 1502236308}
+    EndPoint: {fileID: 1192208870}
+  - StartPoint: {fileID: 1192208870}
+    EndPoint: {fileID: 1215804971}
+  - StartPoint: {fileID: 1215804971}
+    EndPoint: {fileID: 209933691}
+  - StartPoint: {fileID: 209933691}
+    EndPoint: {fileID: 1502236308}
 --- !u!1 &1337869461
 GameObject:
   m_ObjectHideFlags: 0
@@ -27713,6 +28070,7 @@ GameObject:
   - component: {fileID: 1363453759}
   - component: {fileID: 1363453758}
   - component: {fileID: 1363453757}
+  - component: {fileID: 1363453760}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -27811,6 +28169,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1363453760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363453753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 2065356342}
+    EndPoint: {fileID: 158596489}
+  - StartPoint: {fileID: 158596489}
+    EndPoint: {fileID: 636209842}
+  - StartPoint: {fileID: 636209842}
+    EndPoint: {fileID: 937665254}
+  - StartPoint: {fileID: 937665254}
+    EndPoint: {fileID: 2065356342}
 --- !u!1 &1365432746
 GameObject:
   m_ObjectHideFlags: 0
@@ -28743,7 +29122,7 @@ Transform:
   m_GameObject: {fileID: 1408434821}
   serializedVersion: 2
   m_LocalRotation: {x: -0.07240457, y: -0.00000017788042, z: -0.000000012913249, w: 0.99737537}
-  m_LocalPosition: {x: -4.4699974, y: 0.100407615, z: -4.8079796}
+  m_LocalPosition: {x: 440, y: 113, z: -384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28790,7 +29169,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 43.109066
+  field of view: 43.08409
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -33288,6 +33667,7 @@ GameObject:
   - component: {fileID: 1606411358}
   - component: {fileID: 1606411357}
   - component: {fileID: 1606411356}
+  - component: {fileID: 1606411359}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -33386,6 +33766,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1606411359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606411352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 141552110}
+    EndPoint: {fileID: 1589959390}
+  - StartPoint: {fileID: 1589959390}
+    EndPoint: {fileID: 1020390884}
+  - StartPoint: {fileID: 1020390884}
+    EndPoint: {fileID: 119145380}
+  - StartPoint: {fileID: 119145380}
+    EndPoint: {fileID: 141552110}
 --- !u!4 &1610968277 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6879794849635501629, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
@@ -34934,6 +35335,7 @@ GameObject:
   - component: {fileID: 1711801345}
   - component: {fileID: 1711801344}
   - component: {fileID: 1711801343}
+  - component: {fileID: 1711801346}
   m_Layer: 0
   m_Name: Cube (9)
   m_TagString: Untagged
@@ -35032,6 +35434,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1711801346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711801339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 675058577}
+    EndPoint: {fileID: 480673602}
+  - StartPoint: {fileID: 480673602}
+    EndPoint: {fileID: 893775230}
+  - StartPoint: {fileID: 893775230}
+    EndPoint: {fileID: 2101766036}
+  - StartPoint: {fileID: 2101766036}
+    EndPoint: {fileID: 675058577}
 --- !u!1 &1712042608
 GameObject:
   m_ObjectHideFlags: 0
@@ -35460,7 +35883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1727796206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35487,7 +35910,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727796205}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cf4f97347b8d014d8ee93bc96efa22b, type: 3}
   m_Name: 
@@ -35818,6 +36241,7 @@ GameObject:
   - component: {fileID: 1742396735}
   - component: {fileID: 1742396734}
   - component: {fileID: 1742396733}
+  - component: {fileID: 1742396736}
   m_Layer: 0
   m_Name: Cube (18)
   m_TagString: Untagged
@@ -35916,6 +36340,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1742396736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742396729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 1662435789}
+    EndPoint: {fileID: 16588459}
+  - StartPoint: {fileID: 16588459}
+    EndPoint: {fileID: 185083633}
+  - StartPoint: {fileID: 185083633}
+    EndPoint: {fileID: 1968054480}
+  - StartPoint: {fileID: 1968054480}
+    EndPoint: {fileID: 1662435789}
 --- !u!1 &1742693969
 GameObject:
   m_ObjectHideFlags: 0
@@ -36208,6 +36653,7 @@ GameObject:
   - component: {fileID: 1762228677}
   - component: {fileID: 1762228676}
   - component: {fileID: 1762228675}
+  - component: {fileID: 1762228678}
   m_Layer: 0
   m_Name: Cube (12)
   m_TagString: Untagged
@@ -36306,6 +36752,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1762228678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762228671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 2002803931}
+    EndPoint: {fileID: 228648273}
+  - StartPoint: {fileID: 228648273}
+    EndPoint: {fileID: 1208866471}
+  - StartPoint: {fileID: 1208866471}
+    EndPoint: {fileID: 298972374}
+  - StartPoint: {fileID: 298972374}
+    EndPoint: {fileID: 2002803931}
 --- !u!1 &1762832711
 GameObject:
   m_ObjectHideFlags: 0
@@ -37788,6 +38255,7 @@ GameObject:
   - component: {fileID: 1850831329}
   - component: {fileID: 1850831328}
   - component: {fileID: 1850831327}
+  - component: {fileID: 1850831330}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -37804,7 +38272,7 @@ Transform:
   m_GameObject: {fileID: 1850831323}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.3, y: 8.69, z: -101.77676}
+  m_LocalPosition: {x: -8.3, y: 8.69, z: -99.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37886,6 +38354,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1850831330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850831323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 1053392098}
+    EndPoint: {fileID: 1451843}
+  - StartPoint: {fileID: 1451843}
+    EndPoint: {fileID: 1472303409}
+  - StartPoint: {fileID: 1472303409}
+    EndPoint: {fileID: 437869106}
+  - StartPoint: {fileID: 437869106}
+    EndPoint: {fileID: 1053392098}
 --- !u!1 &1852081413
 GameObject:
   m_ObjectHideFlags: 0
@@ -39177,6 +39666,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 287283897}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!1 &1927622289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927622290}
+  - component: {fileID: 1927622291}
+  m_Layer: 6
+  m_Name: FindZipPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1927622290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927622289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 581455302}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1927622291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927622289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8303d8eef761f408af2cdf3e203318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _displayZipPoint: {fileID: 1165438296}
+  _playerController: {fileID: 581455302}
+  _radius: 20
 --- !u!1 &1931136817
 GameObject:
   m_ObjectHideFlags: 0
@@ -41723,6 +42259,7 @@ GameObject:
   - component: {fileID: 2052631268}
   - component: {fileID: 2052631267}
   - component: {fileID: 2052631266}
+  - component: {fileID: 2052631269}
   m_Layer: 0
   m_Name: Cube (17)
   m_TagString: Untagged
@@ -41821,6 +42358,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2052631269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052631262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edges:
+  - StartPoint: {fileID: 562072192}
+    EndPoint: {fileID: 1162809224}
+  - StartPoint: {fileID: 1162809224}
+    EndPoint: {fileID: 277003844}
+  - StartPoint: {fileID: 277003844}
+    EndPoint: {fileID: 263882535}
+  - StartPoint: {fileID: 263882535}
+    EndPoint: {fileID: 562072192}
 --- !u!1 &2054872804
 GameObject:
   m_ObjectHideFlags: 0
@@ -44159,15 +44717,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.47
+      value: 440
       objectReference: {fileID: 0}
     - target: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.192
+      value: -374
       objectReference: {fileID: 0}
     - target: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44237,11 +44795,12 @@ PrefabInstance:
       propertyPath: PlaneToSwing
       value: 
       objectReference: {fileID: 381833417}
-    m_RemovedComponents:
-    - {fileID: 4386531631318778783, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
-    - {fileID: 7727283859275347960, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2032646152031061193, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1927622290}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
 --- !u!1001 &8851246979688706763
