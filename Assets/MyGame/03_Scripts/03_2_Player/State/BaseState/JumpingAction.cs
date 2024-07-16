@@ -54,7 +54,6 @@ namespace Core.GamePlay.Player
                     _elapsedTime = 0.3f;
                     break;
             }
-
         }
 
         protected virtual Vector3 JumpDirection()

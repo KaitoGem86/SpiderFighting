@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace MyTools.Sound
@@ -6,7 +7,20 @@ namespace MyTools.Sound
     {
         private static MySoundManager _instance;
 
-        public static MySoundManager Instance => _instance;
+        public static MySoundManager Instance {
+            get {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<MySoundManager>();
+                    if (_instance == null)
+                    {
+                        GameObject go = new GameObject("MySoundManager");
+                        _instance = go.AddComponent<MySoundManager>();
+                    }
+                }
+                return _instance;
+            }
+        }
 
         [SerializeField] private bool _isTurnOnSound = true;
         [SerializeField] private bool _isTurnOnMusic = true;
@@ -75,6 +89,7 @@ namespace MyTools.Sound
             //_currentBackgroundMusicRequestIndex = 0;
             _musicAudioSource.clip = _currentBackgroundMusic;
             _musicAudioSource.Play();
+            StartCoroutine(WaitAndPlayMusic(_currentBackgroundMusic.length));
         }
 
         public void StopMusic()
@@ -115,6 +130,12 @@ namespace MyTools.Sound
             {
                 _isTurnOnMusic = value;
             }
+        }
+
+        private IEnumerator WaitAndPlayMusic(float time)
+        {
+            yield return new WaitForSeconds(time);
+            PlayMusic();
         }
     }
 

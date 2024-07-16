@@ -15,6 +15,10 @@ namespace Core.GamePlay
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
+            if (beforeAction == ActionEnum.Climbing)
+            {
+                _playerController.SetVelocity(Vector3.up * 15);
+            }
             _speed = 5;
         }
 

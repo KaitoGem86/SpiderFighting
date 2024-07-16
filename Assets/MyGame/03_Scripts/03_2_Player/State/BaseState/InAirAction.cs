@@ -53,6 +53,7 @@ namespace Core.GamePlay.Player
                     {
                         _surfaceNormal = hit.normal;
                         _stateContainer.SurfaceNormal = _surfaceNormal;
+                        EndStateToClimb();
                         _stateContainer.ChangeAction(ActionEnum.Climbing);
                     }
                 }

@@ -30,7 +30,7 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
             _playerController.gravity = Vector3.zero;
             _playerController.SetMovementMode(MovementMode.None);
-            _speed = 8f;
+            _speed = 15f;
             _isEndClimbing = false;
             _isCompleteStartClimbing = false;
             StartClimbing();
