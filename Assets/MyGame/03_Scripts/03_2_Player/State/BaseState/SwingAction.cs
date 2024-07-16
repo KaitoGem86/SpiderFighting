@@ -89,7 +89,7 @@ namespace Core.GamePlay.Player
 
         public override void Update()
         {
-            if (_playerController.CharacterMovement.velocity.magnitude > 35 && (Vector3.Angle(_playerController.GetVelocity(), Vector3.down) < 15))
+            if ( (Vector3.Angle(_holdPivot.position - rb.transform.position, Vector3.down) > 87 && Vector3.Dot(_playerController.CharacterMovement.rigidbody.velocity, Vector3.up) > 0))
             {
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
