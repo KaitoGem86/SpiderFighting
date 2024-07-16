@@ -21,7 +21,11 @@ namespace Core.GamePlay
         public override void Update()
         {
             base.Update();
-
+            if(_playerController.GetVelocity().magnitude > _velocityThreshHold)
+            {
+                _stateContainer.ChangeAction(ActionEnum.Dive);
+                return;
+            }
             if (Input.GetKey(KeyCode.Space))
             {
                 _stateContainer.ChangeAction(ActionEnum.Swing);

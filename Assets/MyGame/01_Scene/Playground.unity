@@ -43790,7 +43790,9 @@ PrefabInstance:
       propertyPath: PlaneToSwing
       value: 
       objectReference: {fileID: 381833417}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4386531631318778783, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+    - {fileID: 7727283859275347960, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

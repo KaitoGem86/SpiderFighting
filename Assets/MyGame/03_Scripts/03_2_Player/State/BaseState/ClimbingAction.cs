@@ -27,7 +27,7 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum beforeAction)
         {
-            _playerController.CharacterMovement.rigidbody.isKinematic = true;
+            _playerController.CharacterMovement.rigidbody.isKinematic = false;
             _playerController.gravity = Vector3.zero;
             _playerController.SetMovementMode(MovementMode.None);
             _speed = 8f;
@@ -86,7 +86,7 @@ namespace Core.GamePlay.Player
 
         protected override void Move()
         {
-            _playerController.transform.position += _direction * _speed * Time.deltaTime;
+            _playerController.CharacterMovement.rigidbody.velocity = _moveDirection * _speed;
         }
 
         public override void FixedUpdate()
