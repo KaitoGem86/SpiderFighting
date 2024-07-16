@@ -7,6 +7,7 @@ namespace Core.GamePlay.Player
     [CreateAssetMenu(fileName = nameof(BasePlayerAction), menuName = ("PlayerState/" + nameof(IdleAction)), order = 0)]
     public class IdleAction : LocalmotionAction
     {
+        bool _isCanChangeAction = true;
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
             base.Init(playerController, actionEnum);
@@ -15,6 +16,9 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
+            if(beforeAction == ActionEnum.Zip){
+                _isCanChangeAction = false;
+            }
         }
 
         public override bool Exit(ActionEnum actionAfter)
@@ -25,6 +29,9 @@ namespace Core.GamePlay.Player
 
         public override void Update()
         {
+            if(!_isCanChangeAction){
+                return;
+            }
             if(InputManager.instance.jump)
             {
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
@@ -41,6 +48,11 @@ namespace Core.GamePlay.Player
         {
             base.LateUpdate();
             ReRotateCharacter();
+        }
+        public override void KeepAction()
+        {
+            base.KeepAction();
+            _isCanChangeAction = true;
         }
 
         private void ReRotateCharacter()

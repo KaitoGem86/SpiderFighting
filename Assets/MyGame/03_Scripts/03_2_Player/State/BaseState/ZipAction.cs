@@ -22,8 +22,7 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
-            _playerController.SetMovementMode(MovementMode.Flying);
-            _playerController.SetVelocity(Vector3.zero);
+            _playerController.SetMovementMode(MovementMode.None);
             _zipPoint = new Vector3(_displayZipPoint.transform.position.x, _displayZipPoint.transform.position.y, _displayZipPoint.transform.position.z);
             _speed = 40;
             _isZip = false;
@@ -41,19 +40,20 @@ namespace Core.GamePlay.Player
                 if (Vector3.Distance(_zipPoint, _playerController.transform.position) > 1f)
                     _jump = false;
             }
-            if(Vector3.Distance(_zipPoint, _playerController.transform.position) < 0.1f)
+            if (Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) < 0.2f)
             {
                 EndAction();
             }
-            _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
+            var distance = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position);
+            _moveDirection = (_zipPoint - _playerController.PlayerDisplay.transform.position) * (distance > 1 ? 5 : 0.3f);
         }
 
         public override void LateUpdate()
         {
-            if(!_isZip) return;
+            Rotate();
+            if (!_isZip) return;
             base.LateUpdate();
             Move();
-            Rotate();
         }
 
         protected override void Move()
@@ -70,16 +70,33 @@ namespace Core.GamePlay.Player
         public override void KeepAction()
         {
             base.KeepAction();
+            _playerController.SetMovementMode(MovementMode.Flying);
             _isZip = true;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
             _rotateDirection = _moveDirection.normalized;
             Rotate();
         }
 
-        public override void OnTriggerEnter(Collider other)
+        public override void OnCollisionEnter(Collision collision)
         {
-            base.OnTriggerEnter(other);
-            EndZip();
+            base.OnCollisionEnter(collision);
+            var surfaceNormal = collision.contacts[0].normal;
+            var angle = Vector3.Angle(Vector3.up, surfaceNormal);
+            if (angle > 45)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(_playerController.transform.position, _moveDirection, out hit, 100))
+                {
+                    if (hit.distance < 0.8f)
+                    {
+                        _surfaceNormal = hit.normal;
+                        _stateContainer.SurfaceNormal = _surfaceNormal;
+                        _stateContainer.ChangeAction(ActionEnum.Climbing);
+                        return;
+                    }
+                }
+            }
+            EndAction();
         }
 
         protected override void ExitAction()
@@ -89,7 +106,6 @@ namespace Core.GamePlay.Player
 
         private void EndZip()
         {
-            _playerController.transform.DOKill();
             if (_jump)
             {
                 ChangeAction(ActionEnum.Jumping);
