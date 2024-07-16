@@ -42,7 +42,7 @@ namespace Core.GamePlay.Player
             }
             _moveDirection = _remainMoveDirection;
             base.LateUpdate();
-            MoveInAir();
+            Move();
             _remainMoveDirection = Vector3.Lerp(_remainMoveDirection, Vector3.zero, _damping * Time.deltaTime);
         }
 

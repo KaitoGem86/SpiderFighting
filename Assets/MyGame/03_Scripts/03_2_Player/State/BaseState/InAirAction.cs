@@ -18,12 +18,12 @@ namespace Core.GamePlay.Player
 
         public override void LateUpdate()
         {
-            MoveInAir();
+            Move();
             if (_rotateDirection != Vector3.zero)
                 Rotate();
         }
 
-        protected override void MoveInAir()
+        protected override void Move()
         {
             Vector3 tmp = _moveDirection * _speed;
             tmp.y = _playerController.GetVelocity().y;

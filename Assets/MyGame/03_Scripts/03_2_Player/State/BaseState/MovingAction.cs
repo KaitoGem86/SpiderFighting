@@ -48,7 +48,7 @@ namespace Core.GamePlay.Player
 
         public override void LateUpdate()
         {
-            MoveInAir();
+            Move();
             Rotate();
             _currentTransition.keepAnimation.State.Parameter = _moveDirection.magnitude * 2;
         }

@@ -51,7 +51,7 @@ namespace Core.GamePlay.Player
         public override void LateUpdate()
         {
             GetInput();
-            MoveInAir();
+            Move();
             Rotate();
         }
 

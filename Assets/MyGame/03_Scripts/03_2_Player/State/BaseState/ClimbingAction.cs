@@ -1,6 +1,7 @@
 using System;
 using Animancer;
 using DG.Tweening.Plugins.Options;
+using EasyCharacterMovement;
 using SFRemastered.InputSystem;
 using UnityEngine;
 
@@ -28,10 +29,12 @@ namespace Core.GamePlay.Player
         {
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
             _playerController.gravity = Vector3.zero;
+            _playerController.SetMovementMode(MovementMode.None);
             _speed = 8f;
             _isEndClimbing = false;
             _isCompleteStartClimbing = false;
             StartClimbing();
+            _playerController.SetMovementDirection(Vector3.zero);
         }
 
         public override void Update()
@@ -78,7 +81,12 @@ namespace Core.GamePlay.Player
             _currentState.Parameter = Mathf.Min(_moveDirection.magnitude * _speed, 2);
             _rotateDirection = -_surfaceNormal;
             Rotate();
-            MoveInAir();
+            Move();
+        }
+
+        protected override void Move()
+        {
+            _playerController.transform.position += _direction * _speed * Time.deltaTime;
         }
 
         public override void FixedUpdate()
@@ -101,7 +109,6 @@ namespace Core.GamePlay.Player
             _direction = x + y;
             GetSurfaceNormal();
             _direction = Vector3.ProjectOnPlane(_direction, _surfaceNormal);
-
             _moveDirection = _direction;
             _rotateDirection = _direction;
         }
@@ -170,6 +177,12 @@ namespace Core.GamePlay.Player
         public void CompleteClimbing()
         {
             _isCompleteStartClimbing = true;
+        }
+
+        public override bool Exit(ActionEnum actionAfter)
+        {
+            _playerController.SetMovementMode(MovementMode.Walking);
+            return base.Exit(actionAfter);
         }
     }
 }

@@ -36,5 +36,19 @@ namespace Core.GamePlay.Player
                 return;
             }
         }
+
+        public override void LateUpdate()
+        {
+            base.LateUpdate();
+            ReRotateCharacter();
+        }
+
+        private void ReRotateCharacter()
+        {
+            var rotateDir = _playerController.PlayerDisplay.transform.forward;
+            rotateDir.y = 0;
+            var targetRotation = Quaternion.LookRotation(rotateDir);
+            _playerController.PlayerDisplay.transform.rotation = Quaternion.Slerp(_playerController.PlayerDisplay.transform.rotation, targetRotation, Time.deltaTime * 10);
+        }
     }
 }

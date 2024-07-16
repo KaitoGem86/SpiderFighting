@@ -1,4 +1,5 @@
 using DG.Tweening;
+using EasyCharacterMovement;
 using SFRemastered.InputSystem;
 using UnityEngine;
 
@@ -21,8 +22,10 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
+            _playerController.SetMovementMode(MovementMode.Flying);
+            _playerController.SetVelocity(Vector3.zero);
             _zipPoint = new Vector3(_displayZipPoint.transform.position.x, _displayZipPoint.transform.position.y, _displayZipPoint.transform.position.z);
-            _speed = 20;
+            _speed = 40;
             _isZip = false;
         }
 
@@ -38,23 +41,38 @@ namespace Core.GamePlay.Player
                 if (Vector3.Distance(_zipPoint, _playerController.transform.position) > 1f)
                     _jump = false;
             }
+            if(Vector3.Distance(_zipPoint, _playerController.transform.position) < 0.1f)
+            {
+                EndAction();
+            }
+            _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
+        }
+
+        public override void LateUpdate()
+        {
+            if(!_isZip) return;
+            base.LateUpdate();
+            Move();
+            Rotate();
+        }
+
+        protected override void Move()
+        {
+            _playerController.SetVelocity(_moveDirection.normalized * _speed);
+        }
+
+        protected override void Rotate()
+        {
+            Debug.DrawRay(_playerController.transform.position, _rotateDirection, Color.red, 10f);
+            base.Rotate();
         }
 
         public override void KeepAction()
         {
             base.KeepAction();
-            CompleteZip();
-        }
-
-        public void CompleteZip()
-        {
             _isZip = true;
-            _playerController.transform.DOMove(_zipPoint, Vector3.Distance(_zipPoint, _playerController.transform.position) / _speed)
-                .SetEase(Ease.OutCubic)
-                .OnComplete(EndAction);
-            Debug.DrawRay(_playerController.PlayerDisplay.position, _moveDirection, Color.red, 10);
-            _moveDirection = _zipPoint - _playerController.transform.position;
-            _rotateDirection = Vector3.Cross(_moveDirection.normalized, -_playerController.PlayerDisplay.right);
+            _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
+            _rotateDirection = _moveDirection.normalized;
             Rotate();
         }
 
@@ -90,6 +108,8 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionEnum)
         {
+            _playerController.SetVelocity(Vector3.zero);
+            _playerController.SetMovementMode(MovementMode.Walking);
             return base.Exit(actionEnum);
         }
     }

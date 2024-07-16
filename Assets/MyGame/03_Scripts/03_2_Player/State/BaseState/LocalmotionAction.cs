@@ -24,7 +24,7 @@ namespace Core.GamePlay
             _maxAngularSlopes = playerController.CharacterMovement.slopeLimit;
         }
 
-        protected virtual void MoveInAir(){
+        protected virtual void Move(){
             _playerController.SetMovementDirection(_moveDirection * _speed);
         }
 
