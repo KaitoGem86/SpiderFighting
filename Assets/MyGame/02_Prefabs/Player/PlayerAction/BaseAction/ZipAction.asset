@@ -32,6 +32,7 @@ MonoBehaviour:
           _Events:
             _NormalizedTimes:
             - 0.2777778
+            - 0.6614786
             - 1
             _Callbacks:
             - m_PersistentCalls:
@@ -97,6 +98,7 @@ MonoBehaviour:
           _Events:
             _NormalizedTimes:
             - 0.2777778
+            - 0.6725032
             - 1
             _Callbacks:
             - m_PersistentCalls:
@@ -162,6 +164,7 @@ MonoBehaviour:
           _Events:
             _NormalizedTimes:
             - 0.2777778
+            - 0.6725032
             - 1
             _Callbacks:
             - m_PersistentCalls:
@@ -227,6 +230,7 @@ MonoBehaviour:
           _Events:
             _NormalizedTimes:
             - 0.28571427
+            - 0.63340735
             - 1
             _Callbacks:
             - m_PersistentCalls:
@@ -292,6 +296,7 @@ MonoBehaviour:
           _Events:
             _NormalizedTimes:
             - 0.28571427
+            - 0.64535856
             - 1
             _Callbacks:
             - m_PersistentCalls:
@@ -357,6 +362,7 @@ MonoBehaviour:
           _Events:
             _NormalizedTimes:
             - 0.28571427
+            - 0.6493422
             - 1
             _Callbacks:
             - m_PersistentCalls:
@@ -422,6 +428,7 @@ MonoBehaviour:
           _Events:
             _NormalizedTimes:
             - 0.28571427
+            - 0.64535856
             - 1
             _Callbacks:
             - m_PersistentCalls:
@@ -487,6 +494,7 @@ MonoBehaviour:
           _Events:
             _NormalizedTimes:
             - 0.15748028
+            - 0.4773022
             - 1
             _Callbacks:
             - m_PersistentCalls:

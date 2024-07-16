@@ -1,6 +1,7 @@
 using System.Collections;
 using DG.Tweening.Plugins.Options;
 using EasyCharacterMovement;
+using MyTools.Event;
 using SFRemastered.InputSystem;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Core.GamePlay.Player
     public class SwingAction : InAirAction
     {
         [SerializeField] private float _angular;
+        [SerializeField] BoolSerializeEventListener _onSwing;
 
         public Transform connectedBody;   // The Rigidbody to which the spring is connected
         public float springForce = 5000; // The spring constant (k)
@@ -49,6 +51,7 @@ namespace Core.GamePlay.Player
         {
             FindPivot();
             base.Enter(beforeAction);
+            _onSwing.RegisterListener();
             _velocity = _playerController.GlobalVelocity;
             _playerController.SetMovementMode(MovementMode.None);
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
@@ -61,6 +64,7 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionAfter)
         {
+            _onSwing.UnregisterListener();
             _isStartShootSilk = false;
             _lineRenderer.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
             _playerController.PlayerDisplay.transform.up = Vector3.up;
@@ -105,11 +109,6 @@ namespace Core.GamePlay.Player
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
             }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                _stateContainer.ChangeAction(ActionEnum.Jumping);
-                return;
-            }
             ShootShilkPefFrame(_handToUse == 1 ? _leftHand : _rightHand, frame, maxFrame);
             frame = Mathf.Min(frame + 1, maxFrame);
         }
@@ -125,6 +124,12 @@ namespace Core.GamePlay.Player
         public override void LateUpdate()
         {
 
+        }
+
+        public void ChangeToJumping(bool isSwing){
+            if(!isSwing){
+                _stateContainer.ChangeAction(ActionEnum.Jumping);
+            }
         }
 
         private void InitSwing()

@@ -3317,7 +3317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onZip: {fileID: 11400000, guid: 71c7e6fd360d2d7499a19c5aa65232d4, type: 2}
-  onSwing: {fileID: 0}
+  onSwing: {fileID: 11400000, guid: 2c7b89c9ffc74e34e839bb3f781e671b, type: 2}
 --- !u!1 &125164510
 GameObject:
   m_ObjectHideFlags: 0
@@ -24662,6 +24662,7 @@ GameObject:
   - component: {fileID: 1171117690}
   - component: {fileID: 1171117689}
   - component: {fileID: 1171117688}
+  - component: {fileID: 1171117691}
   m_Layer: 5
   m_Name: SwingButton
   m_TagString: Untagged
@@ -24735,19 +24736,7 @@ MonoBehaviour:
   _duration: 0.2
   _onClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 122001522}
-        m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
-        m_MethodName: OnClickJump
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1171117689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24786,6 +24775,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171117686}
   m_CullTransparentMesh: 1
+--- !u!114 &1171117691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171117686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 122001522}
+          m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
+          m_MethodName: OnClickSwing
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 122001522}
+          m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
+          m_MethodName: OnClickSwing
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1171480320
 GameObject:
   m_ObjectHideFlags: 0

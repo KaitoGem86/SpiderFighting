@@ -19,7 +19,7 @@ namespace Core.GamePlay.Player
         {
             base.Enter(beforeAction);
             GetInput();
-            _speed = 15f;
+            _speed = 20;
         }
 
         public override bool Exit(ActionEnum actionAfter)

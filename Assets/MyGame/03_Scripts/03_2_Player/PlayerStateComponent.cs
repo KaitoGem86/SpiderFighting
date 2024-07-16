@@ -91,6 +91,7 @@ namespace Core.GamePlay.Player
 
         public void Zip()
         {
+            if (_currentAction == ActionEnum.Swing || _currentAction == ActionEnum.Zip) return;
             ChangeAction(ActionEnum.Zip);
         }
 

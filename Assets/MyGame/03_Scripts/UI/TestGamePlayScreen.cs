@@ -7,7 +7,9 @@ namespace Core.UI{
     public class TestGamePlayScreen : MonoBehaviour
     {
         public DefaultEvent onZip;
-        public DefaultEvent onSwing;
+        public BoolEvent onSwing;
+
+        private bool _isSwing = false;
         
         public void Update(){
             if(Input.GetKeyDown(KeyCode.C)){
@@ -15,6 +17,15 @@ namespace Core.UI{
             }
             if(Input.GetKeyDown(KeyCode.Z)){
                 OnClickZip();
+            }
+            if(Input.GetKeyDown(KeyCode.Space)){
+                OnClickSwing(true);
+            }
+            if(Input.GetKeyUp(KeyCode.Space)){
+                OnClickSwing(false);
+            }
+            if(_isSwing){
+                onSwing?.Raise(value: true);
             }
         }
 
@@ -29,8 +40,9 @@ namespace Core.UI{
             onZip?.Raise();
         }
 
-        public void OnClickSwing(){
-            onSwing?.Raise();
+        public void OnClickSwing(bool Value){
+            onSwing?.Raise(value: Value);
+            _isSwing = Value;
         }
     
     

@@ -64,7 +64,8 @@ namespace Core.GamePlay.Player
                 EndAction();
             }
             var distance = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position);
-            _moveDirection = (_zipPoint - _playerController.PlayerDisplay.transform.position) * (distance > 1 ? 5 : 0.3f);
+            Debug.Log(distance);
+            _moveDirection = (_zipPoint - _playerController.PlayerDisplay.transform.position) * (distance > 1 ? 7 : 0.1f);
         }
 
         public override void LateUpdate()

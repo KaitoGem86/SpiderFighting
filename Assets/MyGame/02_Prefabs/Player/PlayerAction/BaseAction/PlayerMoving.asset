@@ -51,8 +51,8 @@ MonoBehaviour:
           _SynchronizeChildren: 
           _Thresholds:
           - 0
-          - 3
-          - 15
+          - 7
+          - 20
           _DefaultParameter: 0
           _ExtrapolateSpeed: 1
         endAnimation:
