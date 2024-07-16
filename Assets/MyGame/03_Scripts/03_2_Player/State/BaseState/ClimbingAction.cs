@@ -29,7 +29,7 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
             _speed = 8f;
             _playerController.gravity = Vector3.zero;
-            _playerController.SetVelocity(Vector3.zero);
+            _playerController.SetMovementDirection(Vector3.zero);
             _isEndClimbing = false;
             _isCompleteStartClimbing = false;
             StartClimbing();
@@ -132,25 +132,8 @@ namespace Core.GamePlay.Player
         private void EndClimbing()
         {
             _playerController.gravity = Vector3.down * 9.8f;
-            var angle = GetAngle(_direction, Vector3.ProjectOnPlane(Vector3.up, _surfaceNormal));
-            if (angle > 45)
-            {
-                _displayContainer.ApplyRootMotion(true);
-                _state = _displayContainer.PlayAnimation(_climbingUpRightTransition);
-                _state.Events = _climbingUpRightTransition.Events;
-            }
-            else if (angle < -45)
-            {
-                _displayContainer.ApplyRootMotion(true);
-                _state = _displayContainer.PlayAnimation(_climbingUpLeftTransition);
-                _state.Events = _climbingUpLeftTransition.Events;
-            }
-            else
-            {
-                _state = _displayContainer.PlayAnimation(_climbingUpTransition);
-                _state.Events = _climbingUpTransition.Events;
-            }
             _isEndClimbing = true;
+            _stateContainer.ChangeAction(ActionEnum.Jumping);
         }
 
         private float GetAngle(Vector3 markVector, Vector3 targetVector)

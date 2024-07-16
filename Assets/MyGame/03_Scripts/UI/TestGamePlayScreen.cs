@@ -9,7 +9,7 @@ namespace Core.UI{
         public DefaultEvent onZip;
         
         public void Update(){
-            if(Input.GetKeyDown(KeyCode.J)){
+            if(Input.GetKeyDown(KeyCode.C)){
                 OnClickJump();
             }
             if(Input.GetKeyDown(KeyCode.Z)){
@@ -30,6 +30,7 @@ namespace Core.UI{
     
     
         private IEnumerator AfterClickJump(){
+            yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
             InputManager.instance.jump = false;
         }

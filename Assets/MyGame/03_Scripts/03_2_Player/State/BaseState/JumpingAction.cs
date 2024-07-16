@@ -34,6 +34,14 @@ namespace Core.GamePlay.Player
                     break;
                 case ActionEnum.Swing:
                     _speed = 10;
+                    _jumpVelocity = 10;
+                    _playerController.SetVelocity(JumpDirection());
+                    _isStartJumping = true;
+                    _elapsedTime = 0.3f;
+                    break;
+                case ActionEnum.Climbing:
+                    _speed = 5;
+                    _jumpVelocity = 5;
                     _playerController.SetVelocity(JumpDirection());
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
@@ -68,7 +76,7 @@ namespace Core.GamePlay.Player
 
         private void FallingDown()
         {
-            if(!_isJumpingFromSwing)
+            if (!_isJumpingFromSwing)
                 _stateContainer.ChangeAction(ActionEnum.FallingDown);
             else
                 _stateContainer.ChangeAction(ActionEnum.Dive);
