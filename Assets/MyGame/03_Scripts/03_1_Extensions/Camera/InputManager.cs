@@ -14,7 +14,7 @@ namespace SFRemastered.InputSystem
         public float camsensitivity = 1f;
 
         [Header("Input modules")]
-        public VariableJoystick joystickMove;
+        public Joystick joystickMove;
         public GameObject lookPanel;
 
         [Header("Input value(Readonly)")]

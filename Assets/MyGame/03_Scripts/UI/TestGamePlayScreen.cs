@@ -1,4 +1,5 @@
 using System.Collections;
+using Core.GamePlay.Player;
 using MyTools.Event;
 using SFRemastered.InputSystem;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace Core.UI{
     {
         public DefaultEvent onZip;
         public BoolEvent onSwing;
+        public PlayerController playerController;
 
         private bool _isSwing = false;
         
@@ -41,6 +43,10 @@ namespace Core.UI{
         }
 
         public void OnClickSwing(bool Value){
+            if(playerController.IsOnGround()){
+                OnClickJump();
+                return;
+            }
             onSwing?.Raise(value: Value);
             _isSwing = Value;
         }
