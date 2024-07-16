@@ -85,18 +85,18 @@ namespace Core.GamePlay.Player
             if (angle > 45)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(_playerController.transform.position, _playerController.PlayerDisplay.forward, out hit, 100))
+                if (Physics.Raycast(_playerController.transform.position, _moveDirection, out hit, 100))
                 {
                     if (hit.distance < 0.8f)
                     {
                         _surfaceNormal = hit.normal;
                         _stateContainer.SurfaceNormal = _surfaceNormal;
                         _stateContainer.ChangeAction(ActionEnum.Climbing);
+                        return;
                     }
                 }
             }
-            else
-                EndAction();
+            EndAction();
         }
 
         protected override void ExitAction()
