@@ -66,7 +66,7 @@ namespace Core.GamePlay.Player
 
         public virtual void Enter(ActionEnum actionBefore)
         {
-            _randomTransition = GetRandomTransition(actionBefore);
+            _randomTransition = GetTransition(actionBefore);
             _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_randomTransition];
             StartAction();
         }
@@ -128,7 +128,7 @@ namespace Core.GamePlay.Player
 
         protected virtual void ExitAction(){}
 
-        private int GetRandomTransition(ActionEnum actionBefore)
+        protected virtual int GetTransition(ActionEnum actionBefore)
         {
             return UnityEngine.Random.Range(0, _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore].Count);
         }

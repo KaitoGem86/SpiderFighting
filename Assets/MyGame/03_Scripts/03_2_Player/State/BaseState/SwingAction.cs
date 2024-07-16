@@ -39,6 +39,7 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum beforeAction)
         {
+            FindPivot();
             base.Enter(beforeAction);
             _velocity = _playerController.GetVelocity();
             _playerController.SetMovementMode(MovementMode.None);
@@ -46,7 +47,6 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.useGravity = true;
             _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
             _playerController.CharacterMovement.rigidbody.velocity = _velocity;
-            FindPivot();
             InitSwing();
         }
 
@@ -63,21 +63,13 @@ namespace Core.GamePlay.Player
         private void FindPivot()
         {
             var tmp = InputManager.instance.move;
-            var forward = _playerController.CameraTransform.forward * tmp.y;
+            var forward = _playerController.CameraTransform.forward;
             forward.y = 0;
             var right = _playerController.CameraTransform.right;
-            //right.y = 0;
+            right.y = 0;
             var tmpDirection = forward + right;
             var tempFindDirection = new Vector3(tmpDirection.x, tmpDirection.magnitude, tmpDirection.z);
-            // if (Physics.Raycast(_holdPivot.position + _playerController.PlayerDisplay.right * 5 * _handToUse, tempFindDirection, out RaycastHit hit, 100f, 6))
-            //     _pivot = hit.point;
-            // if (Vector3.Distance(_playerController.transform.position, _pivot) < 20)
-            // {
-            //     _pivot = _playerController.transform.position + (_pivot - _playerController.transform.position).normalized * 20;
-            // }
-            // else
             {
-//                _pivot = _playerController.transform.position + _playerController.PlayerDisplay.up * 20 + _playerController.PlayerDisplay.right * 10 * _handToUse + _playerController.PlayerDisplay.forward * 20;
                 _pivot = _playerController.transform.position + forward.normalized * 10 + right.normalized * 10 * _handToUse + Vector3.up * 20;
             }
             restLength = Vector3.Distance(_holdPivot.position, _pivot);
@@ -89,7 +81,7 @@ namespace Core.GamePlay.Player
 
         public override void Update()
         {
-            if ( (Vector3.Angle(_holdPivot.position - rb.transform.position, Vector3.down) > 87 && Vector3.Dot(_playerController.CharacterMovement.rigidbody.velocity, Vector3.up) > 0))
+            if ((Vector3.Angle(_holdPivot.position - rb.transform.position, Vector3.down) > 87 && Vector3.Dot(_playerController.CharacterMovement.rigidbody.velocity, Vector3.up) > 0))
             {
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
@@ -112,7 +104,7 @@ namespace Core.GamePlay.Player
 
         public override void LateUpdate()
         {
-            
+
         }
 
         private void InitSwing()
@@ -128,16 +120,27 @@ namespace Core.GamePlay.Player
             _springJoint.massScale = 4.5f;
         }
 
-        private void RotateCharacterFlowVelocity(){
+        private void RotateCharacterFlowVelocity()
+        {
             var velocity = _playerController.CharacterMovement.rigidbody.velocity;
             var targetRotation = Quaternion.LookRotation(velocity);
-            _playerController.PlayerDisplay.transform.rotation = Quaternion.Slerp(_playerController.PlayerDisplay.transform.rotation, targetRotation, Time.deltaTime * 2 );
+            _playerController.PlayerDisplay.transform.rotation = Quaternion.Slerp(_playerController.PlayerDisplay.transform.rotation, targetRotation, Time.deltaTime * 2);
         }
 
         protected override void EndStateToClimb()
         {
             Debug.Log("EndStateToClimb");
             _playerController.SetVelocity(Vector3.zero);
+        }
+
+        protected override int GetTransition(ActionEnum actionBefore)
+        {
+            if(_handToUse == 1)
+                return Random.Range(0, 9);
+            else
+            {
+                return Random.Range(9, 18);
+            }
         }
     }
 }
