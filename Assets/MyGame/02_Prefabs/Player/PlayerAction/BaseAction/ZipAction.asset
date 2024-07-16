@@ -28,11 +28,26 @@ MonoBehaviour:
     - Key: 3
       Value:
       - startAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.13333334
           _Events:
             _NormalizedTimes:
+            - 0.2777778
             - 1
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.ZipAction, Assembly-CSharp
+                  m_MethodName: StartShootSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -78,11 +93,26 @@ MonoBehaviour:
     - Key: 17
       Value:
       - startAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.13333334
           _Events:
             _NormalizedTimes:
+            - 0.2777778
             - 1
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.ZipAction, Assembly-CSharp
+                  m_MethodName: StartShootSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -128,11 +158,26 @@ MonoBehaviour:
     - Key: 4
       Value:
       - startAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.13333334
           _Events:
             _NormalizedTimes:
+            - 0.2777778
             - 1
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.ZipAction, Assembly-CSharp
+                  m_MethodName: StartShootSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -178,11 +223,26 @@ MonoBehaviour:
     - Key: 7
       Value:
       - startAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.1
           _Events:
             _NormalizedTimes:
+            - 0.28571427
             - 1
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.ZipAction, Assembly-CSharp
+                  m_MethodName: StartShootSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -228,11 +288,26 @@ MonoBehaviour:
     - Key: 8
       Value:
       - startAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.1
           _Events:
             _NormalizedTimes:
+            - 0.28571427
             - 1
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.ZipAction, Assembly-CSharp
+                  m_MethodName: StartShootSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -278,11 +353,26 @@ MonoBehaviour:
     - Key: 2
       Value:
       - startAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.1
           _Events:
             _NormalizedTimes:
+            - 0.28571427
             - 1
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.ZipAction, Assembly-CSharp
+                  m_MethodName: StartShootSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -328,11 +418,26 @@ MonoBehaviour:
     - Key: 1
       Value:
       - startAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.1
           _Events:
             _NormalizedTimes:
+            - 0.28571427
             - 1
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.ZipAction, Assembly-CSharp
+                  m_MethodName: StartShootSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}

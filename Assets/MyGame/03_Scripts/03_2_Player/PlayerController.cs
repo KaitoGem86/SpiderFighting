@@ -12,8 +12,8 @@ namespace Core.GamePlay.Player
         [SerializeField] private Transform _playerDisplay;
         [SerializeField] private CharacterMovement _characterMovementObject;
         [SerializeField] private Transform _holdPivot;
-        public LineRenderer Line;
-        public Transform MeleeWeapon;
+        public LineRenderer LeftLine;
+        public LineRenderer RightLine;
 
         [SerializeField] private SerializedDictionary<PlayerComponentEnum, BasePlayerComponent> _dictPlayerComponents;
         private ActionEnum _beforeAction;

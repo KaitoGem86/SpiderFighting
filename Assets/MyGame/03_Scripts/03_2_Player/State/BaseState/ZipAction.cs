@@ -12,11 +12,22 @@ namespace Core.GamePlay.Player
         private Vector3 _zipPoint;
         private bool _isZip;
         private bool _jump;
+        private Transform _leftHand;
+        private Transform _rightHand;
+        private bool _isStartShootSilk = false;
+        private int frame = 0;
+        private int maxFrame = 10;
+        private LineRenderer _left;
+        private LineRenderer _right;
 
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
             base.Init(playerController, actionEnum);
             _displayZipPoint = playerController.DisplayZipPoint;
+            _leftHand = playerController.leftHand;
+            _rightHand = playerController.rightHand;
+            _left = playerController.LeftLine;
+            _right = playerController.RightLine;
         }
 
         public override void Enter(ActionEnum beforeAction)
@@ -26,6 +37,9 @@ namespace Core.GamePlay.Player
             _zipPoint = new Vector3(_displayZipPoint.transform.position.x, _displayZipPoint.transform.position.y, _displayZipPoint.transform.position.z);
             _speed = 40;
             _isZip = false;
+            _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
+            _rotateDirection = _moveDirection.normalized;
+
         }
 
         public override void Update()
@@ -51,7 +65,12 @@ namespace Core.GamePlay.Player
         public override void LateUpdate()
         {
             Rotate();
-            if (!_isZip) return;
+            if (!_isZip)
+            {
+                ShootShilkPefFrame(frame, maxFrame);
+                frame = Mathf.Min(frame + 1, maxFrame);
+                return;
+            }
             base.LateUpdate();
             Move();
         }
@@ -127,6 +146,19 @@ namespace Core.GamePlay.Player
             _playerController.SetVelocity(Vector3.zero);
             _playerController.SetMovementMode(MovementMode.Walking);
             return base.Exit(actionEnum);
+        }
+
+        public void StartShootSilk()
+        {
+            _isStartShootSilk = true;
+        }
+
+        private void ShootShilkPefFrame(int frame, int maxFrame)
+        {
+            if (!_isStartShootSilk) return;
+            //Debug.Log("ShootShilkPefFrame");
+            _left.SetPositions(new Vector3[] { _leftHand.position, _leftHand.position + (_zipPoint - _leftHand.position).normalized * frame });
+            _right.SetPositions(new Vector3[] { _rightHand.position, _rightHand.position + (_zipPoint - _rightHand.position).normalized * frame });
         }
     }
 }
