@@ -43,7 +43,7 @@ namespace Core.GamePlay.Player
             {
                 return;
             }
-            if (Input.GetKeyDown(KeyCode.C))
+            if (InputManager.instance.jump)
             {
                 _isEndClimbing = true;
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
