@@ -27,12 +27,21 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
-            _speed = 8f;
             _playerController.gravity = Vector3.zero;
-            _playerController.SetMovementDirection(Vector3.zero);
+            _speed = 8f;
             _isEndClimbing = false;
             _isCompleteStartClimbing = false;
             StartClimbing();
+        }
+
+        public override void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.C)){
+                _isEndClimbing = true;
+                _stateContainer.ChangeAction(ActionEnum.Jumping);
+            }
+            base.Update();
+            GetInput();
         }
 
         public override void LateUpdate()
@@ -41,7 +50,6 @@ namespace Core.GamePlay.Player
             {
                 return;
             }
-            GetInput();
             if (_isEndClimbing)
             {
                 Rotate();
@@ -52,10 +60,16 @@ namespace Core.GamePlay.Player
             if (angle > 45)
             {
                 _currentState = (LinearMixerState)_displayContainer.PlayAnimation(_climbingRightTransition);
+                if(angle > 90){
+                    _moveDirection = _playerController.PlayerDisplay.right;
+                }
             }
             else if (angle < -45)
             {
                 _currentState = (LinearMixerState)_displayContainer.PlayAnimation(_climbingLeftTranstion);
+                if(angle < -90){
+                    _moveDirection = -_playerController.PlayerDisplay.right;
+                }
             }
             else
             {
@@ -133,7 +147,7 @@ namespace Core.GamePlay.Player
         {
             _playerController.gravity = Vector3.down * 9.8f;
             _isEndClimbing = true;
-            _stateContainer.ChangeAction(ActionEnum.Jumping);
+            _stateContainer.ChangeAction(ActionEnum.FallingDown);
         }
 
         private float GetAngle(Vector3 markVector, Vector3 targetVector)

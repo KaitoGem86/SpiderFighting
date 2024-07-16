@@ -6,7 +6,7 @@ namespace Core.GamePlay.Player{
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
-            _speed = 8;
+            _speed = 15;
         }
 
         public override void Update()

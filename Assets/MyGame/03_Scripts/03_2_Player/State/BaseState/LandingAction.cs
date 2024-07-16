@@ -31,6 +31,9 @@ namespace Core.GamePlay.Player
             {
                 _state = _displayContainer.PlayAnimation(_criticalLanding);
             }
+            _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
+            _playerController.CharacterMovement.velocity = Vector3.zero;
+            _playerController.SetVelocity(Vector3.zero);
         }
 
         public void CompleteLanding()

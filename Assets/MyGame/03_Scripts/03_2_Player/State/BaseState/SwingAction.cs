@@ -90,11 +90,11 @@ namespace Core.GamePlay.Player
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
             }
-            if (_t < 0.1f)
-            {
-                _stateContainer.ChangeAction(ActionEnum.Dive);
-                return;
-            }
+            // if (_t < 0.1f)
+            // {
+            //     _stateContainer.ChangeAction(ActionEnum.Dive);
+            //     return;
+            // }
             _t -= Time.deltaTime;
             base.Update();
             _lineRenderer.SetPositions(new Vector3[] { _holdPivot.position, _pivot });

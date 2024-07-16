@@ -24,6 +24,7 @@ namespace Core.GamePlay.Player
             if (_isJumping) return;
             base.Enter(beforeAction);
             _isJumpingFromSwing = beforeAction == ActionEnum.Swing;
+            _playerController.gravity = Vector3.down * 9.8f;
             switch (beforeAction)
             {
                 case ActionEnum.Zip:
@@ -42,7 +43,7 @@ namespace Core.GamePlay.Player
                 case ActionEnum.Climbing:
                     _speed = 5;
                     _jumpVelocity = 5;
-                    _playerController.SetVelocity(JumpDirection());
+                    _playerController.CharacterMovement.rigidbody.velocity = -_playerController.PlayerDisplay.transform.forward * 5  + Vector3.up * 20;
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;

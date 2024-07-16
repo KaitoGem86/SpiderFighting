@@ -14,7 +14,7 @@ namespace Core.GamePlay.Player
         {
             GetInput();
             MoveInAir();
-            if(_rotateDirection != Vector3.zero)
+            if (_rotateDirection != Vector3.zero)
                 Rotate();
         }
 
@@ -41,8 +41,17 @@ namespace Core.GamePlay.Player
             }
             else
             {
-                _stateContainer.SurfaceNormal = surfaceNormal;
-                _stateContainer.ChangeAction(ActionEnum.Climbing);
+                RaycastHit hit;
+                if (Physics.Raycast(_playerController.transform.position, _playerController.PlayerDisplay.forward, out hit, 100))
+                {
+                    if (hit.distance < 0.8f)
+                    {
+                        _surfaceNormal = hit.normal;
+                        _stateContainer.SurfaceNormal = _surfaceNormal;
+                        _stateContainer.ChangeAction(ActionEnum.Climbing);
+                    }
+                }
+
             }
         }
 
