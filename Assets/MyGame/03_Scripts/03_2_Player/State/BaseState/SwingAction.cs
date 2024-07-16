@@ -1,3 +1,5 @@
+using System.Collections;
+using DG.Tweening.Plugins.Options;
 using EasyCharacterMovement;
 using SFRemastered.InputSystem;
 using Unity.VisualScripting;
@@ -25,8 +27,12 @@ namespace Core.GamePlay.Player
         private Vector3 _velocity;
         private float _targetReslength;
         private SpringJoint _springJoint;
+        private Transform _leftHand;
+        private Transform _rightHand;
+        private int frame = 0;
+        private int maxFrame = 10;
+        private bool _isStartShootSilk = false;
 
-        private float _t;
 
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -35,6 +41,8 @@ namespace Core.GamePlay.Player
             _handToUse = 1;
             _lineRenderer = _playerController.Line;
             rb = _playerController.swingPivot;
+            _leftHand = _playerController.leftHand;
+            _rightHand = _playerController.rightHand;
         }
 
         public override void Enter(ActionEnum beforeAction)
@@ -47,11 +55,14 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.useGravity = true;
             _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
             _playerController.CharacterMovement.rigidbody.velocity = _velocity;
+            _isStartShootSilk = false;
             InitSwing();
         }
 
         public override bool Exit(ActionEnum actionAfter)
         {
+            _isStartShootSilk = false;
+            _lineRenderer.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
             _playerController.PlayerDisplay.transform.up = Vector3.up;
             _playerController.GlobalVelocity = _playerController.CharacterMovement.rigidbody.velocity;
             Destroy(_springJoint);
@@ -70,12 +81,13 @@ namespace Core.GamePlay.Player
             right.y = 0;
             var tmpDirection = forward + right;
             var tempFindDirection = new Vector3(tmpDirection.x, tmpDirection.magnitude, tmpDirection.z);
-            if(_playerController.transform.position.y < 10)
+            if (_playerController.transform.position.y < 10)
             {
                 _speed = 30;
                 _pivot = _playerController.transform.position + forward.normalized * 10 + right.normalized * 10 * _handToUse + Vector3.up * 20;
             }
-            else{
+            else
+            {
                 _speed = 50;
                 _pivot = _playerController.transform.position + forward.normalized * 20 + right.normalized * 10 * _handToUse + Vector3.up * 20;
             }
@@ -98,7 +110,8 @@ namespace Core.GamePlay.Player
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
             }
-            _lineRenderer.SetPositions(new Vector3[] { _holdPivot.position, rb.transform.position });
+            ShootShilkPefFrame(_handToUse == 1 ? _leftHand : _rightHand, frame, maxFrame);
+            frame = Mathf.Min(frame + 1, maxFrame);
         }
 
         public override void FixedUpdate()
@@ -137,17 +150,30 @@ namespace Core.GamePlay.Player
         protected override void EndStateToClimb()
         {
             Debug.Log("EndStateToClimb");
-            _playerController.SetVelocity(Vector3.zero);
         }
 
         protected override int GetTransition(ActionEnum actionBefore)
         {
-            if(_handToUse == 1)
+            if (_handToUse == 1)
                 return Random.Range(0, 9);
             else
             {
                 return Random.Range(9, 18);
             }
+        }
+
+        public void ShootSpiderSilk()
+        {
+            _isStartShootSilk = true;
+            frame = 0;
+            maxFrame = 10;
+        }
+
+        private void ShootShilkPefFrame(Transform hand, int frame, int maxFrame)
+        {
+            if (!_isStartShootSilk) return;
+            //Debug.Log("ShootShilkPefFrame");
+            _lineRenderer.SetPositions(new Vector3[] { hand.position, hand.position + (_pivot - hand.position) .normalized * frame });
         }
     }
 }

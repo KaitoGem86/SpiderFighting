@@ -28,12 +28,27 @@ MonoBehaviour:
     - Key: 0
       Value:
       - startAnimation:
-          _FadeDuration: 0.7833332
+          _FadeDuration: 0.5
           _Events:
             _NormalizedTimes:
+            - 0.17021278
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -56,8 +71,24 @@ MonoBehaviour:
         keepAnimation:
           _FadeDuration: 0.76666665
           _Events:
-            _NormalizedTimes: []
-            _Callbacks: []
+            _NormalizedTimes:
+            - 0.5714607
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 0}
+                  m_TargetAssemblyTypeName: 
+                  m_MethodName: 
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: 
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             _Names: []
           _Speed: NaN
           _Animations:
@@ -78,12 +109,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.5666667
+          _FadeDuration: 0.26666668
           _Events:
             _NormalizedTimes:
+            - 0.1470588
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -128,12 +174,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.33333325
+          _FadeDuration: 0.3
           _Events:
             _NormalizedTimes:
+            - 0.25000006
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -178,12 +239,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.44166672
+          _FadeDuration: 0.3
           _Events:
             _NormalizedTimes:
+            - 0.1886792
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -228,12 +304,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.6333334
+          _FadeDuration: 0.5
           _Events:
             _NormalizedTimes:
+            - 0.21052629
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -278,12 +369,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.6916667
+          _FadeDuration: 0.15
           _Events:
             _NormalizedTimes:
+            - 0.060240958
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -344,12 +450,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 1.1333334
+          _FadeDuration: 0.15
           _Events:
             _NormalizedTimes:
+            - 0.0367647
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -366,7 +487,7 @@ MonoBehaviour:
                     m_BoolArgument: 0
                   m_CallState: 2
             _Names: []
-          _Clip: {fileID: 7400000, guid: 89581c7378dc88d4cb084892c18b0a53, type: 2}
+          _Clip: {fileID: 7400000, guid: 9e61335c56cf59646861a30f30422001, type: 2}
           _Speed: 1
           _NormalizedStartTime: NaN
         keepAnimation:
@@ -394,12 +515,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.8583334
+          _FadeDuration: 0.6666667
           _Events:
             _NormalizedTimes:
+            - 0.2184466
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -447,15 +583,15 @@ MonoBehaviour:
           _FadeDuration: 0.55833334
           _Events:
             _NormalizedTimes:
+            - 0.2761194
             - 0.9
             - NaN
             _Callbacks:
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
-                  m_TargetAssemblyTypeName: Core.GamePlay.Player.BasePlayerAction,
-                    Assembly-CSharp
-                  m_MethodName: KeepAction
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
                   m_Mode: 1
                   m_Arguments:
                     m_ObjectArgument: {fileID: 0}
@@ -465,41 +601,6 @@ MonoBehaviour:
                     m_StringArgument: 
                     m_BoolArgument: 0
                   m_CallState: 2
-            _Names: []
-          _Clip: {fileID: 7400000, guid: 9ca2d364858e1ed4089993047f57c607, type: 2}
-          _Speed: 1
-          _NormalizedStartTime: NaN
-        keepAnimation:
-          _FadeDuration: 0.76666665
-          _Events:
-            _NormalizedTimes: []
-            _Callbacks: []
-            _Names: []
-          _Speed: NaN
-          _Animations:
-          - {fileID: 7400000, guid: a56de8826a9b53149b5a31edf92bd3b1, type: 2}
-          _Speeds: []
-          _SynchronizeChildren: 
-          _Thresholds:
-          - 0
-          _DefaultParameter: 0
-          _ExtrapolateSpeed: 0
-        endAnimation:
-          _FadeDuration: 0
-          _Events:
-            _NormalizedTimes: []
-            _Callbacks: []
-            _Names: []
-          _Clip: {fileID: 0}
-          _Speed: 0
-          _NormalizedStartTime: 0
-      - startAnimation:
-          _FadeDuration: 0.55833334
-          _Events:
-            _NormalizedTimes:
-            - 0.9
-            - NaN
-            _Callbacks:
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -547,9 +648,89 @@ MonoBehaviour:
           _FadeDuration: 0.55833334
           _Events:
             _NormalizedTimes:
+            - 0.2761194
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.BasePlayerAction,
+                    Assembly-CSharp
+                  m_MethodName: KeepAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 9ca2d364858e1ed4089993047f57c607, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0.76666665
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations:
+          - {fileID: 7400000, guid: a56de8826a9b53149b5a31edf92bd3b1, type: 2}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.55833334
+          _Events:
+            _NormalizedTimes:
+            - 0.2184466
+            - 0.9
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -594,12 +775,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.55833334
+          _FadeDuration: 0.15
           _Events:
             _NormalizedTimes:
+            - 0.0367647
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -616,7 +812,7 @@ MonoBehaviour:
                     m_BoolArgument: 0
                   m_CallState: 2
             _Names: []
-          _Clip: {fileID: 7400000, guid: 9e61335c56cf59646861a30f30422001, type: 2}
+          _Clip: {fileID: 7400000, guid: 89581c7378dc88d4cb084892c18b0a53, type: 2}
           _Speed: 1
           _NormalizedStartTime: NaN
         keepAnimation:
@@ -644,12 +840,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.55833334
+          _FadeDuration: 0.15
           _Events:
             _NormalizedTimes:
+            - 0.060240958
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -694,12 +905,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.55833334
+          _FadeDuration: 0.5
           _Events:
             _NormalizedTimes:
+            - 0.21052629
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -744,12 +970,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.55833334
+          _FadeDuration: 0.3
           _Events:
             _NormalizedTimes:
+            - 0.1886792
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -794,12 +1035,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.55833334
+          _FadeDuration: 0.3
           _Events:
             _NormalizedTimes:
+            - 0.25000006
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -844,12 +1100,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.55833334
+          _FadeDuration: 0.26666668
           _Events:
             _NormalizedTimes:
+            - 0.1470588
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -894,12 +1165,27 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.55833334
+          _FadeDuration: 0.5
           _Events:
             _NormalizedTimes:
+            - 0.17021278
             - 0.9
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.SwingAction, Assembly-CSharp
+                  m_MethodName: ShootSpiderSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -947,5 +1233,5 @@ MonoBehaviour:
   connectedBody: {fileID: 0}
   springForce: 50
   damperForce: 5
-  restLength: 23.179182
+  restLength: 28.935652
   speed: 10

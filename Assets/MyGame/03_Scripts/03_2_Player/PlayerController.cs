@@ -128,5 +128,7 @@ namespace Core.GamePlay.Player
         public GameObject DisplayZipPoint;
         public Rigidbody swingPivot;
         public Vector3 GlobalVelocity;
+        public Transform leftHand;
+        public Transform rightHand;
     }
 }

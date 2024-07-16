@@ -870,6 +870,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 426529951}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!4 &30533360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2786564477363336959, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+  m_PrefabInstance: {fileID: 7389204908034313019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &32203467
 GameObject:
   m_ObjectHideFlags: 0
@@ -23561,6 +23566,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ff3e7944ac156e84bb9985c33b5ee183, type: 3}
   m_PrefabInstance: {fileID: 1098355430}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1102658662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2786564477363336893, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+  m_PrefabInstance: {fileID: 7389204908034313019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1103456105
 GameObject:
   m_ObjectHideFlags: 0
@@ -32743,7 +32753,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b0fb0834387a80e4d93ba19a4f8ba870, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32769,13 +32779,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.010662079
-        value: 0.06542015
+        time: 0
+        value: 0.12059278
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -44063,6 +44073,14 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1408434825}
+    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 30533360}
+    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 1102658662}
     - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: _holdPivot
       value: 

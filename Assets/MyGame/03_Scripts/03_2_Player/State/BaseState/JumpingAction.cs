@@ -1,5 +1,6 @@
 using Animancer;
 using Core.SystemGame;
+using TMPro;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
@@ -35,7 +36,7 @@ namespace Core.GamePlay.Player
                     break;
                 case ActionEnum.Swing:
                     _speed = 15;
-                    _jumpVelocity = 20;
+                    _jumpVelocity = 5;
                     _playerController.SetVelocity(JumpDirection());
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
@@ -58,7 +59,11 @@ namespace Core.GamePlay.Player
 
         protected virtual Vector3 JumpDirection()
         {
-            return _playerController.PlayerDisplay.forward * _playerController.GlobalVelocity.magnitude + Vector3.up * _jumpVelocity;
+            var forward = _playerController.PlayerDisplay.forward;
+            forward.y = 0;
+            var tmp = forward * _speed + _playerController.GlobalVelocity;
+            tmp.y = Mathf.Min(tmp.y, 10);
+            return tmp;
         }
 
         public override void Update()
