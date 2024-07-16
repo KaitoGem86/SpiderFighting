@@ -35,7 +35,7 @@ namespace Core.GamePlay.Player
                     break;
                 case ActionEnum.Swing:
                     _speed = 10;
-                    _jumpVelocity = 10;
+                    _jumpVelocity = 20;
                     _playerController.SetVelocity(JumpDirection());
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;

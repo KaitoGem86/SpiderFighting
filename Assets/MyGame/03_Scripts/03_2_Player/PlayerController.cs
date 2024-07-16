@@ -126,5 +126,6 @@ namespace Core.GamePlay.Player
         public CharacterMovement CharacterMovement => _characterMovementObject;
         public GameObject PlaneToSwing;
         public GameObject DisplayZipPoint;
+        public Rigidbody swingPivot;
     }
 }
