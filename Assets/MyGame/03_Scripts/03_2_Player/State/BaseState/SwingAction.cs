@@ -20,20 +20,16 @@ namespace Core.GamePlay.Player
         private Transform _holdPivot;
         private Vector3 _pivot;
         private int _handToUse;
-        private Vector3 _swingDirection;
-        private Vector3 _remainingDirection;
-        private Vector3 _lastDirection;
         private Vector3 _velocity;
         private float _targetReslength;
 
-        private float _mechanicalEnergy;
         private float _t;
 
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
             base.Init(playerController, actionEnum);
             _holdPivot = _playerController.HoldPivot;
-            _handToUse = 0;
+            _handToUse = 1;
             _lineRenderer = _playerController.Line;
         }
 
@@ -41,8 +37,6 @@ namespace Core.GamePlay.Player
         {
             base.Enter(beforeAction);
             _velocity = _playerController.CharacterMovement.rigidbody.velocity;
-            _handToUse = (_handToUse + 1) % 2;
-            _mechanicalEnergy = _playerController.gravity.y * _playerController.CharacterMovement.transform.position.y + 1 / 2 * _playerController.CharacterMovement.velocity.sqrMagnitude;
             _playerController.CharacterMovement.velocity = Vector3.zero;
             FindPivot();
         }
@@ -63,18 +57,19 @@ namespace Core.GamePlay.Player
             var tmpDirection = forward + right;
             var tempFindDirection = new Vector3(tmpDirection.x, tmpDirection.magnitude, tmpDirection.z);
             Debug.DrawRay(_holdPivot.position, tempFindDirection * 100, Color.red, 1000f);
-            if (Physics.Raycast(_holdPivot.position + _playerController.PlayerDisplay.right * Random.Range(-5f, 5), tempFindDirection, out RaycastHit hit, 100f))
+            if (Physics.Raycast(_holdPivot.position + _playerController.PlayerDisplay.right * 5 * _handToUse, tempFindDirection, out RaycastHit hit, 100f))
                 _pivot = hit.point;
                 if (Vector3.Distance(_playerController.transform.position, _pivot) < 20){
                     _pivot = _playerController.transform.position + (_pivot - _playerController.transform.position).normalized * 20;
                 }
             else
             {
-                _pivot = _playerController.transform.position + _playerController.PlayerDisplay.up * 20 + _playerController.PlayerDisplay.right * Random.Range(-15f, 15f) + _playerController.PlayerDisplay.forward * 5;
+                _pivot = _playerController.transform.position + _playerController.PlayerDisplay.up * 20 + _playerController.PlayerDisplay.right * 10 * _handToUse + _playerController.PlayerDisplay.forward * 20;
             }
             restLength = Vector3.Distance(_holdPivot.position, _pivot);
             _targetReslength = restLength * 0.8f;
             _t = 2 * Mathf.PI * Mathf.Sqrt(restLength / -_playerController.gravity.y) * 2 / 3;
+            _handToUse = -_handToUse;
         }
 
         public override void Update()
@@ -90,11 +85,6 @@ namespace Core.GamePlay.Player
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
             }
-            // if (_t < 0.1f)
-            // {
-            //     _stateContainer.ChangeAction(ActionEnum.Dive);
-            //     return;
-            // }
             _t -= Time.deltaTime;
             base.Update();
             _lineRenderer.SetPositions(new Vector3[] { _holdPivot.position, _pivot });
@@ -153,9 +143,9 @@ namespace Core.GamePlay.Player
             var verticalPlaneVel = Vector3.Cross(-tmp, _playerController.PlayerDisplay.transform.right);
             _velocity = Vector3.Cross(verticalPlaneVel, -_playerController.PlayerDisplay.transform.right);
             var h = _playerController.CharacterMovement.transform.position.y;
-            Debug.Log(_mechanicalEnergy - _playerController.gravity.y * h);
-            var v = Mathf.Sqrt(2 * Mathf.Abs(_mechanicalEnergy - _playerController.gravity.y * h));
-            _velocity = _velocity.normalized * v;
+            //Debug.Log(_mechanicalEnergy - _playerController.gravity.y * h);
+            //var v = Mathf.Sqrt(2 * Mathf.Abs(_mechanicalEnergy - _playerController.gravity.y * h));
+            //_velocity = _velocity.normalized * v;
         }
 
         protected override void EndStateToClimb()
