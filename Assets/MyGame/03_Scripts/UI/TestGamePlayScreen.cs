@@ -9,6 +9,7 @@ namespace Core.UI{
     {
         public DefaultEvent onZip;
         public BoolEvent onSwing;
+        public DefaultEvent onChangeSkin;
         public PlayerController playerController;
 
         private bool _isSwing = false;
@@ -36,6 +37,10 @@ namespace Core.UI{
         {
             InputManager.instance.jump = true;
             StartCoroutine(AfterClickJump());
+        }
+
+        public void OnClickChangeSkin(){
+            onChangeSkin?.Raise();
         }
 
         public void OnClickZip(){

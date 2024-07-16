@@ -43,12 +43,12 @@ namespace Core.GamePlay.Player
             _handToUse = 1;
             _lineRenderer = _playerController.LeftLine;
             rb = _playerController.swingPivot;
-            _leftHand = _playerController.leftHand;
-            _rightHand = _playerController.rightHand;
         }
 
         public override void Enter(ActionEnum beforeAction)
         {
+            _leftHand = _playerController.leftHand;
+            _rightHand = _playerController.rightHand;
             FindPivot();
             base.Enter(beforeAction);
             _onSwing.RegisterListener();

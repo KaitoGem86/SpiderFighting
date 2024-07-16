@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using EasyCharacterMovement;
 using SFRemastered.InputSystem;
@@ -9,11 +10,11 @@ namespace Core.GamePlay.Player
     public class PlayerController : Character
     {
         [SerializeField] private Transform _cameraTransformObject;
-        [SerializeField] private Transform _playerDisplay;
         [SerializeField] private CharacterMovement _characterMovementObject;
         [SerializeField] private Transform _holdPivot;
         public LineRenderer LeftLine;
         public LineRenderer RightLine;
+        public PlayerModel CurrentPlayerModel;
 
         [SerializeField] private SerializedDictionary<PlayerComponentEnum, BasePlayerComponent> _dictPlayerComponents;
         private ActionEnum _beforeAction;
@@ -119,7 +120,7 @@ namespace Core.GamePlay.Player
             }
         }
 
-        public Transform PlayerDisplay => _playerDisplay;
+        public Transform PlayerDisplay => CurrentPlayerModel.PlayerDisplay;
         public Transform CameraTransform => _cameraTransformObject;
         public Transform HoldPivot => _holdPivot;
         public ActionEnum BeforeAction => _beforeAction;
@@ -128,7 +129,7 @@ namespace Core.GamePlay.Player
         public GameObject DisplayZipPoint;
         public Rigidbody swingPivot;
         public Vector3 GlobalVelocity;
-        public Transform leftHand;
-        public Transform rightHand;
+        public Transform leftHand => CurrentPlayerModel.leftHand;
+        public Transform rightHand => CurrentPlayerModel.rightHand;
     }
 }

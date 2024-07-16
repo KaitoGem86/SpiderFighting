@@ -680,6 +680,7 @@ Transform:
   m_Children:
   - {fileID: 2786564477363336937}
   - {fileID: 8271214995620581718}
+  - {fileID: 6879794849635501629}
   - {fileID: 1063777792551107247}
   - {fileID: 217080774118611502}
   - {fileID: 4177377559996717007}
@@ -839,8 +840,8 @@ MonoBehaviour:
   _playerDisplay: {fileID: 2786564477363336937}
   _characterMovementObject: {fileID: 7532913103968050107}
   _holdPivot: {fileID: 4177377559996717007}
-  Line: {fileID: 0}
-  MeleeWeapon: {fileID: 0}
+  LeftLine: {fileID: 0}
+  RightLine: {fileID: 0}
   _dictPlayerComponents:
     _serializedList:
     - Key: 1
@@ -852,6 +853,9 @@ MonoBehaviour:
   PlaneToSwing: {fileID: 0}
   DisplayZipPoint: {fileID: 4642896380367253338}
   swingPivot: {fileID: 0}
+  GlobalVelocity: {x: 0, y: 0, z: 0}
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
 --- !u!1 &5554520111729693316
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,12 +911,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7760011187641625160}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.635, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.6350021, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2786564477363336937}
+  m_Father: {fileID: 2032646152031061193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2786564477362941037
 PrefabInstance:
@@ -979,9 +983,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400004, guid: 8837f192a88abd84da9f1907d0b6bdb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5261625017362791917}
-    - targetCorrespondingSourceObject: {fileID: 400004, guid: 8837f192a88abd84da9f1907d0b6bdb4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6879794849635501629}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100004, guid: 8837f192a88abd84da9f1907d0b6bdb4, type: 3}
       insertIndex: -1

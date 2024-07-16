@@ -24,15 +24,15 @@ namespace Core.GamePlay.Player
         {
             base.Init(playerController, actionEnum);
             _displayZipPoint = playerController.DisplayZipPoint;
-            _leftHand = playerController.leftHand;
-            _rightHand = playerController.rightHand;
             _left = playerController.LeftLine;
             _right = playerController.RightLine;
         }
 
         public override void Enter(ActionEnum beforeAction)
         {
-            if(_displayZipPoint.activeSelf == false)
+            _leftHand = _playerController.leftHand;
+            _rightHand = _playerController.rightHand;
+            if (_displayZipPoint.activeSelf == false)
             {
                 _stateContainer.ChangeAction(beforeAction);
                 return;
