@@ -3108,6 +3108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onZip: {fileID: 11400000, guid: 71c7e6fd360d2d7499a19c5aa65232d4, type: 2}
+  onSwing: {fileID: 0}
 --- !u!1 &125164510
 GameObject:
   m_ObjectHideFlags: 0
@@ -22941,11 +22942,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2044416490}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
---- !u!4 &1083233883 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2786564477363336959, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
-  m_PrefabInstance: {fileID: 7389204908034313019}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1083426702
 GameObject:
   m_ObjectHideFlags: 0
@@ -28575,8 +28571,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408434821}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2402404, y: -0.000000016702462, z: 0.0000000041336667, w: 0.97071344}
-  m_LocalPosition: {x: -4.47, y: 2.96, z: 1.7219999}
+  m_LocalRotation: {x: -0.07240457, y: -0.00000017788042, z: -0.000000012913249, w: 0.99737537}
+  m_LocalPosition: {x: -4.4699974, y: 0.100407615, z: -4.8079796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28623,7 +28619,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 91.42945
+  field of view: 43.109066
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -43791,25 +43787,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1408434825}
     - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
-      propertyPath: _holdPivot
-      value: 
-      objectReference: {fileID: 1083233883}
-    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: PlaneToSwing
       value: 
       objectReference: {fileID: 381833417}
-    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
-      propertyPath: _maxFlySpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
-      propertyPath: _maxFallSpeed
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
-      propertyPath: _defaultMovementMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -7,6 +7,7 @@ namespace Core.UI{
     public class TestGamePlayScreen : MonoBehaviour
     {
         public DefaultEvent onZip;
+        public DefaultEvent onSwing;
         
         public void Update(){
             if(Input.GetKeyDown(KeyCode.C)){
@@ -26,6 +27,10 @@ namespace Core.UI{
 
         public void OnClickZip(){
             onZip?.Raise();
+        }
+
+        public void OnClickSwing(){
+            onSwing?.Raise();
         }
     
     
