@@ -63,6 +63,7 @@ namespace Core.GamePlay.Player
 
         public override void OnTriggerEnter(Collider other)
         {
+            if (_playerController.CharacterMovement.groundCollider == null) return;
             if (other.gameObject == _playerController.CharacterMovement.groundCollider.gameObject) return;
             base.OnTriggerEnter(other);
             if (Physics.Raycast(_checkWallPivot.position, _playerController.PlayerDisplay.forward, out var hit, _playerController.GetRadius()))
