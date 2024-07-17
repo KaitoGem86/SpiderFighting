@@ -25,7 +25,6 @@ namespace Core.GamePlay.Player
             Init();
         }
 
-
         private void Init()
         {
             _dictPlayerComponents[PlayerComponentEnum.Display].Init(this);
@@ -101,6 +100,16 @@ namespace Core.GamePlay.Player
             }
         }
 
+        protected override void OnCollided(ref CollisionResult collisionResult)
+        {
+            base.OnCollided(ref collisionResult);
+            foreach (var item in _dictPlayerComponents)
+            {
+                if (item.Value is IPlayerLoop)
+                    item.Value.OnTriggerEnter(collisionResult.collider);
+            }
+        }
+
         protected override void OnTriggerExit(Collider other)
         {
             foreach (var item in _dictPlayerComponents)
@@ -123,13 +132,12 @@ namespace Core.GamePlay.Player
         public Transform PlayerDisplay => CurrentPlayerModel.PlayerDisplay;
         public Transform CameraTransform => _cameraTransformObject;
         public Transform HoldPivot => _holdPivot;
-        public ActionEnum BeforeAction => _beforeAction;
         public CharacterMovement CharacterMovement => _characterMovementObject;
-        public GameObject PlaneToSwing;
         public GameObject DisplayZipPoint;
         public Rigidbody swingPivot;
         public Vector3 GlobalVelocity;
         public Transform leftHand => CurrentPlayerModel.leftHand;
         public Transform rightHand => CurrentPlayerModel.rightHand;
+        public Transform CheckWallPivot => CurrentPlayerModel.checkWallPivot;
     }
 }

@@ -27,7 +27,6 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum beforeAction)
         {
-            Debug.Log("Climbing");
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
             _playerController.SetMovementMode(MovementMode.None);
             _speed = 15f;
@@ -127,7 +126,7 @@ namespace Core.GamePlay.Player
                 return;
             }
             RaycastHit hit;
-            if (Physics.Raycast(_playerController.transform.position, _playerController.PlayerDisplay.forward, out hit, 100))
+            if (Physics.Raycast(_playerController.CheckWallPivot.position, _playerController.PlayerDisplay.forward, out hit, 100))
             {
                 if (hit.distance < 0.8f)
                 {
@@ -154,16 +153,17 @@ namespace Core.GamePlay.Player
             if (angle > 45 && _moveDirection.magnitude * _speed > 0.1f)
             {
                 _state = _displayContainer.PlayAnimation(_startClimbingUpRightTransition);
-                _playerController.CharacterMovement.rigidbody.velocity = _playerController.PlayerDisplay.right * 5;
+                _playerController.CharacterMovement.rigidbody.velocity = _moveDirection * _speed;
             }
             else if (angle < -45 && _moveDirection.magnitude * _speed > 0.1f)
             {
                 _state = _displayContainer.PlayAnimation(_startClimbingUpLeftTransition);
-                _playerController.CharacterMovement.rigidbody.velocity = -_playerController.PlayerDisplay.right * 5;
+                _playerController.CharacterMovement.rigidbody.velocity = _moveDirection * _speed;
             }
             else
             {
                 _state = _displayContainer.PlayAnimation(_startClimbingUpTransition);
+                _playerController.CharacterMovement.rigidbody.velocity = _moveDirection * _speed;
             }
         }
 

@@ -21,14 +21,15 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: ed4c7a859a65ea349b6b5f2d0ac208eb, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
-  _priority: 2
+  _fixedAnim: 0
   _canChangeToItself: 0
-  _healthCostPerFixedUpdate: 0
+  _dictPlayerAnimTransition:
+    _serializedList: []
   _startClimbingUpTransition:
-    _FadeDuration: 0.07000001
+    _FadeDuration: 0.1
     _Events:
       _NormalizedTimes:
-      - 0.8988356
+      - 0.30656734
       - NaN
       _Callbacks:
       - m_PersistentCalls:
@@ -46,7 +47,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       _Names: []
-    _Clip: {fileID: 7400000, guid: ce17b99218fa5bc4ba50ddc2c60445d3, type: 2}
+    _Clip: {fileID: 7400000, guid: 1e3f082d101af9e47a799a617cd820e8, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
   _startClimbingUpLeftTransition:

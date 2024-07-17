@@ -7,5 +7,6 @@ namespace Core.GamePlay.Player{
         public Transform PlayerDisplay;
         public Transform leftHand;
         public Transform rightHand;
+        public Transform checkWallPivot;
     }
 }

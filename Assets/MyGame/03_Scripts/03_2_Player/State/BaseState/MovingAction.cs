@@ -9,6 +9,7 @@ namespace Core.GamePlay.Player
     [CreateAssetMenu(fileName = nameof(BasePlayerAction), menuName = ("PlayerState/" + nameof(MovingAction)), order = 0)]
     public class MovingAction : LocalmotionAction
     {
+        private Transform _checkWallPivot;
 
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -19,7 +20,8 @@ namespace Core.GamePlay.Player
         {
             base.Enter(beforeAction);
             GetInput();
-            _speed = 20;
+            _speed = 25;
+            _checkWallPivot = _playerController.CheckWallPivot;
         }
 
         public override bool Exit(ActionEnum actionAfter)
@@ -30,12 +32,12 @@ namespace Core.GamePlay.Player
 
         public override void Update()
         {
-            if(InputManager.instance.jump)
+            if (InputManager.instance.jump)
             {
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
             }
-            if(!_playerController.CharacterMovement.isOnGround)
+            if (!_playerController.CharacterMovement.isOnGround)
             {
                 _stateContainer.ChangeAction(ActionEnum.FallingDown);
                 return;
@@ -57,6 +59,20 @@ namespace Core.GamePlay.Player
         protected virtual void OnDontMove()
         {
             _stateContainer.ChangeAction(ActionEnum.StopMoving);
+        }
+
+        public override void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject == _playerController.CharacterMovement.groundCollider.gameObject) return;
+            base.OnTriggerEnter(other);
+            if (Physics.Raycast(_checkWallPivot.position, _playerController.PlayerDisplay.forward, out var hit, _playerController.GetRadius()))
+            {
+                if (Vector3.Angle(hit.normal, Vector3.up) > _playerController.CharacterMovement.slopeLimit)
+                {
+                    _stateContainer.SurfaceNormal = hit.normal;
+                    _stateContainer.ChangeAction(ActionEnum.Climbing);
+                }
+            }
         }
     }
 }

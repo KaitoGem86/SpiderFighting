@@ -89,6 +89,21 @@ namespace Core.GamePlay.Player
             _dictPlayerMovementActions[_currentAction].OnCollisionExit(collision);
         }
 
+        public override void OnTriggerEnter(Collider other)
+        {
+            _dictPlayerMovementActions[_currentAction].OnTriggerEnter(other);
+        }
+
+        public override void OnTriggerStay(Collider other)
+        {
+            _dictPlayerMovementActions[_currentAction].OnTriggerStay(other);
+        }
+
+        public override void OnTriggerExit(Collider other)
+        {
+            _dictPlayerMovementActions[_currentAction].OnTriggerExit(other);
+        }
+
         public void Zip()
         {
             if (_currentAction == ActionEnum.Swing || _currentAction == ActionEnum.Zip) return;

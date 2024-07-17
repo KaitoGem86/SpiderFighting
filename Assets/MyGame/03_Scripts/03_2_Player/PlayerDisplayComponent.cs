@@ -44,7 +44,6 @@ namespace Core.GamePlay.Player
 
         public void ChangePlayerModel(){
             _currentPlayerModel.gameObject.SetActive(false);
-            var currentState = _currentPlayerModel.animancer;
             _currentPlayerModel = _playerModels[++_currentModelIndex % _playerModels.Count];
             _currentPlayerModel.gameObject.SetActive(true);
             if(_currentClipTransition != null){
