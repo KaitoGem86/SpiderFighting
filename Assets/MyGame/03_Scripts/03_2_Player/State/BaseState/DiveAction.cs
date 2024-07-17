@@ -10,6 +10,7 @@ namespace Core.GamePlay.Player{
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
+            _playerController.SetVelocity(_playerController.GlobalVelocity);
             _onSwing.RegisterListener();
             _speed = 25;
             _isCanChangeToSwing = false;

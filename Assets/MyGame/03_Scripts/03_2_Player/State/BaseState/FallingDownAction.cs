@@ -37,8 +37,6 @@ namespace Core.GamePlay
                 return;
             }
 
-
-
             if (_playerController.CharacterMovement.isOnGround)
             {
                 _stateContainer.ChangeAction(ActionEnum.Landing);
@@ -47,7 +45,6 @@ namespace Core.GamePlay
         }
 
         public void ChangeToSwing(bool isSwing){
-            Debug.Log("Change to Swing");
             if(isSwing){
                 _stateContainer.ChangeAction(ActionEnum.Swing);
             }

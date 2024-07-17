@@ -94,7 +94,7 @@ MonoBehaviour:
     - Key: 14
       Value:
       - startAnimation:
-          _FadeDuration: 1.0333335
+          _FadeDuration: 0.3100001
           _Events:
             _NormalizedTimes:
             - 0.9
@@ -142,7 +142,7 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 1.0333335
+          _FadeDuration: 0.3100001
           _Events:
             _NormalizedTimes:
             - 0.9
@@ -190,7 +190,7 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.7666667
+          _FadeDuration: 0.23000002
           _Events:
             _NormalizedTimes:
             - 0.9
@@ -238,7 +238,7 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 1
+          _FadeDuration: 0.3
           _Events:
             _NormalizedTimes:
             - 0.9
@@ -286,7 +286,7 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
       - startAnimation:
-          _FadeDuration: 0.8333335
+          _FadeDuration: 0.25000006
           _Events:
             _NormalizedTimes:
             - 0.9

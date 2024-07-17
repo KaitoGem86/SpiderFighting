@@ -59,7 +59,7 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
             _playerController.CharacterMovement.rigidbody.velocity = _velocity;
             _isStartShootSilk = false;
-            InitSwing();
+            //InitSwing();
         }
 
         public override bool Exit(ActionEnum actionAfter)
@@ -78,22 +78,19 @@ namespace Core.GamePlay.Player
 
         private void FindPivot()
         {
-            var tmp = InputManager.instance.move;
             var forward = _playerController.CameraTransform.forward;
             forward.y = 0;
             var right = _playerController.CameraTransform.right;
             right.y = 0;
-            var tmpDirection = forward + right;
-            var tempFindDirection = new Vector3(tmpDirection.x, tmpDirection.magnitude, tmpDirection.z);
             if (_playerController.transform.position.y < 10)
             {
                 _speed = 30;
-                _pivot = _playerController.transform.position + forward.normalized * 10 + right.normalized * 10 * _handToUse + Vector3.up * 20;
+                _pivot = _playerController.transform.position + forward.normalized * 20 + right.normalized * 10 * _handToUse + Vector3.up * 15;
             }
             else
             {
                 _speed = 50;
-                _pivot = _playerController.transform.position + forward.normalized * 20 + right.normalized * 10 * _handToUse + Vector3.up * 20;
+                _pivot = _playerController.transform.position + forward.normalized * 30 + right.normalized * 10 * _handToUse + Vector3.up * 20;
             }
             restLength = Vector3.Distance(_holdPivot.position, _pivot);
             _targetReslength = restLength * 0.8f;
@@ -110,7 +107,13 @@ namespace Core.GamePlay.Player
                 return;
             }
             ShootShilkPefFrame(_handToUse == 1 ? _leftHand : _rightHand, frame, maxFrame);
-            frame = Mathf.Min(frame + 1, maxFrame);
+            if (frame == maxFrame + 1) return;
+            if (frame == maxFrame)
+            {
+                //FindPivot();
+                InitSwing();
+            }
+            frame++;
         }
 
         public override void FixedUpdate()
@@ -118,7 +121,7 @@ namespace Core.GamePlay.Player
             base.FixedUpdate();
             GetInput();
             _playerController.CharacterMovement.rigidbody.AddForce(_moveDirection * _speed, ForceMode.Force);
-            RotateCharacterFlowVelocity();
+            RotateCharacterUpwardFlowSilk();
         }
 
         public override void LateUpdate()
@@ -126,8 +129,10 @@ namespace Core.GamePlay.Player
 
         }
 
-        public void ChangeToJumping(bool isSwing){
-            if(!isSwing){
+        public void ChangeToJumping(bool isSwing)
+        {
+            if (!isSwing)
+            {
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
             }
         }
@@ -145,25 +150,25 @@ namespace Core.GamePlay.Player
             _springJoint.massScale = 4.5f;
         }
 
-        private void RotateCharacterFlowVelocity()
+        private void RotateCharacterUpwardFlowSilk()
         {
+            var rotation = _playerController.PlayerDisplay.rotation;
             var velocity = _playerController.CharacterMovement.rigidbody.velocity;
-            var targetRotation = Quaternion.LookRotation(velocity);
-            _playerController.PlayerDisplay.transform.rotation = Quaternion.Slerp(_playerController.PlayerDisplay.transform.rotation, targetRotation, Time.deltaTime * 2);
-        }
-
-        protected override void EndStateToClimb()
-        {
-            Debug.Log("EndStateToClimb");
+            var upwardDirection = rb.transform.position - (_handToUse == 1 ? _leftHand.position : _rightHand.position);
+            var forwardDirection = Vector3.ProjectOnPlane(velocity, -upwardDirection);
+            _playerController.PlayerDisplay.transform.up = Vector3.Lerp(_playerController.PlayerDisplay.transform.up, upwardDirection.normalized, 1);
+            _playerController.PlayerDisplay.transform.forward = Vector3.Lerp(_playerController.PlayerDisplay.transform.forward, forwardDirection.normalized, 1);
+            var targetRotation = _playerController.PlayerDisplay.rotation;
+            _playerController.PlayerDisplay.rotation = Quaternion.Slerp(rotation, targetRotation, Time.fixedDeltaTime * 10);
         }
 
         protected override int GetTransition(ActionEnum actionBefore)
         {
             if (_handToUse == 1)
-                return Random.Range(0, 9);
+                return Random.Range(0, _dictPlayerAnimTransition[ActionEnum.None].Count / 2);
             else
             {
-                return Random.Range(9, 18);
+                return Random.Range(_dictPlayerAnimTransition[ActionEnum.None].Count/2, _dictPlayerAnimTransition[ActionEnum.None].Count);
             }
         }
 
@@ -177,8 +182,7 @@ namespace Core.GamePlay.Player
         private void ShootShilkPefFrame(Transform hand, int frame, int maxFrame)
         {
             if (!_isStartShootSilk) return;
-            //Debug.Log("ShootShilkPefFrame");
-            _lineRenderer.SetPositions(new Vector3[] { hand.position, hand.position + (_pivot - hand.position) .normalized * frame });
+            _lineRenderer.SetPositions(new Vector3[] { hand.position, hand.position + (_pivot - hand.position).normalized * frame });
         }
     }
 }

@@ -79,6 +79,7 @@ namespace Core.GamePlay.Player
         public override bool Exit(ActionEnum actionAfter)
         {
             _isJumping = false;
+            _playerController.GlobalVelocity = _playerController.GetVelocity();
             _playerController.StopJumping();
             return base.Exit(actionAfter);
         }
