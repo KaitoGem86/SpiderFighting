@@ -78,9 +78,9 @@ namespace Core.GamePlay.Player
 
         private void FindPivot()
         {
-            var forward = _playerController.CameraTransform.forward;
+            var forward = _playerController.PlayerDisplay.forward;
             forward.y = 0;
-            var right = _playerController.CameraTransform.right;
+            var right = _playerController.PlayerDisplay.right;
             right.y = 0;
             if (_playerController.transform.position.y < 10)
             {
