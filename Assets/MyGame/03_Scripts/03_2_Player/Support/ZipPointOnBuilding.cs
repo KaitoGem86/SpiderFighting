@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Core.GamePlay.Support
 {
@@ -28,6 +29,16 @@ namespace Core.GamePlay.Support
                 }
             }
             return GetClosestPointOnEdge(player, minEdge);
+        }
+
+        public List<Vector3> GetZipPoints(Transform player)
+        {
+            List<Vector3> points = new List<Vector3>();
+            foreach (var edge in _edges)
+            {
+                points.Add(GetClosestPointOnEdge(player, edge));
+            }
+            return points;
         }
 
         private float GetDistanceToEdge(Transform player, Edge edge)
