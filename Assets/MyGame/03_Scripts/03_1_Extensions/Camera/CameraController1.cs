@@ -6,6 +6,7 @@ namespace SFRemastered
     public class CameraController : MonoBehaviour
     {
         public GameObject CinemachineCameraTarget;
+        public Transform DefaultCameraPivot;
         public float TopClamp = 70.0f;
         public float BottomClamp = -30.0f;
         public float CameraAngleOverride = 0.0f;
@@ -45,6 +46,12 @@ namespace SFRemastered
 
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
+        
+            // if(look.sqrMagnitude < _threshold)
+            // {
+            //     var targetForward = DefaultCameraPivot.transform.forward;
+            //     CinemachineCameraTarget.transform.rotation = Quaternion.Slerp(CinemachineCameraTarget.transform.rotation, Quaternion.LookRotation(targetForward), 0.1f);   
+            // }
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

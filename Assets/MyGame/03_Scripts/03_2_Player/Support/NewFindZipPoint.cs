@@ -7,6 +7,8 @@ namespace Core.GamePlay.Support
         [SerializeField] private GameObject _displayZipPoint;
         [SerializeField] private Transform _playerController;
         [SerializeField] private float _radius;
+        [SerializeField] private RectTransform _focusPanel;
+        [SerializeField] private Camera _cameraController;
 
         private void Update()
         {
@@ -39,5 +41,7 @@ namespace Core.GamePlay.Support
                 _displayZipPoint.SetActive(false);
             }
         }
+
+        
     }
 }
