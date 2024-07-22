@@ -69,7 +69,7 @@ namespace Core.GamePlay.Player
             _lineRenderer.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
             _playerController.PlayerDisplay.transform.up = Vector3.up;
             _playerController.GlobalVelocity = _playerController.CharacterMovement.rigidbody.velocity;
-            Destroy(_springJoint);
+            Destroy(_playerController.GetComponent<SpringJoint>());
             _playerController.SetMovementMode(MovementMode.Walking);
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
             _playerController.CharacterMovement.rigidbody.useGravity = false;

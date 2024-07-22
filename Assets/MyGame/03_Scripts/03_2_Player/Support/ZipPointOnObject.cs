@@ -84,7 +84,10 @@ namespace Core.GamePlay.Support
         private void Awake()
         {
             Initial();
-            Debug.Log(_edges.Count);
+            foreach (var edge in _edges)
+            {
+                Debug.DrawLine(edge.StartPoint, edge.EndPoint, Color.red, 1000);
+            }
         }
 
         private void Initial()
@@ -115,36 +118,44 @@ namespace Core.GamePlay.Support
             tmpVertices.Add(vertices[0]);
             while (point.y == y_max)
             {
-                tmpVertices.Add(point);
+                if (!tmpVertices.Contains(point))
+                {
+                    tmpVertices.Add(point);
+                }
+
                 point = vertices[i++];
             }
 
             if (tmpVertices.Count < 2)
             {
+                _edges.Add(new EdgeBuilding(transform.TransformPoint(tmpVertices[0]), transform.TransformPoint(tmpVertices[0])));
                 return;
             }
 
             // Calculate the centroid of the polygon
-            Vector3 centroid = new Vector3(
-                vertices.Average(v => v.x),
-                vertices.Average(v => v.y),
-                vertices.Average(v => v.z)
-            );
+            // Vector3 centroid = new Vector3(
+            //     tmpVertices.Average(v => v.x),
+            //     tmpVertices.Average(v => v.y),
+            //     tmpVertices.Average(v => v.z)
+            // );
 
             // Sort the vertices by the angle between the centroid and the vertex
-            vertices.Sort((v1, v2) =>
-            {
-                float angle1 = Mathf.Atan2(v1.y - centroid.y, v1.x - centroid.x);
-                float angle2 = Mathf.Atan2(v2.y - centroid.y, v2.x - centroid.x);
-                return angle1.CompareTo(angle2);
-            });
+            // tmpVertices.Sort((v1, v2) =>
+            // {
+            //     float angle1 = Mathf.Atan2(v1.y - centroid.y, v1.x - centroid.x);
+            //     float angle2 = Mathf.Atan2(v2.y - centroid.y, v2.x - centroid.x);
+            //     return angle1.CompareTo(angle2);
+            // });
 
-            List<(Vector3, Vector3)> edges = new List<(Vector3, Vector3)>();
-            for (i = 0; i < vertices.Count - 1; i++)
+            tmpVertices = FindConvexHull(tmpVertices);
+
+            _edges = new List<EdgeBuilding>();
+            for (i = 0; i < tmpVertices.Count - 1; i++)
             {
-                edges.Add((vertices[i], vertices[i + 1]));
+                _edges.Add(new EdgeBuilding(transform.TransformPoint(tmpVertices[i]), transform.TransformPoint(tmpVertices[i + 1])));
             }
-            edges.Add((vertices[vertices.Count - 1], vertices[0])); // Connect the last vertex with the first one
+
+            _edges.Add(new EdgeBuilding(transform.TransformPoint(tmpVertices[tmpVertices.Count - 1]), transform.TransformPoint(tmpVertices[0]))); // Connect the last vertex with the first one
         }
 
         public (Vector3, float) GetZipPoint(Transform player, Camera camera)
@@ -179,6 +190,38 @@ namespace Core.GamePlay.Support
         private (Vector3, float) GetClosestPointWithCameraOnEdge(EdgeBuilding edge, Camera camera)
         {
             return edge.GetClosestPointWithCameraOnEdge(camera);
+        }
+
+        private List<Vector3> FindConvexHull(List<Vector3> vertices)
+        {
+            if (vertices.Count < 3) return vertices;
+        
+            // Tìm điểm bắt đầu
+            Vector3 startVertex = vertices.OrderBy(v => v.x).First();
+            vertices.Remove(startVertex);
+        
+            // Sắp xếp các điểm còn lại dựa vào góc
+            vertices.Sort((a, b) => Vector3.SignedAngle(Vector3.right, a - startVertex, Vector3.up).CompareTo(Vector3.SignedAngle(Vector3.right, b - startVertex, Vector3.up)));
+        
+            // Thêm điểm bắt đầu vào danh sách để đóng vòng lặp
+            vertices.Add(startVertex);
+        
+            Stack<Vector3> hull = new Stack<Vector3>();
+            hull.Push(startVertex);
+            hull.Push(vertices[0]);
+        
+            for (int i = 1; i < vertices.Count; i++)
+            {
+                Vector3 top = hull.Pop();
+                while (hull.Count > 0 && Vector3.Cross(vertices[i] - hull.Peek(), top - hull.Peek()).y >= 0)
+                {
+                    top = hull.Pop();
+                }
+                hull.Push(top);
+                hull.Push(vertices[i]);
+            }
+                    
+            return hull.ToList();
         }
     }
 }
