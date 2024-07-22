@@ -31,51 +31,56 @@ namespace Core.GamePlay.Support
             float minDistanceInFocusPanel = float.MaxValue;
             foreach (var col in collider)
             {
-                var tmp = col.GetComponent<ZipPointOnBuilding>();
+                var tmp = col.GetComponent<ZipPointOnObject>();
                 if (tmp != null)
                 {
-                    var points = tmp.GetZipPoints(_playerController);
-                    foreach(var point in points){
-                        if (!CheckValidZipPoint(point))
-                        {
-                            continue;
-                        }
-                        if (CheckInFocusPanel(point))
-                        {
-                            var distance1 = Vector3.Distance(_playerController.position, point);
-                            if (distance1 < minDistanceInFocusPanel)
-                            {
-                                isFoundInFocusPanel = true;
-                                minDistanceInFocusPanel = distance1;
-                                closestPointInFocusPanel = point;
-                            }
-                        }
+                    var res = tmp.GetZipPoint(_playerController, _cameraController);
+                    var points = res.Item1;
+                    // foreach(var point in points){
+                    //     if (!CheckValidZipPoint(point))
+                    //     {
+                    //         continue;
+                    //     }
+                    //     if (CheckInFocusPanel(point))
+                    //     {
+                    //         var distance1 = Vector3.Distance(_playerController.position, point);
+                    //         if (distance1 < minDistanceInFocusPanel)
+                    //         {
+                    //             isFoundInFocusPanel = true;
+                    //             minDistanceInFocusPanel = distance1;
+                    //             closestPointInFocusPanel = point;
+                    //         }
+                    //     }
 
-                        var distance = Vector3.Distance(_playerController.position, point);
-                        if (distance < minDistance)
-                        {
-                            isFound = true;
-                            minDistance = distance;
-                            closestPoint = point;
-                        }
-                    }
+                    //     var distance = Vector3.Distance(_playerController.position, point);
+                    //     if (distance < minDistance)
+                    //     {
+                    //         isFound = true;
+                    //         minDistance = distance;
+                    //         closestPoint = point;
+                    //     }
+                    // }
+                    minDistance = res.Item2;
+                    closestPoint = res.Item1;
                 }
             }
-            if(isFoundInFocusPanel){
-                _displayZipPoint.SetActive(true);
-                _displayZipPoint.transform.position = closestPointInFocusPanel;
-                return;
-            }
+            // if(isFoundInFocusPanel){
+            //     _displayZipPoint.SetActive(true);
+            //     _displayZipPoint.transform.position = closestPointInFocusPanel;
+            //     return;
+            // }
 
-            if (isFound)
-            {
-                _displayZipPoint.SetActive(true);
-                _displayZipPoint.transform.position = closestPoint;
-            }
-            else
-            {
-                _displayZipPoint.SetActive(false);
-            }
+            // if (isFound)
+            // {
+            //     _displayZipPoint.SetActive(true);
+            //     _displayZipPoint.transform.position = closestPoint;
+            // }
+            // else
+            // {
+            //     _displayZipPoint.SetActive(false);
+            // }
+            //_displayZipPoint.SetActive(true);
+            //_displayZipPoint.transform.position = closestPoint;
         }
 
         private bool CheckValidZipPoint(Vector3 point){

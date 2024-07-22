@@ -11,6 +11,7 @@ namespace Core.GamePlay.Support
         public Transform StartPoint;
         public Transform EndPoint;
     }
+
     public class ZipPointOnBuilding : MonoBehaviour
     {
         [SerializeField] private List<Edge> _edges;

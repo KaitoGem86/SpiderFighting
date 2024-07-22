@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17757848, g: 0.22232172, b: 0.30451703, a: 1}
+  m_IndirectSpecularColor: {r: 0.17757884, g: 0.2223225, b: 0.3045184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28139,18 +28139,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1850831323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03875283a6509224d81192e7ee595f74, type: 3}
+  m_Script: {fileID: 11500000, guid: 91e221fafc62a4d4983d16ca54bb82d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edges:
-  - StartPoint: {fileID: 1053392098}
-    EndPoint: {fileID: 1451843}
-  - StartPoint: {fileID: 1451843}
-    EndPoint: {fileID: 1472303409}
-  - StartPoint: {fileID: 1472303409}
-    EndPoint: {fileID: 437869106}
-  - StartPoint: {fileID: 437869106}
-    EndPoint: {fileID: 1053392098}
+  _mesh: {fileID: 1850831328}
+  _numberOfVertices: 4
+  _isCustomZipPoint: 0
 --- !u!1 &1855398151
 GameObject:
   m_ObjectHideFlags: 0
