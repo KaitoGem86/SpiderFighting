@@ -22,8 +22,8 @@ namespace Core.GamePlay.Support
             var startPointInViewport = camera.WorldToViewportPoint(StartPoint);
             var endPointInViewport = camera.WorldToViewportPoint(EndPoint);
 
-            if ((startPointInViewport.x < 0 || startPointInViewport.y < 0 || startPointInViewport.x > 1 || startPointInViewport.y > 1)
-                && (endPointInViewport.x < 0 && endPointInViewport.y < 0 || endPointInViewport.x > 1 || endPointInViewport.y > 1))
+            if (!(startPointInViewport.x >= 0 && startPointInViewport.x <= 1 && startPointInViewport.y >= 0 && startPointInViewport.y <= 1) &&
+                !(endPointInViewport.x >= 0 && endPointInViewport.x <= 1 && endPointInViewport.y >= 0 && endPointInViewport.y <= 1))
             {
                 return (Vector3.negativeInfinity, float.MaxValue);
             }
@@ -163,6 +163,7 @@ namespace Core.GamePlay.Support
             var distance = float.MaxValue;
             var closetstPoint = Vector3.negativeInfinity;
             bool isHavePoint = false;
+            Debug.Log("GetZipPoint " + transform.name);
             foreach (var edge in _edges)
             {
                 var (point, dist) = GetClosestPointWithCameraOnEdge(edge, camera);
@@ -220,7 +221,7 @@ namespace Core.GamePlay.Support
                 hull.Push(top);
                 hull.Push(vertices[i]);
             }
-                    
+
             return hull.ToList();
         }
     }
