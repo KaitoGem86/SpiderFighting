@@ -64,6 +64,16 @@ namespace Core.GamePlay.Support
                     closestPoint = res.Item1;
                 }
             }
+
+            if (minDistance < float.MaxValue)
+            {
+                _displayZipPoint.SetActive(true);
+                _displayZipPoint.transform.position = closestPoint;
+            }
+            else
+            {
+                _displayZipPoint.SetActive(false);
+            }
             // if(isFoundInFocusPanel){
             //     _displayZipPoint.SetActive(true);
             //     _displayZipPoint.transform.position = closestPointInFocusPanel;
