@@ -287,12 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56237ad629f8b6459d98061b8dcddbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animacer: {fileID: 7375910201637341964}
-  _dictLayerControls:
-    _serializedList:
-    - Key: 1
-      Value:
-        AvatarMask: {fileID: 31900000, guid: 2ee86d3a5e2d3cf4fa965c906da1eb50, type: 2}
+  _playerModels: []
 --- !u!1 &3812938625370790156
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,89 +417,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2786564477363336937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4642896380367253338
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 217080774118611502}
-  - component: {fileID: 7727283859275347960}
-  - component: {fileID: 4386531631318778783}
-  m_Layer: 0
-  m_Name: Sphere
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &217080774118611502
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4642896380367253338}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.64, y: -5.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2032646152031061193}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7727283859275347960
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4642896380367253338}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4386531631318778783
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4642896380367253338}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4815822924509637307
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CinemachineCameraTarget: {fileID: 1346186081119768814}
+  DefaultCameraPivot: {fileID: 0}
   TopClamp: 70
   BottomClamp: -30
   CameraAngleOverride: 0
@@ -682,7 +595,6 @@ Transform:
   - {fileID: 8271214995620581718}
   - {fileID: 6879794849635501629}
   - {fileID: 1063777792551107247}
-  - {fileID: 217080774118611502}
   - {fileID: 4177377559996717007}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -837,11 +749,11 @@ MonoBehaviour:
   _standingDownwardForceScale: 1
   _camera: {fileID: 0}
   _cameraTransformObject: {fileID: 2891768364681447400}
-  _playerDisplay: {fileID: 2786564477363336937}
   _characterMovementObject: {fileID: 7532913103968050107}
   _holdPivot: {fileID: 4177377559996717007}
   LeftLine: {fileID: 0}
   RightLine: {fileID: 0}
+  CurrentPlayerModel: {fileID: 0}
   _dictPlayerComponents:
     _serializedList:
     - Key: 1
@@ -850,12 +762,9 @@ MonoBehaviour:
       Value: {fileID: 6020302238248250200}
     - Key: 5
       Value: {fileID: 1480727953207902867}
-  PlaneToSwing: {fileID: 0}
-  DisplayZipPoint: {fileID: 4642896380367253338}
+  DisplayZipPoint: {fileID: 0}
   swingPivot: {fileID: 0}
   GlobalVelocity: {x: 0, y: 0, z: 0}
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
 --- !u!1 &5554520111729693316
 GameObject:
   m_ObjectHideFlags: 0

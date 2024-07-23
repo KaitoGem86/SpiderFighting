@@ -37,10 +37,14 @@ namespace Core.GamePlay.Player
                 _stateContainer.ChangeAction(beforeAction);
                 return;
             }
+            _playerController.CharacterMovement.rigidbody.useGravity = false;
+            _playerController.CharacterMovement.rigidbody.isKinematic = false;
+            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
             base.Enter(beforeAction);
             _playerController.SetMovementMode(MovementMode.None);
+            _playerController.CharacterMovement.rigidbody.velocity = _playerController.GlobalVelocity;
             _zipPoint = new Vector3(_displayZipPoint.transform.position.x, _displayZipPoint.transform.position.y, _displayZipPoint.transform.position.z);
-            _speed = 40;
+            _speed = 120;
             _isZip = false;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
             _rotateDirection = _moveDirection.normalized;
@@ -59,12 +63,12 @@ namespace Core.GamePlay.Player
                 if (Vector3.Distance(_zipPoint, _playerController.transform.position) > 1f)
                     _jump = false;
             }
-            if (Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) < 0.2f)
-            {
-                EndAction();
-            }
-            var distance = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position);
-            _moveDirection = (_zipPoint - _playerController.PlayerDisplay.transform.position) * (distance > 1 ? 7 : 0.1f);
+            // if (Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) < 0.2f)
+            // {
+            //     EndAction();
+            // }
+            // var distance = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position);
+            // _moveDirection = (_zipPoint - _playerController.PlayerDisplay.transform.position) * (distance > 1 ? 7 : 0.1f);
         }
 
         public override void LateUpdate()
@@ -77,7 +81,6 @@ namespace Core.GamePlay.Player
                 return;
             }
             base.LateUpdate();
-            //Move();
         }
 
         protected override void Move()
@@ -94,8 +97,13 @@ namespace Core.GamePlay.Player
         public override void KeepAction()
         {
             base.KeepAction();
+            if(_playerController.transform.position.y < _zipPoint.y){
+                _zipPoint.y += 0.3f;
+            }
+            _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
+            float time = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) / _speed;
             _playerController.SetMovementMode(MovementMode.Flying);
-            _playerController.transform.DOMove(_zipPoint, 0.5f)
+            _playerController.transform.DOMove(_zipPoint, time)
                 .OnComplete(EndAction);
             _isZip = true;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;

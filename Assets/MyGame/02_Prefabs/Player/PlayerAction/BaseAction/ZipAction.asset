@@ -65,7 +65,7 @@ MonoBehaviour:
                   m_CallState: 2
             _Names: []
           _Clip: {fileID: 7400000, guid: e34e02962c744f54ca913c15e020d6e0, type: 2}
-          _Speed: 1
+          _Speed: 2
           _NormalizedStartTime: NaN
         keepAnimation:
           _FadeDuration: 0.2
@@ -73,7 +73,7 @@ MonoBehaviour:
             _NormalizedTimes: []
             _Callbacks: []
             _Names: []
-          _Speed: NaN
+          _Speed: 2
           _Animations:
           - {fileID: 7400000, guid: 45cfefa2d22646b40acedce717db8fa3, type: 2}
           _Speeds: []
@@ -131,7 +131,7 @@ MonoBehaviour:
                   m_CallState: 2
             _Names: []
           _Clip: {fileID: 7400000, guid: e34e02962c744f54ca913c15e020d6e0, type: 2}
-          _Speed: 1
+          _Speed: 2
           _NormalizedStartTime: NaN
         keepAnimation:
           _FadeDuration: 0.2
@@ -139,7 +139,7 @@ MonoBehaviour:
             _NormalizedTimes: []
             _Callbacks: []
             _Names: []
-          _Speed: NaN
+          _Speed: 2
           _Animations:
           - {fileID: 7400000, guid: 45cfefa2d22646b40acedce717db8fa3, type: 2}
           _Speeds: []
@@ -197,7 +197,7 @@ MonoBehaviour:
                   m_CallState: 2
             _Names: []
           _Clip: {fileID: 7400000, guid: e34e02962c744f54ca913c15e020d6e0, type: 2}
-          _Speed: 1
+          _Speed: 2
           _NormalizedStartTime: NaN
         keepAnimation:
           _FadeDuration: 0.2
@@ -205,7 +205,7 @@ MonoBehaviour:
             _NormalizedTimes: []
             _Callbacks: []
             _Names: []
-          _Speed: NaN
+          _Speed: 2
           _Animations:
           - {fileID: 7400000, guid: 45cfefa2d22646b40acedce717db8fa3, type: 2}
           _Speeds: []
@@ -527,7 +527,7 @@ MonoBehaviour:
                   m_CallState: 2
             _Names: []
           _Clip: {fileID: 7400000, guid: 4c429021480679344927102c1059eb3d, type: 2}
-          _Speed: 1
+          _Speed: 1.5
           _NormalizedStartTime: NaN
         keepAnimation:
           _FadeDuration: 0.2
@@ -535,7 +535,7 @@ MonoBehaviour:
             _NormalizedTimes: []
             _Callbacks: []
             _Names: []
-          _Speed: NaN
+          _Speed: 1.5
           _Animations:
           - {fileID: 7400000, guid: 38ba70f87c8a2ba4096c53f4a339a18d, type: 2}
           _Speeds: []

@@ -43,6 +43,10 @@ namespace Core.GamePlay.Support
                         {
                             continue;
                         }
+                        if (!CheckObstacle(point.Item1))
+                        {
+                            continue;
+                        }
                         if (CheckInFocusPanel(point.Item1))
                         {
                             var distance1 = point.Item2;
@@ -87,6 +91,16 @@ namespace Core.GamePlay.Support
         {
             var viewPoint = _cameraController.WorldToViewportPoint(point);
             return viewPoint.x > 0 && viewPoint.x < 1 && viewPoint.y > 0 && viewPoint.y < 1 && viewPoint.z > 0;
+        }
+
+        private bool CheckObstacle(Vector3 point){
+            var direction = point - _playerController.position;
+            RaycastHit hitInfo;
+            if (Physics.Raycast(_playerController.position, direction, out hitInfo, _radius))
+            {
+                return false;
+            }
+            return true;
         }
 
         private bool CheckInFocusPanel(Vector3 point)
