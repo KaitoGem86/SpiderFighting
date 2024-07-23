@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70cc573071407c44b94d525833baba8, type: 3}
   m_Name: DiveAction
   m_EditorClassIdentifier: 
+  _movementMode: 2
   _animationClip:
     _FadeDuration: 0.25
     _Events:

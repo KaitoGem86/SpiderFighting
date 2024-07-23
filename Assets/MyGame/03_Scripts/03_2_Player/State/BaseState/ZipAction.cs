@@ -31,6 +31,7 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum beforeAction)
         {
+            base.Enter(beforeAction);
             _leftHand = _playerController.leftHand;
             _rightHand = _playerController.rightHand;
             if (_displayZipPoint.activeSelf == false)
@@ -50,12 +51,8 @@ namespace Core.GamePlay.Player
                 _zipPoint = new Vector3(_displayZipPoint.transform.position.x, _displayZipPoint.transform.position.y, _displayZipPoint.transform.position.z);
                 _zipToPoint = true;
             }
+            
             _playerController.CharacterMovement.rigidbody.useGravity = false;
-            _playerController.CharacterMovement.rigidbody.isKinematic = false;
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
-            base.Enter(beforeAction);
-            _playerController.SetMovementMode(MovementMode.None);
-            _playerController.CharacterMovement.rigidbody.velocity = _playerController.GlobalVelocity;
 
             frame = 0;
             _speed = 120;

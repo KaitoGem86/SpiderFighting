@@ -1,6 +1,7 @@
 using Animancer;
 using Core.SystemGame;
 using DG.Tweening;
+using EasyCharacterMovement;
 using SFRemastered.InputSystem;
 using UnityEngine;
 
@@ -26,7 +27,6 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionAfter)
         {
-            _playerController.GlobalVelocity = _playerController.GetVelocity();
             return base.Exit(actionAfter);
         }
 
@@ -61,11 +61,11 @@ namespace Core.GamePlay.Player
             _stateContainer.ChangeAction(ActionEnum.StopMoving);
         }
 
-        public override void OnTriggerEnter(Collider other)
+        public override void OnCollided(ref CollisionResult other)
         {
             if (_playerController.CharacterMovement.groundCollider == null) return;
-            if (other.gameObject == _playerController.CharacterMovement.groundCollider.gameObject) return;
-            base.OnTriggerEnter(other);
+            if (other.collider.gameObject == _playerController.CharacterMovement.groundCollider.gameObject) return;
+            base.OnCollided(ref other);
             if (Physics.Raycast(_checkWallPivot.position, _playerController.PlayerDisplay.forward, out var hit, _playerController.GetRadius()))
             {
                 if (Vector3.Angle(hit.normal, Vector3.up) > _playerController.CharacterMovement.slopeLimit)

@@ -1,3 +1,4 @@
+using EasyCharacterMovement;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
@@ -7,7 +8,6 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
-            _playerController.CharacterMovement.rigidbody.isKinematic = false;
         }
 
         public override void Update()
@@ -35,10 +35,10 @@ namespace Core.GamePlay.Player
             return base.Exit(actionAfter);
         }
 
-        public override void OnCollisionEnter(Collision collision)
+        public override void OnCollided(ref CollisionResult collision)
         {
-            base.OnCollisionEnter(collision);
-            var surfaceNormal = collision.contacts[0].normal;
+            base.OnCollided( ref collision);
+            var surfaceNormal = collision.surfaceNormal;
             var angle = Vector3.Angle(Vector3.up, surfaceNormal);
             if (angle < 45)
             {
@@ -57,7 +57,6 @@ namespace Core.GamePlay.Player
                         _stateContainer.ChangeAction(ActionEnum.Climbing);
                     }
                 }
-
             }
         }
 

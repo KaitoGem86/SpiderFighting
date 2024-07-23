@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed3fc16c35852408627ebffff7f33e, type: 3}
   m_Name: PlayerLanding
   m_EditorClassIdentifier: 
+  _movementMode: 1
   _animationClip:
     _FadeDuration: 0.08666668
     _Events:
@@ -37,9 +38,10 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: b916280beb3c80c43af3717898d4340b, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
-  _priority: 0
+  _fixedAnim: 0
   _canChangeToItself: 0
-  _healthCostPerFixedUpdate: 0
+  _dictPlayerAnimTransition:
+    _serializedList: []
   _criticalLanding:
     _FadeDuration: 0.11333335
     _Events:

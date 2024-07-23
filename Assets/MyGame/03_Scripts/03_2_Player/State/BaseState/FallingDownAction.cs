@@ -19,8 +19,6 @@ namespace Core.GamePlay
         {
             base.Enter(beforeAction);
             _onFallingDown.RegisterListener();
-            _playerController.SetMovementMode(EasyCharacterMovement.MovementMode.Falling);
-            _playerController.SetVelocity(_playerController.GlobalVelocity);
             if (beforeAction == ActionEnum.Climbing)
             {
                 _playerController.SetVelocity(Vector3.up * 10);
@@ -53,7 +51,6 @@ namespace Core.GamePlay
         public override bool Exit(ActionEnum actionAfter)
         {
             _onFallingDown.UnregisterListener();
-            _playerController.GlobalVelocity = _playerController.GetVelocity();
             return base.Exit(actionAfter);
         }
     }

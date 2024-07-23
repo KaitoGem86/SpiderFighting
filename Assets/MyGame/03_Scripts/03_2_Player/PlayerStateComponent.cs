@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using AYellowpaper.SerializedCollections;
+using EasyCharacterMovement;
 using MyTools.ScreenSystem;
 using UnityEngine;
 
@@ -102,6 +103,11 @@ namespace Core.GamePlay.Player
         public override void OnTriggerExit(Collider other)
         {
             _dictPlayerMovementActions[_currentAction].OnTriggerExit(other);
+        }
+
+        public override void OnCollided(ref CollisionResult collisionResult)
+        {
+            _dictPlayerMovementActions[_currentAction].OnCollided(ref collisionResult);
         }
 
         public void Zip()

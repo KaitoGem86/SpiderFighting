@@ -7,7 +7,6 @@ namespace Core.GamePlay
 {
     public class LocalmotionAction : BasePlayerAction
     {
-
         protected float _speed;
         protected Vector3 _moveDirection;
         protected Vector3 _rotateDirection;

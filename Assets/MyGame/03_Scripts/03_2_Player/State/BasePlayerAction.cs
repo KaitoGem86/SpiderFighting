@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Animancer;
 using AYellowpaper.SerializedCollections;
+using EasyCharacterMovement;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -48,6 +49,7 @@ namespace Core.GamePlay.Player
         protected PlayerStateComponent _stateContainer;
         protected PlayerDisplayComponent _displayContainer;
         protected PlayerStatComponent _statManager;
+        [SerializeField] MovementMode _movementMode;
         [SerializeField] protected ClipTransition _animationClip;
         [SerializeField] protected bool _fixedAnim;
         [SerializeField] private bool _canChangeToItself = false;
@@ -69,11 +71,26 @@ namespace Core.GamePlay.Player
         {
             _randomTransition = GetTransition(actionBefore);
             _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_randomTransition];
+            _playerController.SetMovementMode(_movementMode);
+            if(_movementMode == MovementMode.None)
+            {
+                _playerController.CharacterMovement.rigidbody.useGravity = true;
+                _playerController.CharacterMovement.rigidbody.isKinematic = false;
+                _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+                _playerController.CharacterMovement.rigidbody.velocity = _playerController.GlobalVelocity;
+            }
+            else{
+                _playerController.CharacterMovement.rigidbody.useGravity = false;
+                _playerController.CharacterMovement.rigidbody.isKinematic = true;
+                _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+                _playerController.SetVelocity(_playerController.GlobalVelocity);
+            }
             StartAction();
         }
 
         public virtual bool Exit(ActionEnum actionAfter)
         {
+            _playerController.GlobalVelocity = _movementMode == MovementMode.None ? _playerController.CharacterMovement.rigidbody.velocity : _playerController.GetVelocity();
             _state = null;
             return true;
         }
@@ -95,6 +112,7 @@ namespace Core.GamePlay.Player
         public virtual void OnTriggerExit(Collider other) { }
 
         public virtual void OnTriggerStay(Collider other) { }
+        public virtual void OnCollided(ref CollisionResult collisionResult){}
 
         public bool CanChangeToItself => _canChangeToItself;
 
@@ -127,7 +145,8 @@ namespace Core.GamePlay.Player
             //_currentTransition.endAnimation.Events.OnEnd += ExitAction;
         }
 
-        public virtual void ExitAction(){}
+        public virtual void ExitAction(){
+        }
 
         protected virtual int GetTransition(ActionEnum actionBefore)
         {

@@ -1,4 +1,5 @@
 using System.ComponentModel.Design;
+using EasyCharacterMovement;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
@@ -55,6 +56,10 @@ namespace Core.GamePlay.Player
         }
 
         public virtual void OnTriggerStay(Collider other)
+        {
+        }
+
+        public virtual void OnCollided(ref CollisionResult collisionResult)
         {
         }
     }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca21f3cde09b514bb421359685b281d, type: 3}
   m_Name: IdleAction
   m_EditorClassIdentifier: 
+  _movementMode: 1
   _animationClip:
     _FadeDuration: 0.105
     _Events:

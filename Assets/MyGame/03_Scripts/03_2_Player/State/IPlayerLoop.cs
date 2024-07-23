@@ -1,3 +1,4 @@
+using EasyCharacterMovement;
 using UnityEngine;
 
 namespace Core.GamePlay.Player{
@@ -12,5 +13,6 @@ namespace Core.GamePlay.Player{
         public void OnTriggerEnter(Collider other);
         public void OnTriggerExit(Collider other);
         public void OnTriggerStay(Collider other);
+        public void OnCollided(ref CollisionResult collisionResult);
     }
 }

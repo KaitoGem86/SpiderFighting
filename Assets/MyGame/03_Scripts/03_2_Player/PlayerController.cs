@@ -106,7 +106,7 @@ namespace Core.GamePlay.Player
             foreach (var item in _dictPlayerComponents)
             {
                 if (item.Value is IPlayerLoop)
-                    item.Value.OnTriggerEnter(collisionResult.collider);
+                    item.Value.OnCollided(ref collisionResult);
             }
         }
 

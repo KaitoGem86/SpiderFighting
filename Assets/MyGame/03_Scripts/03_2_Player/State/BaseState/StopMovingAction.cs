@@ -69,5 +69,6 @@ namespace Core.GamePlay.Player
         {
             CheckMoving();
         }
+        
     }
 }

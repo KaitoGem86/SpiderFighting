@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e8921f38bcbc045ac906c67bd2d1e4, type: 3}
   m_Name: PlayerStopMoving
   m_EditorClassIdentifier: 
+  _movementMode: 1
   _animationClip:
     _FadeDuration: 0.18
     _Events:

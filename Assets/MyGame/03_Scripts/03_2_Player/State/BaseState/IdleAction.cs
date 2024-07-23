@@ -23,7 +23,6 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionAfter)
         {
-            if (actionAfter == ActionEnum.Sprinting) return false;
             return base.Exit(actionAfter);
         }
 

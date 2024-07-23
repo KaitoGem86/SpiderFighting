@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5e2ec00ac9a984ab420d2251a57fd6, type: 3}
   m_Name: PlayerFallingDown
   m_EditorClassIdentifier: 
+  _movementMode: 2
   _animationClip:
     _FadeDuration: 0.040000003
     _Events:
