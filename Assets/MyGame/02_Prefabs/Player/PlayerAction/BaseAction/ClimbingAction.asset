@@ -25,9 +25,7 @@ MonoBehaviour:
   _fixedAnim: 1
   _canChangeToItself: 0
   _dictPlayerAnimTransition:
-    _serializedList:
-    - Key: 0
-      Value: []
+    _serializedList: []
   _startClimbingUpTransition:
     _FadeDuration: 0.1
     _Events:

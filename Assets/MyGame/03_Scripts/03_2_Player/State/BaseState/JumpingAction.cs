@@ -12,6 +12,7 @@ namespace Core.GamePlay.Player
         private float _elapsedTime = 1f;
         private bool _isStartJumping = false;
         protected float _jumpVelocity = 0;
+        private float _speedFromSwing = 15;
         private ActionEnum _beforeAction;   
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -36,14 +37,13 @@ namespace Core.GamePlay.Player
                 case ActionEnum.Swing:
                     _speed = 15;
                     _jumpVelocity = 5;
-                    _playerController.SetVelocity(JumpDirection());
+                    _playerController.SetVelocity(JumpVelocityFromSwing());
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
                 case ActionEnum.Climbing:
                     _speed = 15;
                     _jumpVelocity = 5;
-                    //_playerController.CharacterMovement.rigidbody.velocity = -_playerController.PlayerDisplay.transform.forward * 5  + Vector3.up * 20;
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
@@ -54,15 +54,6 @@ namespace Core.GamePlay.Player
                     _elapsedTime = 0.3f;
                     break;
             }
-        }
-
-        protected virtual Vector3 JumpDirection()
-        {
-            var forward = _playerController.PlayerDisplay.forward;
-            forward.y = 0;
-            var tmp = forward * _speed + _playerController.GlobalVelocity;
-            tmp.y = Mathf.Clamp(tmp.y, 20, 30);
-            return tmp;
         }
 
         public override void Update()
@@ -95,15 +86,32 @@ namespace Core.GamePlay.Player
             FallingDown();
         }
 
-        protected override void Rotate()
-        {
-            base.Rotate();
-        }
 
         public override void OnCollisionEnter(Collision collision)
         {
             if (_isStartJumping && _elapsedTime < 0)
                 base.OnCollisionEnter(collision);
+        }
+
+        private Vector3 JumpVelocityFromSwing(){
+            var forward = _playerController.PlayerDisplay.forward;
+            forward.y = 0;
+            GetInput();
+            var input = _moveDirection;
+            var tmp = (forward + input).normalized * _speedFromSwing + _playerController.GlobalVelocity + Vector3.up * _jumpVelocity;
+            _speedFromSwing += 15;
+            _speedFromSwing = Mathf.Clamp(_speedFromSwing, 0, 80);
+            tmp.y = Mathf.Clamp(tmp.y, 20, 30);
+            return tmp;
+        }
+
+        private Vector3 JumpVelocityFromClimp(){
+            var forward = _playerController.PlayerDisplay.forward;
+            forward.y = 0;
+            GetInput();
+            var input = _moveDirection;
+            var tmp = (forward + _moveDirection).normalized * 20 + _playerController.GlobalVelocity;
+            return tmp;
         }
     }
 }

@@ -17,7 +17,6 @@ namespace Core.GamePlay.Player
         public PlayerModel CurrentPlayerModel;
 
         [SerializeField] private SerializedDictionary<PlayerComponentEnum, BasePlayerComponent> _dictPlayerComponents;
-        private ActionEnum _beforeAction;
 
         protected override void Awake()
         {

@@ -52,12 +52,6 @@ namespace Core.GamePlay.Player
             FindPivot();
             base.Enter(beforeAction);
             _onSwing.RegisterListener();
-            _velocity = _playerController.GlobalVelocity;
-            _playerController.SetMovementMode(MovementMode.None);
-            _playerController.CharacterMovement.rigidbody.isKinematic = false;
-            _playerController.CharacterMovement.rigidbody.useGravity = true;
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
-            _playerController.CharacterMovement.rigidbody.velocity = _velocity;
             _isStartShootSilk = false;
             //InitSwing();
         }
@@ -67,12 +61,7 @@ namespace Core.GamePlay.Player
             _onSwing.UnregisterListener();
             _isStartShootSilk = false;
             _lineRenderer.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
-            //_playerController.PlayerDisplay.transform.up = Vector3.up;
-            _playerController.GlobalVelocity = _playerController.CharacterMovement.rigidbody.velocity;
             Destroy(_playerController.GetComponent<SpringJoint>());
-            _playerController.SetMovementMode(MovementMode.Walking);
-            _playerController.CharacterMovement.rigidbody.isKinematic = true;
-            _playerController.CharacterMovement.rigidbody.useGravity = false;
             return base.Exit(actionAfter);
         }
 
@@ -84,12 +73,14 @@ namespace Core.GamePlay.Player
             right.y = 0;
             if (_playerController.transform.position.y < 10)
             {
-                _speed = 30;
+                _speed += 10;
+                _speed = Mathf.Clamp(_speed, 0, 30);
                 _pivot = _playerController.transform.position + forward.normalized * 20 + right.normalized * 10 * _handToUse + Vector3.up * 15;
             }
             else
             {
-                _speed = 50;
+                _speed += 20;
+                _speed = Mathf.Clamp(_speed, 0, 80);
                 _pivot = _playerController.transform.position + forward.normalized * 30 + right.normalized * 10 * _handToUse + Vector3.up * 20;
             }
             restLength = Vector3.Distance(_holdPivot.position, _pivot);

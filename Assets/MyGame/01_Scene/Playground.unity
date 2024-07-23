@@ -34287,6 +34287,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      propertyPath: _gravityScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: DisplayZipPoint
       value: 
       objectReference: {fileID: 684086095}
