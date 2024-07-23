@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace Core.GamePlay.Support
 {
@@ -34,38 +35,44 @@ namespace Core.GamePlay.Support
                 var tmp = col.GetComponent<ZipPointOnObject>();
                 if (tmp != null)
                 {
-                    var res = tmp.GetZipPoint(_playerController, _cameraController);
-                    var points = res.Item1;
-                    // foreach(var point in points){
-                    //     if (!CheckValidZipPoint(point))
-                    //     {
-                    //         continue;
-                    //     }
-                    //     if (CheckInFocusPanel(point))
-                    //     {
-                    //         var distance1 = Vector3.Distance(_playerController.position, point);
-                    //         if (distance1 < minDistanceInFocusPanel)
-                    //         {
-                    //             isFoundInFocusPanel = true;
-                    //             minDistanceInFocusPanel = distance1;
-                    //             closestPointInFocusPanel = point;
-                    //         }
-                    //     }
+                    var res = tmp.GetZipPoint(_cameraController);
+                    var points = res;
+                    foreach (var point in points)
+                    {
+                        if (!CheckValidZipPoint(point.Item1))
+                        {
+                            continue;
+                        }
+                        if (CheckInFocusPanel(point.Item1))
+                        {
+                            var distance1 = point.Item2;
+                            if (distance1 < minDistanceInFocusPanel)
+                            {
+                                isFoundInFocusPanel = true;
+                                minDistanceInFocusPanel = distance1;
+                                closestPointInFocusPanel = point.Item1;
+                            }
+                            continue;
+                        }
 
-                    //     var distance = Vector3.Distance(_playerController.position, point);
-                    //     if (distance < minDistance)
-                    //     {
-                    //         isFound = true;
-                    //         minDistance = distance;
-                    //         closestPoint = point;
-                    //     }
-                    // }
-                    minDistance = res.Item2;
-                    closestPoint = res.Item1;
+                        var distance = point.Item2;
+                        if (distance < minDistance)
+                        {
+                            isFound = true;
+                            minDistance = distance;
+                            closestPoint = point.Item1;
+                        }
+                    }
                 }
             }
 
-            if (minDistance < float.MaxValue)
+            if(isFoundInFocusPanel){
+                _displayZipPoint.SetActive(true);
+                _displayZipPoint.transform.position = closestPointInFocusPanel;
+                return;
+            }
+
+            if (isFound)
             {
                 _displayZipPoint.SetActive(true);
                 _displayZipPoint.transform.position = closestPoint;
@@ -74,43 +81,29 @@ namespace Core.GamePlay.Support
             {
                 _displayZipPoint.SetActive(false);
             }
-            // if(isFoundInFocusPanel){
-            //     _displayZipPoint.SetActive(true);
-            //     _displayZipPoint.transform.position = closestPointInFocusPanel;
-            //     return;
-            // }
-
-            // if (isFound)
-            // {
-            //     _displayZipPoint.SetActive(true);
-            //     _displayZipPoint.transform.position = closestPoint;
-            // }
-            // else
-            // {
-            //     _displayZipPoint.SetActive(false);
-            // }
-            //_displayZipPoint.SetActive(true);
-            //_displayZipPoint.transform.position = closestPoint;
         }
 
-        private bool CheckValidZipPoint(Vector3 point){
+        private bool CheckValidZipPoint(Vector3 point)
+        {
             var viewPoint = _cameraController.WorldToViewportPoint(point);
             return viewPoint.x > 0 && viewPoint.x < 1 && viewPoint.y > 0 && viewPoint.y < 1 && viewPoint.z > 0;
         }
 
-        private bool CheckInFocusPanel(Vector3 point){
+        private bool CheckInFocusPanel(Vector3 point)
+        {
             var viewPoint = _cameraController.WorldToViewportPoint(point);
-            return viewPoint.x > (_viewPortFocusPanelPosition.x - _viewPortFocusPanelSize.x/2)
-                && viewPoint.x < (_viewPortFocusPanelPosition.x + _viewPortFocusPanelSize.x/2)
-                && viewPoint.y > (_viewPortFocusPanelPosition.y - _viewPortFocusPanelSize.y/2)
-                && viewPoint.y < (_viewPortFocusPanelPosition.y + _viewPortFocusPanelSize.y/2)
+            return viewPoint.x > (_viewPortFocusPanelPosition.x - _viewPortFocusPanelSize.x / 2)
+                && viewPoint.x < (_viewPortFocusPanelPosition.x + _viewPortFocusPanelSize.x / 2)
+                && viewPoint.y > (_viewPortFocusPanelPosition.y - _viewPortFocusPanelSize.y / 2)
+                && viewPoint.y < (_viewPortFocusPanelPosition.y + _viewPortFocusPanelSize.y / 2)
                 && viewPoint.z > 0;
         }
 
-        private void InitFocusPanel(){
+        private void InitFocusPanel()
+        {
             _viewPortFocusPanelPosition = _cameraController.ScreenToViewportPoint(_focusPanel.position);
-            var rightTop = _cameraController.ScreenToViewportPoint(_focusPanel.position + new Vector3(_focusPanel.rect.width/2, _focusPanel.rect.height/2, 0));
-            var leftBottom = _cameraController.ScreenToViewportPoint(_focusPanel.position - new Vector3(_focusPanel.rect.width/2, _focusPanel.rect.height/2, 0));
+            var rightTop = _cameraController.ScreenToViewportPoint(_focusPanel.position + new Vector3(_focusPanel.rect.width / 2, _focusPanel.rect.height / 2, 0));
+            var leftBottom = _cameraController.ScreenToViewportPoint(_focusPanel.position - new Vector3(_focusPanel.rect.width / 2, _focusPanel.rect.height / 2, 0));
             _viewPortFocusPanelSize = new Vector2(rightTop.x - leftBottom.x, rightTop.y - leftBottom.y);
             _viewPortCenterPointPosition = _cameraController.ScreenToViewportPoint(_centerPoint.position);
         }

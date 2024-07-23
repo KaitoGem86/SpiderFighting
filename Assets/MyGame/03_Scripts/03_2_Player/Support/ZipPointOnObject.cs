@@ -19,18 +19,45 @@ namespace Core.GamePlay.Support
 
         public (Vector3, float) GetClosestPointWithCameraOnEdge(Camera camera)
         {
-            Vector3 viewPortStartPos = camera.WorldToViewportPoint(StartPoint);
-            Vector3 viewPortEndPos = camera.WorldToViewportPoint(EndPoint);
-            Vector3 viewPortCenter = new Vector3(0.5f, 0.5f, 0);
+            Vector3 viewPortCenter = new Vector3(0.5f, 0.5f, 0.5f);
+            Vector3 worldCenter = camera.ViewportToWorldPoint(viewPortCenter);
+            Vector3 forward = worldCenter - camera.transform.position;
+            Vector3 normal = Vector3.Cross(forward, Vector3.up);
+            Plane plane = new Plane(normal, worldCenter);
 
-            Vector3 AB = viewPortEndPos - viewPortStartPos;
-            Vector3 AC = viewPortCenter - viewPortStartPos;
+            if (TryGetIntersection(StartPoint, EndPoint, plane, out Vector3 intersection))
+            {
+                var tmp = camera.WorldToViewportPoint(intersection);
+                tmp.y = 0;
+                return (intersection, Vector3.Distance(tmp, new Vector3(0.5f, 0.5f, 0)));
+            }
+            else
+            {
+                Vector3 closestPoint = GetClosestEndPointToPlane(StartPoint, EndPoint, plane);
+                return (closestPoint, Vector3.Distance(closestPoint, camera.transform.position));
+            }
+        }
 
-            float t = Vector3.Dot(AC, AB) / Vector3.Dot(AB, AB);
-            t = Mathf.Clamp01(t);
+        bool TryGetIntersection(Vector3 start, Vector3 end, Plane plane, out Vector3 intersection)
+        {
+            Ray ray = new Ray(start, end - start);
+            float enter;
+            if (plane.Raycast(ray, out enter) && enter <= Vector3.Distance(start, end))
+            {
+                intersection = ray.origin + ray.direction * enter;
+                return true;
+            }
 
-            Vector3 closestPoint = Vector3.Lerp(StartPoint, EndPoint, t);
-            return (closestPoint, Vector3.Distance(closestPoint, camera.transform.position));
+            intersection = Vector3.zero;
+            return false;
+        }
+
+        Vector3 GetClosestEndPointToPlane(Vector3 start, Vector3 end, Plane plane)
+        {
+            float distanceToStart = Mathf.Abs(plane.GetDistanceToPoint(start));
+            float distanceToEnd = Mathf.Abs(plane.GetDistanceToPoint(end));
+
+            return distanceToStart < distanceToEnd ? start : end;
         }
     }
 
@@ -67,6 +94,7 @@ namespace Core.GamePlay.Support
         [SerializeField] private bool _isCustomZipPoint;
 
         private List<EdgeBuilding> _edges;
+        private List<(Vector3, float)> _closestPoints;
 
         private void Awake()
         {
@@ -130,28 +158,16 @@ namespace Core.GamePlay.Support
             _edges.Add(new EdgeBuilding(transform.TransformPoint(tmpVertices[tmpVertices.Count - 1]), transform.TransformPoint(tmpVertices[0]))); // Connect the last vertex with the first one
         }
 
-        public (Vector3, float) GetZipPoint(Transform player, Camera camera)
+        public List<(Vector3, float)> GetZipPoint(Camera camera)
         {
-            float minDistance = float.MaxValue;
-            Vector3 closestPoint = Vector3.negativeInfinity;
-            int i = 0;
+            _closestPoints ??= new List<(Vector3, float)>();
+            _closestPoints.Clear();
             foreach (var edge in _edges)
             {
                 var (point, distance) = GetClosestPointWithCameraOnEdge(edge, camera);
-                if(_display != null && _display.Count > i)
-                    _display[i].transform.position = point;
-                i++;
-                if (point != Vector3.negativeInfinity)
-                {
-                    var distanceToPlayer = Vector3.Distance(player.position, point);
-                    if (distanceToPlayer < minDistance)
-                    {
-                        minDistance = distanceToPlayer;
-                        closestPoint = point;
-                    }
-                }
+                _closestPoints.Add((point, distance));
             }
-            return (closestPoint, minDistance);
+            return _closestPoints;
         }
 
         private (Vector3, float) GetClosestPointWithCameraOnEdge(EdgeBuilding edge, Camera camera)
@@ -162,21 +178,21 @@ namespace Core.GamePlay.Support
         private List<Vector3> FindConvexHull(List<Vector3> vertices)
         {
             if (vertices.Count < 3) return vertices;
-        
+
             // Tìm điểm bắt đầu
             Vector3 startVertex = vertices.OrderBy(v => v.x).First();
             vertices.Remove(startVertex);
-        
+
             // Sắp xếp các điểm còn lại dựa vào góc
             vertices.Sort((a, b) => Vector3.SignedAngle(Vector3.right, a - startVertex, Vector3.up).CompareTo(Vector3.SignedAngle(Vector3.right, b - startVertex, Vector3.up)));
-        
+
             // Thêm điểm bắt đầu vào danh sách để đóng vòng lặp
             vertices.Add(startVertex);
-        
+
             Stack<Vector3> hull = new Stack<Vector3>();
             hull.Push(startVertex);
             hull.Push(vertices[0]);
-        
+
             for (int i = 1; i < vertices.Count; i++)
             {
                 Vector3 top = hull.Pop();

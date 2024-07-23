@@ -159,7 +159,7 @@ namespace Core.GamePlay.Player
             _playerController.PlayerDisplay.transform.up = Vector3.Lerp(_playerController.PlayerDisplay.transform.up, upwardDirection.normalized, 1);
             _playerController.PlayerDisplay.transform.forward = Vector3.Lerp(_playerController.PlayerDisplay.transform.forward, forwardDirection.normalized, 1);
             var targetRotation = _playerController.PlayerDisplay.rotation;
-            _playerController.PlayerDisplay.rotation = Quaternion.Slerp(rotation, targetRotation, Time.fixedDeltaTime * 2);
+            _playerController.PlayerDisplay.rotation = Quaternion.Slerp(rotation, targetRotation, Time.fixedDeltaTime * 5);
         }
 
         protected override int GetTransition(ActionEnum actionBefore)
