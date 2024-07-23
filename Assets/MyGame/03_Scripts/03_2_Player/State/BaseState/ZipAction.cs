@@ -82,7 +82,6 @@ namespace Core.GamePlay.Player
         public override void LateUpdate()
         {
             Rotate();
-            Debug.Log(frame);
             if (_isZip)
             {
                 ShootShilkPefFrame(frame, maxFrame);
@@ -99,7 +98,6 @@ namespace Core.GamePlay.Player
 
         protected override void Rotate()
         {
-            Debug.DrawRay(_playerController.transform.position, _rotateDirection, Color.red, 10f);
             base.Rotate();
         }
 
@@ -112,7 +110,6 @@ namespace Core.GamePlay.Player
             }
             _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
             float time = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) / _speed;
-            //_playerController.SetMovementMode(MovementMode.Flying);
             _playerController.transform.DOMove(_zipPoint, time)
                 .OnComplete(EndAction);
             _isZip = true;
@@ -187,8 +184,6 @@ namespace Core.GamePlay.Player
         private void ShootShilkPefFrame(int frame, int maxFrame)
         {
             if (!_isStartShootSilk) return;
-            //Debug.Log("ShootShilkPefFrame");
-            Debug.Log(frame / (float)maxFrame);
             _left.SetPositions(new Vector3[] { _leftHand.position, Vector3.Lerp(_leftHand.position, _zipPoint, frame / (float)maxFrame) });
             _right.SetPositions(new Vector3[] { _rightHand.position, Vector3.Lerp(_rightHand.position, _zipPoint, frame / (float)maxFrame) });
         }
