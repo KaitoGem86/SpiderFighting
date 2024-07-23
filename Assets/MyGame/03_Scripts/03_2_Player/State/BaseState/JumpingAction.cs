@@ -97,6 +97,11 @@ namespace Core.GamePlay.Player
             FallingDown();
         }
 
+        protected override void Rotate()
+        {
+            base.Rotate();
+        }
+
         public override void OnCollisionEnter(Collision collision)
         {
             if (_isStartJumping && _elapsedTime < 0)

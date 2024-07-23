@@ -49,6 +49,11 @@ namespace Core.GamePlay
             _direction.y = 0;
             _moveDirection = _direction;
             _rotateDirection = _direction;
+            if(_rotateDirection == Vector3.zero)
+            {
+                _rotateDirection = _playerController.PlayerDisplay.forward;
+                _rotateDirection.y = 0;
+            }
         }
     }
 }

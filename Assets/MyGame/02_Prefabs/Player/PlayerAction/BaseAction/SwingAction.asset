@@ -1120,5 +1120,5 @@ MonoBehaviour:
   connectedBody: {fileID: 0}
   springForce: 50
   damperForce: 5
-  restLength: 36.568745
+  restLength: 36.56874
   speed: 10

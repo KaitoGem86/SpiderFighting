@@ -12,11 +12,12 @@ namespace Core.GamePlay.Player
         private Vector3 _zipPoint;
         private bool _isZip;
         private bool _jump;
+        private bool _zipToPoint;
         private Transform _leftHand;
         private Transform _rightHand;
         private bool _isStartShootSilk = false;
         private int frame = 0;
-        private int maxFrame = 10;
+        private int maxFrame = 5;
         private LineRenderer _left;
         private LineRenderer _right;
 
@@ -34,8 +35,20 @@ namespace Core.GamePlay.Player
             _rightHand = _playerController.rightHand;
             if (_displayZipPoint.activeSelf == false)
             {
-                _stateContainer.ChangeAction(beforeAction);
-                return;
+                if (beforeAction == ActionEnum.Climbing)
+                {
+                    _zipPoint = _playerController.PlayerDisplay.transform.position + _playerController.PlayerDisplay.transform.up * 5;
+                }
+                else
+                {
+                    _zipPoint = _playerController.PlayerDisplay.transform.position + _playerController.PlayerDisplay.transform.forward * 5;
+                }
+                _zipToPoint = false;
+            }
+            else
+            {
+                _zipPoint = new Vector3(_displayZipPoint.transform.position.x, _displayZipPoint.transform.position.y, _displayZipPoint.transform.position.z);
+                _zipToPoint = true;
             }
             _playerController.CharacterMovement.rigidbody.useGravity = false;
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
@@ -43,7 +56,8 @@ namespace Core.GamePlay.Player
             base.Enter(beforeAction);
             _playerController.SetMovementMode(MovementMode.None);
             _playerController.CharacterMovement.rigidbody.velocity = _playerController.GlobalVelocity;
-            _zipPoint = new Vector3(_displayZipPoint.transform.position.x, _displayZipPoint.transform.position.y, _displayZipPoint.transform.position.z);
+
+            frame = 0;
             _speed = 120;
             _isZip = false;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
@@ -63,21 +77,16 @@ namespace Core.GamePlay.Player
                 if (Vector3.Distance(_zipPoint, _playerController.transform.position) > 1f)
                     _jump = false;
             }
-            // if (Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) < 0.2f)
-            // {
-            //     EndAction();
-            // }
-            // var distance = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position);
-            // _moveDirection = (_zipPoint - _playerController.PlayerDisplay.transform.position) * (distance > 1 ? 7 : 0.1f);
         }
 
         public override void LateUpdate()
         {
             Rotate();
-            if (!_isZip)
+            Debug.Log(frame);
+            if (_isZip)
             {
                 ShootShilkPefFrame(frame, maxFrame);
-                frame = Mathf.Min(frame + 1, maxFrame);
+                frame ++;
                 return;
             }
             base.LateUpdate();
@@ -97,12 +106,13 @@ namespace Core.GamePlay.Player
         public override void KeepAction()
         {
             base.KeepAction();
-            if(_playerController.transform.position.y < _zipPoint.y){
+            if (_playerController.transform.position.y < _zipPoint.y)
+            {
                 _zipPoint.y += 0.3f;
             }
             _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
             float time = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) / _speed;
-            _playerController.SetMovementMode(MovementMode.Flying);
+            //_playerController.SetMovementMode(MovementMode.Flying);
             _playerController.transform.DOMove(_zipPoint, time)
                 .OnComplete(EndAction);
             _isZip = true;
@@ -140,14 +150,20 @@ namespace Core.GamePlay.Player
 
         private void EndZip()
         {
-            if (_jump)
+            if (_zipToPoint)
             {
-                ChangeAction(ActionEnum.Jumping);
+                if (_jump)
+                {
+                    ChangeAction(ActionEnum.Jumping);
+                }
+                else
+                {
+                    InputManager.instance.jump = false;
+                    ChangeAction(ActionEnum.Idle);
+                }
             }
             else
             {
-                InputManager.instance.jump = false;
-                ChangeAction(ActionEnum.Idle);
             }
         }
 
@@ -172,8 +188,9 @@ namespace Core.GamePlay.Player
         {
             if (!_isStartShootSilk) return;
             //Debug.Log("ShootShilkPefFrame");
-            _left.SetPositions(new Vector3[] { _leftHand.position, _leftHand.position + (_zipPoint - _leftHand.position).normalized * frame });
-            _right.SetPositions(new Vector3[] { _rightHand.position, _rightHand.position + (_zipPoint - _rightHand.position).normalized * frame });
+            Debug.Log(frame / (float)maxFrame);
+            _left.SetPositions(new Vector3[] { _leftHand.position, Vector3.Lerp(_leftHand.position, _zipPoint, frame / (float)maxFrame) });
+            _right.SetPositions(new Vector3[] { _rightHand.position, Vector3.Lerp(_rightHand.position, _zipPoint, frame / (float)maxFrame) });
         }
     }
 }

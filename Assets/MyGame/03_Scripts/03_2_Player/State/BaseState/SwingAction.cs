@@ -67,7 +67,7 @@ namespace Core.GamePlay.Player
             _onSwing.UnregisterListener();
             _isStartShootSilk = false;
             _lineRenderer.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
-            _playerController.PlayerDisplay.transform.up = Vector3.up;
+            //_playerController.PlayerDisplay.transform.up = Vector3.up;
             _playerController.GlobalVelocity = _playerController.CharacterMovement.rigidbody.velocity;
             Destroy(_playerController.GetComponent<SpringJoint>());
             _playerController.SetMovementMode(MovementMode.Walking);
