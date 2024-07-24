@@ -5,7 +5,7 @@ namespace Core.GamePlay.Support
 {
     public class NewFindZipPoint : MonoBehaviour
     {
-        [SerializeField] private GameObject _displayZipPoint;
+        [SerializeField] private DisplayZipPoint _displayZipPoint;
         [SerializeField] private Transform _playerController;
         [SerializeField] private float _radius;
         [SerializeField] private RectTransform _focusPanel;
@@ -24,6 +24,8 @@ namespace Core.GamePlay.Support
         private void Update()
         {
             var collider = Physics.OverlapSphere(_playerController.position, _radius);
+            GameObject closestObject = null;
+            GameObject closestObjectInFocusPanel = null;
             Vector3 closestPoint = Vector3.negativeInfinity;
             Vector3 closestPointInFocusPanel = Vector3.negativeInfinity;
             bool isFound = false;
@@ -55,6 +57,7 @@ namespace Core.GamePlay.Support
                                 isFoundInFocusPanel = true;
                                 minDistanceInFocusPanel = distance1;
                                 closestPointInFocusPanel = point.Item1;
+                                closestObjectInFocusPanel = col.gameObject;
                             }
                             continue;
                         }
@@ -65,25 +68,27 @@ namespace Core.GamePlay.Support
                             isFound = true;
                             minDistance = distance;
                             closestPoint = point.Item1;
+                            closestObject = col.gameObject;
                         }
                     }
                 }
             }
 
-            if(isFoundInFocusPanel){
-                _displayZipPoint.SetActive(true);
+            if (isFoundInFocusPanel)
+            {
+                _displayZipPoint.SetActive(true, closestObjectInFocusPanel);
                 _displayZipPoint.transform.position = closestPointInFocusPanel;
                 return;
             }
 
             if (isFound)
             {
-                _displayZipPoint.SetActive(true);
+                _displayZipPoint.SetActive(true, closestObject);
                 _displayZipPoint.transform.position = closestPoint;
             }
             else
             {
-                _displayZipPoint.SetActive(false);
+                _displayZipPoint.SetActive(false, closestObject);
             }
         }
 
@@ -93,7 +98,8 @@ namespace Core.GamePlay.Support
             return viewPoint.x > 0 && viewPoint.x < 1 && viewPoint.y > 0 && viewPoint.y < 1 && viewPoint.z > 0;
         }
 
-        private bool CheckObstacle(Vector3 point){
+        private bool CheckObstacle(Vector3 point)
+        {
             var direction = point - _playerController.position;
             RaycastHit hitInfo;
             if (Physics.Raycast(_playerController.position, direction, out hitInfo, _radius))

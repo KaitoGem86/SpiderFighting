@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using Core.GamePlay.Support;
 using EasyCharacterMovement;
 using MyTools.Event;
 using SFRemastered.InputSystem;
@@ -148,7 +149,7 @@ namespace Core.GamePlay.Player
         public Transform CameraTransform => _cameraTransformObject;
         public Transform HoldPivot => _holdPivot;
         public CharacterMovement CharacterMovement => _characterMovementObject;
-        public GameObject DisplayZipPoint;
+        public DisplayZipPoint DisplayZipPoint;
         public Rigidbody swingPivot;
         public Vector3 GlobalVelocity;
         public Transform leftHand => CurrentPlayerModel.leftHand;

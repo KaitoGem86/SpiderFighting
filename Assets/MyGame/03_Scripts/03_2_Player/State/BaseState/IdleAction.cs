@@ -16,9 +16,11 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
+            _playerController.SetVelocity(Vector3.zero);
             if(beforeAction == ActionEnum.Zip){
                 _isCanChangeAction = false;
             }
+            Debug.Log(_playerController.GetVelocity());
         }
 
         public override bool Exit(ActionEnum actionAfter)

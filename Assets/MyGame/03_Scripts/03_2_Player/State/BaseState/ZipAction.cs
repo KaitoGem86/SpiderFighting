@@ -1,3 +1,4 @@
+using Core.GamePlay.Support;
 using DG.Tweening;
 using EasyCharacterMovement;
 using SFRemastered.InputSystem;
@@ -8,7 +9,7 @@ namespace Core.GamePlay.Player
     [CreateAssetMenu(fileName = nameof(ZipAction), menuName = ("GamePlay/Player/State/MovementState/" + nameof(ZipAction)), order = 0)]
     public class ZipAction : LocalmotionAction
     {
-        private GameObject _displayZipPoint;
+        private DisplayZipPoint _displayZipPoint;
         private Vector3 _zipPoint;
         private bool _isZip;
         private bool _jump;
@@ -34,7 +35,7 @@ namespace Core.GamePlay.Player
             base.Enter(beforeAction);
             _leftHand = _playerController.leftHand;
             _rightHand = _playerController.rightHand;
-            if (_displayZipPoint.activeSelf == false)
+            if (_displayZipPoint.gameObject.activeSelf == false)
             {
                 if (beforeAction == ActionEnum.Climbing)
                 {
@@ -75,7 +76,7 @@ namespace Core.GamePlay.Player
                 if (distance > 10f)
                     _jump = false;
             }
-            if (distance < 0.5f)
+            if (distance < 0.1f)
             {
                 EndAction();
             }
@@ -107,15 +108,16 @@ namespace Core.GamePlay.Player
         public override void KeepAction()
         {
             base.KeepAction();
-            if (_playerController.transform.position.y < _zipPoint.y)
-            {
-                _zipPoint.y += 0.3f;
-            }
+            // if (_playerController.transform.position.y < _zipPoint.y)
+            // {
+            //     _zipPoint.y += 0.3f;
+            // }
             //_playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
-            //float time = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) / _speed;
+            float time = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) / _speed;
             //_playerController.transform.DOMove(_zipPoint, time)
             //    .OnComplete(EndAction);
-            _playerController.CharacterMovement.rigidbody.velocity = (_zipPoint - _playerController.PlayerDisplay.transform.position);
+            //_playerController.CharacterMovement.rigidbody.velocity = _zipPoint - _playerController.PlayerDisplay.transform.position;
+            _displayZipPoint.ZipToPoint(_playerController.transform, time).OnComplete(EndAction);
             _isZip = true;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
             _rotateDirection = _moveDirection.normalized;
@@ -151,7 +153,7 @@ namespace Core.GamePlay.Player
 
         private void EndZip()
         {
-            _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
+            _playerController.transform.DOKill();
             if (_zipToPoint)
             {
                 if (_jump)

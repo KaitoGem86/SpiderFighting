@@ -10730,6 +10730,7 @@ GameObject:
   - component: {fileID: 684086098}
   - component: {fileID: 684086097}
   - component: {fileID: 684086096}
+  - component: {fileID: 684086100}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: Untagged
@@ -10829,6 +10830,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684086100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684086095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bd323700de13b4c9fbfa148513f3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &686410081
 GameObject:
   m_ObjectHideFlags: 0
@@ -34846,7 +34859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8303d8eef761f408af2cdf3e203318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _displayZipPoint: {fileID: 684086095}
+  _displayZipPoint: {fileID: 684086100}
   _playerController: {fileID: 581455302}
   _radius: 40
   _focusPanel: {fileID: 1727796206}
@@ -39103,6 +39116,18 @@ PrefabInstance:
       propertyPath: _playerModels.Array.data[4]
       value: 
       objectReference: {fileID: 1822625407}
+    - target: {fileID: 6333770598010271770, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532913103968050107, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      propertyPath: _radius
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532913103968050107, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      propertyPath: _perchOffset
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7532913103968050107, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: _triggerInteraction
       value: 2
@@ -39154,7 +39179,7 @@ PrefabInstance:
     - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: DisplayZipPoint
       value: 
-      objectReference: {fileID: 684086095}
+      objectReference: {fileID: 684086100}
     - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: _onReachMaxSpeed
       value: 
