@@ -12,8 +12,8 @@ namespace Core.GamePlay.Player
         private float _elapsedTime = 1f;
         private bool _isStartJumping = false;
         protected float _jumpVelocity = 0;
-        private float _speedFromSwing = 15;
-        private ActionEnum _beforeAction;   
+        private float _speedFromSwing = 10;
+        private ActionEnum _beforeAction;
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
             base.Init(playerController, actionEnum);
@@ -26,29 +26,29 @@ namespace Core.GamePlay.Player
             if (_isJumping) return;
             base.Enter(beforeAction);
             _beforeAction = beforeAction;
+            var velocity = _playerController.GlobalVelocity;
+            velocity.y = 0;
+            _speed = velocity.magnitude;
             switch (beforeAction)
             {
                 case ActionEnum.Zip:
-                    _speed = 15;
                     _playerController.Jump();
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
                 case ActionEnum.Swing:
-                    _speed = 15;
                     _jumpVelocity = 5;
                     _playerController.SetVelocity(JumpVelocityFromSwing());
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
                 case ActionEnum.Climbing:
-                    _speed = 15;
                     _jumpVelocity = 5;
                     _isStartJumping = true;
+                    JumpVelocityFromClimp();
                     _elapsedTime = 0.3f;
                     break;
                 default:
-                    _speed = 10;
                     _playerController.Jump();
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
@@ -60,7 +60,8 @@ namespace Core.GamePlay.Player
         {
             base.Update();
             _elapsedTime -= Time.deltaTime;
-            if(_beforeAction == ActionEnum.Climbing){
+            if (_beforeAction == ActionEnum.Climbing)
+            {
                 _moveDirection = Vector3.zero;
                 _rotateDirection = Vector3.zero;
             }
@@ -93,25 +94,24 @@ namespace Core.GamePlay.Player
                 base.OnCollisionEnter(collision);
         }
 
-        private Vector3 JumpVelocityFromSwing(){
-            var forward = _playerController.PlayerDisplay.forward;
-            forward.y = 0;
+        private Vector3 JumpVelocityFromSwing()
+        {
+            var velocity = _playerController.GlobalVelocity;
+            velocity.y = 0;
+            velocity = velocity.normalized;
             GetInput();
             var input = _moveDirection;
-            var tmp = (forward + input).normalized * _speedFromSwing + _playerController.GlobalVelocity + Vector3.up * _jumpVelocity;
+            var tmp = (velocity + input).normalized * _speedFromSwing + _playerController.GlobalVelocity + Vector3.up * _jumpVelocity;
             _speedFromSwing += 15;
             _speedFromSwing = Mathf.Clamp(_speedFromSwing, 0, 80);
             tmp.y = Mathf.Clamp(tmp.y, 20, 30);
             return tmp;
         }
 
-        private Vector3 JumpVelocityFromClimp(){
-            var forward = _playerController.PlayerDisplay.forward;
-            forward.y = 0;
-            GetInput();
-            var input = _moveDirection;
-            var tmp = (forward + _moveDirection).normalized * 20 + _playerController.GlobalVelocity;
-            return tmp;
+        private void JumpVelocityFromClimp()
+        {
+            _playerController.CharacterMovement.rigidbody.AddForce(Vector3.up * 10);
+            _playerController.CharacterMovement.rigidbody.AddForce(-_playerController.PlayerDisplay.forward * 10);
         }
     }
 }

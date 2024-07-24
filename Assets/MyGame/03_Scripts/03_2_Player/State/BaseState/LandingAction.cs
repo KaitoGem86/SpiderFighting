@@ -20,7 +20,8 @@ namespace Core.GamePlay.Player
             var vel = velocityVec3.magnitude;
             velocityVec3.y = _playerController.CharacterMovement.rigidbody.velocity.y;
             var velocity = velocityVec3.magnitude;
-            if(vel < 0.1f){
+            GetInput();
+            if(_moveDirection.magnitude < 0.1f){
                 _state = _displayContainer.PlayAnimation(_waitLanding);
                 return;
             }

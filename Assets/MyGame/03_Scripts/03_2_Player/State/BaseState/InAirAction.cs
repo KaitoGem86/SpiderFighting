@@ -5,8 +5,12 @@ namespace Core.GamePlay.Player
 {
     public class InAirAction : LocalmotionAction
     {
+        protected Vector3 _initialVelocity;
+
         public override void Enter(ActionEnum beforeAction)
         {
+            _initialVelocity = _playerController.GlobalVelocity;
+            Debug.Log("InAirAction " + _initialVelocity);
             base.Enter(beforeAction);
         }
 
@@ -19,15 +23,30 @@ namespace Core.GamePlay.Player
         public override void LateUpdate()
         {
             Move();
-            if (_rotateDirection != Vector3.zero)
-                Rotate();
+            Rotate();
+        }
+
+        protected override void GetInput()
+        {
+            base.GetInput();
+            if (_moveDirection == Vector3.zero)
+            {
+                _moveDirection = _playerController.CameraTransform.forward;
+                _moveDirection.y = 0;
+            }
+            if (_rotateDirection == Vector3.zero)
+            {
+                _rotateDirection = _playerController.CameraTransform.forward;
+                _rotateDirection.y = 0;
+            }
         }
 
         protected override void Move()
         {
             Vector3 tmp = _moveDirection * _speed;
             tmp.y = _playerController.GetVelocity().y;
-            _playerController.SetVelocity(tmp);
+            if (_moveDirection.magnitude > 0.1f)
+                _playerController.SetVelocity(tmp);
         }
 
         public override bool Exit(ActionEnum actionAfter)
@@ -37,7 +56,7 @@ namespace Core.GamePlay.Player
 
         public override void OnCollided(ref CollisionResult collision)
         {
-            base.OnCollided( ref collision);
+            base.OnCollided(ref collision);
             var surfaceNormal = collision.surfaceNormal;
             var angle = Vector3.Angle(Vector3.up, surfaceNormal);
             if (angle < 45)

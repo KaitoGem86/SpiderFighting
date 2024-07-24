@@ -11,7 +11,7 @@ namespace Core.GamePlay.Player{
         {
             base.Enter(beforeAction);
             _onSwing.RegisterListener();
-            _speed = 25;
+            _speed = _playerController.GlobalVelocity.magnitude;
             _isCanChangeToSwing = false;
         }
 
