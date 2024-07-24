@@ -148,30 +148,26 @@ namespace Core.GamePlay.Player
         }
 
         private void StartClimbing()
-        {
+        {       
             GetInput();
             var angle = GetAngle(_direction, Vector3.ProjectOnPlane(Vector3.up, _surfaceNormal));
             if (angle > 45 && _moveDirection.magnitude * _speed > 0.1f)
             {
                 _state = _displayContainer.PlayAnimation(_startClimbingUpRightTransition);
-                _playerController.CharacterMovement.rigidbody.velocity = _moveDirection * _speed;
             }
             else if (angle < -45 && _moveDirection.magnitude * _speed > 0.1f)
             {
                 _state = _displayContainer.PlayAnimation(_startClimbingUpLeftTransition);
-                _playerController.CharacterMovement.rigidbody.velocity = _moveDirection * _speed;
             }
             else
             {
                 _state = _displayContainer.PlayAnimation(_startClimbingUpTransition);
-                _playerController.CharacterMovement.rigidbody.velocity = _moveDirection * _speed;
             }
         }
 
         private void EndClimbing()
         {
             Debug.Log("End Climbing");
-            _playerController.gravity = Vector3.down * 9.8f;
             _isEndClimbing = true;
             _stateContainer.ChangeAction(ActionEnum.FallingDown);
         }
@@ -200,9 +196,6 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionAfter)
         {
-            _playerController.SetMovementMode(MovementMode.Walking);
-            _playerController.CharacterMovement.rigidbody.isKinematic = true;
-            _playerController.CharacterMovement.rigidbody.useGravity = true;
             return base.Exit(actionAfter);
         }
     }

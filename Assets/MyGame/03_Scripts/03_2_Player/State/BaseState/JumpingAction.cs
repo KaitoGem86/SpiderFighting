@@ -109,8 +109,7 @@ namespace Core.GamePlay.Player
 
         private void JumpVelocityFromClimp()
         {
-            _playerController.CharacterMovement.rigidbody.AddForce(Vector3.up * 10);
-            _playerController.CharacterMovement.rigidbody.AddForce(-_playerController.PlayerDisplay.forward * 10);
+            _playerController.SetVelocity( -_playerController.PlayerDisplay.forward * 20 + Vector3.up * _jumpVelocity);   
         }
     }
 }

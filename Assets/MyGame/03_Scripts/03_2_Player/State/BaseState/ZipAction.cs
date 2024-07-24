@@ -65,15 +65,21 @@ namespace Core.GamePlay.Player
         public override void Update()
         {
             base.Update();
+            float distance = Vector3.Distance(_zipPoint, _playerController.transform.position);
             if (InputManager.instance.jump)
             {
                 _jump = true;
             }
             else
             {
-                if (Vector3.Distance(_zipPoint, _playerController.transform.position) > 10f)
+                if (distance > 10f)
                     _jump = false;
             }
+            if (distance < 0.5f)
+            {
+                EndAction();
+            }
+            _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
         }
 
         public override void LateUpdate()
@@ -105,10 +111,11 @@ namespace Core.GamePlay.Player
             {
                 _zipPoint.y += 0.3f;
             }
-            _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
-            float time = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) / _speed;
-            _playerController.transform.DOMove(_zipPoint, time)
-                .OnComplete(EndAction);
+            //_playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
+            //float time = Vector3.Distance(_zipPoint, _playerController.PlayerDisplay.transform.position) / _speed;
+            //_playerController.transform.DOMove(_zipPoint, time)
+            //    .OnComplete(EndAction);
+            _playerController.CharacterMovement.rigidbody.velocity = (_zipPoint - _playerController.PlayerDisplay.transform.position);
             _isZip = true;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
             _rotateDirection = _moveDirection.normalized;
@@ -144,6 +151,7 @@ namespace Core.GamePlay.Player
 
         private void EndZip()
         {
+            _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
             if (_zipToPoint)
             {
                 if (_jump)
