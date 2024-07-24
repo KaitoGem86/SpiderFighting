@@ -71,7 +71,7 @@ namespace Core.GamePlay.Player
             }
             else
             {
-                if (Vector3.Distance(_zipPoint, _playerController.transform.position) > 1f)
+                if (Vector3.Distance(_zipPoint, _playerController.transform.position) > 10f)
                     _jump = false;
             }
         }

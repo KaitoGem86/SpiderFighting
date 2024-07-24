@@ -21,7 +21,6 @@ namespace Core.GamePlay.Player
         public float speed = 10f;       // Speed for manual control
 
         private Rigidbody rb;
-
         private LineRenderer _lineRenderer;
         private Transform _holdPivot;
         private Vector3 _pivot;

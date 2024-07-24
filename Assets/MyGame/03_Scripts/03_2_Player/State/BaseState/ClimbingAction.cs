@@ -28,6 +28,7 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
+            _playerController.CharacterMovement.rigidbody.useGravity = false;
             _playerController.SetMovementMode(MovementMode.None);
             _speed = 15f;
             _isEndClimbing = false;
@@ -201,6 +202,7 @@ namespace Core.GamePlay.Player
         {
             _playerController.SetMovementMode(MovementMode.Walking);
             _playerController.CharacterMovement.rigidbody.isKinematic = true;
+            _playerController.CharacterMovement.rigidbody.useGravity = true;
             return base.Exit(actionAfter);
         }
     }

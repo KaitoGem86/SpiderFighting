@@ -10,7 +10,6 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             _initialVelocity = _playerController.GlobalVelocity;
-            Debug.Log("InAirAction " + _initialVelocity);
             base.Enter(beforeAction);
         }
 

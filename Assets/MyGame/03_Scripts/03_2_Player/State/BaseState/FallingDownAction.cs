@@ -24,7 +24,6 @@ namespace Core.GamePlay
                 _playerController.AddForce(Vector3.up * 10);
             }
             _speed = _playerController.GlobalVelocity.magnitude;
-            Debug.Log("FallingDown " + _speed);
         }
 
         public override void Update()

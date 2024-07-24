@@ -29,6 +29,7 @@ namespace Core.GamePlay
 
         protected virtual void Rotate()
         {
+            if (_rotateDirection == Vector3.zero) return;
             Quaternion targetRotation = Quaternion.LookRotation(_rotateDirection);
             _playerController.PlayerDisplay.rotation = Quaternion.Slerp(_playerController.PlayerDisplay.rotation, targetRotation, Time.deltaTime * 10);
         }

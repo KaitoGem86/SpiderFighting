@@ -12,7 +12,7 @@ namespace Core.GamePlay.Player
         private float _elapsedTime = 1f;
         private bool _isStartJumping = false;
         protected float _jumpVelocity = 0;
-        private float _speedFromSwing = 10;
+        private float _speedFromSwing = 0;
         private ActionEnum _beforeAction;
         public override void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -101,9 +101,8 @@ namespace Core.GamePlay.Player
             velocity = velocity.normalized;
             GetInput();
             var input = _moveDirection;
+            _speedFromSwing = Mathf.Clamp(_speedFromSwing, 0, 40);
             var tmp = (velocity + input).normalized * _speedFromSwing + _playerController.GlobalVelocity + Vector3.up * _jumpVelocity;
-            _speedFromSwing += 15;
-            _speedFromSwing = Mathf.Clamp(_speedFromSwing, 0, 80);
             tmp.y = Mathf.Clamp(tmp.y, 20, 30);
             return tmp;
         }
