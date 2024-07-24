@@ -13395,7 +13395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &827570474
 Transform:
   m_ObjectHideFlags: 0
@@ -13465,7 +13465,7 @@ ParticleSystemRenderer:
   m_NormalDirection: 1
   m_ShadowBias: 0
   m_RenderAlignment: 0
-  m_Pivot: {x: 0, y: 25, z: 0}
+  m_Pivot: {x: 0, y: 35, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
@@ -13621,8 +13621,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 50
-      minScalar: 25
+      scalar: 80
+      minScalar: 40
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14117,7 +14117,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 15
+    angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -14203,7 +14203,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 10
+      value: 15
       mode: 0
       spread: 0
       speed:
@@ -14322,7 +14322,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 120
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -39155,6 +39155,10 @@ PrefabInstance:
       propertyPath: DisplayZipPoint
       value: 
       objectReference: {fileID: 684086095}
+    - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
+      propertyPath: _onReachMaxSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: c122f6ffa69591c418438a57385fff08, type: 2}
     - target: {fileID: 8282545983203082780, guid: f6b1b1728ec04ad449470f4f2681f3c8, type: 3}
       propertyPath: _playerModels.Array.size
       value: 5

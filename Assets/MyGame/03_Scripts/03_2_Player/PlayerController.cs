@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using EasyCharacterMovement;
+using MyTools.Event;
 using SFRemastered.InputSystem;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Core.GamePlay.Player
         [SerializeField] private Transform _cameraTransformObject;
         [SerializeField] private CharacterMovement _characterMovementObject;
         [SerializeField] private Transform _holdPivot;
+        [SerializeField] private BoolEvent _onReachMaxSpeed;
         public LineRenderer LeftLine;
         public LineRenderer RightLine;
         public PlayerModel CurrentPlayerModel;
@@ -28,6 +30,20 @@ namespace Core.GamePlay.Player
         {
             _dictPlayerComponents[PlayerComponentEnum.Display].Init(this);
             _dictPlayerComponents[PlayerComponentEnum.State].Init(this);
+        }
+
+        protected override void Update(){
+            if(GetVelocity().magnitude > 60){
+                _onReachMaxSpeed.Raise(true);
+            }
+            else{
+                _onReachMaxSpeed.Raise(false);
+            }
+        }
+        public override Vector3 GetVelocity()
+        {
+            if(GetMovementMode() == MovementMode.None) return CharacterMovement.rigidbody.velocity;
+            return base.GetVelocity();
         }
 
         /// <summary>
