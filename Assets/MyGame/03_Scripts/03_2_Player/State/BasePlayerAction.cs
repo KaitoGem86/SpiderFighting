@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Animancer;
 using AYellowpaper.SerializedCollections;
 using EasyCharacterMovement;
+using MyTools.Event;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -38,7 +39,8 @@ namespace Core.GamePlay.Player
         Climbing,
         Dive,
         Zip,
-        Spawn
+        Spawn,
+        StartAttack,
     }
 
     [Serializable]
@@ -49,14 +51,15 @@ namespace Core.GamePlay.Player
         protected PlayerStateComponent _stateContainer;
         protected PlayerDisplayComponent _displayContainer;
         protected PlayerStatComponent _statManager;
-        [SerializeField] MovementMode _movementMode;
+        [SerializeField] protected MovementMode _movementMode;
         [SerializeField] protected ClipTransition _animationClip;
         [SerializeField] protected bool _fixedAnim;
         [SerializeField] private bool _canChangeToItself = false;
         [SerializeField] protected SerializedDictionary<ActionEnum, List<PlayerAnimTransition>> _dictPlayerAnimTransition;
+        [SerializeField] protected DefaultSerializeEventListener _onAttack;
         protected AnimancerState _state;
         protected PlayerAnimTransition _currentTransition;
-        private int _randomTransition;
+        protected int _randomTransition;
 
         public virtual void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -151,6 +154,10 @@ namespace Core.GamePlay.Player
         protected virtual int GetTransition(ActionEnum actionBefore)
         {
             return UnityEngine.Random.Range(0, _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore].Count);
+        }
+
+        public void Attack(){
+            _stateContainer.ChangeAction(ActionEnum.StartAttack);
         }
     }
 }

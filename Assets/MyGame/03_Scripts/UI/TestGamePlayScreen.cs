@@ -11,6 +11,7 @@ namespace Core.UI{
         public BoolEvent onSwing;
         public DefaultEvent onChangeSkin;
         public PlayerController playerController;
+        public DefaultEvent onAttack;
 
         private bool _isSwing = false;
         
@@ -29,6 +30,9 @@ namespace Core.UI{
             }
             if(_isSwing){
                 onSwing?.Raise(value: true);
+            }
+            if(Input.GetKeyDown(KeyCode.X)){
+                OnClickAttack();
             }
         }
 
@@ -54,6 +58,10 @@ namespace Core.UI{
             }
             onSwing?.Raise(value: Value);
             _isSwing = Value;
+        }
+
+        public void OnClickAttack(){
+            onAttack?.Raise();
         }
     
     

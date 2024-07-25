@@ -155,5 +155,6 @@ namespace Core.GamePlay.Player
         public Transform leftHand => CurrentPlayerModel.leftHand;
         public Transform rightHand => CurrentPlayerModel.rightHand;
         public Transform CheckWallPivot => CurrentPlayerModel.checkWallPivot;
+        public Transform TestEnemy;
     }
 }

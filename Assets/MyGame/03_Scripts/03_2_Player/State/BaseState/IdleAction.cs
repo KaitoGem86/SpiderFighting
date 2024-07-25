@@ -16,8 +16,10 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
+            _onAttack?.RegisterListener();
             _playerController.SetVelocity(Vector3.zero);
-            if(beforeAction == ActionEnum.Zip){
+            if (beforeAction == ActionEnum.Zip)
+            {
                 _isCanChangeAction = false;
             }
             Debug.Log(_playerController.GetVelocity());
@@ -25,20 +27,22 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionAfter)
         {
+            _onAttack?.UnregisterListener();
             return base.Exit(actionAfter);
         }
 
         public override void Update()
         {
-            if(!_isCanChangeAction){
+            if (!_isCanChangeAction)
+            {
                 return;
             }
-            if(InputManager.instance.jump)
+            if (InputManager.instance.jump)
             {
                 _stateContainer.ChangeAction(ActionEnum.Jumping);
                 return;
             }
-            if(InputManager.instance.move.magnitude > 0.1f)
+            if (InputManager.instance.move.magnitude > 0.1f)
             {
                 _stateContainer.ChangeAction(ActionEnum.Moving);
                 return;

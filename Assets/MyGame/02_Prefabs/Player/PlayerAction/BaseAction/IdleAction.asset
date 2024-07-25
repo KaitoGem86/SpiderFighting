@@ -27,6 +27,41 @@ MonoBehaviour:
   _canChangeToItself: 0
   _dictPlayerAnimTransition:
     _serializedList:
+    - Key: 20
+      Value:
+      - startAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+        keepAnimation:
+          _FadeDuration: 0.21
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations:
+          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 1
+        endAnimation:
+          _FadeDuration: 0.15
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
     - Key: 8
       Value:
       - startAnimation:
@@ -219,3 +254,20 @@ MonoBehaviour:
           _Clip: {fileID: 0}
           _Speed: 0
           _NormalizedStartTime: 0
+  _onAttack:
+    _subject: {fileID: 11400000, guid: 134e53335c4279341b502d37013f7d78, type: 2}
+    _response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: Core.GamePlay.Player.BasePlayerAction, Assembly-CSharp
+          m_MethodName: Attack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
