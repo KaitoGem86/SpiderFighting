@@ -8,13 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TextMeshPro/Sprite
-  m_Shader: {fileID: 4800000, guid: 1f09eed468bd1094c8d0519e288de8f7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 96a74b92abec6e24291f133f1df40b6a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - UNITY_UI_CLIP_RECT
+  m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 5
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -25,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b7ffdcdf52ac6c343a0f8c28e8343e01, type: 3}
+        m_Texture: {fileID: 2800000, guid: f2ba05b4bc8a52c4aa2cb21053848710, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

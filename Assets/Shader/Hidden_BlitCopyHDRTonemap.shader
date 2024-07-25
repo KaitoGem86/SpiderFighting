@@ -4,6 +4,7 @@ Shader "Hidden/BlitCopyHDRTonemap" {
 		_NitsForPaperWhite ("NitsForPaperWhite", Float) = 160
 		_ColorGamut ("ColorGamut", Float) = 0
 		_ForceGammaToLinear ("ForceGammaToLinear", Float) = 0
+		_MaxDisplayNits ("MaxDisplayNits", Float) = 160
 	}
 	//DummyShaderTextExporter
 	SubShader{
