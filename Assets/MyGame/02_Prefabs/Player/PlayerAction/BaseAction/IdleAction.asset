@@ -27,10 +27,50 @@ MonoBehaviour:
   _canChangeToItself: 0
   _dictPlayerAnimTransition:
     _serializedList:
-    - Key: 21
+    - Key: 25
       Value:
       - startAnimation:
-          _FadeDuration: 0
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes:
+            - 0.9438013
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.IdleAction, Assembly-CSharp
+                  m_MethodName: KeepAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Clip: {fileID: 7400000, guid: fa33bf86c0f680d499094e6916c1d6ad, type: 2}
+          _Speed: 0.75
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 1
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations:
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 1
+        endAnimation:
+          _FadeDuration: 0.15
           _Events:
             _NormalizedTimes: []
             _Callbacks: []
@@ -38,15 +78,144 @@ MonoBehaviour:
           _Clip: {fileID: 0}
           _Speed: 0
           _NormalizedStartTime: 0
+    - Key: 22
+      Value:
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes:
+            - 0.9236583
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.IdleAction, Assembly-CSharp
+                  m_MethodName: KeepAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
         keepAnimation:
-          _FadeDuration: 0.21
+          _FadeDuration: 1
           _Events:
             _NormalizedTimes: []
             _Callbacks: []
             _Names: []
           _Speed: NaN
           _Animations:
-          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 1
+        endAnimation:
+          _FadeDuration: 0.15
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+    - Key: 23
+      Value:
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes:
+            - 0.93151927
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.IdleAction, Assembly-CSharp
+                  m_MethodName: KeepAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 1
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations:
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 1
+        endAnimation:
+          _FadeDuration: 0.15
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+    - Key: 24
+      Value:
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes:
+            - 0.94724107
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.IdleAction, Assembly-CSharp
+                  m_MethodName: KeepAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 1
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations:
+          - {fileID: 7400000, guid: 83ef85d49ff267245970990334a6e2f0, type: 3}
           _Speeds: []
           _SynchronizeChildren: 
           _Thresholds:
@@ -65,14 +234,30 @@ MonoBehaviour:
     - Key: 20
       Value:
       - startAnimation:
-          _FadeDuration: 0
+          _FadeDuration: 0.25
           _Events:
-            _NormalizedTimes: []
-            _Callbacks: []
+            _NormalizedTimes:
+            - 0.9275888
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.IdleAction, Assembly-CSharp
+                  m_MethodName: KeepAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             _Names: []
-          _Clip: {fileID: 0}
-          _Speed: 0
-          _NormalizedStartTime: 0
+          _Clip: {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
         keepAnimation:
           _FadeDuration: 0.21
           _Events:
@@ -81,7 +266,7 @@ MonoBehaviour:
             _Names: []
           _Speed: NaN
           _Animations:
-          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
           _Speeds: []
           _SynchronizeChildren: 
           _Thresholds:
@@ -116,7 +301,7 @@ MonoBehaviour:
             _Names: []
           _Speed: NaN
           _Animations:
-          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
           _Speeds: []
           _SynchronizeChildren: 
           _Thresholds:
@@ -151,7 +336,7 @@ MonoBehaviour:
             _Names: []
           _Speed: NaN
           _Animations:
-          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
           _Speeds: []
           _SynchronizeChildren: 
           _Thresholds:
@@ -203,7 +388,7 @@ MonoBehaviour:
             _Names: []
           _Speed: NaN
           _Animations:
-          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
           _Speeds: []
           _SynchronizeChildren: 
           _Thresholds:
@@ -238,7 +423,7 @@ MonoBehaviour:
             _Names: []
           _Speed: 1
           _Animations:
-          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
           _Speeds: []
           _SynchronizeChildren: 
           _Thresholds:
@@ -273,7 +458,7 @@ MonoBehaviour:
             _Names: []
           _Speed: NaN
           _Animations:
-          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          - {fileID: 7400000, guid: 4f9b2cc802bffcd468bf59be5599a8d1, type: 3}
           _Speeds: []
           _SynchronizeChildren: 
           _Thresholds:

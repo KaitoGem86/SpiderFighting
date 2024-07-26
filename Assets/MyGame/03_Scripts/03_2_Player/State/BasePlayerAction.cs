@@ -41,7 +41,11 @@ namespace Core.GamePlay.Player
         Zip,
         Spawn,
         StartAttack,
-        Attack
+        Attack,
+        Attack1,
+        Attack2,
+        Attack3,
+        LastAttack,
     }
 
     [Serializable]

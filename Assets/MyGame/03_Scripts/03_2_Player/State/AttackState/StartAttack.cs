@@ -52,7 +52,7 @@ namespace Core.GamePlay.Player
         public override void Attack()
         {
             if(!_isCanChangeNextAttack) return;
-            _stateContainer.ChangeAction(ActionEnum.Attack);
+            _stateContainer.ChangeAction(ActionEnum.Attack1);
         }
 
         public void StartGoToEnemy(){
