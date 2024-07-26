@@ -65,7 +65,32 @@ namespace Core.GamePlay.Player
             else
             {
                 RaycastHit hit;
-                if (Physics.Raycast(_playerController.transform.position, _playerController.PlayerDisplay.forward, out hit, 100))
+                if (Physics.Raycast(_playerController.transform.position, -surfaceNormal, out hit, 100))
+                {
+                    if (hit.distance < 0.8f)
+                    {
+                        _surfaceNormal = hit.normal;
+                        _stateContainer.SurfaceNormal = _surfaceNormal;
+                        EndStateToClimb();
+                        _stateContainer.ChangeAction(ActionEnum.Climbing);
+                    }
+                }
+            }
+        }
+
+        public override void OnCollisionEnter(Collision collision)
+        {
+            base.OnCollisionEnter(collision);
+            var surfaceNormal = collision.contacts[0].normal;
+            var angle = Vector3.Angle(Vector3.up, surfaceNormal);
+            if (angle < 45)
+            {
+                _stateContainer.ChangeAction(ActionEnum.Landing);
+            }
+            else
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(_playerController.transform.position, -surfaceNormal, out hit, 100))
                 {
                     if (hit.distance < 0.8f)
                     {
