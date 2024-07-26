@@ -46,6 +46,7 @@ namespace Core.GamePlay.Player
             {
                 if (_dictPlayerMovementActions[_currentAction].CanChangeToItself)
                 {
+                    _dictPlayerMovementActions[_currentAction].Exit(action);
                     _dictPlayerMovementActions[_currentAction].Enter(_currentAction);
                 }
                 return;

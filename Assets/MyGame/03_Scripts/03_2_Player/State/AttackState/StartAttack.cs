@@ -10,6 +10,7 @@ namespace Core.GamePlay.Player
     {
         [SerializeField] private float _distanceThreshold = 2f;
         private Transform _enemyTarget;
+        private bool _isCanChangeNextAttack = false;
 
         private Transform GetEnemyTarget(){
             return _playerController.TestEnemy;
@@ -17,8 +18,9 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum actionBefore)
         {
-            _randomTransition = GetTransition(actionBefore);
-            _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_randomTransition];
+            _currentTransitionIndex = GetTransition(actionBefore);
+            _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_currentTransitionIndex];
+            _isCanChangeNextAttack = false;
             _playerController.SetMovementMode(_movementMode);
             if(_movementMode == MovementMode.None)
             {
@@ -38,6 +40,19 @@ namespace Core.GamePlay.Player
                 StartAction();
             else
                 KeepAction();
+            _onAttack?.RegisterListener();
+        }
+
+        public override bool Exit(ActionEnum actionAfter)
+        {
+            _onAttack?.UnregisterListener();
+            return base.Exit(actionAfter);
+        }
+
+        public override void Attack()
+        {
+            if(!_isCanChangeNextAttack) return;
+            _stateContainer.ChangeAction(ActionEnum.Attack);
         }
 
         public void StartGoToEnemy(){
@@ -47,6 +62,10 @@ namespace Core.GamePlay.Player
         public override void ExitAction()
         {
             _stateContainer.ChangeAction(ActionEnum.Idle);
+        }
+
+        public void CanChangeToAttack(){
+            _isCanChangeNextAttack = true;
         }
     }
 }

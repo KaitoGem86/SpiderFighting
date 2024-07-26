@@ -41,6 +41,7 @@ namespace Core.GamePlay.Player
         Zip,
         Spawn,
         StartAttack,
+        Attack
     }
 
     [Serializable]
@@ -59,7 +60,7 @@ namespace Core.GamePlay.Player
         [SerializeField] protected DefaultSerializeEventListener _onAttack;
         protected AnimancerState _state;
         protected PlayerAnimTransition _currentTransition;
-        protected int _randomTransition;
+        protected int _currentTransitionIndex;
 
         public virtual void Init(PlayerController playerController, ActionEnum actionEnum)
         {
@@ -72,8 +73,8 @@ namespace Core.GamePlay.Player
 
         public virtual void Enter(ActionEnum actionBefore)
         {
-            _randomTransition = GetTransition(actionBefore);
-            _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_randomTransition];
+            _currentTransitionIndex = GetTransition(actionBefore);
+            _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_currentTransitionIndex];
             _playerController.SetMovementMode(_movementMode);
             if(_movementMode == MovementMode.None)
             {
@@ -156,7 +157,7 @@ namespace Core.GamePlay.Player
             return UnityEngine.Random.Range(0, _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore].Count);
         }
 
-        public void Attack(){
+        public virtual void Attack(){
             _stateContainer.ChangeAction(ActionEnum.StartAttack);
         }
     }

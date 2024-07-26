@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca21f3cde09b514bb421359685b281d, type: 3}
   m_Name: IdleAction
   m_EditorClassIdentifier: 
-  _movementMode: 1
+  _movementMode: 0
   _animationClip:
     _FadeDuration: 0.105
     _Events:
@@ -27,6 +27,41 @@ MonoBehaviour:
   _canChangeToItself: 0
   _dictPlayerAnimTransition:
     _serializedList:
+    - Key: 21
+      Value:
+      - startAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+        keepAnimation:
+          _FadeDuration: 0.21
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations:
+          - {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 1
+        endAnimation:
+          _FadeDuration: 0.15
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
     - Key: 20
       Value:
       - startAnimation:

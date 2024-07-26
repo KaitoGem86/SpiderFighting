@@ -31,8 +31,8 @@ namespace Core.UI{
             if(_isSwing){
                 onSwing?.Raise(value: true);
             }
-            if(Input.GetKeyDown(KeyCode.X)){
-                OnClickAttack();
+            if(Input.GetMouseButtonDown(1)){
+                OnClickAttack();    
             }
         }
 

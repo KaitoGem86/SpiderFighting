@@ -70,12 +70,27 @@ MonoBehaviour:
           _Speed: 1
           _NormalizedStartTime: NaN
         keepAnimation:
-          _FadeDuration: 0
+          _FadeDuration: 0.17500001
           _Events:
             _NormalizedTimes:
-            - 0.8994742
+            - 0.6421092
+            - 0.91230375
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: CanChangeToAttack
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 1
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -111,8 +126,20 @@ MonoBehaviour:
           _Speed: 0
           _NormalizedStartTime: 0
   _onAttack:
-    _subject: {fileID: 0}
+    _subject: {fileID: 11400000, guid: 134e53335c4279341b502d37013f7d78, type: 2}
     _response:
       m_PersistentCalls:
-        m_Calls: []
-  _distanceThreshold: 5
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+          m_MethodName: Attack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  _distanceThreshold: 1000

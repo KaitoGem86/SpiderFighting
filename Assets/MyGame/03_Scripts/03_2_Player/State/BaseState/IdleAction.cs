@@ -1,4 +1,5 @@
 using Core.SystemGame;
+using DG.Tweening;
 using SFRemastered.InputSystem;
 using UnityEngine;
 
@@ -17,13 +18,12 @@ namespace Core.GamePlay.Player
         {
             base.Enter(beforeAction);
             _onAttack?.RegisterListener();
-            _playerController.SetVelocity(Vector3.zero);
+            _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
             if (beforeAction == ActionEnum.Zip)
             {
                 _isCanChangeAction = false;
-            }
-            Debug.Log(_playerController.GetVelocity());
-        }
+            }  
+        }  
 
         public override bool Exit(ActionEnum actionAfter)
         {

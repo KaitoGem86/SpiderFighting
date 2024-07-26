@@ -20,7 +20,8 @@ namespace Core.GamePlay.Player
         public override void Update()
         {
             base.Update();
-            if (InputManager.instance.move.magnitude > 0.1f)
+            GetInput();
+            if (_moveDirection.magnitude > 0.1f)
             {
                 _stateContainer.ChangeAction(ActionEnum.Moving);
                 return;
@@ -34,7 +35,6 @@ namespace Core.GamePlay.Player
 
         public override void LateUpdate()
         {
-            GetInput();
             _speed = Mathf.Lerp(_speed, 0, _damping * Time.deltaTime);
             if (_speed < 0.1f)
             {
@@ -69,6 +69,6 @@ namespace Core.GamePlay.Player
         {
             CheckMoving();
         }
-        
+
     }
 }

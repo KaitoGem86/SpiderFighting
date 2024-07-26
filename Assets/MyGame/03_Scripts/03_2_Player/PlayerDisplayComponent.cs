@@ -59,7 +59,7 @@ namespace Core.GamePlay.Player
         }
 
         public void ApplyRootMotion(bool value){
-            _animacer.Animator.applyRootMotion = value;
+            _playerController.useRootMotion = value;
         }
 
         public AnimancerState PlayAnimation(ClipTransition clipTransition){
@@ -68,12 +68,16 @@ namespace Core.GamePlay.Player
             return _animacer.Play(clipTransition);
         }
 
-        public AnimancerState PlayAnimation(LinearMixerTransition manualMixerTransition, float normalizedTime = 0f, PlayerTypeAnimMask playerTypeAnimMask = PlayerTypeAnimMask.Base)
+        public AnimancerState PlayAnimation(LinearMixerTransition manualMixerTransition)
         {
             _currentClipTransition = null;
             _currentLinearMixerTransition = manualMixerTransition;
             return _animacer.Play(manualMixerTransition);
-            //return _dictLayerControls[playerTypeAnimMask].Layer.Play(manualMixerTransition, normalizedTime);
+        }
+
+        public AnimancerState PlayAnimation(LinearMixerTransition transition, float normalizeTime){
+            var state = _animacer.Play(transition);
+            return state;
         }
     }
 }

@@ -57,7 +57,7 @@ MonoBehaviour:
           _FadeDuration: 0.15
           _Events:
             _NormalizedTimes:
-            - 0.8
+            - 0.5039027
             - NaN
             _Callbacks:
             - m_PersistentCalls:
@@ -96,4 +96,9 @@ MonoBehaviour:
           _Clip: {fileID: 0}
           _Speed: 0
           _NormalizedStartTime: 0
+  _onAttack:
+    _subject: {fileID: 0}
+    _response:
+      m_PersistentCalls:
+        m_Calls: []
   _damping: 5

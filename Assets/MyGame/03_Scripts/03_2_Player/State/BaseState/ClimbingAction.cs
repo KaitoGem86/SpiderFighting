@@ -185,7 +185,6 @@ namespace Core.GamePlay.Player
 
         public void FallingDown()
         {
-            _displayContainer.ApplyRootMotion(false);
             _stateContainer.ChangeAction(ActionEnum.FallingDown);
         }
 
