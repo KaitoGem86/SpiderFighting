@@ -57,7 +57,6 @@ namespace Core.GamePlay.Player
         protected PlayerDisplayComponent _displayContainer;
         protected PlayerStatComponent _statManager;
         [SerializeField] protected MovementMode _movementMode;
-        [SerializeField] protected ClipTransition _animationClip;
         [SerializeField] protected bool _fixedAnim;
         [SerializeField] private bool _canChangeToItself = false;
         [SerializeField] protected SerializedDictionary<ActionEnum, List<PlayerAnimTransition>> _dictPlayerAnimTransition;
@@ -128,7 +127,8 @@ namespace Core.GamePlay.Player
         {
             if (_currentTransition.startAnimation.Clip != null)
             {
-                _displayContainer.PlayAnimation(_currentTransition.startAnimation);
+                var state = _displayContainer.PlayAnimation(_currentTransition.startAnimation);
+                state.Time = 0;
             }
             else
             {
@@ -139,7 +139,8 @@ namespace Core.GamePlay.Player
         public virtual void KeepAction()
         {
             if(_currentTransition.keepAnimation.Animations.Length == 0) return;
-            _displayContainer.PlayAnimation(_currentTransition.keepAnimation);
+            var state = _displayContainer.PlayAnimation(_currentTransition.keepAnimation);
+            state.Time = 0;
         }
 
         public void EndAction()
@@ -149,7 +150,8 @@ namespace Core.GamePlay.Player
                 ExitAction();
                 return;
             }
-            _displayContainer.PlayAnimation(_currentTransition.endAnimation);
+            var state = _displayContainer.PlayAnimation(_currentTransition.endAnimation);
+            state.Time = 0;
             //_currentTransition.endAnimation.Events.OnEnd += ExitAction;
         }
 
