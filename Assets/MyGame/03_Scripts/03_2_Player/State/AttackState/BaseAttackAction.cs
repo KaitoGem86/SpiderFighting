@@ -10,11 +10,13 @@ namespace Core.GamePlay.Player
             base.Enter(actionBefore);
             _onAttack?.RegisterListener();
             _isCanChangeNextAttack = false;
+            _playerController.useRootMotion = true;
         }
 
         public override bool Exit(ActionEnum actionAfter)
         {
             _onAttack?.UnregisterListener();
+            _playerController.useRootMotion = false;
             return base.Exit(actionAfter);
         }
 
