@@ -28,16 +28,16 @@ namespace Core.GamePlay.Player
         protected override void GetInput()
         {
             base.GetInput();
-            if (_moveDirection == Vector3.zero)
-            {
-                _moveDirection = _playerController.CameraTransform.forward;
-                _moveDirection.y = 0;
-            }
-            if (_rotateDirection == Vector3.zero)
-            {
-                _rotateDirection = _playerController.CameraTransform.forward;
-                _rotateDirection.y = 0;
-            }
+            // if (_moveDirection == Vector3.zero)
+            // {
+            //     _moveDirection = _playerController.CameraTransform.forward;
+            //     _moveDirection.y = 0;
+            // }
+            // if (_rotateDirection == Vector3.zero)
+            // {
+            //     _rotateDirection = _playerController.CameraTransform.forward;
+            //     _rotateDirection.y = 0;
+            // }
         }
 
         protected override void Move()
