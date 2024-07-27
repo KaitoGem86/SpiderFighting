@@ -16,9 +16,9 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum beforeAction)
         {
+            _playerController.GlobalVelocity = Vector3.zero;
             base.Enter(beforeAction);
             _onAttack?.RegisterListener();
-            _playerController.CharacterMovement.rigidbody.velocity = Vector3.zero;
             if (beforeAction == ActionEnum.Zip)
             {
                 _isCanChangeAction = false;

@@ -9,37 +9,45 @@ namespace Core.GamePlay.Player
     [CreateAssetMenu(fileName = nameof(LandingAction), menuName = ("PlayerState/" + nameof(LandingAction)), order = 0)]
     public class LandingAction : LocalmotionAction
     {
-        [SerializeField] private ClipTransition _criticalLanding;
-        [SerializeField] private ClipTransition _waitLanding;
-        [SerializeField] private float _landingVelocityThreshold = 5;
+        [SerializeField] private float _landingVelocityThreshold = 4;
 
         public override void Enter(ActionEnum before)
         {
-            _speed = 5;
-            var velocityVec3 = _playerController.CharacterMovement.velocity;
-            var vel = velocityVec3.magnitude;
-            velocityVec3.y = _playerController.CharacterMovement.rigidbody.velocity.y;
-            var velocity = velocityVec3.magnitude;
+            _speed = _playerController.GlobalVelocity.magnitude;
+            base.Enter(before);
+        }
+
+        public override void KeepAction()
+        {
+            base.KeepAction();
+            var velocity = _playerController.GlobalVelocity.magnitude;
             GetInput();
-            if(_moveDirection.magnitude < 0.1f){
-                _state = _displayContainer.PlayAnimation(_waitLanding);
-                return;
+            Debug.Log(_moveDirection);
+            if (_moveDirection.magnitude < 0.1f)
+            {
+                _currentTransition.keepAnimation.State.Parameter = 0;
             }
-            if (velocity < _landingVelocityThreshold){
-                _state = _displayContainer.PlayAnimation(_animationClip);
+            else if (velocity < _landingVelocityThreshold)
+            {
+                _currentTransition.keepAnimation.State.Parameter = 1;
             }
             else
             {
-                _state = _displayContainer.PlayAnimation(_criticalLanding);
+                _currentTransition.keepAnimation.State.Parameter = 2;
             }
-            _playerController.SetVelocity(Vector3.zero);
+        }
+
+        public override void ExitAction()
+        {
+            CompleteLanding();
         }
 
         public void CompleteLanding()
         {
             var velocity = _playerController.CharacterMovement.velocity;
             velocity.y = 0;
-            if(velocity.magnitude < 0.1f){
+            if (velocity.magnitude < 0.1f)
+            {
                 _stateContainer.ChangeAction(ActionEnum.Idle);
                 return;
             }
@@ -56,9 +64,6 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionAfter)
         {
-            _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            _playerController.CharacterMovement.rigidbody.useGravity = false;
-            _playerController.CharacterMovement.rigidbody.isKinematic = true;
             return base.Exit(actionAfter);
         }
     }

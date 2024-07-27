@@ -60,7 +60,8 @@ namespace Core.GamePlay.Player
             _onSwing.UnregisterListener();
             _isStartShootSilk = false;
             _lineRenderer.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
-            Destroy(_playerController.GetComponent<SpringJoint>());
+            if (_springJoint != null)
+                _springJoint.maxDistance = float.MaxValue;
             return base.Exit(actionAfter);
         }
 
@@ -129,7 +130,10 @@ namespace Core.GamePlay.Player
 
         private void InitSwing()
         {
-            _springJoint = _playerController.AddComponent<SpringJoint>();
+            if (_springJoint == null)
+            {
+                _springJoint = _playerController.AddComponent<SpringJoint>();
+            }
             _springJoint.autoConfigureConnectedAnchor = false;
             _springJoint.connectedBody = rb;
             _springJoint.connectedAnchor = _holdPivot.localPosition;
@@ -158,7 +162,7 @@ namespace Core.GamePlay.Player
                 return Random.Range(0, _dictPlayerAnimTransition[ActionEnum.None].Count / 2);
             else
             {
-                return Random.Range(_dictPlayerAnimTransition[ActionEnum.None].Count/2, _dictPlayerAnimTransition[ActionEnum.None].Count);
+                return Random.Range(_dictPlayerAnimTransition[ActionEnum.None].Count / 2, _dictPlayerAnimTransition[ActionEnum.None].Count);
             }
         }
 
