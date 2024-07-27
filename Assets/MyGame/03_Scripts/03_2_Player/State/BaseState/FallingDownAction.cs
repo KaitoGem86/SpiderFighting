@@ -53,5 +53,20 @@ namespace Core.GamePlay
             _onFallingDown.UnregisterListener();
             return base.Exit(actionAfter);
         }
+
+        protected override void GetInput()
+        {
+            base.GetInput();
+            if(_moveDirection == Vector3.zero){
+                _moveDirection = _playerController.CameraTransform.forward;
+                _moveDirection.y = 0;
+                _moveDirection = _moveDirection.normalized;
+            }
+            if(_rotateDirection == Vector3.zero){
+                _rotateDirection = _playerController.CameraTransform.forward;
+                _rotateDirection.y = 0;
+                _rotateDirection = _rotateDirection.normalized;
+            }
+        }
     }
 }

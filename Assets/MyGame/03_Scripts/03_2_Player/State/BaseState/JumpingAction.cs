@@ -104,7 +104,6 @@ namespace Core.GamePlay.Player
             _speedFromSwing = Mathf.Clamp(_speedFromSwing, 0, 40);
             if (Vector3.Angle(_playerController.GlobalVelocity, velocity) > 30)
             {
-                Debug.Log("JumpingAction 1");
                 var tmp = (velocity + input).normalized * _speedFromSwing + _playerController.GlobalVelocity + Vector3.up * _jumpVelocity;
                 tmp.y = Mathf.Clamp(tmp.y, 20, 30);
                 return tmp;

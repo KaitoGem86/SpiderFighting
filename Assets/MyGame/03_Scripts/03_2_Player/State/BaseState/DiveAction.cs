@@ -1,9 +1,11 @@
 using MyTools.Event;
 using UnityEngine;
 
-namespace Core.GamePlay.Player{
+namespace Core.GamePlay.Player
+{
     [CreateAssetMenu(fileName = nameof(BasePlayerAction), menuName = ("PlayerState/" + nameof(DiveAction)), order = 0)]
-    public class DiveAction : InAirAction{
+    public class DiveAction : InAirAction
+    {
         [SerializeField] private BoolSerializeEventListener _onSwing;
 
         private bool _isCanChangeToSwing = false;
@@ -17,7 +19,8 @@ namespace Core.GamePlay.Player{
 
         public override void Update()
         {
-            if(_playerController.CharacterMovement.isOnGround){
+            if (_playerController.CharacterMovement.isOnGround)
+            {
                 _stateContainer.ChangeAction(ActionEnum.Landing);
                 return;
             }
@@ -30,11 +33,14 @@ namespace Core.GamePlay.Player{
             _isCanChangeToSwing = true;
         }
 
-        public void ChangeToSwing(bool isSwing){
-            if(!_isCanChangeToSwing){
+        public void ChangeToSwing(bool isSwing)
+        {
+            if (!_isCanChangeToSwing)
+            {
                 return;
             }
-            if(isSwing){
+            if (isSwing)
+            {
                 _stateContainer.ChangeAction(ActionEnum.Swing);
             }
         }
@@ -43,6 +49,23 @@ namespace Core.GamePlay.Player{
         {
             _onSwing.UnregisterListener();
             return base.Exit(actionAfter);
+        }
+
+        protected override void GetInput()
+        {
+            base.GetInput();
+            if (_moveDirection == Vector3.zero)
+            {
+                _moveDirection = _playerController.CameraTransform.forward;
+                _moveDirection.y = 0;
+                _moveDirection = _moveDirection.normalized;
+            }
+            if (_rotateDirection == Vector3.zero)
+            {
+                _rotateDirection = _playerController.CameraTransform.forward;
+                _rotateDirection.y = 0;
+                _rotateDirection = _rotateDirection.normalized;
+            }
         }
     }
 }

@@ -22,7 +22,6 @@ namespace Core.GamePlay.Player
             base.KeepAction();
             var velocity = _playerController.GlobalVelocity.magnitude;
             GetInput();
-            Debug.Log(_moveDirection);
             if (_moveDirection.magnitude < 0.1f)
             {
                 _currentTransition.keepAnimation.State.Parameter = 0;
