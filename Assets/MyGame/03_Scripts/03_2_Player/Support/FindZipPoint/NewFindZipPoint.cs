@@ -24,71 +24,34 @@ namespace Core.GamePlay.Support
         private void Update()
         {
             var collider = Physics.OverlapSphere(_playerController.position, _radius);
-            GameObject closestObject = null;
-            GameObject closestObjectInFocusPanel = null;
             Vector3 closestPoint = Vector3.negativeInfinity;
-            Vector3 closestPointInFocusPanel = Vector3.negativeInfinity;
             bool isFound = false;
-            bool isFoundInFocusPanel = false;
             float minDistance = float.MaxValue;
-            float minDistanceInFocusPanel = float.MaxValue;
+            GameObject closestObject = null;
             foreach (var col in collider)
             {
-                var tmp = col.GetComponent<ZipPointOnObject>();
+                var tmp = col.GetComponent<ZipPointOnBuilding>();
                 if (tmp != null)
                 {
-                    var res = tmp.GetZipPoint(_cameraController);
-                    var points = res;
-                    foreach (var point in points)
+                    var point = tmp.GetZipPoint(_playerController);
+                    var distance = Vector3.Distance(_playerController.position, point);
+                    if (distance < minDistance)
                     {
-                        if (!CheckValidZipPoint(point.Item1))
-                        {
-                            continue;
-                        }
-                        if (!CheckObstacle(point.Item1))
-                        {
-                            continue;
-                        }
-                        if (CheckInFocusPanel(point.Item1))
-                        {
-                            var distance1 = point.Item2;
-                            if (distance1 < minDistanceInFocusPanel)
-                            {
-                                isFoundInFocusPanel = true;
-                                minDistanceInFocusPanel = distance1;
-                                closestPointInFocusPanel = point.Item1;
-                                closestObjectInFocusPanel = col.gameObject;
-                            }
-                            continue;
-                        }
-
-                        var distance = point.Item2;
-                        if (distance < minDistance)
-                        {
-                            isFound = true;
-                            minDistance = distance;
-                            closestPoint = point.Item1;
-                            closestObject = col.gameObject;
-                        }
+                        isFound = true;
+                        minDistance = distance;
+                        closestPoint = point;
+                        closestObject = col.gameObject;
                     }
                 }
             }
-
-            if (isFoundInFocusPanel)
-            {
-                _displayZipPoint.SetActive(true, closestObjectInFocusPanel);
-                _displayZipPoint.transform.position = closestPointInFocusPanel;
-                return;
-            }
-
             if (isFound)
             {
                 _displayZipPoint.SetActive(true, closestObject);
-                _displayZipPoint.transform.position = closestPoint;
+                _displayZipPoint.SetPositions(closestPoint);
             }
             else
             {
-                _displayZipPoint.SetActive(false, closestObject);
+                _displayZipPoint.SetActive(false, null);
             }
         }
 

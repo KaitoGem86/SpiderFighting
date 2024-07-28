@@ -5,15 +5,16 @@ namespace Core.GamePlay.Support
 {
     public class DisplayZipPoint : MonoBehaviour
     {
+        [SerializeField] private RectTransform _displayZipPoint;
         private GameObject ObjectToZip { get; set; }
-        private Vector3 TargetZipPoint => transform.position + Vector3.up;
+        public Vector3 TargetZipPoint;
         private Vector3 EndZipPoint
         {
             get
             {
-                Debug.DrawRay(transform.position + Vector3.up * 0.05f + Vector3.forward * 0.05f, Vector3.down, Color.red, 100f);
-                Debug.Log(ObjectToZip.name);
-                if (Physics.Raycast(transform.position + Vector3.up * 0.05f + Vector3.forward * 0.05f, Vector3.down, out RaycastHit hit, 100f))
+                Debug.DrawRay(TargetZipPoint + Vector3.up , Vector3.down * 100, Color.red, 5f);
+                Debug.DrawRay(TargetZipPoint + Vector3.up * 0.05f, Vector3.down * 100, Color.red, 5f);
+                if (Physics.Raycast(TargetZipPoint + Vector3.up * 0.05f + Vector3.forward * 0.05f, Vector3.down, out RaycastHit hit, 100f))
                 {
                     if (hit.collider.gameObject == ObjectToZip)
                     {
@@ -21,8 +22,8 @@ namespace Core.GamePlay.Support
                         return hit.point;
                     }
                 }
-                Debug.DrawRay(transform.position + Vector3.up * 0.05f + Vector3.back * 0.05f, Vector3.down, Color.red, 100f);
-                if (Physics.Raycast(transform.position + Vector3.up * 0.05f + Vector3.back * 1, Vector3.down, out hit, 100f))
+                Debug.DrawRay(TargetZipPoint + Vector3.up * 0.05f + Vector3.back * 1, Vector3.down * 100, Color.red, 5f);
+                if (Physics.Raycast(TargetZipPoint + Vector3.up * 0.05f + Vector3.back * 1, Vector3.down, out hit, 100f))
                 {
                     if (hit.collider.gameObject == ObjectToZip)
                     {
@@ -30,8 +31,8 @@ namespace Core.GamePlay.Support
                         return hit.point;
                     }
                 }
-                Debug.DrawRay(transform.position + Vector3.up * 0.05f + Vector3.left * 0.05f, Vector3.down, Color.red, 100f);
-                if (Physics.Raycast(transform.position + Vector3.up * 0.05f + Vector3.left * 0.05f, Vector3.down, out hit, 100f))
+                Debug.DrawRay(TargetZipPoint + Vector3.up * 0.05f + Vector3.left * 0.05f, Vector3.down * 100, Color.red, 5f);
+                if (Physics.Raycast(TargetZipPoint + Vector3.up * 0.05f + Vector3.left * 0.05f, Vector3.down, out hit, 100f))
                 {
                     if (hit.collider.gameObject == ObjectToZip)
                     {
@@ -39,8 +40,8 @@ namespace Core.GamePlay.Support
                         return hit.point;
                     }
                 }
-                Debug.DrawRay(transform.position + Vector3.up * 0.05f + Vector3.right * 0.05f, Vector3.down, Color.red, 100f);
-                if (Physics.Raycast(transform.position + Vector3.up * 0.05f + Vector3.right * 0.05f, Vector3.down, out hit, 100f))
+                Debug.DrawRay(TargetZipPoint + Vector3.up * 0.05f + Vector3.right * 0.05f, Vector3.down * 100, Color.red, 5f);
+                if (Physics.Raycast(TargetZipPoint + Vector3.up * 0.05f + Vector3.right * 0.05f, Vector3.down, out hit, 100f))
                 {
                     if (hit.collider.gameObject == ObjectToZip)
                     {
@@ -48,7 +49,7 @@ namespace Core.GamePlay.Support
                         return hit.point;
                     }
                 }
-                return transform.position;
+                return TargetZipPoint;
             }
         }
 
@@ -57,23 +58,28 @@ namespace Core.GamePlay.Support
             var targetPosition = new Vector3(TargetZipPoint.x, target.transform.position.y, TargetZipPoint.z);
             var endZipPoint = new Vector3(EndZipPoint.x, target.transform.position.y, EndZipPoint.z);
 
-            if (target.transform.position.y < transform.position.y)
+            if (target.transform.position.y < targetPosition.y)
             {
                 Debug.Log("Target is below the zip point");
-                return target.transform.DOMove(targetPosition, timeToZip).OnComplete(() => ObjectToZip.transform.DOMove(endZipPoint, 0.05f));
+                //return target.transform.DOMove(targetPosition, timeToZip).OnComplete(() => target.transform.DOMove(endZipPoint, 0.05f));
+                return target.transform.DOMove(targetPosition, timeToZip);
             }
             else
             {
                 Debug.Log("Target is above the zip point");
-                return target.transform.DOMove(endZipPoint, timeToZip);
+                return target.transform.DOMove(targetPosition, timeToZip);
             }
         }
         public void SetActive(bool active, GameObject objectToZip = null)
         {
             ObjectToZip = objectToZip;
-            if (objectToZip != null)
-                gameObject.transform.rotation = Quaternion.LookRotation(objectToZip.transform.position - transform.position);
-            gameObject.SetActive(active);
+            _displayZipPoint.gameObject.SetActive(active);
+        }
+
+        public void SetPositions(Vector3 worldPosition)
+        {
+            _displayZipPoint.position = Camera.main.WorldToScreenPoint(worldPosition);
+            TargetZipPoint = worldPosition;
         }
     }
 }
