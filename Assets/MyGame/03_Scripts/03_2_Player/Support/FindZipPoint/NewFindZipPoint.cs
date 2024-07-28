@@ -30,7 +30,8 @@ namespace Core.GamePlay.Support
             GameObject closestObject = null;
             foreach (var col in collider)
             {
-                var tmp = col.GetComponent<ZipPointOnBuilding>();
+                if(col.transform.parent == null) continue;
+                var tmp = col.transform.parent.GetComponent<ZipPointOnBuilding>();
                 if (tmp != null)
                 {
                     var point = tmp.GetZipPoint(_playerController);

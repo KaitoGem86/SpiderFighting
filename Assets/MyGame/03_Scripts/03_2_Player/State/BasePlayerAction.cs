@@ -128,7 +128,8 @@ namespace Core.GamePlay.Player
         {
             if (_currentTransition.startAnimation.Clip != null)
             {
-                _displayContainer.PlayAnimation(_currentTransition.startAnimation);
+                var state = _displayContainer.PlayAnimation(_currentTransition.startAnimation);
+                state.Time = 0;
             }
             else
             {
@@ -139,7 +140,8 @@ namespace Core.GamePlay.Player
         public virtual void KeepAction()
         {
             if(_currentTransition.keepAnimation.Animations.Length == 0) return;
-            _displayContainer.PlayAnimation(_currentTransition.keepAnimation);
+            var state = _displayContainer.PlayAnimation(_currentTransition.keepAnimation);
+            state.Time = 0;
         }
 
         public void EndAction()
@@ -149,7 +151,8 @@ namespace Core.GamePlay.Player
                 ExitAction();
                 return;
             }
-            _displayContainer.PlayAnimation(_currentTransition.endAnimation);
+            var state = _displayContainer.PlayAnimation(_currentTransition.endAnimation);
+            state.Time = 0;
             //_currentTransition.endAnimation.Events.OnEnd += ExitAction;
         }
 
