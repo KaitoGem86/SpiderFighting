@@ -153,6 +153,8 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionEnum)
         {
+            _left.SetPositions(new Vector3[] { _leftHand.position, _leftHand.position });
+            _right.SetPositions(new Vector3[] { _rightHand.position, _rightHand.position });
             return base.Exit(actionEnum);
         }
 

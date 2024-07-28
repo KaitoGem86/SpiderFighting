@@ -32,7 +32,9 @@ namespace Core.GamePlay.Player
             switch (beforeAction)
             {
                 case ActionEnum.Zip:
-                    _playerController.Jump();
+                    _jumpVelocity = 15;
+                    _speed = 20;
+                    JumpFromZip();
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
@@ -109,7 +111,8 @@ namespace Core.GamePlay.Player
                 tmp.y = Mathf.Clamp(tmp.y, 20, 30);
                 return tmp;
             }
-            else{
+            else
+            {
                 var tmp = _playerController.GlobalVelocity + Vector3.up * _jumpVelocity;
                 tmp.y = Mathf.Clamp(tmp.y, 20, 30);
                 return tmp;
@@ -119,6 +122,12 @@ namespace Core.GamePlay.Player
         private void JumpVelocityFromClimp()
         {
             _playerController.SetVelocity(-_playerController.PlayerDisplay.forward * 20 + Vector3.up * _jumpVelocity);
+        }
+
+        private void JumpFromZip()
+        {
+           // _playerController.SetVelocity(-_playerController.PlayerDisplay.forward * 20 + Vector3.up * _jumpVelocity);
+            _playerController.SetVelocity(Vector3.up *30);
         }
     }
 }
