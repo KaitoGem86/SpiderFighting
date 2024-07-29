@@ -9,6 +9,7 @@ namespace Core.GamePlay.Player
     [CreateAssetMenu(fileName = nameof(ZipAction), menuName = ("GamePlay/Player/State/MovementState/" + nameof(ZipAction)), order = 0)]
     public class ZipAction : LocalmotionAction
     {
+        [SerializeField] private ShootSilk _shootSilk;
         private DisplayZipPoint _displayZipPoint;
         private Vector3 _zipPoint;
         private bool _isZip;

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3aae04b8453474f8546e911766a449, type: 3}
+  m_Name: LeftSilk
+  m_EditorClassIdentifier: 
+  _shootSilkPrefab: {fileID: 377050520415519920, guid: ca10e68bde6511142928c3c73779bce6, type: 3}
+  _startWidth: 0.05
+  _endWidth: 0.05
+  _startColor: {r: 1, g: 1, b: 1, a: 1}
+  _endColor: {r: 1, g: 1, b: 1, a: 1}

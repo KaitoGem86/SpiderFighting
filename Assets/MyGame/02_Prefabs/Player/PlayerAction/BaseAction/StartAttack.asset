@@ -109,6 +109,182 @@ MonoBehaviour:
           _Clip: {fileID: 0}
           _Speed: 0
           _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes:
+            - 0.46948317
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: StartGoToEnemy
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 32c81dcc25359e84b9cd84f59da49fdd, type: 3}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0.17500001
+          _Events:
+            _NormalizedTimes:
+            - 0.5589569
+            - 0.67845803
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: CanChangeToAttack
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 1
+                  m_CallState: 2
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.BasePlayerAction,
+                    Assembly-CSharp
+                  m_MethodName: EndAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Speed: NaN
+          _Animations:
+          - {fileID: 7400000, guid: 9f6a8ac4406a780438ea85da7ae6e4d4, type: 2}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
+          _Speed: 0
+          _NormalizedStartTime: 0
+      - startAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes:
+            - 0.46948317
+            - 0.9572524
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: StartGoToEnemy
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: KeepAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Clip: {fileID: 7400000, guid: 5d5004cde48fb674fbddcb6a9b501b80, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0.17500001
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations:
+          - {fileID: 7400000, guid: d0dbb1dc5a4f530418463030d61dc51b, type: 2}
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds:
+          - 0
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes:
+            - 0.7184751
+            - 0.9485709
+            - NaN
+            _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: CanChangeToAttack
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: ExitAction
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            _Names: []
+          _Clip: {fileID: 7400000, guid: a537006626e1a584f838a67fb1ae03fc, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
   _onAttack:
     _subject: {fileID: 11400000, guid: 134e53335c4279341b502d37013f7d78, type: 2}
     _response:

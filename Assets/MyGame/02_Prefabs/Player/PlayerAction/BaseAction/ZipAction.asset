@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4419a7142415a41b34f1dca1464326, type: 3}
   m_Name: ZipAction
   m_EditorClassIdentifier: 
+  _movementMode: 0
   _animationClip:
     _FadeDuration: 0.25
     _Events:
@@ -553,3 +554,9 @@ MonoBehaviour:
           _Clip: {fileID: 0}
           _Speed: 0
           _NormalizedStartTime: 0
+  _onAttack:
+    _subject: {fileID: 0}
+    _response:
+      m_PersistentCalls:
+        m_Calls: []
+  _shootSilk: {fileID: 11400000, guid: 17b53d2302a5dc5409853efe81fcbc96, type: 2}

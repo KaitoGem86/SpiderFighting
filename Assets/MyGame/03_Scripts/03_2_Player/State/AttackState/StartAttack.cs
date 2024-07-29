@@ -12,12 +12,26 @@ namespace Core.GamePlay.Player
         [SerializeField] private float _mediumRange = 2f;
         [SerializeField] private float _longRange = 5f;
         [SerializeField] private FindEnemyToAttack _findEnemyModule;
+        private float _distanceToEnemy;
         private IHittedByPlayer _enemyTarget;
         private bool _isCanChangeNextAttack = false;
         private bool _isStartGoToEnemy = false;
 
         public override void Enter(ActionEnum actionBefore)
         {
+            _isStartGoToEnemy = false;
+            _enemyTarget = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
+            if(_enemyTarget == null)
+            {
+                _stateContainer.ChangeAction(ActionEnum.Idle);
+                return;
+            }
+            _distanceToEnemy = Vector3.Distance(_enemyTarget.TargetEnemy.position, _playerController.transform.position);
+            if(_distanceToEnemy > _mediumRange)
+                StartAction();
+            else
+                KeepAction();
+
             _currentTransitionIndex = GetTransition(actionBefore);
             _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_currentTransitionIndex];
             _isCanChangeNextAttack = false;
@@ -35,17 +49,7 @@ namespace Core.GamePlay.Player
                 _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
                 _playerController.SetVelocity(_playerController.GlobalVelocity);
             }
-            _isStartGoToEnemy = false;
-            _enemyTarget = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
-            if(_enemyTarget == null)
-            {
-                _stateContainer.ChangeAction(ActionEnum.Idle);
-                return;
-            }
-            if(Vector3.Distance(_enemyTarget.TargetEnemy.position, _playerController.transform.position) > _mediumRange)
-                StartAction();
-            else
-                KeepAction();
+            
             _onAttack?.RegisterListener();
         }
 
@@ -85,7 +89,10 @@ namespace Core.GamePlay.Player
 
         protected override int GetTransition(ActionEnum actionBefore)
         {
-            return base.GetTransition(actionBefore);
+            if(!_playerController.IsOnGround()) return 2;
+            if(_distanceToEnemy > _longRange) return 2;
+            if(_distanceToEnemy > _mediumRange) return 1;
+            return 0;
         }
     }
 }
