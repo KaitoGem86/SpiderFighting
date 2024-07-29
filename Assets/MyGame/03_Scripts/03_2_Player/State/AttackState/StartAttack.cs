@@ -1,7 +1,5 @@
-using Animancer;
 using Core.GamePlay.Support;
 using DG.Tweening;
-using EasyCharacterMovement;
 using UnityEngine;
 
 namespace Core.GamePlay.Player
@@ -12,44 +10,32 @@ namespace Core.GamePlay.Player
         [SerializeField] private float _mediumRange = 2f;
         [SerializeField] private float _longRange = 5f;
         [SerializeField] private FindEnemyToAttack _findEnemyModule;
+        [SerializeField] private ShootSilk _shootSilk;
         private float _distanceToEnemy;
         private IHittedByPlayer _enemyTarget;
         private bool _isCanChangeNextAttack = false;
         private bool _isStartGoToEnemy = false;
 
+        public override void Init(PlayerController playerController, ActionEnum actionEnum)
+        {
+            base.Init(playerController, actionEnum);
+            _shootSilk.Init();
+        }
+
         public override void Enter(ActionEnum actionBefore)
         {
             _isStartGoToEnemy = false;
             _enemyTarget = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
-            if(_enemyTarget == null)
+            if (_enemyTarget == null)
             {
                 _stateContainer.ChangeAction(ActionEnum.Idle);
                 return;
             }
             _distanceToEnemy = Vector3.Distance(_enemyTarget.TargetEnemy.position, _playerController.transform.position);
-            if(_distanceToEnemy > _mediumRange)
-                StartAction();
-            else
-                KeepAction();
-
-            _currentTransitionIndex = GetTransition(actionBefore);
-            _currentTransition = _dictPlayerAnimTransition[_fixedAnim ? ActionEnum.None : actionBefore][_currentTransitionIndex];
             _isCanChangeNextAttack = false;
-            _playerController.SetMovementMode(_movementMode);
-            if(_movementMode == MovementMode.None)
-            {
-                _playerController.CharacterMovement.rigidbody.useGravity = true;
-                _playerController.CharacterMovement.rigidbody.isKinematic = false;
-                _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
-                _playerController.CharacterMovement.rigidbody.velocity = _playerController.GlobalVelocity;
-            }
-            else{
-                _playerController.CharacterMovement.rigidbody.useGravity = false;
-                _playerController.CharacterMovement.rigidbody.isKinematic = true;
-                _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
-                _playerController.SetVelocity(_playerController.GlobalVelocity);
-            }
-            
+
+            base.Enter(actionBefore);
+
             _onAttack?.RegisterListener();
         }
 
@@ -61,21 +47,21 @@ namespace Core.GamePlay.Player
 
         public override void Attack()
         {
-            if(!_isCanChangeNextAttack) return;
+            if (!_isCanChangeNextAttack) return;
             _stateContainer.ChangeAction(ActionEnum.Attack1);
         }
 
-        public override void KeepAction()
+        public void StartGoToEnemy(float time)
         {
-            Debug.Log("KeepAction");
-            base.KeepAction();
+            if (_isStartGoToEnemy) return;
+            _isStartGoToEnemy = true;
+            _playerController.PlayerDisplay.DORotate(Quaternion.LookRotation(_enemyTarget.TargetEnemy.position - _playerController.transform.position).eulerAngles, 0.2f);
+            _playerController.transform.DOMove(_enemyTarget.TargetEnemy.transform.position + (_playerController.transform.position - _enemyTarget.TargetEnemy.transform.position).normalized * 1f, time).OnComplete(EndAction);
         }
 
-        public void StartGoToEnemy(){
-            if(_isStartGoToEnemy) return;
-            _isStartGoToEnemy = true;
-            _playerController.PlayerDisplay.DORotate(Quaternion.LookRotation(_enemyTarget.TargetEnemy.position - _playerController.transform.position).eulerAngles, 0.5f);
-            _playerController.transform.DOMove(_enemyTarget.TargetEnemy.transform.position + (_playerController.transform.position - _enemyTarget.TargetEnemy.transform.position).normalized * 0.8f, 1f).OnComplete(KeepAction);            
+        public void RotateToTarget()
+        {
+            _playerController.PlayerDisplay.DORotate(Quaternion.LookRotation(_enemyTarget.TargetEnemy.position - _playerController.transform.position).eulerAngles, 0.2f);
         }
 
         public override void ExitAction()
@@ -83,15 +69,20 @@ namespace Core.GamePlay.Player
             _stateContainer.ChangeAction(ActionEnum.Idle);
         }
 
-        public void CanChangeToAttack(){
+        public void CanChangeToAttack()
+        {
             _isCanChangeNextAttack = true;
+        }
+
+        public void ShootSilk(){
+            _shootSilk.ShootSilkToTarget(_playerController.rightHand , _enemyTarget.TargetEnemy.position,0.15f);
         }
 
         protected override int GetTransition(ActionEnum actionBefore)
         {
-            if(!_playerController.IsOnGround()) return 2;
-            if(_distanceToEnemy > _longRange) return 2;
-            if(_distanceToEnemy > _mediumRange) return 1;
+            if (!_playerController.IsOnGround()) return 2;
+            if (_distanceToEnemy > _longRange) return 2;
+            if (_distanceToEnemy > _mediumRange) return 1;
             return 0;
         }
     }

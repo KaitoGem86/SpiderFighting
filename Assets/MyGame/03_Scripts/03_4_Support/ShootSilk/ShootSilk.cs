@@ -15,6 +15,7 @@ namespace Core.GamePlay.Support{
         private bool _isInit = false;
 
         public void Init(){
+            if(_lineRenderer == null) _isInit = false;
             if (_isInit) return;
             _isInit = true;
             _lineRenderer = Instantiate(_shootSilkPrefab).GetComponent<LineRenderer>();

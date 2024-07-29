@@ -12,6 +12,15 @@ namespace Core.Manager {
             MySoundManager.Instance.PlayMusic();
         }
 
+        private void Update(){
+            if(Input.GetKeyDown(KeyCode.F)){
+                FocusOnPlayer(true);
+            }
+            if(Input.GetKeyUp(KeyCode.F)){
+                FocusOnPlayer(false);
+            }
+        }
+
         public void FocusOnPlayer(bool value){
             Time.timeScale = value ? 0.3f : 1;
         }

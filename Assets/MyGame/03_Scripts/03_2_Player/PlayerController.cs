@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Core.GamePlay.Support;
 using EasyCharacterMovement;
 using MyTools.Event;
-using SFRemastered.InputSystem;
 using UnityEngine;
 
 namespace Core.GamePlay.Player

@@ -32,7 +32,7 @@ MonoBehaviour:
           _FadeDuration: 0.25
           _Events:
             _NormalizedTimes:
-            - 0.46948317
+            - 0.2528744
             - NaN
             _Callbacks:
             - m_PersistentCalls:
@@ -40,12 +40,12 @@ MonoBehaviour:
                 - m_Target: {fileID: 11400000}
                   m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
                   m_MethodName: StartGoToEnemy
-                  m_Mode: 1
+                  m_Mode: 4
                   m_Arguments:
                     m_ObjectArgument: {fileID: 0}
                     m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                     m_IntArgument: 0
-                    m_FloatArgument: 0
+                    m_FloatArgument: 0.25
                     m_StringArgument: 
                     m_BoolArgument: 0
                   m_CallState: 2
@@ -56,10 +56,23 @@ MonoBehaviour:
         keepAnimation:
           _FadeDuration: 0.17500001
           _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0.25
+          _Events:
             _NormalizedTimes:
-            - 0.5589569
-            - 0.67845803
-            - NaN
+            - 0.55550903
+            - 0.7570755
+            - 0.8
             _Callbacks:
             - m_PersistentCalls:
                 m_Calls:
@@ -73,14 +86,13 @@ MonoBehaviour:
                     m_IntArgument: 0
                     m_FloatArgument: 0
                     m_StringArgument: 
-                    m_BoolArgument: 1
+                    m_BoolArgument: 0
                   m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
-                  m_TargetAssemblyTypeName: Core.GamePlay.Player.BasePlayerAction,
-                    Assembly-CSharp
-                  m_MethodName: EndAction
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: ExitAction
                   m_Mode: 1
                   m_Arguments:
                     m_ObjectArgument: {fileID: 0}
@@ -91,24 +103,9 @@ MonoBehaviour:
                     m_BoolArgument: 0
                   m_CallState: 2
             _Names: []
-          _Speed: NaN
-          _Animations:
-          - {fileID: 7400000, guid: 9f6a8ac4406a780438ea85da7ae6e4d4, type: 2}
-          _Speeds: []
-          _SynchronizeChildren: 
-          _Thresholds:
-          - 0
-          _DefaultParameter: 0
-          _ExtrapolateSpeed: 0
-        endAnimation:
-          _FadeDuration: 0
-          _Events:
-            _NormalizedTimes: []
-            _Callbacks: []
-            _Names: []
-          _Clip: {fileID: 0}
-          _Speed: 0
-          _NormalizedStartTime: 0
+          _Clip: {fileID: 7400000, guid: 9f6a8ac4406a780438ea85da7ae6e4d4, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
       - startAnimation:
           _FadeDuration: 0.25
           _Events:
@@ -121,12 +118,12 @@ MonoBehaviour:
                 - m_Target: {fileID: 11400000}
                   m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
                   m_MethodName: StartGoToEnemy
-                  m_Mode: 1
+                  m_Mode: 4
                   m_Arguments:
                     m_ObjectArgument: {fileID: 0}
                     m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                     m_IntArgument: 0
-                    m_FloatArgument: 0
+                    m_FloatArgument: 0.5
                     m_StringArgument: 
                     m_BoolArgument: 0
                   m_CallState: 2
@@ -137,10 +134,23 @@ MonoBehaviour:
         keepAnimation:
           _FadeDuration: 0.17500001
           _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0.25
+          _Events:
             _NormalizedTimes:
-            - 0.5589569
-            - 0.67845803
-            - NaN
+            - 0.55906993
+            - 0.7665094
+            - 0.8
             _Callbacks:
             - m_PersistentCalls:
                 m_Calls:
@@ -154,14 +164,13 @@ MonoBehaviour:
                     m_IntArgument: 0
                     m_FloatArgument: 0
                     m_StringArgument: 
-                    m_BoolArgument: 1
+                    m_BoolArgument: 0
                   m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
-                  m_TargetAssemblyTypeName: Core.GamePlay.Player.BasePlayerAction,
-                    Assembly-CSharp
-                  m_MethodName: EndAction
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: ExitAction
                   m_Mode: 1
                   m_Arguments:
                     m_ObjectArgument: {fileID: 0}
@@ -172,28 +181,14 @@ MonoBehaviour:
                     m_BoolArgument: 0
                   m_CallState: 2
             _Names: []
-          _Speed: NaN
-          _Animations:
-          - {fileID: 7400000, guid: 9f6a8ac4406a780438ea85da7ae6e4d4, type: 2}
-          _Speeds: []
-          _SynchronizeChildren: 
-          _Thresholds:
-          - 0
-          _DefaultParameter: 0
-          _ExtrapolateSpeed: 0
-        endAnimation:
-          _FadeDuration: 0
-          _Events:
-            _NormalizedTimes: []
-            _Callbacks: []
-            _Names: []
-          _Clip: {fileID: 0}
-          _Speed: 0
-          _NormalizedStartTime: 0
+          _Clip: {fileID: 7400000, guid: 9f6a8ac4406a780438ea85da7ae6e4d4, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
       - startAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.043333333
           _Events:
             _NormalizedTimes:
+            - 0.07066401
             - 0.46948317
             - 0.9572524
             - NaN
@@ -202,13 +197,39 @@ MonoBehaviour:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
                   m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
-                  m_MethodName: StartGoToEnemy
+                  m_MethodName: RotateToTarget
                   m_Mode: 1
                   m_Arguments:
                     m_ObjectArgument: {fileID: 0}
                     m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                     m_IntArgument: 0
                     m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: ShootSilk
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
+                  m_MethodName: StartGoToEnemy
+                  m_Mode: 4
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0.3
                     m_StringArgument: 
                     m_BoolArgument: 0
                   m_CallState: 2
@@ -231,7 +252,7 @@ MonoBehaviour:
           _Speed: 1
           _NormalizedStartTime: NaN
         keepAnimation:
-          _FadeDuration: 0.17500001
+          _FadeDuration: 0.04666667
           _Events:
             _NormalizedTimes: []
             _Callbacks: []
@@ -246,10 +267,10 @@ MonoBehaviour:
           _DefaultParameter: 0
           _ExtrapolateSpeed: 0
         endAnimation:
-          _FadeDuration: 0.25
+          _FadeDuration: 0.085
           _Events:
             _NormalizedTimes:
-            - 0.7184751
+            - 0.5375555
             - 0.9485709
             - NaN
             _Callbacks:
@@ -305,3 +326,4 @@ MonoBehaviour:
   _mediumRange: 2
   _longRange: 5
   _findEnemyModule: {fileID: 11400000, guid: 327121c53c1175a4b888ab80a3f244ed, type: 2}
+  _shootSilk: {fileID: 11400000, guid: 8528ddc1fec5e4145814bdaea8c3ce21, type: 2}
