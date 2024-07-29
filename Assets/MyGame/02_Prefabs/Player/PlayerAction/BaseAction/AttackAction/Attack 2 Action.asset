@@ -32,10 +32,26 @@ MonoBehaviour:
           _FadeDuration: 0.25
           _Events:
             _NormalizedTimes:
+            - 0.27272728
             - 0.6842595
             - 0.97616833
             - NaN
             _Callbacks:
+            - m_PersistentCalls:
+                m_Calls:
+                - m_Target: {fileID: 11400000}
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.BaseAttackAction,
+                    Assembly-CSharp
+                  m_MethodName: AttackEnemy
+                  m_Mode: 1
+                  m_Arguments:
+                    m_ObjectArgument: {fileID: 0}
+                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                    m_IntArgument: 0
+                    m_FloatArgument: 0
+                    m_StringArgument: 
+                    m_BoolArgument: 0
+                  m_CallState: 2
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -109,3 +125,4 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  _findEnemyModule: {fileID: 11400000, guid: 327121c53c1175a4b888ab80a3f244ed, type: 2}

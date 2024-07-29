@@ -1,4 +1,5 @@
 using Animancer;
+using Core.GamePlay.Support;
 using DG.Tweening;
 using EasyCharacterMovement;
 using UnityEngine;
@@ -8,13 +9,12 @@ namespace Core.GamePlay.Player
     [CreateAssetMenu(fileName = nameof(StartAttack), menuName = ("PlayerState/" + nameof(StartAttack)), order = 0)]
     public class StartAttack : BasePlayerAction
     {
-        [SerializeField] private float _distanceThreshold = 2f;
-        private Transform _enemyTarget;
+        [SerializeField] private float _mediumRange = 2f;
+        [SerializeField] private float _longRange = 5f;
+        [SerializeField] private FindEnemyToAttack _findEnemyModule;
+        private IHittedByPlayer _enemyTarget;
         private bool _isCanChangeNextAttack = false;
-
-        private Transform GetEnemyTarget(){
-            return _playerController.TestEnemy;
-        }
+        private bool _isStartGoToEnemy = false;
 
         public override void Enter(ActionEnum actionBefore)
         {
@@ -35,8 +35,14 @@ namespace Core.GamePlay.Player
                 _playerController.CharacterMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
                 _playerController.SetVelocity(_playerController.GlobalVelocity);
             }
-            _enemyTarget = GetEnemyTarget();
-            if(Vector3.Distance(_enemyTarget.position, _playerController.transform.position) > _distanceThreshold)
+            _isStartGoToEnemy = false;
+            _enemyTarget = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
+            if(_enemyTarget == null)
+            {
+                _stateContainer.ChangeAction(ActionEnum.Idle);
+                return;
+            }
+            if(Vector3.Distance(_enemyTarget.TargetEnemy.position, _playerController.transform.position) > _mediumRange)
                 StartAction();
             else
                 KeepAction();
@@ -55,8 +61,17 @@ namespace Core.GamePlay.Player
             _stateContainer.ChangeAction(ActionEnum.Attack1);
         }
 
+        public override void KeepAction()
+        {
+            Debug.Log("KeepAction");
+            base.KeepAction();
+        }
+
         public void StartGoToEnemy(){
-            _playerController.transform.DOMove(_enemyTarget.position, 1f).OnComplete(KeepAction);            
+            if(_isStartGoToEnemy) return;
+            _isStartGoToEnemy = true;
+            _playerController.PlayerDisplay.DORotate(Quaternion.LookRotation(_enemyTarget.TargetEnemy.position - _playerController.transform.position).eulerAngles, 0.5f);
+            _playerController.transform.DOMove(_enemyTarget.TargetEnemy.transform.position + (_playerController.transform.position - _enemyTarget.TargetEnemy.transform.position).normalized * 0.8f, 1f).OnComplete(KeepAction);            
         }
 
         public override void ExitAction()
@@ -66,6 +81,11 @@ namespace Core.GamePlay.Player
 
         public void CanChangeToAttack(){
             _isCanChangeNextAttack = true;
+        }
+
+        protected override int GetTransition(ActionEnum actionBefore)
+        {
+            return base.GetTransition(actionBefore);
         }
     }
 }

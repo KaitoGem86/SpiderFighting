@@ -1,9 +1,14 @@
+using Core.GamePlay.Support;
+using UnityEngine;
+
 namespace Core.GamePlay.Player
 {
     public class BaseAttackAction : BasePlayerAction
     {
+        [SerializeField] protected FindEnemyToAttack _findEnemyModule;
         protected bool _isCanChangeNextAttack = false;
         protected bool _notContinueAttack = false;
+        protected IHittedByPlayer _enemy;
 
         public override void Enter(ActionEnum actionBefore)
         {
@@ -11,6 +16,7 @@ namespace Core.GamePlay.Player
             _onAttack?.RegisterListener();
             _isCanChangeNextAttack = false;
             _playerController.useRootMotion = true;
+            _enemy = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
         }
 
         public override bool Exit(ActionEnum actionAfter)
@@ -31,6 +37,10 @@ namespace Core.GamePlay.Player
             if (!_isCanChangeNextAttack) return;
             _notContinueAttack = false;
             _stateContainer.ChangeAction(ActionEnum.Attack);
+        }
+
+        public void AttackEnemy(){ 
+            _enemy?.HittedByPlayer();
         }
 
         public void CanChangeToAttack()
