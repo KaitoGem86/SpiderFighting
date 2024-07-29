@@ -12,7 +12,6 @@ namespace Core.UI{
         public DefaultEvent onChangeSkin;
         public PlayerController playerController;
         public DefaultEvent onAttack;
-
         private bool _isSwing = false;
         
         public void Update(){

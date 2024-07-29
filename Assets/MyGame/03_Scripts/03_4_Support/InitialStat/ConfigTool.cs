@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.GamePlay.Support
@@ -8,6 +9,8 @@ namespace Core.GamePlay.Support
         [SerializeField] private ConfigElementSO _configElementSO;
         [SerializeField] private Transform _container;
 
+        private List<GameObject> _listConfigElement = new List<GameObject>();
+
         void Awake()
         {
             _configElementSO.Init(0, _container);
@@ -16,9 +19,14 @@ namespace Core.GamePlay.Support
 
         public void OnEnable()
         {
+            foreach (var configElement in _listConfigElement)
+            {
+                _configElementSO.DespawnObject(configElement);
+            }
+            _listConfigElement.Clear();
             foreach (var statData in _statDatasController.StatDatas)
             {
-                _configElementSO.Spawn(statData);
+                _listConfigElement.Add(_configElementSO.Spawn(statData));
             }
         }
 

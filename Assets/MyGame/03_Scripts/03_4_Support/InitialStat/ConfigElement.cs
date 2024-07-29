@@ -12,8 +12,10 @@ namespace Core.GamePlay.Support
 
         public void Init(StatData data)
         {
+            _data = data;
             _title.text = data.type.ToString();
             _inputField.text = data.value.ToString();
+            _inputText = data.value.ToString();
         }
 
         public void OnInputFieldChange(string value)
@@ -22,7 +24,10 @@ namespace Core.GamePlay.Support
         }
 
         public void OnClickAccept(){
-
+            if(float.TryParse(_inputText, out float result))
+                _data.value = result;
+            else
+                _inputField.text = _data.value.ToString();
         }
     }
 }

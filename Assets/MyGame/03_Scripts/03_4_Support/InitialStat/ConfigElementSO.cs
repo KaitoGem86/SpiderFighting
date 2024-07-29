@@ -9,10 +9,11 @@ namespace Core.GamePlay.Support{
             base.Init(poolId, activeParent);
         }
 
-        public void Spawn(StatData data)
+        public GameObject Spawn(StatData data)
         {
             var configElement = SpawnObject();
             configElement.GetComponent<ConfigElement>().Init(data);
+            return configElement;
         }
     }
 }
