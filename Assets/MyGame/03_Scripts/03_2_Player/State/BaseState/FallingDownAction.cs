@@ -21,7 +21,7 @@ namespace Core.GamePlay
             _onFallingDown.RegisterListener();
             if (beforeAction == ActionEnum.Climbing)
             {
-                _playerController.SetVelocity(Vector3.up * 10);
+                _playerController.SetVelocity(Vector3.up * _statManager.GetValue(Support.StatType.JumpForce).value);
             }
             _speed = _playerController.GlobalVelocity.magnitude;
         }

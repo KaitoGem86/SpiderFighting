@@ -21,7 +21,7 @@ namespace Core.GamePlay.Player
         {
             base.Enter(beforeAction);
             GetInput();
-            _speed = 25;
+            _speed = _statManager.GetValue(Support.StatType.MoveSpeed).value;
             _checkWallPivot = _playerController.CheckWallPivot;
         }
 

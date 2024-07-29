@@ -73,13 +73,13 @@ namespace Core.GamePlay.Player
             right.y = 0;
             if (_playerController.transform.position.y < 10)
             {
-                _speed += 10;
+                _speed += _statManager.GetValue(Support.StatType.IncreaseSwingSpeed1).value;
                 _speed = Mathf.Clamp(_speed, 0, 30);
                 _pivot = _playerController.transform.position + forward.normalized * 20 + right.normalized * 10 * _handToUse + Vector3.up * 15;
             }
             else
             {
-                _speed += 20;
+                _speed += _statManager.GetValue(Support.StatType.IncreaseSwingSpeed2).value;
                 _speed = Mathf.Clamp(_speed, 0, 80);
                 _pivot = _playerController.transform.position + forward.normalized * 30 + right.normalized * 10 * _handToUse + Vector3.up * 20;
             }

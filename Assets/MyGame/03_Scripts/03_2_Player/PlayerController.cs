@@ -29,6 +29,7 @@ namespace Core.GamePlay.Player
         {
             _dictPlayerComponents[PlayerComponentEnum.Display].Init(this);
             _dictPlayerComponents[PlayerComponentEnum.State].Init(this);
+            _dictPlayerComponents[PlayerComponentEnum.Stat].Init(this);
         }
 
         protected override void Update(){

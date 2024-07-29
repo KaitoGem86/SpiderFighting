@@ -12,7 +12,7 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum beforeAction)
         {
             base.Enter(beforeAction);
-            _speed = 5;
+            _speed = _statManager.GetValue(Support.StatType.StopSpeed).value;
             _remainMoveDirection = _playerController.PlayerDisplay.transform.forward * 0.3f;
             _currentTransition.keepAnimation.State.Parameter = _playerController.GetVelocity().magnitude;
         }

@@ -32,14 +32,14 @@ namespace Core.GamePlay.Player
             switch (beforeAction)
             {
                 case ActionEnum.Zip:
-                    _jumpVelocity = 15;
+                    _jumpVelocity = _statManager.GetValue(Support.StatType.JumpForce).value;
                     _speed = 20;
                     JumpFromZip();
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
                     break;
                 case ActionEnum.Swing:
-                    _jumpVelocity = 5;
+                    _jumpVelocity = _statManager.GetValue(Support.StatType.JumpForce).value;
                     _playerController.SetVelocity(JumpVelocityFromSwing());
                     _isStartJumping = true;
                     _elapsedTime = 0.3f;
@@ -106,7 +106,6 @@ namespace Core.GamePlay.Player
             _speedFromSwing = Mathf.Clamp(_speedFromSwing, 0, 40);
             if (Vector3.Angle(_playerController.GlobalVelocity, velocity) > 30)
             {
-                Debug.Log("JumpingAction 1");
                 var tmp = (velocity + input).normalized * _speedFromSwing + _playerController.GlobalVelocity + Vector3.up * _jumpVelocity;
                 tmp.y = Mathf.Clamp(tmp.y, 20, 30);
                 return tmp;
@@ -127,7 +126,7 @@ namespace Core.GamePlay.Player
         private void JumpFromZip()
         {
            // _playerController.SetVelocity(-_playerController.PlayerDisplay.forward * 20 + Vector3.up * _jumpVelocity);
-            _playerController.SetVelocity(Vector3.up *30);
+            _playerController.SetVelocity(Vector3.up *_statManager.GetValue(Support.StatType.JumpForce).value);
         }
     }
 }

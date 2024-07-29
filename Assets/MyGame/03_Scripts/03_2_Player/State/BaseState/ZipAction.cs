@@ -42,11 +42,11 @@ namespace Core.GamePlay.Player
             {
                 if (beforeAction == ActionEnum.Climbing)
                 {
-                    _zipPoint = _playerController.PlayerDisplay.transform.position + _playerController.PlayerDisplay.transform.up * 15;
+                    _zipPoint = _playerController.PlayerDisplay.transform.position + _playerController.PlayerDisplay.transform.up * _statManager.GetValue(StatType.ZipDistanceClimb).value;
                 }
                 else
                 {
-                    _zipPoint = _playerController.PlayerDisplay.transform.position + _playerController.PlayerDisplay.transform.forward * 25;
+                    _zipPoint = _playerController.PlayerDisplay.transform.position + _playerController.PlayerDisplay.transform.forward * _statManager.GetValue(StatType.ZipDistanceForward).value;
                 }
                 _zipToPoint = false;
             }
@@ -57,7 +57,7 @@ namespace Core.GamePlay.Player
             }
 
             frame = 0;
-            _speed = 120;
+            _speed = _statManager.GetValue(StatType.ZipSpeed).value;
             _isZip = false;
             _moveDirection = _zipPoint - _playerController.PlayerDisplay.transform.position;
             _rotateDirection = _moveDirection.normalized;
@@ -94,7 +94,7 @@ namespace Core.GamePlay.Player
 
         protected override void Move()
         {
-            var targetPosition = _playerController.transform.position + _moveDirection * 15 * Time.deltaTime;
+            var targetPosition = _playerController.transform.position + _moveDirection * _speed * Time.deltaTime;
             if (Vector3.Distance(targetPosition, _zipPoint) < 0.1f)
             {
                 EndZip();

@@ -30,7 +30,7 @@ namespace Core.GamePlay.Player
             _playerController.CharacterMovement.rigidbody.isKinematic = false;
             _playerController.CharacterMovement.rigidbody.useGravity = false;
             _playerController.SetMovementMode(MovementMode.None);
-            _speed = 15f;
+            _speed = _statManager.GetValue(Support.StatType.ClimbingSpeed).value;
             _isEndClimbing = false;
             _isCompleteStartClimbing = false;
             _playerController.PlayerDisplay.DORotate(Quaternion.LookRotation(-_stateContainer.SurfaceNormal).eulerAngles, 0.1f)
