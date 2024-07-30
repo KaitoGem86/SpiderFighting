@@ -21,9 +21,6 @@ namespace Core.GamePlay.Support
 
         public void Update()
         {
-            if(Input.GetKeyDown(KeyCode.J))
-                SetHP(50, 100);
-
             if (_lerpHpBar.fillAmount != _hpBar.fillAmount)
                 _lerpHpBar.fillAmount = Mathf.Lerp(_lerpHpBar.fillAmount, _hpBar.fillAmount, Time.deltaTime * 5);
         }

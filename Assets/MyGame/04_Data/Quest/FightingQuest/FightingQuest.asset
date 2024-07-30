@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Name: FightingQuest
+  m_EditorClassIdentifier: 
+  infor:
+    id: 0
+    QuestName: Fighting Quest 0
+    QuestDescription: 'hello are you oke '
+  reward:
+    exp: 10
+    currency: 10
+  steps:
+  - {fileID: -4324029607710366635, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
+  - {fileID: -4324029607710366635, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
+  - {fileID: -4324029607710366635, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
