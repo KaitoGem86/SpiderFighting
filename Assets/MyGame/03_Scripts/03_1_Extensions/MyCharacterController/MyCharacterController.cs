@@ -7,7 +7,8 @@ namespace Extensions.SystemGame.MyCharacterController
 {
     public class MyCharacterController<T> : Character where T : MyCharacterController<T>
     {
-        [SerializeField] private List<BaseCharacterComponent<T,CharacterBlackBoard<T>>> _listPlayerComponents;
+        [Header("============== CUSTOM COMPONENTS ==============")]
+        [SerializeField] private List<BaseCharacterComponent<T, CharacterBlackBoard<T>>> _listPlayerComponents;
         [SerializeField] private CharacterBlackBoard<T> _blackBoard;
         private Dictionary<CharacterComponentEnum, BaseCharacterComponent<T, CharacterBlackBoard<T>>> _dictPlayerComponents;
 
