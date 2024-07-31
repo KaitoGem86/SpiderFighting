@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.Test.Player
 {
-    public class PlayerController : MyCharacterController<PlayerBlackBoard>
+    public class ComponentHandler : MyCharacterController<PlayerBlackBoard>
     {
 
         protected override void Update()

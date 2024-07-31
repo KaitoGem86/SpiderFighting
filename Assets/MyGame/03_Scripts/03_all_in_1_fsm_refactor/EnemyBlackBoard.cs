@@ -1,5 +1,5 @@
 namespace Core.Test.Player{
-    public class PlayerBlackBoard : BlackBoard
+    public class EnemyBlackBoard : BlackBoard
     {
         
     }
