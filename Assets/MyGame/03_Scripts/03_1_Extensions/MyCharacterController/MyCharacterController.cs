@@ -3,7 +3,7 @@ using Core.GamePlay.Player;
 using EasyCharacterMovement;
 using UnityEngine;
 
-namespace Extentions.SystemGame.MyCharacterController
+namespace Extensions.SystemGame.MyCharacterController
 {
     public class MyCharacterController<T> : Character where T : MyCharacterController<T>
     {

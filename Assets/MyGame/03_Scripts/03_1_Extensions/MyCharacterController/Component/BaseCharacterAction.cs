@@ -1,7 +1,7 @@
 using EasyCharacterMovement;
 using UnityEngine;
 
-namespace Extentions.SystemGame.MyCharacterController
+namespace Extensions.SystemGame.MyCharacterController
 {
     public class BaseCharacterAction<T> : ScriptableObject, ICharacterAction where T : MyCharacterController<T>
     {

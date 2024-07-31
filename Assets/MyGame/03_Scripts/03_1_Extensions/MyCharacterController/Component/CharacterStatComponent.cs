@@ -7,7 +7,7 @@ using MyTools.Event;
 using MyTools.ScreenSystem;
 using UnityEngine;
 
-namespace Extentions.SystemGame.MyCharacterController
+namespace Extensions.SystemGame.MyCharacterController
 {
 
     public class CharacterStatComponent<T> : BaseCharacterComponent<T> where T : MyCharacterController<T>

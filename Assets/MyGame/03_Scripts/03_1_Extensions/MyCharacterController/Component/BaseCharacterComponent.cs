@@ -2,7 +2,7 @@ using System.ComponentModel.Design;
 using EasyCharacterMovement;
 using UnityEngine;
 
-namespace Extentions.SystemGame.MyCharacterController
+namespace Extensions.SystemGame.MyCharacterController
 {
     public enum CharacterComponentEnum
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using EasyCharacterMovement;
 using UnityEngine;
 
-namespace Extentions.SystemGame.MyCharacterController
+namespace Extensions.SystemGame.MyCharacterController
 {
     public class CharacterStateComponent<T> : BaseCharacterComponent<T>, ICharacterLoop where T : MyCharacterController<T>
     {

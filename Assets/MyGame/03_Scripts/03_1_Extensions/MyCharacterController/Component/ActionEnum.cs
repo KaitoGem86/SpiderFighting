@@ -1,5 +1,5 @@
-namespace Extentions.SystemGame.MyCharacterController{
+namespace Extensions.SystemGame.MyCharacterController{
     public enum ActionEnum{
-        
+
     }
 }

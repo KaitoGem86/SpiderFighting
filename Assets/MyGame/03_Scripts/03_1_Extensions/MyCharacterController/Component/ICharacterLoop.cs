@@ -1,7 +1,7 @@
 using EasyCharacterMovement;
 using UnityEngine;
 
-namespace Extentions.SystemGame.MyCharacterController{
+namespace Extensions.SystemGame.MyCharacterController{
     public interface ICharacterLoop{
         public void Update();
         public void LateUpdate();

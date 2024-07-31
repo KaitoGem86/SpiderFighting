@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Animancer;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
-namespace Extentions.SystemGame.MyCharacterController
+namespace Extensions.SystemGame.MyCharacterController
 {
     public class CharacterDisplayComponent<T> : BaseCharacterComponent<T> where T : MyCharacterController<T>
     {
