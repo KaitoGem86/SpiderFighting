@@ -1,113 +1,105 @@
-// using AYellowpaper.SerializedCollections;
-// using EasyCharacterMovement;
-// using UnityEngine;
+using System.Collections.Generic;
+using EasyCharacterMovement;
+using UnityEngine;
 
-// namespace Extentions.SystemGame.MyCharacterController
-// {
-//     public class CharacterStateComponent : BasePlayerComponent, ICharacterLoop
-//     {
-//         private SerializedDictionary<ActionEnum, BaseCharacterAction> _dictPlayerMovementActions;
+namespace Extentions.SystemGame.MyCharacterController
+{
+    public class CharacterStateComponent<T> : BaseCharacterComponent<T>, ICharacterLoop where T : MyCharacterController<T>
+    {
+        [SerializeField] List<BaseCharacterAction<T>> _listActions;
+        private Dictionary<ActionEnum, BaseCharacterAction<T>> _dictActions;
 
-//         private ActionEnum _currentAction = ActionEnum.None;
-//         public override void Init(PlayerController playerController)
-//         {
-//             _currentAction = ActionEnum.None;
-//             base.Init(playerController);
-//             InitDictAction(_playerController);
-//         }
+        private ActionEnum _currentAction;
+        public override void Init(CharacterBlackBoard<T> controller)
+        {
+            base.Init(controller);
+            InitDictAction(_controller);
+        }
 
-//         private void InitDictAction(PlayerController playerController)
-//         {
-//             foreach (var item in _dictPlayerMovementActions)
-//             {
-//                 item.Value.Init(playerController, item.Key);
-//             }
-//             ChangeAction(ActionEnum.Spawn);
-//         }
+        private void InitDictAction(MyCharacterController<T> controller)
+        {
+            _dictActions = new Dictionary<ActionEnum, BaseCharacterAction<T>>();
+            foreach (var item in _listActions)
+            {
+                _dictActions.Add(item.ActionEnum, item);
+                item.Init(controller, item.ActionEnum);
+            }
+            
+        }
 
-//         public void ChangeAction(ActionEnum action)
-//         {
-//             ChangeMovement(action);
-//         }
+        public void ChangeAction(ActionEnum action)
+        {
+            ChangeMovement(action);
+        }
 
-//         private void ChangeMovement(ActionEnum action)
-//         {
-//             if (_currentAction == action)
-//             {
-//                 if (_dictPlayerMovementActions[_currentAction].CanChangeToItself)
-//                 {
-//                     _dictPlayerMovementActions[_currentAction].Exit(action);
-//                     _dictPlayerMovementActions[_currentAction].Enter(_currentAction);
-//                 }
-//                 return;
-//             }
+        private void ChangeMovement(ActionEnum action)
+        {
+            if (_currentAction == action)
+            {
+                if (_dictActions[_currentAction].CanChangeToItself)
+                {
+                    _dictActions[_currentAction].Exit(action);
+                    _dictActions[_currentAction].Enter(_currentAction);
+                }
+                return;
+            }
 
-//             if (_currentAction == ActionEnum.None || _dictPlayerMovementActions[_currentAction].Exit(action))
-//             {
-//                 var beforeAction = _currentAction;
-//                 _currentAction = action;
-//                 _dictPlayerMovementActions[_currentAction].Enter(beforeAction);
-//             }
-//         }
+            if (_dictActions[_currentAction].Exit(action))
+            {
+                var beforeAction = _currentAction;
+                _currentAction = action;
+                _dictActions[_currentAction].Enter(beforeAction);
+            }
+        }
 
+        public void Update()
+        {
+            _dictActions[_currentAction].Update();
+        }
 
-//         public void Update()
-//         {
-//             _dictPlayerMovementActions[_currentAction].Update();
-//         }
+        public void LateUpdate()
+        {
+            _dictActions[_currentAction].LateUpdate();
+        }
 
-//         public void LateUpdate()
-//         {
-//             _dictPlayerMovementActions[_currentAction].LateUpdate();
-//         }
+        public void FixedUpdate()
+        {
+            _dictActions[_currentAction].FixedUpdate();
+        }
 
-//         public void FixedUpdate()
-//         {
-//             _dictPlayerMovementActions[_currentAction].FixedUpdate();
-//         }
+        public override void OnCollisionEnter(UnityEngine.Collision collision)
+        {
+            _dictActions[_currentAction].OnCollisionEnter(collision);
+        }
 
-//         public override void OnCollisionEnter(UnityEngine.Collision collision)
-//         {
-//             _dictPlayerMovementActions[_currentAction].OnCollisionEnter(collision);
-//         }
+        public override void OnCollisionStay(UnityEngine.Collision collision)
+        {
+            _dictActions[_currentAction].OnCollisionStay(collision);
+        }
 
-//         public override void OnCollisionStay(UnityEngine.Collision collision)
-//         {
-//             _dictPlayerMovementActions[_currentAction].OnCollisionStay(collision);
-//         }
+        public override void OnCollisionExit(UnityEngine.Collision collision)
+        {
+            _dictActions[_currentAction].OnCollisionExit(collision);
+        }
 
-//         public override void OnCollisionExit(UnityEngine.Collision collision)
-//         {
-//             _dictPlayerMovementActions[_currentAction].OnCollisionExit(collision);
-//         }
+        public override void OnTriggerEnter(Collider other)
+        {
+            _dictActions[_currentAction].OnTriggerEnter(other);
+        }
 
-//         public override void OnTriggerEnter(Collider other)
-//         {
-//             _dictPlayerMovementActions[_currentAction].OnTriggerEnter(other);
-//         }
+        public override void OnTriggerStay(Collider other)
+        {
+            _dictActions[_currentAction].OnTriggerStay(other);
+        }
 
-//         public override void OnTriggerStay(Collider other)
-//         {
-//             _dictPlayerMovementActions[_currentAction].OnTriggerStay(other);
-//         }
+        public override void OnTriggerExit(Collider other)
+        {
+            _dictActions[_currentAction].OnTriggerExit(other);
+        }
 
-//         public override void OnTriggerExit(Collider other)
-//         {
-//             _dictPlayerMovementActions[_currentAction].OnTriggerExit(other);
-//         }
-
-//         public override void OnCollided(ref CollisionResult collisionResult)
-//         {
-//             _dictPlayerMovementActions[_currentAction].OnCollided(ref collisionResult);
-//         }
-
-//         public void Zip()
-//         {
-//             if (_currentAction == ActionEnum.Swing || _currentAction == ActionEnum.Zip) return;
-//             ChangeAction(ActionEnum.Zip);
-//         }
-
-//         public Vector3 SurfaceNormal;
-//         public ActionEnum CurrentMovementAction => _currentAction;
-//     }
-// }
+        public override void OnCollided(ref CollisionResult collisionResult)
+        {
+            _dictActions[_currentAction].OnCollided(ref collisionResult);
+        }
+    }
+}

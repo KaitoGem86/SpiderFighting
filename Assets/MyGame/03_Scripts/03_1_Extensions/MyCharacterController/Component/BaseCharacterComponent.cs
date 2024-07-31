@@ -14,26 +14,17 @@ namespace Extentions.SystemGame.MyCharacterController
         Stat,
     }
 
-    public class BaseCharacterComponent : MonoBehaviour
+    public class BaseCharacterComponent<T> : ScriptableObject where T : MyCharacterController<T>
     {
-        protected MyCharacterController _controller;
+        protected T _controller;
+        CharacterBlackBoard<T> _blackBoard;
+        [SerializeField] private CharacterComponentEnum _componentEnum;
 
-        public virtual void Init(MyCharacterController playerController)
+        public virtual void Init(CharacterBlackBoard<T> blackBoard)
         {
-            _controller = playerController;
+            _blackBoard = blackBoard;
+            _controller = blackBoard.Controller;
         }
-
-        // public virtual void Update()
-        // {
-        // }
-
-        // public virtual void LateUpdate()
-        // {
-        // }
-
-        // public virtual void FixedUpdate()
-        // {
-        // }
 
         public virtual void OnCollisionEnter(Collision collision)
         {
@@ -62,5 +53,7 @@ namespace Extentions.SystemGame.MyCharacterController
         public virtual void OnCollided(ref CollisionResult collisionResult)
         {
         }
+
+        public CharacterComponentEnum ComponentEnum => _componentEnum;
     }
 }

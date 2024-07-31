@@ -5,9 +5,11 @@ using UnityEngine;
 
 namespace Extentions.SystemGame.MyCharacterController
 {
-    public class MyCharacterController : Character
+    public class MyCharacterController<T> : Character where T : MyCharacterController<T>
     {
-        private Dictionary<CharacterComponentEnum, BaseCharacterComponent> _dictPlayerComponents;
+        [SerializeField] private List<BaseCharacterComponent<T>> _listPlayerComponents;
+        [SerializeField] private CharacterBlackBoard<T> _blackBoard;
+        private Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>> _dictPlayerComponents;
 
         protected override void Awake()
         {
@@ -17,9 +19,12 @@ namespace Extentions.SystemGame.MyCharacterController
 
         private void Init()
         {
-            _dictPlayerComponents[CharacterComponentEnum.Display].Init(this);
-            _dictPlayerComponents[CharacterComponentEnum.State].Init(this);
-            _dictPlayerComponents[CharacterComponentEnum.Stat].Init(this);
+            _dictPlayerComponents = new Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>>();
+            foreach (var item in _listPlayerComponents)
+            {
+                _dictPlayerComponents.Add(item.ComponentEnum, item);
+                item.Init(_blackBoard);
+            }
         }
 
         /// <summary>
@@ -111,9 +116,9 @@ namespace Extentions.SystemGame.MyCharacterController
         }
 
 
-        public T ResolveComponent<T>(CharacterComponentEnum component) where T : BaseCharacterComponent
+        public T1 ResolveComponent<T1>(CharacterComponentEnum component) where T1 : BaseCharacterComponent<T>
         {
-            if (_dictPlayerComponents[component] is T) return (T)_dictPlayerComponents[component];
+            if (_dictPlayerComponents[component] is T1) return (T1)_dictPlayerComponents[component];
             else
             {
                 throw new System.Exception("Invalid Component Type " + typeof(T).Name + " for " + component.ToString() + " Component");

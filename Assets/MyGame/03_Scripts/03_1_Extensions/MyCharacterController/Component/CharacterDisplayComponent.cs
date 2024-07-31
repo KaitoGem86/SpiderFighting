@@ -5,7 +5,7 @@ using AYellowpaper.SerializedCollections;
 using UnityEngine;
 namespace Extentions.SystemGame.MyCharacterController
 {
-    public class CharacterDisplayComponent : BaseCharacterComponent
+    public class CharacterDisplayComponent<T> : BaseCharacterComponent<T> where T : MyCharacterController<T>
     {
         //[SerializeField] private List<PlayerModel> _playerModels;
         private AnimancerComponent _animacer;
@@ -14,9 +14,9 @@ namespace Extentions.SystemGame.MyCharacterController
         private LinearMixerTransition _currentLinearMixerTransition;
         private int _currentModelIndex = 0;
 
-        public override void Init(MyCharacterController controller)
+        public override void Init(CharacterBlackBoard<T> blackBoard)
         {
-            base.Init(controller);
+            base.Init(blackBoard);
             // _currentPlayerModel = _playerModels[0];
             // foreach (var item in _playerModels)
             // {
@@ -39,7 +39,6 @@ namespace Extentions.SystemGame.MyCharacterController
         //         state.Events = _currentLinearMixerTransition.Events;
         //     } 
         //     _playerController.CurrentPlayerModel = _currentPlayerModel;
-        
         // }
 
         public void ApplyRootMotion(bool value){
