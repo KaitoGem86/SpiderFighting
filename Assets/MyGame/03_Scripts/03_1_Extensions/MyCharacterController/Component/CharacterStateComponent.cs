@@ -4,25 +4,25 @@ using UnityEngine;
 
 namespace Extensions.SystemGame.MyCharacterController
 {
-    public class CharacterStateComponent<T> : BaseCharacterComponent<T>, ICharacterLoop where T : MyCharacterController<T>
+    public class CharacterStateComponent<T1, T2> : BaseCharacterComponent<T1, T2>, ICharacterLoop where T1 : MyCharacterController<T1> where T2 : CharacterBlackBoard<T1>
     {
-        [SerializeField] List<BaseCharacterAction<T>> _listActions;
-        private Dictionary<ActionEnum, BaseCharacterAction<T>> _dictActions;
+        [SerializeField] List<BaseCharacterAction<T1>> _listActions;
+        private Dictionary<ActionEnum, BaseCharacterAction<T1>> _dictActions;
 
         private ActionEnum _currentAction;
-        public override void Init(CharacterBlackBoard<T> controller)
+        public override void Init(T2 controller)
         {
             base.Init(controller);
             InitDictAction(_controller);
         }
 
-        private void InitDictAction(MyCharacterController<T> controller)
+        private void InitDictAction(T1 controller)
         {
-            _dictActions = new Dictionary<ActionEnum, BaseCharacterAction<T>>();
+            _dictActions = new Dictionary<ActionEnum, BaseCharacterAction<T1>>();
             foreach (var item in _listActions)
             {
                 _dictActions.Add(item.ActionEnum, item);
-                item.Init(controller, item.ActionEnum);
+                //item.Init(controller, item.ActionEnum);
             }
             
         }

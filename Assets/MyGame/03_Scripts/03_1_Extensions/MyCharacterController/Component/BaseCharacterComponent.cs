@@ -14,13 +14,13 @@ namespace Extensions.SystemGame.MyCharacterController
         Stat,
     }
 
-    public class BaseCharacterComponent<T> : ScriptableObject where T : MyCharacterController<T>
+    public class BaseCharacterComponent<T1, T2> : ScriptableObject where T1 : MyCharacterController<T1> where T2 : CharacterBlackBoard<T1>
     {
-        protected T _controller;
-        CharacterBlackBoard<T> _blackBoard;
+        protected T1 _controller;
+        T2 _blackBoard;
         [SerializeField] private CharacterComponentEnum _componentEnum;
 
-        public virtual void Init(CharacterBlackBoard<T> blackBoard)
+        public virtual void Init(T2 blackBoard)
         {
             _blackBoard = blackBoard;
             _controller = blackBoard.Controller;

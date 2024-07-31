@@ -4,17 +4,16 @@ using UnityEngine;
 
 namespace Core.Test.Player{
     [CreateAssetMenu(menuName = "MyGame/Player/Components/PlayerDisplayComponent")]
-    public class PlayerDisplayComponent : CharacterDisplayComponent<PlayerController>
+    public class PlayerDisplayComponent : CharacterDisplayComponent<PlayerController, PlayerBlackBoard>
     {
         private List <PlayerModels> _playerModels;
         private PlayerModels _currentPlayerModel;
         private int _currentModelIndex;
 
-        public override void Init(CharacterBlackBoard<PlayerController> blackBoard)
+        public override void Init(PlayerBlackBoard blackBoard)
         {
             base.Init(blackBoard);
-            var playerBlackBoard = blackBoard as PlayerBlackBoard;
-            _playerModels = playerBlackBoard.models;
+            _playerModels = blackBoard.models;
         }
 
         public void ChangePlayerModel(){

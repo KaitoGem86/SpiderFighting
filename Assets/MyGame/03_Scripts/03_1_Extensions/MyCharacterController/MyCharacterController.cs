@@ -7,9 +7,9 @@ namespace Extensions.SystemGame.MyCharacterController
 {
     public class MyCharacterController<T> : Character where T : MyCharacterController<T>
     {
-        [SerializeField] private List<BaseCharacterComponent<T>> _listPlayerComponents;
+        [SerializeField] private List<BaseCharacterComponent<T,CharacterBlackBoard<T>>> _listPlayerComponents;
         [SerializeField] private CharacterBlackBoard<T> _blackBoard;
-        private Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>> _dictPlayerComponents;
+        private Dictionary<CharacterComponentEnum, BaseCharacterComponent<T, CharacterBlackBoard<T>>> _dictPlayerComponents;
 
         protected override void Awake()
         {
@@ -19,7 +19,7 @@ namespace Extensions.SystemGame.MyCharacterController
 
         private void Init()
         {
-            _dictPlayerComponents = new Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>>();
+            _dictPlayerComponents = new Dictionary<CharacterComponentEnum, BaseCharacterComponent<T, CharacterBlackBoard<T>>>();
             foreach (var item in _listPlayerComponents)
             {
                 _dictPlayerComponents.Add(item.ComponentEnum, item);
@@ -116,7 +116,7 @@ namespace Extensions.SystemGame.MyCharacterController
         }
 
 
-        public T1 ResolveComponent<T1>(CharacterComponentEnum component) where T1 : BaseCharacterComponent<T>
+        public T1 ResolveComponent<T1>(CharacterComponentEnum component) where T1 : BaseCharacterComponent<T, CharacterBlackBoard<T>>
         {
             if (_dictPlayerComponents[component] is T1) return (T1)_dictPlayerComponents[component];
             else

@@ -5,7 +5,7 @@ using AYellowpaper.SerializedCollections;
 using UnityEngine;
 namespace Extensions.SystemGame.MyCharacterController
 {
-    public class CharacterDisplayComponent<T> : BaseCharacterComponent<T> where T : MyCharacterController<T>
+    public class CharacterDisplayComponent<T1, T2> : BaseCharacterComponent<T1, T2> where T1 : MyCharacterController<T1> where T2 : CharacterBlackBoard<T1>
     {
         //[SerializeField] private List<PlayerModel> _playerModels;
         private AnimancerComponent _animacer;
@@ -14,7 +14,7 @@ namespace Extensions.SystemGame.MyCharacterController
         private LinearMixerTransition _currentLinearMixerTransition;
         private int _currentModelIndex = 0;
 
-        public override void Init(CharacterBlackBoard<T> blackBoard)
+        public override void Init(T2 blackBoard)
         {
             base.Init(blackBoard);
             // _currentPlayerModel = _playerModels[0];
