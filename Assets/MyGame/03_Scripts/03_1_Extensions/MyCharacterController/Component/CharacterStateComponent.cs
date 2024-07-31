@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace Extensions.SystemGame.MyCharacterController
 {
-    public class CharacterStateComponent<T1, T2> : BaseCharacterComponent<T1, T2>, ICharacterLoop where T1 : MyCharacterController<T1> where T2 : CharacterBlackBoard<T1>
+    public class CharacterStateComponent<T1> : BaseCharacterComponent<T1>, ICharacterLoop where T1 : CharacterBlackBoard
     {
         [SerializeField] List<BaseCharacterAction<T1>> _listActions;
         private Dictionary<ActionEnum, BaseCharacterAction<T1>> _dictActions;
 
         private ActionEnum _currentAction;
-        public override void Init(T2 controller)
+        public override void Init(MyCharacterController<T1> controller)
         {
             base.Init(controller);
-            InitDictAction(_controller);
+            //InitDictAction(_controller);
         }
 
         private void InitDictAction(T1 controller)

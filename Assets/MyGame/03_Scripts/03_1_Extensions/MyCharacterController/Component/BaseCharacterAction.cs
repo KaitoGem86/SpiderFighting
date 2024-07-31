@@ -3,22 +3,22 @@ using UnityEngine;
 
 namespace Extensions.SystemGame.MyCharacterController
 {
-    public class BaseCharacterAction<T> : ScriptableObject, ICharacterAction where T : MyCharacterController<T>
+    public class BaseCharacterAction<T> : ScriptableObject, ICharacterAction where T : CharacterBlackBoard
     {
-        protected MyCharacterController<T> _playerController;
+        protected T _blackBoard;
         [SerializeField] protected ActionEnum _actionEnum;
-        //protected CharacterStateComponent<T> _stateContainer;
-        //protected CharacterDisplayComponent<T> _displayContainer;
-        //protected CharacterStatComponent<T> _statManager;
+        protected CharacterStateComponent<T> _stateContainer;
+        protected CharacterDisplayComponent<T> _displayContainer;
+        protected CharacterStatComponent<T> _statManager;
         [SerializeField] private bool _canChangeToItself = false;
 
         public virtual void Init(MyCharacterController<T> playerController, ActionEnum actionEnum)
         {
-            _playerController = playerController;
+            _blackBoard = playerController.BlackBoard;
             _actionEnum = actionEnum;
-            // _stateContainer = _playerController.ResolveComponent<CharacterStateComponent<T>>(CharacterComponentEnum.State);
-            // _displayContainer = _playerController.ResolveComponent<CharacterDisplayComponent<T>>(CharacterComponentEnum.Display);
-            // _statManager = _playerController.ResolveComponent<CharacterStatComponent<T>>(CharacterComponentEnum.Stat);
+            _stateContainer = playerController.ResolveComponent<CharacterStateComponent<T>>(CharacterComponentEnum.State);
+            _displayContainer = playerController.ResolveComponent<CharacterDisplayComponent<T>>(CharacterComponentEnum.Display);
+            _statManager = playerController.ResolveComponent<CharacterStatComponent<T>>(CharacterComponentEnum.Stat);
         }
 
         public virtual void Enter(ActionEnum actionBefore)

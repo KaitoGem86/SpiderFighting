@@ -2,8 +2,7 @@ using System.Collections.Generic;
 using Extensions.SystemGame.MyCharacterController;
 
 namespace Core.Test.Player{
-    public class PlayerBlackBoard : CharacterBlackBoard<PlayerController>
+    public class PlayerBlackBoard : CharacterBlackBoard
     {
-        public List<PlayerModels> models;
     }
 }

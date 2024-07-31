@@ -10,13 +10,13 @@ using UnityEngine;
 namespace Extensions.SystemGame.MyCharacterController
 {
 
-    public class CharacterStatComponent<T1, T2> : BaseCharacterComponent<T1, T2> where T1 : MyCharacterController<T1> where T2 : CharacterBlackBoard<T1>
+    public class CharacterStatComponent<T1> : BaseCharacterComponent<T1> where T1 : CharacterBlackBoard
     {
         [SerializeField] private StatDatasController _statDatasController;
         [SerializeField] private string _statComponentId;
         protected Dictionary <StatType, StatData> _playerStats;
         
-        public override void Init(T2 controller)
+        public override void Init(MyCharacterController<T1> controller)
         {
             _playerStats = new Dictionary<StatType, StatData>();
             foreach (var statData in _statDatasController.StatDatas)

@@ -14,16 +14,16 @@ namespace Extensions.SystemGame.MyCharacterController
         Stat,
     }
 
-    public class BaseCharacterComponent<T1, T2> : ScriptableObject where T1 : MyCharacterController<T1> where T2 : CharacterBlackBoard<T1>
+    public class BaseCharacterComponent<T1> : ScriptableObject where T1 : CharacterBlackBoard
     {
-        protected T1 _controller;
-        T2 _blackBoard;
+        protected MyCharacterController<T1> _controller;
+        protected T1 _blackBoard;
         [SerializeField] private CharacterComponentEnum _componentEnum;
 
-        public virtual void Init(T2 blackBoard)
+        public virtual void Init(MyCharacterController<T1> controller)
         {
-            _blackBoard = blackBoard;
-            _controller = blackBoard.Controller;
+            _controller = controller;
+            _blackBoard = controller.BlackBoard;
         }
 
         public virtual void OnCollisionEnter(Collision collision)

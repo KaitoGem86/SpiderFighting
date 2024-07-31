@@ -2,44 +2,42 @@ using System;
 using System.Collections.Generic;
 using Animancer;
 using AYellowpaper.SerializedCollections;
+using Core.Test.Player;
 using UnityEngine;
 namespace Extensions.SystemGame.MyCharacterController
 {
-    public class CharacterDisplayComponent<T1, T2> : BaseCharacterComponent<T1, T2> where T1 : MyCharacterController<T1> where T2 : CharacterBlackBoard<T1>
+    public class CharacterDisplayComponent<T1> : BaseCharacterComponent<T1> where T1 : CharacterBlackBoard
     {
-        //[SerializeField] private List<PlayerModel> _playerModels;
+        [SerializeField] private List<CharacterModel> _characterModels;
         private AnimancerComponent _animacer;
-        //private PlayerModel _currentPlayerModel;
+        private CharacterModel _currentPlayerModel;
         private ClipTransition _currentClipTransition;
         private LinearMixerTransition _currentLinearMixerTransition;
-        private int _currentModelIndex = 0;
 
-        public override void Init(T2 blackBoard)
+        public override void Init(MyCharacterController<T1> controller)
         {
-            base.Init(blackBoard);
-            // _currentPlayerModel = _playerModels[0];
-            // foreach (var item in _playerModels)
-            // {
-            //     item.gameObject.SetActive(false);
-            // }
-            // _currentPlayerModel.gameObject.SetActive(true);
-            // _playerController.CurrentPlayerModel = _currentPlayerModel;
+            base.Init(controller);
+            _characterModels = _blackBoard.characterModels;
+            _currentPlayerModel = null;
+            _currentClipTransition = null;
+            _currentLinearMixerTransition = null;
+            ChangePlayerModel(0);
         }
 
-        // public void ChangePlayerModel(){
-        //     _currentPlayerModel.gameObject.SetActive(false);
-        //     _currentPlayerModel = _playerModels[++_currentModelIndex % _playerModels.Count];
-        //     _currentPlayerModel.gameObject.SetActive(true);
-        //     if(_currentClipTransition != null){
-        //         var state = _currentPlayerModel.animancer.Play(_currentClipTransition);
-        //         state.Events = _currentClipTransition.Events;
-        //     }
-        //     else if (_currentLinearMixerTransition != null){
-        //         var state = _currentPlayerModel.animancer.Play(_currentLinearMixerTransition);
-        //         state.Events = _currentLinearMixerTransition.Events;
-        //     } 
-        //     _playerController.CurrentPlayerModel = _currentPlayerModel;
-        // }
+        public void ChangePlayerModel(int modelIndex){
+            _currentPlayerModel?.gameObject.SetActive(false);
+            _currentPlayerModel = _characterModels[modelIndex];
+            _currentPlayerModel.gameObject.SetActive(true);
+            if(_currentClipTransition != null){
+                var state = _currentPlayerModel.animancer.Play(_currentClipTransition);
+                state.Events = _currentClipTransition.Events;
+            }
+            else if (_currentLinearMixerTransition != null){
+                var state = _currentPlayerModel.animancer.Play(_currentLinearMixerTransition);
+                state.Events = _currentLinearMixerTransition.Events;
+            } 
+            _blackBoard.CurrentModel = _currentPlayerModel;
+        }
 
         public void ApplyRootMotion(bool value){
             _controller.useRootMotion = value;

@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using Core.GamePlay.Player;
+using Core.Test.Player;
 using EasyCharacterMovement;
 using UnityEngine;
 
 namespace Extensions.SystemGame.MyCharacterController
 {
-    public class MyCharacterController<T> : Character where T : MyCharacterController<T>
+    public class MyCharacterController<T> : Character where T : CharacterBlackBoard
     {
         [Header("============== CUSTOM COMPONENTS ==============")]
-        [SerializeField] private List<BaseCharacterComponent<T, CharacterBlackBoard<T>>> _listPlayerComponents;
-        [SerializeField] private CharacterBlackBoard<T> _blackBoard;
-        private Dictionary<CharacterComponentEnum, BaseCharacterComponent<T, CharacterBlackBoard<T>>> _dictPlayerComponents;
+        [SerializeField] private List<BaseCharacterComponent<T>> _listPlayerComponents;
+        [SerializeField] private T _blackBoard;
+        private Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>> _dictPlayerComponents;
 
         protected override void Awake()
         {
@@ -20,11 +21,11 @@ namespace Extensions.SystemGame.MyCharacterController
 
         private void Init()
         {
-            _dictPlayerComponents = new Dictionary<CharacterComponentEnum, BaseCharacterComponent<T, CharacterBlackBoard<T>>>();
+            _dictPlayerComponents = new Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>>();
             foreach (var item in _listPlayerComponents)
             {
                 _dictPlayerComponents.Add(item.ComponentEnum, item);
-                item.Init(_blackBoard);
+                item.Init(this);
             }
         }
 
@@ -117,7 +118,7 @@ namespace Extensions.SystemGame.MyCharacterController
         }
 
 
-        public T1 ResolveComponent<T1>(CharacterComponentEnum component) where T1 : BaseCharacterComponent<T, CharacterBlackBoard<T>>
+        public T1 ResolveComponent<T1>(CharacterComponentEnum component) where T1 : BaseCharacterComponent<T>
         {
             if (_dictPlayerComponents[component] is T1) return (T1)_dictPlayerComponents[component];
             else
@@ -125,5 +126,7 @@ namespace Extensions.SystemGame.MyCharacterController
                 throw new System.Exception("Invalid Component Type " + typeof(T).Name + " for " + component.ToString() + " Component");
             }
         }
+
+        public T BlackBoard => _blackBoard;
     }
 }
