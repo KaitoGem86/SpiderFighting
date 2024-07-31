@@ -8,7 +8,7 @@ namespace Extensions.SystemGame.MyCharacterController
 {
     public class CharacterDisplayComponent<T1> : BaseCharacterComponent<T1> where T1 : CharacterBlackBoard
     {
-        [SerializeField] private List<CharacterModel> _characterModels;
+        private List<CharacterModel> _characterModels;
         private AnimancerComponent _animacer;
         private CharacterModel _currentPlayerModel;
         private ClipTransition _currentClipTransition;
@@ -40,7 +40,7 @@ namespace Extensions.SystemGame.MyCharacterController
         }
 
         public void ApplyRootMotion(bool value){
-            _controller.useRootMotion = value;
+            //_controller.useRootMotion = value;
         }
 
         public AnimancerState PlayAnimation(ClipTransition clipTransition){

@@ -6,25 +6,24 @@ using UnityEngine;
 
 namespace Extensions.SystemGame.MyCharacterController
 {
-    public class MyCharacterController<T> : Character where T : CharacterBlackBoard
+    public class MyCharacterController<T> : MonoBehaviour where T : CharacterBlackBoard
     {
         [Header("============== CUSTOM COMPONENTS ==============")]
-        [SerializeField] private List<BaseCharacterComponent<T>> _listPlayerComponents;
+        [SerializeField] private List<BaseCharacterComponent<T>> _listComponents;
         [SerializeField] private T _blackBoard;
-        private Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>> _dictPlayerComponents;
+        private Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>> _dictComponents;
 
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
             Init();
         }
 
         private void Init()
         {
-            _dictPlayerComponents = new Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>>();
-            foreach (var item in _listPlayerComponents)
+            _dictComponents = new Dictionary<CharacterComponentEnum, BaseCharacterComponent<T>>();
+            foreach (var item in _listComponents)
             {
-                _dictPlayerComponents.Add(item.ComponentEnum, item);
+                _dictComponents.Add(item.ComponentEnum, item);
                 item.Init(this);
             }
         }
@@ -36,7 +35,7 @@ namespace Extensions.SystemGame.MyCharacterController
         /// <param name="other">The Collision data associated with this collision.</param>
         protected void OnCollisionEnter(Collision other)
         {
-            foreach (var item in _dictPlayerComponents)
+            foreach (var item in _dictComponents)
             {
                 if (item.Value is ICharacterLoop)
                     item.Value.OnCollisionEnter(other);
@@ -50,7 +49,7 @@ namespace Extensions.SystemGame.MyCharacterController
         /// <param name="other">The Collision data associated with this collision.</param>
         private void OnCollisionExit(Collision other)
         {
-            foreach (var item in _dictPlayerComponents)
+            foreach (var item in _dictComponents)
             {
                 if (item.Value is ICharacterLoop)
                     item.Value.OnCollisionExit(other);
@@ -64,7 +63,7 @@ namespace Extensions.SystemGame.MyCharacterController
         /// <param name="other">The Collision data associated with this collision.</param>
         private void OnCollisionStay(Collision other)
         {
-            foreach (var item in _dictPlayerComponents)
+            foreach (var item in _dictComponents)
             {
                 if (item.Value is ICharacterLoop)
                     item.Value.OnCollisionStay(other);
@@ -75,9 +74,9 @@ namespace Extensions.SystemGame.MyCharacterController
         /// OnTriggerEnter is called when the Collider other enters the trigger.
         /// </summary>
         /// <param name="other">The other Collider involved in this collision.</param>
-        protected override void OnTriggerEnter(Collider other)
+        protected void OnTriggerEnter(Collider other)
         {
-            foreach (var item in _dictPlayerComponents)
+            foreach (var item in _dictComponents)
             {
                 if (item.Value is ICharacterLoop)
                     item.Value.OnTriggerEnter(other);
@@ -91,26 +90,25 @@ namespace Extensions.SystemGame.MyCharacterController
         /// <param name="other">The other Collider involved in this collision.</param>
         private void OnTriggerStay(Collider other)
         {
-            foreach (var item in _dictPlayerComponents)
+            foreach (var item in _dictComponents)
             {
                 if (item.Value is ICharacterLoop)
                     item.Value.OnTriggerStay(other);
             }
         }
 
-        protected override void OnCollided(ref CollisionResult collisionResult)
+        protected void OnCollided(ref CollisionResult collisionResult)
         {
-            base.OnCollided(ref collisionResult);
-            foreach (var item in _dictPlayerComponents)
+            foreach (var item in _dictComponents)
             {
                 if (item.Value is ICharacterLoop)
                     item.Value.OnCollided(ref collisionResult);
             }
         }
 
-        protected override void OnTriggerExit(Collider other)
+        protected void OnTriggerExit(Collider other)
         {
-            foreach (var item in _dictPlayerComponents)
+            foreach (var item in _dictComponents)
             {
                 if (item.Value is ICharacterLoop)
                     item.Value.OnTriggerExit(other);
@@ -120,7 +118,7 @@ namespace Extensions.SystemGame.MyCharacterController
 
         public T1 ResolveComponent<T1>(CharacterComponentEnum component) where T1 : BaseCharacterComponent<T>
         {
-            if (_dictPlayerComponents[component] is T1) return (T1)_dictPlayerComponents[component];
+            if (_dictComponents[component] is T1) return (T1)_dictComponents[component];
             else
             {
                 throw new System.Exception("Invalid Component Type " + typeof(T).Name + " for " + component.ToString() + " Component");

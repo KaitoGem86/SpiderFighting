@@ -225,6 +225,8 @@ GameObject:
   - component: {fileID: 4918089244901029}
   - component: {fileID: 95506648598065221}
   - component: {fileID: 205543296916850521}
+  - component: {fileID: 3771302731117607046}
+  - component: {fileID: 1630093741878806841}
   m_Layer: 0
   m_Name: Elemy_Prisoner_03
   m_TagString: Untagged
@@ -294,6 +296,33 @@ LODGroup:
     renderers:
     - renderer: {fileID: 137655078908770367}
   m_Enabled: 1
+--- !u!114 &3771302731117607046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023911343311394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9a4a70e6c99124d96189e305361464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animancer: {fileID: 1630093741878806841}
+--- !u!114 &1630093741878806841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023911343311394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 95506648598065221}
+  _ActionOnDisable: 0
 --- !u!1 &1025481869087357
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,6 +3832,8 @@ GameObject:
   - component: {fileID: 4898467255632346}
   - component: {fileID: 95476671951916067}
   - component: {fileID: 205485095327153267}
+  - component: {fileID: 8598679372142363188}
+  - component: {fileID: 2433812020502343235}
   m_Layer: 0
   m_Name: Elemy_Prisoner_02
   m_TagString: Untagged
@@ -3872,6 +3903,33 @@ LODGroup:
     renderers:
     - renderer: {fileID: 137618566327606440}
   m_Enabled: 1
+--- !u!114 &8598679372142363188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472134339889661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9a4a70e6c99124d96189e305361464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animancer: {fileID: 1630093741878806841}
+--- !u!114 &2433812020502343235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472134339889661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 95476671951916067}
+  _ActionOnDisable: 0
 --- !u!1 &1472513944425898
 GameObject:
   m_ObjectHideFlags: 0
@@ -6423,6 +6481,8 @@ GameObject:
   - component: {fileID: 4509307261149996}
   - component: {fileID: 95855244474255744}
   - component: {fileID: 205038199750999861}
+  - component: {fileID: 5300504235752438852}
+  - component: {fileID: 6572698911085176157}
   m_Layer: 0
   m_Name: Elemy_Prisoner_01
   m_TagString: Untagged
@@ -6492,6 +6552,33 @@ LODGroup:
     renderers:
     - renderer: {fileID: 137461795396067638}
   m_Enabled: 1
+--- !u!114 &5300504235752438852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753721354175312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9a4a70e6c99124d96189e305361464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animancer: {fileID: 1630093741878806841}
+--- !u!114 &6572698911085176157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753721354175312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 95855244474255744}
+  _ActionOnDisable: 0
 --- !u!1 &1758060763928189
 GameObject:
   m_ObjectHideFlags: 0
@@ -6628,7 +6715,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4333543491258204}
-  - component: {fileID: 143535942101923151}
+  - component: {fileID: 3681712472684895070}
+  - component: {fileID: 1321231989393731520}
+  - component: {fileID: 3066702467776771227}
   m_Layer: 8
   m_Name: EnemyPrisoner Variant
   m_TagString: Untagged
@@ -6654,32 +6743,64 @@ Transform:
   - {fileID: 4691635453938920}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
---- !u!143 &143535942101923151
-CharacterController:
+--- !u!195 &3681712472684895070
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792417927769246}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
   m_Height: 2
-  m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.0001
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1321231989393731520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792417927769246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf0e3eeccf1f004faa85d851c0b7d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listComponents:
+  - {fileID: 11400000, guid: c74ff14a30e40c74b8e86a984a7f1d04, type: 2}
+  - {fileID: 11400000, guid: 4dae7ccb6dc13ca4594d5c764dac4ac2, type: 2}
+  - {fileID: 11400000, guid: 2c9acaa1fd6274b4cb9f267ab1db9517, type: 2}
+  _blackBoard: {fileID: 3066702467776771227}
+--- !u!114 &3066702467776771227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792417927769246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09244ee1daf859d41a1e907398b9a6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterModels:
+  - {fileID: 8598679372142363188}
+  - {fileID: 5300504235752438852}
+  - {fileID: 3771302731117607046}
+  CurrentModel: {fileID: 0}
+  IsPlayer: 0
+  navMeshAgent: {fileID: 3681712472684895070}
 --- !u!1 &1796267293210854
 GameObject:
   m_ObjectHideFlags: 0

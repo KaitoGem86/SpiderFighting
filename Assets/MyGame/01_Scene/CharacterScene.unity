@@ -374,6 +374,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1472134339889661, guid: dd9848f02208d1f42924866c6b1c7a4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1792417927769246, guid: dd9848f02208d1f42924866c6b1c7a4d, type: 3}
       propertyPath: m_Name
       value: EnemyPrisoner Variant
@@ -418,7 +422,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 143535942101923151, guid: dd9848f02208d1f42924866c6b1c7a4d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -431,6 +436,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1032675175468418794, guid: 4e86615707d597b43b92f50dd6108ff5, type: 3}
+      propertyPath: _playerModels.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032675175468418794, guid: 4e86615707d597b43b92f50dd6108ff5, type: 3}
+      propertyPath: _playerModels.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032675175468418794, guid: 4e86615707d597b43b92f50dd6108ff5, type: 3}
+      propertyPath: _playerModels.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032675175468418794, guid: 4e86615707d597b43b92f50dd6108ff5, type: 3}
+      propertyPath: _playerModels.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032675175468418794, guid: 4e86615707d597b43b92f50dd6108ff5, type: 3}
+      propertyPath: _playerModels.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1986272796417187216, guid: 4e86615707d597b43b92f50dd6108ff5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -561,6 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a4a70e6c99124d96189e305361464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animancer: {fileID: 0}
 --- !u!114 &6048899918537135051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a4a70e6c99124d96189e305361464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animancer: {fileID: 0}
 --- !u!114 &7375910201175113321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,6 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a4a70e6c99124d96189e305361464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animancer: {fileID: 0}
 --- !u!114 &7531874869083465275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a4a70e6c99124d96189e305361464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animancer: {fileID: 0}
 --- !u!114 &8526050493971295018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a4a70e6c99124d96189e305361464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animancer: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

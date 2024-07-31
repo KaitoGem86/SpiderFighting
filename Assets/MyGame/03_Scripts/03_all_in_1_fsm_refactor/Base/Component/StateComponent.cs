@@ -2,7 +2,7 @@ using Extensions.SystemGame.MyCharacterController;
 using UnityEngine;
 
 namespace Core.Test.Player{
-    [CreateAssetMenu(menuName = "MyGame/Player/Components/PlayerStateComponent")]
+    [CreateAssetMenu(menuName = "MyGame/FSM/Components/StateComponent")]
     public class StateComponent : CharacterStateComponent<BlackBoard>
     {
         public override void Init(MyCharacterController<BlackBoard> controller)
