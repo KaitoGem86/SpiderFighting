@@ -696,6 +696,7 @@ MonoBehaviour:
   _listPlayerComponents:
   - {fileID: 11400000, guid: 47afe487bd5f13f468b9b40f740e4f13, type: 2}
   - {fileID: 11400000, guid: fe6118384f8fa7c4e869144081622878, type: 2}
+  - {fileID: 11400000, guid: 5c5696414178b7f48b719511a0ca4556, type: 2}
   _blackBoard: {fileID: 5312634556801278816}
 --- !u!114 &5312634556801278816
 MonoBehaviour:

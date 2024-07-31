@@ -13,18 +13,17 @@ namespace Extensions.SystemGame.MyCharacterController
         public override void Init(MyCharacterController<T1> controller)
         {
             base.Init(controller);
-            //InitDictAction(_controller);
+            InitDictAction(controller);
         }
 
-        private void InitDictAction(T1 controller)
+        private void InitDictAction(MyCharacterController<T1> controller)
         {
             _dictActions = new Dictionary<ActionEnum, BaseCharacterAction<T1>>();
             foreach (var item in _listActions)
             {
                 _dictActions.Add(item.ActionEnum, item);
-                //item.Init(controller, item.ActionEnum);
+                item.Init(controller, item.ActionEnum);
             }
-            
         }
 
         public void ChangeAction(ActionEnum action)
