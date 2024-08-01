@@ -23,6 +23,9 @@ namespace Extensions.SystemGame.AIFSM
         public float elapsedTimeToChangeTarget = 1f;
         public bool isChasePlayer = false;
 
+        [Header("========= Attack =========")]
+        public float attackDelayTime = 5f;
+
         public Vector3 enemyPosition => target.position;
 
         void Awake()

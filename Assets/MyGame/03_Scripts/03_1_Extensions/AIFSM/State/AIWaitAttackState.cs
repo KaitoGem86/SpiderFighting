@@ -16,6 +16,13 @@ namespace Extensions.SystemGame.AIFSM
 
         public override void UpdateState(AIFSM fsm)
         {
+            fsm.blackBoard.attackDelayTime -= Time.deltaTime;
+            if (fsm.blackBoard.attackDelayTime <= 0){
+                fsm.blackBoard.attackDelayTime = 5f;
+                fsm.ChangeAction(AIState.Attack);
+                return;
+            }
+
             base.UpdateState(fsm);
             if (Vector3.Distance(fsm.blackBoard.navMeshAgent.transform.position, fsm.blackBoard.targetPosition) < 0.1f)
             {
