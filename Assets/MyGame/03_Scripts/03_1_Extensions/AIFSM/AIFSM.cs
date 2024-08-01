@@ -27,17 +27,6 @@ namespace Extensions.SystemGame.AIFSM{
             ChangeAction(AIState.Idle);
         }
 
-        public void ChangeAction(BaseState newState){
-            // Change the current state
-            if(_currentState != null && newState.GetType().Equals(_currentState.GetType())){
-                return;
-            }
-            if (_currentState != null){
-                _currentState.ExitState(this);
-            }
-            _currentState = newState;
-            _currentState.EnterState(this);
-        }
 
         public void ChangeAction(AIState newState){
             // Change the current state
@@ -45,16 +34,11 @@ namespace Extensions.SystemGame.AIFSM{
                 return;
             }
             if (_currentState != null){
-                _currentState.ExitState(this);
+                _currentState.ExitState();
             }
             _currentState = _dictStates[newState];
             currentStateType = newState;
-            _currentState.EnterState(this);
-        }
-
-        public void Update(){
-            // Update the current state
-            _currentState?.UpdateState(this);
+            _currentState.EnterState();
         }
 
         public BlackBoard blackBoard;

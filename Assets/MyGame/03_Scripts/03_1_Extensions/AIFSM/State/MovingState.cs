@@ -1,30 +1,29 @@
 using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM{
-    [CreateAssetMenu(menuName = "AIFSM/MovingState")]
-    public class MovingState : BaseState{
-        public override void EnterState(AIFSM fsm){
+    public class MovingState : ClipTransitionState{
+        public override void EnterState(){
             Debug.Log("MovingState");
-            base.EnterState(fsm);
-            fsm.blackBoard.animancer.Play(fsm.blackBoard.walk);
-            fsm.blackBoard.elapsedTimeToChangeTarget = 1f;
-            fsm.blackBoard.navMeshAgent.SetDestination(fsm.blackBoard.targetPosition);
+            base.EnterState();
+            _fsm.blackBoard.animancer.Play(_fsm.blackBoard.walk);
+            _fsm.blackBoard.elapsedTimeToChangeTarget = 1f;
+            _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
         }
 
-        public override void UpdateState(AIFSM fsm){
-            fsm.blackBoard.elapsedTimeToChangeTarget -= Time.deltaTime;
-            if (fsm.blackBoard.elapsedTimeToChangeTarget <= 0){
-                fsm.blackBoard.elapsedTimeToChangeTarget = 1f;
-                if (fsm.blackBoard.isChasePlayer){
-                    fsm.blackBoard.targetPosition = fsm.blackBoard.enemyPosition;
+        public override void Update(){
+            _fsm.blackBoard.elapsedTimeToChangeTarget -= Time.deltaTime;
+            if (_fsm.blackBoard.elapsedTimeToChangeTarget <= 0){
+                _fsm.blackBoard.elapsedTimeToChangeTarget = 1f;
+                if (_fsm.blackBoard.isChasePlayer){
+                    _fsm.blackBoard.targetPosition = _fsm.blackBoard.enemyPosition;
                 }
-                fsm.blackBoard.navMeshAgent.SetDestination(fsm.blackBoard.targetPosition);
+                _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
             }
-            base.UpdateState(fsm);
+            base.Update();
         }
 
-        public override void ExitState(AIFSM fsm){
-            base.ExitState(fsm);
+        public override void ExitState(){
+            base.ExitState();
         }
     }
 }

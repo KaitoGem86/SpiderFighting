@@ -3,39 +3,40 @@ using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM
 {
-    [CreateAssetMenu(menuName = "AIFSM/AIWaitAttackState")]
-    public class AIWaitAttackState : BaseState
+    public class AIWaitAttackState : ClipTransitionState
     {
-        public override void EnterState(AIFSM fsm)
+        
+
+        public override void EnterState()
         {
-            base.EnterState(fsm);
-            fsm.blackBoard.animancer.Play(fsm.blackBoard.waitAttack);
-            fsm.blackBoard.targetPosition = GetRandomPointOnCircle(fsm.blackBoard.enemyPosition, 5f);
-            fsm.blackBoard.navMeshAgent.SetDestination(fsm.blackBoard.targetPosition);
+            base.EnterState();
+            _fsm.blackBoard.animancer.Play(_fsm.blackBoard.waitAttack);
+            _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.enemyPosition, 5f);
+            _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
         }
 
-        public override void UpdateState(AIFSM fsm)
+        public override void Update()
         {
-            fsm.blackBoard.attackDelayTime -= Time.deltaTime;
-            if (fsm.blackBoard.attackDelayTime <= 0){
-                fsm.blackBoard.attackDelayTime = 5f;
-                fsm.ChangeAction(AIState.Attack);
+            _fsm.blackBoard.attackDelayTime -= Time.deltaTime;
+            if (_fsm.blackBoard.attackDelayTime <= 0){
+                _fsm.blackBoard.attackDelayTime = 5f;
+                _fsm.ChangeAction(AIState.Attack);
                 return;
             }
 
-            base.UpdateState(fsm);
-            if (Vector3.Distance(fsm.blackBoard.navMeshAgent.transform.position, fsm.blackBoard.targetPosition) < 0.1f)
+            base.Update();
+            if (Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _fsm.blackBoard.targetPosition) < 0.1f)
             {
-                fsm.blackBoard.targetPosition = GetRandomPointOnCircle(fsm.blackBoard.enemyPosition, 5f);
-                fsm.blackBoard.navMeshAgent.SetDestination(fsm.blackBoard.targetPosition);
+                _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.enemyPosition, 5f);
+                _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
             }
-            PlayAnimationWithDirection(fsm);
-            RotateDisplayWithVelocity(fsm);
+            PlayAnimationWithDirection();
+            RotateDisplayWithVelocity();
         }
 
-        public override void ExitState(AIFSM fsm)
+        public override void ExitState()
         {
-            base.ExitState(fsm);
+            base.ExitState();
         }
 
         public static Vector3 GetRandomPointOnCircle(Vector3 center, float radius)
@@ -47,18 +48,17 @@ namespace Extensions.SystemGame.AIFSM
             return new Vector3(x, y, z);
         }
 
-        private void PlayAnimationWithDirection(AIFSM fsm)
+        private void PlayAnimationWithDirection()
         {
-            Vector3 direction = (fsm.blackBoard.enemyPosition - fsm.blackBoard.navMeshAgent.transform.position).normalized;
-            float angle = Vector3.SignedAngle(-fsm.blackBoard.navMeshAgent.velocity, -direction, Vector3.up);
-            fsm.blackBoard.waitAttack.Transition.State.Parameter = angle;
+            Vector3 direction = (_fsm.blackBoard.enemyPosition - _fsm.blackBoard.navMeshAgent.transform.position).normalized;
+            float angle = Vector3.SignedAngle(-_fsm.blackBoard.navMeshAgent.velocity, -direction, Vector3.up);
+            _fsm.blackBoard.waitAttack.Transition.State.Parameter = angle;
         }
 
-        private void RotateDisplayWithVelocity(AIFSM fsm)
+        private void RotateDisplayWithVelocity()
         {
-            Vector3 direction = fsm.blackBoard.enemyPosition - fsm.blackBoard.navMeshAgent.transform.position;
-            fsm.blackBoard.navMeshAgent.transform.DOLookAt(fsm.blackBoard.enemyPosition, Time.deltaTime);
-            Debug.DrawRay(fsm.blackBoard.navMeshAgent.transform.position, direction * 5, Color.red);
+            Vector3 direction = _fsm.blackBoard.enemyPosition - _fsm.blackBoard.navMeshAgent.transform.position;
+            _fsm.blackBoard.navMeshAgent.transform.DOLookAt(_fsm.blackBoard.enemyPosition, Time.deltaTime);
         }
     }
 }

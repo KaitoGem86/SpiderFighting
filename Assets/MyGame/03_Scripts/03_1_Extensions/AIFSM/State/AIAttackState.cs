@@ -1,18 +1,17 @@
 using UnityEngine;
 namespace Extensions.SystemGame.AIFSM{
-    [CreateAssetMenu(menuName = "AIFSM/AttackState")]
-    public class AIAttackState : BaseState{
-        public override void EnterState(AIFSM fsm){
-            base.EnterState(fsm);
-            fsm.blackBoard.animancer.Play(fsm.blackBoard.attack);
+    public class AIAttackState : ClipTransitionState{
+        public override void EnterState(){
+            base.EnterState();
+            _fsm.blackBoard.animancer.Play(_fsm.blackBoard.attack);
         }
 
-        public override void UpdateState(AIFSM fsm){
-            base.UpdateState(fsm);
+        public override void Update(){
+            base.Update();
         }
 
-        public override void ExitState(AIFSM fsm){
-            base.ExitState(fsm);
+        public override void ExitState(){
+            base.ExitState();
         }
     }
 }

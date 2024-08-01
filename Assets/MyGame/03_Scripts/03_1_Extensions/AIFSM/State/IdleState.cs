@@ -1,24 +1,23 @@
 using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM{
-    [CreateAssetMenu(menuName = "AIFSM/IdleState")]
-    public class IdleState : BaseState
+    public class IdleState : ClipTransitionState
     {
-        public override void EnterState(AIFSM fsm)
+        public override void EnterState()
         {
             Debug.Log("IdleState");
-            base.EnterState(fsm);
-            fsm.blackBoard.animancer.Play(fsm.blackBoard.idle);
+            base.EnterState();
+            _fsm.blackBoard.animancer.Play(_fsm.blackBoard.idle);
         }
 
-        public override void UpdateState(AIFSM fsm)
+        public override void Update()
         {
-            base.UpdateState(fsm);
+            base.Update();
         }
 
-        public override void ExitState(AIFSM fsm)
+        public override void ExitState()
         {
-            base.ExitState(fsm);
+            base.ExitState();
         }
     }
 }
