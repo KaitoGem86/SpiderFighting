@@ -8,6 +8,9 @@ namespace Extensions.SystemGame.AIFSM{
         
         public void ChangeAction(BaseState newState){
             // Change the current state
+            if(_currentState != null && newState.GetType().Equals(_currentState.GetType())){
+                return;
+            }
             if (_currentState != null){
                 _currentState.ExitState(this);
             }
