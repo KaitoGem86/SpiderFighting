@@ -6,8 +6,10 @@ namespace Extensions.SystemGame.AIFSM{
         public override void EnterState(AIFSM fsm){
             Debug.Log("MovingState");
             base.EnterState(fsm);
+            fsm.blackBoard.animancer.Play(fsm.blackBoard.walk);
             fsm.blackBoard.elapsedTimeToChangeTarget = 1f;
             fsm.blackBoard.navMeshAgent.SetDestination(fsm.blackBoard.target.position);
+
         }
 
         public override void UpdateState(AIFSM fsm){

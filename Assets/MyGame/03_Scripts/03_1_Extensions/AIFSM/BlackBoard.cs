@@ -6,11 +6,12 @@ namespace Extensions.SystemGame.AIFSM
 {
     public class BlackBoard : MonoBehaviour
     {
-        [Header("Animation")]
+        [Header("========= Animation =========")]
         public AnimancerComponent animancer;
         public AnimancerTransitionAsset idle;
+        public AnimancerTransitionAsset walk;
 
-        [Header("Movement")]
+        [Header("========= Movement =========")]
         public NavMeshAgent navMeshAgent;
         public Transform target;
         public float elapsedTimeToChangeTarget = 1f;

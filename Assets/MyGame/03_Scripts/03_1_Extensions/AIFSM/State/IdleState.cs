@@ -8,6 +8,7 @@ namespace Extensions.SystemGame.AIFSM{
         {
             Debug.Log("IdleState");
             base.EnterState(fsm);
+            fsm.blackBoard.animancer.Play(fsm.blackBoard.idle);
         }
 
         public override void UpdateState(AIFSM fsm)
