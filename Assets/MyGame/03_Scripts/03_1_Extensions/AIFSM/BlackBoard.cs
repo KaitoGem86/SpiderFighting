@@ -15,6 +15,7 @@ namespace Extensions.SystemGame.AIFSM
         public AnimancerTransitionAsset idle;
         public AnimancerTransitionAsset walk;
         public AnimancerTransitionAsset attack;
+        public LinearMixerTransitionAsset waitAttack;
 
         [Header("========= Movement =========")]
         public NavMeshAgent navMeshAgent;

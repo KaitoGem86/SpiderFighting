@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: MovingAnimation
   m_EditorClassIdentifier: 
   _Transition:
-    rid: 947629513853894661
+    rid: 947629513853894680
   references:
     version: 2
     RefIds:
-    - rid: 947629513853894661
+    - rid: 947629513853894680
       type: {class: ClipTransition, ns: Animancer, asm: Animancer}
       data:
         _FadeDuration: 0.25
@@ -25,6 +25,6 @@ MonoBehaviour:
           _NormalizedTimes: []
           _Callbacks: []
           _Names: []
-        _Clip: {fileID: 7400000, guid: fd6e0d48a65905843a5f784b7acb18f0, type: 2}
+        _Clip: {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
         _Speed: 1
         _NormalizedStartTime: NaN

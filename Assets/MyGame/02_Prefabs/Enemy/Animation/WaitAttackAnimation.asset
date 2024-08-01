@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a472a4806da7f9147a4a5cd7eee170df, type: 3}
+  m_Name: WaitAttackAnimation
+  m_EditorClassIdentifier: 
+  _Transition:
+    rid: 947629513853894686
+  references:
+    version: 2
+    RefIds:
+    - rid: 947629513853894686
+      type: {class: LinearMixerTransition, ns: Animancer, asm: Animancer}
+      data:
+        _FadeDuration: 0.25
+        _Events:
+          _NormalizedTimes: []
+          _Callbacks: []
+          _Names: []
+        _Speed: 1
+        _Animations:
+        - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+        - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
+        - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
+        - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
+        - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
+        - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
+        - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
+        - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
+        - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+        _Speeds: []
+        _SynchronizeChildren: 
+        _Thresholds:
+        - -180
+        - -135
+        - -90
+        - -45
+        - 0
+        - 45
+        - 90
+        - 135
+        - 180
+        _DefaultParameter: 0
+        _ExtrapolateSpeed: 1
