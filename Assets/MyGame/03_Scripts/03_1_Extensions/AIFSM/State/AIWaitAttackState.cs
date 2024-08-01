@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Extensions.SystemGame.AIFSM{
     [CreateAssetMenu(menuName = "AIFSM/AIWaitAttackState")]
@@ -10,10 +11,19 @@ namespace Extensions.SystemGame.AIFSM{
 
         public override void UpdateState(AIFSM fsm){
             base.UpdateState(fsm);
+            fsm.blackBoard.navMeshAgent.SetDestination(GetNextPositionAroundTarget(fsm.blackBoard.enemyPosition, 5f));
         }
 
         public override void ExitState(AIFSM fsm){
             base.ExitState(fsm);
+        }
+
+        private Vector3 GetNextPositionAroundTarget(Vector3 targetPos, float radius){
+            Vector3 randomPoint = Random.insideUnitSphere * radius;
+            randomPoint += targetPos;
+            NavMeshHit hit;
+            NavMesh.SamplePosition(randomPoint, out hit, radius, 1);
+            return hit.position;
         }
     }
 }
