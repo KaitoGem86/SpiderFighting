@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c00fb0ede98d24fa50a25f8092f1df, type: 3}
   m_Name: AI Moving State
   m_EditorClassIdentifier: 
+  stateType: 1
