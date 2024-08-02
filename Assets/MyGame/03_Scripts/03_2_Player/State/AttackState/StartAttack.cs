@@ -12,7 +12,7 @@ namespace Core.GamePlay.Player
         [SerializeField] private FindEnemyToAttack _findEnemyModule;
         [SerializeField] private ShootSilk _shootSilk;
         private float _distanceToEnemy;
-        private IHittedByPlayer _enemyTarget;
+        private IHitted _enemyTarget;
         private bool _isCanChangeNextAttack = false;
         private bool _isStartGoToEnemy = false;
 
@@ -33,6 +33,7 @@ namespace Core.GamePlay.Player
             }
             _distanceToEnemy = Vector3.Distance(_enemyTarget.TargetEnemy.position, _playerController.transform.position);
             _isCanChangeNextAttack = false;
+            _playerController.useRootMotion = true;
 
             base.Enter(actionBefore);
 
@@ -41,6 +42,7 @@ namespace Core.GamePlay.Player
 
         public override bool Exit(ActionEnum actionAfter)
         {
+            _playerController.useRootMotion = false;
             _onAttack?.UnregisterListener();
             return base.Exit(actionAfter);
         }
@@ -74,8 +76,14 @@ namespace Core.GamePlay.Player
             _isCanChangeNextAttack = true;
         }
 
-        public void ShootSilk(){
-            _shootSilk.ShootSilkToTarget(_playerController.rightHand , _enemyTarget.TargetEnemy.position,0.15f);
+        public void AttackEnemy()
+        {
+            _enemyTarget?.HittedByPlayer();
+        }
+
+        public void ShootSilk()
+        {
+            _shootSilk.ShootSilkToTarget(_playerController.rightHand, _enemyTarget.TargetEnemy.position, 0.15f);
         }
 
         protected override int GetTransition(ActionEnum actionBefore)

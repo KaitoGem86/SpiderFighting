@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using Core.GamePlay.Support;
 using NodeCanvas.BehaviourTrees;
 using UnityEngine;
 
@@ -10,11 +11,12 @@ namespace Extensions.SystemGame.AIFSM{
         Moving,
         WaitAttack,
         Attack,
+        Hit,
         Dead
     }
 
     [RequireComponent(typeof(BehaviourTreeOwner))]
-    public class AIFSM : MonoBehaviour{
+    public class AIFSM : MonoBehaviour, IHitted{
         [SerializeField] Transform _stateContainer;
         Dictionary<AIState, IState> _dictStates;
         private IState _currentState;
@@ -35,6 +37,10 @@ namespace Extensions.SystemGame.AIFSM{
         public void ChangeAction(AIState newState){
             // Change the current state
             if (currentStateType == newState){
+                if(_currentState != null && _currentState.CanChangeToItself){
+                    _currentState.ExitState();
+                    _currentState.EnterState();
+                }
                 return;
             }
             if (_currentState != null){
@@ -45,6 +51,14 @@ namespace Extensions.SystemGame.AIFSM{
             _currentState.EnterState();
         }
 
+        public void HittedByPlayer(){
+            Debug.Log("Hitted by player");
+            ChangeAction(AIState.Hit);
+        }
+
+        public Transform TargetEnemy{
+            get { return this.transform; }
+        }
         public BlackBoard blackBoard;
         public AIState currentStateType;
     }

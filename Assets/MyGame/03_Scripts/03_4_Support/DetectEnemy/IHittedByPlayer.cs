@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Core.GamePlay.Support{
-    public interface IHittedByPlayer
+    public interface IHitted
     {
         void HittedByPlayer();
 

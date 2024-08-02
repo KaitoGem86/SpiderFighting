@@ -8,6 +8,7 @@ namespace Extensions.SystemGame.AIFSM
         [SerializeField] protected AnimancerComponent _animancer;
         [SerializeField] protected T _transition;
         [SerializeField] protected AIState _stateType;
+        [SerializeField] protected bool _canChangeToItself = false;
 
         private void Awake()
         {
@@ -17,7 +18,8 @@ namespace Extensions.SystemGame.AIFSM
         public virtual void EnterState()
         {
             this.gameObject.SetActive(true);
-            _animancer.Play(_transition);
+            var state = _animancer.Play(_transition);
+            state.Time = 0;
         }
         public virtual void Update() { }
         public virtual void ExitState()
@@ -28,6 +30,11 @@ namespace Extensions.SystemGame.AIFSM
         public AIState StateType
         {
             get { return _stateType; }
+        }
+
+        public bool CanChangeToItself
+        {
+            get { return _canChangeToItself; }
         }
     }
 }

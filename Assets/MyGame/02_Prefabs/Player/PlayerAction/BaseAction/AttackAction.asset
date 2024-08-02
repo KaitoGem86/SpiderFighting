@@ -61,9 +61,9 @@ MonoBehaviour:
             _Names: []
           _Speed: NaN
           _Animations:
-          - {fileID: 7400000, guid: e2960351219b7ff46932f8f84f779a69, type: 2}
-          - {fileID: 7400000, guid: 508469fbff5879246a4c1eddabc6c6ee, type: 2}
-          - {fileID: 7400000, guid: 6af2f0ec9373cca489a75fdd9e86df0b, type: 2}
+          - {fileID: 7400000, guid: ab39cd7e89df4da4199db33f4caa63c9, type: 2}
+          - {fileID: 7400000, guid: 9fba4690b4593264f963155e4e9f7e15, type: 2}
+          - {fileID: 7400000, guid: 2c7d478659e3689418519456cab842c0, type: 2}
           - {fileID: 7400000, guid: 85c8fb28391c7f74db38b6de667f6bcc, type: 2}
           - {fileID: 7400000, guid: c7677a6c474b87546a50c9fa83b6f1f2, type: 2}
           - {fileID: 7400000, guid: ad5bb06336a491d4d8b6aba4ea032258, type: 2}

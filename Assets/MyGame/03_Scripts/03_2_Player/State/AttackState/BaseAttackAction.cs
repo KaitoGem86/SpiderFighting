@@ -8,7 +8,7 @@ namespace Core.GamePlay.Player
         [SerializeField] protected FindEnemyToAttack _findEnemyModule;
         protected bool _isCanChangeNextAttack = false;
         protected bool _notContinueAttack = false;
-        protected IHittedByPlayer _enemy;
+        protected IHitted _enemy;
 
         public override void Enter(ActionEnum actionBefore)
         {

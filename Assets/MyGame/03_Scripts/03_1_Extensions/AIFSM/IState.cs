@@ -3,5 +3,6 @@ namespace Extensions.SystemGame.AIFSM{
         void EnterState();
         void ExitState();
         AIState StateType { get;}
+        bool CanChangeToItself { get; }
     }
 }
