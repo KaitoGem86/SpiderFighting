@@ -21,11 +21,16 @@ namespace Core.GamePlay.Support
 
         public void Update()
         {
-            if(Input.GetKeyDown(KeyCode.J))
-                SetHP(50, 100);
-
             if (_lerpHpBar.fillAmount != _hpBar.fillAmount)
                 _lerpHpBar.fillAmount = Mathf.Lerp(_lerpHpBar.fillAmount, _hpBar.fillAmount, Time.deltaTime * 5);
+        }
+
+        void LateUpdate(){
+            var forward = Camera.main.transform.forward;
+            forward.y = 0;
+            forward.Normalize();
+            Debug.DrawRay(this.transform.position, Camera.main.transform.position - this.transform.position, Color.red);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(-forward), Time.deltaTime * 5);   
         }
     }
 }

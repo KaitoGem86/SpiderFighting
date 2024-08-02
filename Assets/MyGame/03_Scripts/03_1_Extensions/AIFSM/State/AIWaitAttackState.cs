@@ -58,7 +58,8 @@ namespace Extensions.SystemGame.AIFSM
 
         private void RotateDisplayWithVelocity()
         {
-           _fsm.blackBoard.navMeshAgent.transform.DOLookAt(_fsm.blackBoard.enemyPosition, Time.deltaTime);
+            var forward = _fsm.blackBoard.target.position - _fsm.blackBoard.navMeshAgent.transform.position;
+           _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 5);
         }
     }
 }
