@@ -47,6 +47,12 @@ namespace Core.GamePlay.Player
             return base.Exit(actionAfter);
         }
 
+        public override void LateUpdate()
+        {
+            base.LateUpdate();
+            _playerController.PlayerDisplay.rotation = Quaternion.Slerp(_playerController.PlayerDisplay.rotation, Quaternion.LookRotation(_enemyTarget.TargetEnemy.position - _playerController.PlayerDisplay.position), 0.2f);
+        }
+
         public override void Attack()
         {
             if (!_isCanChangeNextAttack) return;
@@ -58,7 +64,7 @@ namespace Core.GamePlay.Player
             if (_isStartGoToEnemy) return;
             _isStartGoToEnemy = true;
             _playerController.PlayerDisplay.DORotate(Quaternion.LookRotation(_enemyTarget.TargetEnemy.position - _playerController.transform.position).eulerAngles, 0.2f);
-            _playerController.transform.DOMove(_enemyTarget.TargetEnemy.transform.position + (_playerController.transform.position - _enemyTarget.TargetEnemy.transform.position).normalized * 1f, time).OnComplete(EndAction);
+            _playerController.transform.DOMove(_enemyTarget.TargetEnemy.transform.position + (_playerController.transform.position - _enemyTarget.TargetEnemy.transform.position).normalized * 1f, time);
         }
 
         public void RotateToTarget()

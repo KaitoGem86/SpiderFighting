@@ -12,11 +12,16 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum actionBefore)
         {
+            _enemy = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
+            if(Vector3.Distance(_enemy.TargetEnemy.position, _playerController.transform.position) > 2f)
+            {
+                _stateContainer.ChangeAction(ActionEnum.StartAttack);
+                return;
+            }
             base.Enter(actionBefore);
             _onAttack?.RegisterListener();
             _isCanChangeNextAttack = false;
             _playerController.useRootMotion = true;
-            _enemy = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
         }
 
         public override bool Exit(ActionEnum actionAfter)
@@ -24,6 +29,12 @@ namespace Core.GamePlay.Player
             _onAttack?.UnregisterListener();
             _playerController.useRootMotion = false;
             return base.Exit(actionAfter);
+        }
+
+        public override void LateUpdate()
+        {
+            base.LateUpdate();
+            _playerController.PlayerDisplay.rotation = Quaternion.Slerp(_playerController.PlayerDisplay.rotation, Quaternion.LookRotation(_enemy.TargetEnemy.position - _playerController.PlayerDisplay.position), 0.2f);
         }
 
         public override void ExitAction()

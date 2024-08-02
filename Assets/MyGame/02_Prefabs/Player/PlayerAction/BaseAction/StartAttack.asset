@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228d912eee75e174eb053d4c8e7a50b0, type: 3}
   m_Name: StartAttack
   m_EditorClassIdentifier: 
-  _movementMode: 0
+  _movementMode: 1
   _animationClip:
     _FadeDuration: 0.25
     _Events:
@@ -32,47 +32,9 @@ MonoBehaviour:
           _FadeDuration: 0.25
           _Events:
             _NormalizedTimes:
-            - 0.2528744
+            - 0.539357
+            - 0.9778271
             - NaN
-            _Callbacks:
-            - m_PersistentCalls:
-                m_Calls:
-                - m_Target: {fileID: 11400000}
-                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
-                  m_MethodName: StartGoToEnemy
-                  m_Mode: 4
-                  m_Arguments:
-                    m_ObjectArgument: {fileID: 0}
-                    m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                    m_IntArgument: 0
-                    m_FloatArgument: 0.25
-                    m_StringArgument: 
-                    m_BoolArgument: 0
-                  m_CallState: 2
-            _Names: []
-          _Clip: {fileID: 7400000, guid: 32c81dcc25359e84b9cd84f59da49fdd, type: 3}
-          _Speed: 1
-          _NormalizedStartTime: NaN
-        keepAnimation:
-          _FadeDuration: 0.17500001
-          _Events:
-            _NormalizedTimes: []
-            _Callbacks: []
-            _Names: []
-          _Speed: NaN
-          _Animations: []
-          _Speeds: []
-          _SynchronizeChildren: 
-          _Thresholds: []
-          _DefaultParameter: 0
-          _ExtrapolateSpeed: 0
-        endAnimation:
-          _FadeDuration: 0.25
-          _Events:
-            _NormalizedTimes:
-            - 0.55550903
-            - 0.7570755
-            - 0.8
             _Callbacks:
             - m_PersistentCalls:
                 m_Calls:
@@ -103,8 +65,9 @@ MonoBehaviour:
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
-                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
-                  m_MethodName: ExitAction
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.BasePlayerAction,
+                    Assembly-CSharp
+                  m_MethodName: EndAction
                   m_Mode: 1
                   m_Arguments:
                     m_ObjectArgument: {fileID: 0}
@@ -115,14 +78,38 @@ MonoBehaviour:
                     m_BoolArgument: 0
                   m_CallState: 2
             _Names: []
-          _Clip: {fileID: 7400000, guid: 9f6a8ac4406a780438ea85da7ae6e4d4, type: 2}
+          _Clip: {fileID: 7400000, guid: 6d0e5268c3914bb4590e20535c351216, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0.17500001
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
           _Speed: 1
           _NormalizedStartTime: NaN
       - startAnimation:
           _FadeDuration: 0.25
           _Events:
             _NormalizedTimes:
-            - 0.46948317
+            - 0.3026315
+            - 0.48684195
+            - 0.95371777
             - NaN
             _Callbacks:
             - m_PersistentCalls:
@@ -135,35 +122,10 @@ MonoBehaviour:
                     m_ObjectArgument: {fileID: 0}
                     m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                     m_IntArgument: 0
-                    m_FloatArgument: 0.5
+                    m_FloatArgument: 0.23
                     m_StringArgument: 
                     m_BoolArgument: 0
                   m_CallState: 2
-            _Names: []
-          _Clip: {fileID: 7400000, guid: 32c81dcc25359e84b9cd84f59da49fdd, type: 3}
-          _Speed: 1
-          _NormalizedStartTime: NaN
-        keepAnimation:
-          _FadeDuration: 0.17500001
-          _Events:
-            _NormalizedTimes: []
-            _Callbacks: []
-            _Names: []
-          _Speed: NaN
-          _Animations: []
-          _Speeds: []
-          _SynchronizeChildren: 
-          _Thresholds: []
-          _DefaultParameter: 0
-          _ExtrapolateSpeed: 0
-        endAnimation:
-          _FadeDuration: 0.25
-          _Events:
-            _NormalizedTimes:
-            - 0.55906993
-            - 0.7665094
-            - 0.8
-            _Callbacks:
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
@@ -193,8 +155,9 @@ MonoBehaviour:
             - m_PersistentCalls:
                 m_Calls:
                 - m_Target: {fileID: 11400000}
-                  m_TargetAssemblyTypeName: Core.GamePlay.Player.StartAttack, Assembly-CSharp
-                  m_MethodName: ExitAction
+                  m_TargetAssemblyTypeName: Core.GamePlay.Player.BasePlayerAction,
+                    Assembly-CSharp
+                  m_MethodName: EndAction
                   m_Mode: 1
                   m_Arguments:
                     m_ObjectArgument: {fileID: 0}
@@ -205,7 +168,29 @@ MonoBehaviour:
                     m_BoolArgument: 0
                   m_CallState: 2
             _Names: []
-          _Clip: {fileID: 7400000, guid: 9f6a8ac4406a780438ea85da7ae6e4d4, type: 2}
+          _Clip: {fileID: 7400000, guid: c276c15278328d742aae1a2cb2a3469c, type: 2}
+          _Speed: 1
+          _NormalizedStartTime: NaN
+        keepAnimation:
+          _FadeDuration: 0.17500001
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Speed: NaN
+          _Animations: []
+          _Speeds: []
+          _SynchronizeChildren: 
+          _Thresholds: []
+          _DefaultParameter: 0
+          _ExtrapolateSpeed: 0
+        endAnimation:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 0}
           _Speed: 1
           _NormalizedStartTime: NaN
       - startAnimation:
@@ -273,7 +258,7 @@ MonoBehaviour:
                   m_CallState: 2
             _Names: []
           _Clip: {fileID: 7400000, guid: 5d5004cde48fb674fbddcb6a9b501b80, type: 2}
-          _Speed: 1
+          _Speed: 1.2
           _NormalizedStartTime: NaN
         keepAnimation:
           _FadeDuration: 0.04666667
