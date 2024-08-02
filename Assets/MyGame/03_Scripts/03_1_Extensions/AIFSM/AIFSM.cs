@@ -33,7 +33,6 @@ namespace Extensions.SystemGame.AIFSM{
             ChangeAction(AIState.Idle);
         }
 
-
         public void ChangeAction(AIState newState){
             // Change the current state
             if (currentStateType == newState){

@@ -11,6 +11,7 @@ namespace Core.GamePlay.Enemy
             var go = SpawnObject();
             go.transform.position = position;
             go.GetComponent<EnemyController>().Init(this);
+            go.transform.position = position;
             return go;
         }
     }
