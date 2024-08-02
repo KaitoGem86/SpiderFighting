@@ -15,15 +15,20 @@ namespace Extensions.SystemGame.AIFSM{
 
     [RequireComponent(typeof(BehaviourTreeOwner))]
     public class AIFSM : MonoBehaviour{
-        [SerializeField] List<BaseState> _states;
-        Dictionary<AIState, BaseState> _dictStates;
-        private BaseState _currentState;
+        [SerializeField] Transform _stateContainer;
+        Dictionary<AIState, IState> _dictStates;
+        private IState _currentState;
 
         private void Awake(){
-            _dictStates = new Dictionary<AIState, BaseState>();
-            foreach (var state in _states){
-                _dictStates.Add(state.stateType, state);
+            _dictStates = new Dictionary<AIState, IState>();
+            foreach (Transform state in _stateContainer){
+                var tmp = state.GetComponent<IState>();
+                if (tmp == null){
+                    continue;
+                }
+                _dictStates.Add(tmp.StateType, tmp);
             }
+            Debug.Log(_dictStates.Count);
             ChangeAction(AIState.Idle);
         }
 

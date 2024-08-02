@@ -3,14 +3,11 @@ using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM
 {
-    public class AIWaitAttackState : ClipTransitionState
+    public class AIWaitAttackState : LinearMixerTransitionState
     {
-        
-
         public override void EnterState()
         {
             base.EnterState();
-            _fsm.blackBoard.animancer.Play(_fsm.blackBoard.waitAttack);
             _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.enemyPosition, 5f);
             _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
         }
@@ -52,13 +49,12 @@ namespace Extensions.SystemGame.AIFSM
         {
             Vector3 direction = (_fsm.blackBoard.enemyPosition - _fsm.blackBoard.navMeshAgent.transform.position).normalized;
             float angle = Vector3.SignedAngle(-_fsm.blackBoard.navMeshAgent.velocity, -direction, Vector3.up);
-            _fsm.blackBoard.waitAttack.Transition.State.Parameter = angle;
+            _transition.State.Parameter = angle;
         }
 
         private void RotateDisplayWithVelocity()
         {
-            Vector3 direction = _fsm.blackBoard.enemyPosition - _fsm.blackBoard.navMeshAgent.transform.position;
-            _fsm.blackBoard.navMeshAgent.transform.DOLookAt(_fsm.blackBoard.enemyPosition, Time.deltaTime);
+           _fsm.blackBoard.navMeshAgent.transform.DOLookAt(_fsm.blackBoard.enemyPosition, Time.deltaTime);
         }
     }
 }
