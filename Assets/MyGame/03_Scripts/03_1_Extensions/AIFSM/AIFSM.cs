@@ -28,7 +28,6 @@ namespace Extensions.SystemGame.AIFSM{
                 }
                 _dictStates.Add(tmp.StateType, tmp);
             }
-            Debug.Log(_dictStates.Count);
             ChangeAction(AIState.Idle);
         }
 

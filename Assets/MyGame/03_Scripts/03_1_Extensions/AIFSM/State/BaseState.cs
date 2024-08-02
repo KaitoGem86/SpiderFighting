@@ -12,8 +12,6 @@ namespace Extensions.SystemGame.AIFSM
         private void Awake()
         {
             this.gameObject.SetActive(false);
-            if (this is IState)
-                Debug.Log("IState " + gameObject.name);
         }
 
         public virtual void EnterState()

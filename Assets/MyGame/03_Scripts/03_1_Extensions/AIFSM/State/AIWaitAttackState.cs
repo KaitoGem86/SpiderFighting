@@ -5,11 +5,14 @@ namespace Extensions.SystemGame.AIFSM
 {
     public class AIWaitAttackState : LinearMixerTransitionState
     {
+        [SerializeField] private float _moveSpeed = 5f;
+
         public override void EnterState()
         {
             base.EnterState();
             _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.enemyPosition, 5f);
             _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
+            _fsm.blackBoard.navMeshAgent.speed = _moveSpeed;
         }
 
         public override void Update()
@@ -33,6 +36,7 @@ namespace Extensions.SystemGame.AIFSM
 
         public override void ExitState()
         {
+            _fsm.blackBoard.navMeshAgent.ResetPath();
             base.ExitState();
         }
 

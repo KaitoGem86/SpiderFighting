@@ -7,7 +7,6 @@ namespace Extensions.SystemGame.AIFSM
     {
         public override void EnterState()
         {
-            Debug.Log("MovingState");
             base.EnterState();
             _fsm.blackBoard.elapsedTimeToChangeTarget = 1f;
             _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
@@ -29,16 +28,12 @@ namespace Extensions.SystemGame.AIFSM
             }
             _transition.State.Parameter = _fsm.blackBoard.navMeshAgent.velocity.magnitude;
             base.Update();
+            _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_fsm.blackBoard.targetPosition - _fsm.blackBoard.navMeshAgent.transform.position), Time.deltaTime * 5);
         }
 
         public override void ExitState()
         {
             base.ExitState();
-        }
-
-        private void RotateDisplayWithVelocity()
-        {
-            _fsm.blackBoard.navMeshAgent.transform.DOLookAt(_fsm.blackBoard.targetPosition, Time.deltaTime);
         }
     }
 }
