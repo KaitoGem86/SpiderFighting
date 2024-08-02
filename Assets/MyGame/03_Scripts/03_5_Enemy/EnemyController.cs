@@ -1,11 +1,19 @@
 using Core.GamePlay.Support;
+using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
-namespace Core.GamePlay.Enemy{
-    public class EnemyController : MonoBehaviour, IHitted{
+namespace Core.GamePlay.Enemy
+{
+    public class EnemyController : AIFSM, IHitted
+    {
+        [SerializeField] private HPBarController _hpBarController;
+        [SerializeField] private float _maxHP = 100;
+        
         public void HittedByPlayer()
         {
-            Debug.Log("Hitted by player");
+            _maxHP -= 10;
+            _hpBarController.SetHP(_maxHP, 100);
+            ChangeAction(AIState.Hit);
         }
 
         public Transform TargetEnemy { get => this.transform; }

@@ -16,7 +16,7 @@ namespace Extensions.SystemGame.AIFSM{
     }
 
     [RequireComponent(typeof(BehaviourTreeOwner))]
-    public class AIFSM : MonoBehaviour, IHitted{
+    public class AIFSM : MonoBehaviour{
         [SerializeField] Transform _stateContainer;
         Dictionary<AIState, IState> _dictStates;
         private IState _currentState;
@@ -51,14 +51,6 @@ namespace Extensions.SystemGame.AIFSM{
             _currentState.EnterState();
         }
 
-        public void HittedByPlayer(){
-            Debug.Log("Hitted by player");
-            ChangeAction(AIState.Hit);
-        }
-
-        public Transform TargetEnemy{
-            get { return this.transform; }
-        }
         public BlackBoard blackBoard;
         public AIState currentStateType;
     }
