@@ -6635,7 +6635,6 @@ MonoBehaviour:
   blackBoard: {fileID: 4975393258137139361}
   currentStateType: 0
   _hpBarController: {fileID: 8909795628872485541}
-  _maxHP: 100
 --- !u!1 &1796267293210854
 GameObject:
   m_ObjectHideFlags: 0
@@ -8594,6 +8593,78 @@ Transform:
   - {fileID: 4026056160667975}
   m_Father: {fileID: 4536561593274609}
   m_LocalEulerAnglesHint: {x: 32.11625, y: 2.1971855, z: 1.2638204}
+--- !u!1 &739238015977655534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 241762646338719336}
+  - component: {fileID: 1641633038593792454}
+  m_Layer: 8
+  m_Name: Dead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &241762646338719336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739238015977655534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1770476399219667906}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1641633038593792454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739238015977655534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46c67d97b3026e4ca760be4865b7f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 7404812075282125282}
+  _animancer: {fileID: 6917293708525823124}
+  _transition:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 1
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1641633038593792454}
+            m_TargetAssemblyTypeName: Extensions.SystemGame.AIFSM.DeadState, Assembly-CSharp
+            m_MethodName: CompleteDead
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _stateType: 5
+  _canChangeToItself: 0
 --- !u!1 &1754974366542638864
 GameObject:
   m_ObjectHideFlags: 0
@@ -9093,6 +9164,7 @@ Transform:
   - {fileID: 8315320906824117385}
   - {fileID: 7588857951890791958}
   - {fileID: 2600942943102746256}
+  - {fileID: 241762646338719336}
   m_Father: {fileID: 4333543491258204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5084460990200386168

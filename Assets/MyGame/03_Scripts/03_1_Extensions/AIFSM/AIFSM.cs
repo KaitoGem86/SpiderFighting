@@ -30,6 +30,9 @@ namespace Extensions.SystemGame.AIFSM{
                 }
                 _dictStates.Add(tmp.StateType, tmp);
             }
+        }
+
+        private void OnEnable(){
             ChangeAction(AIState.Idle);
         }
 

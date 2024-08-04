@@ -6,5 +6,6 @@ namespace Core.GamePlay.Support{
         void HittedByPlayer();
 
         Transform TargetEnemy { get; }
+        bool IsIgnore { get; set;}
     }
 }

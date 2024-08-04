@@ -10,7 +10,7 @@ namespace Core.GamePlay.Support{
             IHitted enemy = null;
             foreach (var collider in colliders){
                 IHitted hittedByPlayer = collider.GetComponent<IHitted>();
-                if (hittedByPlayer != null){
+                if (hittedByPlayer != null && !hittedByPlayer.IsIgnore){
                     float currentDistance = Vector3.Distance(finder.position, collider.transform.position);
                     if (currentDistance < minDistance){
                         minDistance = currentDistance;
