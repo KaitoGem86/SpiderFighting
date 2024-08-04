@@ -1,11 +1,12 @@
 using UnityEngine;
 
 namespace Core.GamePlay.Mission{
-    [CreateAssetMenu(fileName = "New Quest", menuName = "Quest")]
+    [CreateAssetMenu(fileName = "New Quest", menuName = "Quest/New Quest")]
     public class Quest : ScriptableObject{
         public QuestInfor infor;
         public RewardInfor reward;
         [SerializeField] private GameObject[] _stepPrefabs;
+        [SerializeField] private ScriptableObject[] _dataPrefabs;
         
         private IQuestStep[] _steps;
         private IMissionData[] _data;
@@ -17,6 +18,9 @@ namespace Core.GamePlay.Mission{
             _data = new IMissionData[_stepPrefabs.Length];
             for (int i = 0; i < _stepPrefabs.Length; i++){
                 _steps[i] = _stepPrefabs[i].GetComponent<IQuestStep>();
+            }
+            for (int i = 0; i < _dataPrefabs.Length; i++){
+                _data[i] = _dataPrefabs[i] as IMissionData;
             }
         }
 
