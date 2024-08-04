@@ -11,7 +11,7 @@ namespace Core.GamePlay.Mission
         public int count;
     }
 
-    public class FightingQuestStep : QuestStep
+    public class FightingQuestStep : QuestStep<FightingQuestData>
     {
         [SerializeField] List<EnemyData> enemyDatas;
         private int _enemyCount;

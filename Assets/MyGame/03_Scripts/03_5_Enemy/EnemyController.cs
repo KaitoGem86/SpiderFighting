@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace Core.GamePlay.Enemy
 {
+    
+
     public class EnemyController : AIFSM, IHitted
     {
         [SerializeField] private HPBarController _hpBarController;

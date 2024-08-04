@@ -19,6 +19,7 @@ namespace Core.GamePlay.Mission
         public void StartQuest(int questID)
         {
             currentQuest = quests[questID];
+            quests[questID].Init();
             currentQuest.StartQuest();
         }
 

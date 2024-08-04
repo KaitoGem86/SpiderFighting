@@ -12,6 +12,14 @@ namespace Core.GamePlay.Enemy
         }
     }
 
+    public enum EnemyType
+    {
+        UnArm,
+        MeleeWeapon,
+        Gun,
+        Boss
+    }
+
     [CreateAssetMenu(fileName = "EnemySO", menuName = "ScriptableObjects/EnemySO", order = 1)]
     public class EnemySO : BaseSOWithPool
     {
@@ -26,11 +34,11 @@ namespace Core.GamePlay.Enemy
             return go;
         }
 
-        public GameObject Spawn(Vector3 position, QuestStep stepContain){
-            var go = SpawnObject();
-            go.GetComponent<EnemyController>().Init(this);
-            go.transform.position = position;
-            return go;
-        }
+        // public GameObject Spawn(Vector3 position){
+        //     var go = SpawnObject();
+        //     go.GetComponent<EnemyController>().Init(this);
+        //     go.transform.position = position;
+        //     return go;
+        // }
     }
 }

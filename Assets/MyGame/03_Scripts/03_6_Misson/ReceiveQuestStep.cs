@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.GamePlay.Mission
 {
-    public class ReceiveQuestStep : QuestStep
+    public class ReceiveQuestStep : QuestStep<ShippingQuestData>
     {
         public override void Init(Quest container)
         {
