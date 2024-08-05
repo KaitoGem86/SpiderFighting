@@ -2,26 +2,33 @@ using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Core.GamePlay.Support;
 using NodeCanvas.BehaviourTrees;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM{
     public enum FSMState{
         None = -1,
+        Spawn,
         Idle,
         Moving,
         WaitAttack,
         Attack,
         Hit,
-        Dead
+        Dead,
+        StopMoving,
+        Landing,
+        Jumping,
+        Climbing,
+        FallingDown,
     }
 
-    [RequireComponent(typeof(BehaviourTreeOwner))]
     public class FSM<T> : MonoBehaviour where T : BlackBoard{
         [SerializeField] Transform _stateContainer;
+        [SerializeField] FSMState _startState;
         Dictionary<FSMState, IState> _dictStates;
-        private IState _currentState;
+        protected IState _currentState;
 
-        private void Awake(){
+        protected virtual void Awake(){
             _dictStates = new Dictionary<FSMState, IState>();
             foreach (Transform state in _stateContainer){
                 var tmp = state.GetComponent<IState>();
@@ -32,11 +39,11 @@ namespace Extensions.SystemGame.AIFSM{
             }
         }
 
-        private void OnEnable(){
-            ChangeAction(FSMState.Idle);
+        protected void OnEnable(){
+            ChangeAction(_startState);
         }
 
-        public void ChangeAction(FSMState newState){
+        public virtual void ChangeAction(FSMState newState){
             // Change the current state
             if (currentStateType == newState){
                 if(_currentState != null && _currentState.CanChangeToItself){
@@ -45,7 +52,7 @@ namespace Extensions.SystemGame.AIFSM{
                 }
                 return;
             }
-            if (_currentState != null){
+            if (currentStateType != FSMState.None && _currentState != null){
                 _currentState.ExitState();
             }
             _currentState = _dictStates[newState];

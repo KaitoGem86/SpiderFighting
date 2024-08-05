@@ -10,7 +10,7 @@ namespace Extensions.SystemGame.AIFSM
         [SerializeField] protected FSMState _stateType;
         [SerializeField] protected bool _canChangeToItself = false;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             this.gameObject.SetActive(false);
         }

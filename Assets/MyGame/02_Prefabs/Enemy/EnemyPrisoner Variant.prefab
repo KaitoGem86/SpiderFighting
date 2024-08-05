@@ -6608,6 +6608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateContainer: {fileID: 1770476399219667906}
+  _startState: 1
   blackBoard: {fileID: 1497934967715043381}
   currentStateType: 0
   _unitCanvas: {fileID: 224266875319684546}
