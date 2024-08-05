@@ -1,5 +1,6 @@
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
+using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer{
     public class PlayerController : FSM<PlayerBlackBoard>{
@@ -17,7 +18,18 @@ namespace Core.GamePlay.MyPlayer{
         }
 
         public void OnCollided(ref CollisionResult collisionResult){
-            
+            Debug.Log("OnCollided");
+            blackBoard.CurrentState.OnCollided(ref collisionResult);
+        }
+
+        public void OnCollisionEnter(Collision collision){
+            Debug.Log("OnCollisionEnter");
+            blackBoard.CurrentState.OnCollisionEnter(collision);
+        }
+
+        public void OnTriggerEnter(Collider other){
+            Debug.Log("OnTriggerEnter");
+            //blackBoard.CurrentState.OnTriggerEnter(other);
         }
     }
 }

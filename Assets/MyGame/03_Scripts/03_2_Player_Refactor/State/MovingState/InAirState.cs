@@ -20,7 +20,6 @@ namespace Core.GamePlay.MyPlayer
 
         protected override void Move()
         {
-            Debug.Log("Move " + _moveDirection);
             Vector3 tmp = _moveDirection * _speed;
             _fsm.blackBoard.Character.AddForce(tmp);
         }
@@ -28,6 +27,7 @@ namespace Core.GamePlay.MyPlayer
         protected override void GetInput()
         {
             base.GetInput();
+            _moveDirection = Vector3.Project(_moveDirection, _fsm.blackBoard.PlayerDisplay.forward);
             // if (_moveDirection == Vector3.zero)
             // {
             //     _moveDirection = _fsm.blackBoard.CameraTransform.forward;
@@ -47,7 +47,7 @@ namespace Core.GamePlay.MyPlayer
             var angle = Vector3.Angle(Vector3.up, surfaceNormal);
             if (angle < 45)
             {
-                _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Landing);
+                _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Idle);
             }
             else
             {
