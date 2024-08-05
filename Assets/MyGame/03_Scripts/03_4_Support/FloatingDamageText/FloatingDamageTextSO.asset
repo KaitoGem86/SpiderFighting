@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34eb40b859ad1f5448bd04c1cbf59ee9, type: 3}
+  m_Name: FloatingDamageTextSO
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 6373933783343761672, guid: 2d0efe0da82d5484fb8f545f36cb122c, type: 3}
+  timeToHide: 0.5

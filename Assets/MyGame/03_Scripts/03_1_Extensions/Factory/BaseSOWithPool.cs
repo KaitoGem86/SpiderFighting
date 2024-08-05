@@ -11,9 +11,13 @@ namespace Core.SystemGame.Factory
         protected Transform _poolParent;
         protected Transform _activeParent;
         protected int _poolId;
+        protected bool _isInit = false;
 
         public virtual void Init(int poolId, Transform activeParent = null)
         {
+            if (_isInit)
+                return;
+            _isInit = true;
             _poolId = poolId;
             _activeParent = activeParent;
             _poolParent = new GameObject("Pool " + name).transform;

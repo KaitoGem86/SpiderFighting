@@ -10,7 +10,9 @@ namespace Core.GamePlay.Enemy
 
     public class EnemyController : AIFSM, IHitted
     {
+        [SerializeField] private RectTransform _unitCanvas;
         [SerializeField] private HPBarController _hpBarController;
+        [SerializeField] FloatingDamageTextSO _floatingDamageTextSO;
         private EnemySO _soController;
         private EnemyData _runtimeData;
 
@@ -30,6 +32,7 @@ namespace Core.GamePlay.Enemy
         public void HittedByPlayer()
         {
             _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _soController.initData.HP);
+            _floatingDamageTextSO.Spawn(10, _unitCanvas);
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
             if (_runtimeData.HP <= 0)
             {

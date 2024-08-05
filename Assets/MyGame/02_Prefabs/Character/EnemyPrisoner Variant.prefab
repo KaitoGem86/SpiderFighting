@@ -6634,7 +6634,9 @@ MonoBehaviour:
   _stateContainer: {fileID: 1770476399219667906}
   blackBoard: {fileID: 4975393258137139361}
   currentStateType: 0
+  _unitCanvas: {fileID: 224266875319684546}
   _hpBarController: {fileID: 8909795628872485541}
+  _floatingDamageTextSO: {fileID: 11400000, guid: 88ea78ce53ea43744b79caf9dff4a6c9, type: 2}
 --- !u!1 &1796267293210854
 GameObject:
   m_ObjectHideFlags: 0
