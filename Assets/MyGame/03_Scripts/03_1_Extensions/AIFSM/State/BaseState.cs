@@ -4,10 +4,10 @@ namespace Extensions.SystemGame.AIFSM
 {
     public class BaseState<T> : MonoBehaviour, IState where T : ITransition
     {
-        [SerializeField] protected AIFSM _fsm;
+        [SerializeField] protected FSM _fsm;
         [SerializeField] protected AnimancerComponent _animancer;
         [SerializeField] protected T _transition;
-        [SerializeField] protected AIState _stateType;
+        [SerializeField] protected FSMState _stateType;
         [SerializeField] protected bool _canChangeToItself = false;
 
         private void Awake()
@@ -27,7 +27,7 @@ namespace Extensions.SystemGame.AIFSM
             this.gameObject.SetActive(false);
         }
 
-        public AIState StateType
+        public FSMState StateType
         {
             get { return _stateType; }
         }

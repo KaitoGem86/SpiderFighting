@@ -50,7 +50,7 @@ namespace Extensions.SystemGame.AIFSM{
         }
 
         public void CompleteAttack(){
-            _fsm.ChangeAction(AIState.WaitAttack);
+            _fsm.ChangeAction(FSMState.WaitAttack);
         }
     }
 }

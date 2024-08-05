@@ -14,7 +14,7 @@ namespace Extensions.SystemGame.AIFSM{
         }
 
         public void ReturnToWaitAttack(){
-            _fsm.ChangeAction(AIState.WaitAttack);
+            _fsm.ChangeAction(FSMState.WaitAttack);
         }
     }
 }

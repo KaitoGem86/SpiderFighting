@@ -8,7 +8,7 @@ namespace Core.GamePlay.Enemy
 {
     
 
-    public class EnemyController : AIFSM, IHitted
+    public class EnemyController : FSM, IHitted
     {
         [SerializeField] private RectTransform _unitCanvas;
         [SerializeField] private HPBarController _hpBarController;
@@ -37,11 +37,11 @@ namespace Core.GamePlay.Enemy
             if (_runtimeData.HP <= 0)
             {
                 IsIgnore = true;
-                ChangeAction(AIState.Dead);
+                ChangeAction(FSMState.Dead);
             }
             else
             {
-                ChangeAction(AIState.Hit);
+                ChangeAction(FSMState.Hit);
             }
         }
 

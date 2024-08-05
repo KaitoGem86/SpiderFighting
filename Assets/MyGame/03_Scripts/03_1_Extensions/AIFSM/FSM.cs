@@ -5,7 +5,7 @@ using NodeCanvas.BehaviourTrees;
 using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM{
-    public enum AIState{
+    public enum FSMState{
         None = -1,
         Idle,
         Moving,
@@ -16,13 +16,13 @@ namespace Extensions.SystemGame.AIFSM{
     }
 
     [RequireComponent(typeof(BehaviourTreeOwner))]
-    public class AIFSM : MonoBehaviour{
+    public class FSM : MonoBehaviour{
         [SerializeField] Transform _stateContainer;
-        Dictionary<AIState, IState> _dictStates;
+        Dictionary<FSMState, IState> _dictStates;
         private IState _currentState;
 
         private void Awake(){
-            _dictStates = new Dictionary<AIState, IState>();
+            _dictStates = new Dictionary<FSMState, IState>();
             foreach (Transform state in _stateContainer){
                 var tmp = state.GetComponent<IState>();
                 if (tmp == null){
@@ -33,10 +33,10 @@ namespace Extensions.SystemGame.AIFSM{
         }
 
         private void OnEnable(){
-            ChangeAction(AIState.Idle);
+            ChangeAction(FSMState.Idle);
         }
 
-        public void ChangeAction(AIState newState){
+        public void ChangeAction(FSMState newState){
             // Change the current state
             if (currentStateType == newState){
                 if(_currentState != null && _currentState.CanChangeToItself){
@@ -54,6 +54,6 @@ namespace Extensions.SystemGame.AIFSM{
         }
 
         public BlackBoard blackBoard;
-        public AIState currentStateType;
+        public FSMState currentStateType;
     }
 }
