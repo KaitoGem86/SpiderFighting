@@ -8,7 +8,7 @@ namespace Core.GamePlay.Enemy
 {
     
 
-    public class EnemyController : FSM<BlackBoard>, IHitted
+    public class EnemyController : FSM<EnemyBlackBoard>, IHitted
     {
         [SerializeField] private RectTransform _unitCanvas;
         [SerializeField] private HPBarController _hpBarController;

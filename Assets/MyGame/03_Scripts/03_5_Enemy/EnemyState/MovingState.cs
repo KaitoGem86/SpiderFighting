@@ -1,9 +1,9 @@
-using DG.Tweening;
+using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
-namespace Extensions.SystemGame.AIFSM
+namespace Core.GamePlay.Enemy
 {
-    public class MovingState : LinearMixerTransitionState<BlackBoard>
+    public class MovingState : LinearMixerTransitionState<EnemyBlackBoard>
     {
         public override void EnterState()
         {

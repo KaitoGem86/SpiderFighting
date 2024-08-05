@@ -1,9 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
+using Extensions.SystemGame.AIFSM;
 
-namespace Extensions.SystemGame.AIFSM
+namespace Core.GamePlay.Enemy
 {
-    public class AIWaitAttackState : LinearMixerTransitionState<BlackBoard>
+    public class AIWaitAttackState : LinearMixerTransitionState<EnemyBlackBoard>
     {
         [SerializeField] private float _moveSpeed = 5f;
 

@@ -1,5 +1,7 @@
-namespace Extensions.SystemGame.AIFSM{
-    public class HittedState : ClipTransitionState<BlackBoard>
+using Extensions.SystemGame.AIFSM;
+
+namespace Core.GamePlay.Enemy{
+    public class HittedState : ClipTransitionState<EnemyBlackBoard>
     {
         public override void EnterState()
         {

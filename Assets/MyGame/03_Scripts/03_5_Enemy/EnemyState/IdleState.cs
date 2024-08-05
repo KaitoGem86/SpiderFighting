@@ -1,6 +1,7 @@
 using UnityEngine;
+using Extensions.SystemGame.AIFSM;
 
-namespace Extensions.SystemGame.AIFSM{
+namespace Core.GamePlay.Enemy{
     public class IdleState : ClipTransitionState<BlackBoard>
     {
         public override void EnterState()

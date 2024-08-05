@@ -1,8 +1,8 @@
-using System.Collections;
+using Extensions.SystemGame.AIFSM;
 using Core.GamePlay.Enemy;
 
-namespace Extensions.SystemGame.AIFSM{
-    public class DeadState : ClipTransitionState<BlackBoard> {
+namespace Core.GamePlay.Enemy{
+    public class DeadState : ClipTransitionState<EnemyBlackBoard> {
         public override void EnterState()
         {
             base.EnterState();
