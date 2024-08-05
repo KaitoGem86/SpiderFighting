@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.GamePlay.Enemy
 {
-    public class MovingState : LinearMixerTransitionState<EnemyBlackBoard>
+    public class AIMovingState : LinearMixerTransitionState<EnemyBlackBoard>
     {
         public override void EnterState()
         {
