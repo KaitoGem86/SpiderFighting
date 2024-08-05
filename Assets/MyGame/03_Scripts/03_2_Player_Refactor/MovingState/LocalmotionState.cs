@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
 {
-    public class LocalmotionState<T> : BaseState<T> where T : ITransition
+    public class LocalmotionState<T> : BaseState<T, PlayerBlackBoard> where T : ITransition
     {
         protected float _speed;
         protected Vector3 _moveDirection;

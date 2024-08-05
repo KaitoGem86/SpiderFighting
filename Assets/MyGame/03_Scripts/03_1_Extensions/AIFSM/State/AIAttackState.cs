@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 namespace Extensions.SystemGame.AIFSM{
-    public class AIAttackState : LinearMixerTransitionState{
+    public class AIAttackState : LinearMixerTransitionState<BlackBoard>{
         [SerializeField] private float _meleeRange;
         [SerializeField] private float _mediumRange;
         [SerializeField] private float _longRange;

@@ -16,7 +16,7 @@ namespace Extensions.SystemGame.AIFSM{
     }
 
     [RequireComponent(typeof(BehaviourTreeOwner))]
-    public class FSM : MonoBehaviour{
+    public class FSM<T> : MonoBehaviour where T : BlackBoard{
         [SerializeField] Transform _stateContainer;
         Dictionary<FSMState, IState> _dictStates;
         private IState _currentState;
@@ -53,7 +53,7 @@ namespace Extensions.SystemGame.AIFSM{
             _currentState.EnterState();
         }
 
-        public BlackBoard blackBoard;
+        public T blackBoard;
         public FSMState currentStateType;
     }
 }

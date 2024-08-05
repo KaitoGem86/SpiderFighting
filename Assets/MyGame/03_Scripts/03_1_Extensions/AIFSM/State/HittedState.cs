@@ -1,5 +1,5 @@
 namespace Extensions.SystemGame.AIFSM{
-    public class HittedState : ClipTransitionState
+    public class HittedState : ClipTransitionState<BlackBoard>
     {
         public override void EnterState()
         {

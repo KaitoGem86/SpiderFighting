@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM
 {
-    public class AIWaitAttackState : LinearMixerTransitionState
+    public class AIWaitAttackState : LinearMixerTransitionState<BlackBoard>
     {
         [SerializeField] private float _moveSpeed = 5f;
 

@@ -2,11 +2,11 @@ using Animancer;
 using UnityEngine;
 namespace Extensions.SystemGame.AIFSM
 {
-    public class BaseState<T> : MonoBehaviour, IState where T : ITransition
+    public class BaseState<T1, T2> : MonoBehaviour, IState where T1 : ITransition where T2 : BlackBoard
     {
-        [SerializeField] protected FSM _fsm;
+        [SerializeField] protected FSM<T2> _fsm;
         [SerializeField] protected AnimancerComponent _animancer;
-        [SerializeField] protected T _transition;
+        [SerializeField] protected T1 _transition;
         [SerializeField] protected FSMState _stateType;
         [SerializeField] protected bool _canChangeToItself = false;
 

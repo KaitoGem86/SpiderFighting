@@ -2,7 +2,7 @@ using Animancer;
 
 namespace Extensions.SystemGame.AIFSM
 {
-    public class ClipTransitionState : BaseState<ClipTransition>{}
+    public class ClipTransitionState<T> : BaseState<ClipTransition, T> where T : BlackBoard{}
 
-    public class LinearMixerTransitionState : BaseState<LinearMixerTransition>{}
+    public class LinearMixerTransitionState<T> : BaseState<LinearMixerTransition, T> where T : BlackBoard{}
 }
