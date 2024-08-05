@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM{
-    public class IdleState : ClipTransitionState
+    public class IdleState : ClipTransitionState<BlackBoard>
     {
         public override void EnterState()
         {

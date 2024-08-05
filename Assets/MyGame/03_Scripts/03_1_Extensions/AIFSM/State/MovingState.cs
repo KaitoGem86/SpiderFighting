@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM
 {
-    public class MovingState : LinearMixerTransitionState
+    public class MovingState : LinearMixerTransitionState<BlackBoard>
     {
         public override void EnterState()
         {
