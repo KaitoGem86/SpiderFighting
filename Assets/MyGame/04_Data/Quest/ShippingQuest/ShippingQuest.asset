@@ -24,3 +24,8 @@ MonoBehaviour:
   - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
   - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
   - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
+  _dataPrefabs:
+  - {fileID: 11400000, guid: 818f49203292f844b9bd11e5dfdfce9a, type: 2}
+  - {fileID: 11400000, guid: 75d2171299a0ca74687d1df41756a1e3, type: 2}
+  - {fileID: 11400000, guid: 2244fb4de7c5749428ba0991420f96aa, type: 2}
+  - {fileID: 11400000, guid: 182173e596e05d2418dd555b01536b40, type: 2}

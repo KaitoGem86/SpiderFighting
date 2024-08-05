@@ -11,7 +11,7 @@ namespace Core.GamePlay.Mission
         public virtual void Init(Quest container)
         {
             _container = container;
-            //_questData = _container.GetData<T>();
+            _questData = _container.GetData<T>();
         }
 
         public void FinishStep()

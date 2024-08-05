@@ -43,6 +43,7 @@ namespace Core.GamePlay.Mission{
 
         public void FinishQuest(){
             Debug.Log("Finish Quest " + infor.QuestName);
+            QuestManager.instance.NextQuest();
         }
 
         public T GetData<T>() where T : IMissionData{

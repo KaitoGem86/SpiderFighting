@@ -11,15 +11,15 @@ namespace Core.GamePlay.Mission
         public int count;
     }
 
-    public class FightingQuestStep : QuestStep<FightingQuestData>
+    public class FightingQuestStep : QuestStep<FightingQuestInitData>
     {
-        [SerializeField] List<EnemyData> enemyDatas;
         private int _enemyCount;
 
-        public void Awake()
+        public override void Init(Quest container)
         {
+            base.Init(container);
             _enemyCount = 0;
-            foreach (var enemyData in enemyDatas)
+            foreach (var enemyData in _questData.data)
             {
                 for (int i = 0; i < enemyData.count; i++)
                 {
@@ -28,7 +28,6 @@ namespace Core.GamePlay.Mission
                 }
                 _enemyCount += enemyData.count;
             }
-
         }
 
         public void UpdateRemainingEnemy(){

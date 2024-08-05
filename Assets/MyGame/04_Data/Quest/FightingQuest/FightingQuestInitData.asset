@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bc7744877321145998799642b7004e, type: 3}
   m_Name: FightingQuestInitData
   m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
   data:
-    position: {x: 0, y: 0, z: 0}
-    count:
-      _serializedList:
-      - Key: 0
-        Value: 5
+  - enemySO: {fileID: 11400000, guid: 8b78cd0366f35f547b770b28b832cc60, type: 2}
+    count: 5
