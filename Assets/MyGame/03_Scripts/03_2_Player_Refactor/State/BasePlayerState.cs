@@ -18,14 +18,14 @@ namespace Core.GamePlay.MyPlayer
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.useGravity = true;
                 rigidbody.isKinematic = false;
-                rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+                rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
                 rigidbody.velocity = _fsm.blackBoard.GlobalVelocity;
             }
             else{
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.useGravity = false;
                 rigidbody.isKinematic = true;
-                rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+                rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
                 _fsm.blackBoard.Character.SetVelocity(_fsm.blackBoard.GlobalVelocity);
             }
         }

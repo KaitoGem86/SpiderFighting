@@ -22,8 +22,7 @@ namespace Core.GamePlay.MyPlayer
         {
             Vector3 tmp = _moveDirection * _speed;
             Debug.DrawRay(_fsm.blackBoard.Character.transform.position, tmp, Color.red);
-            tmp.y = _fsm.blackBoard.Character.GetVelocity().y;
-            _fsm.blackBoard.Character.SetVelocity(tmp);
+            _fsm.blackBoard.Character.AddForce(tmp);
         }
 
         protected override void GetInput()
