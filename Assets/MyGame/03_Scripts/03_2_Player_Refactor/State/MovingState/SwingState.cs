@@ -17,6 +17,7 @@ namespace Core.GamePlay.MyPlayer
         private SpringJoint _springJoint;
         private Transform _leftHand;
         private Transform _rightHand;
+        private bool _isStartSwing = false;
 
         protected override void Awake()
         {
@@ -30,6 +31,7 @@ namespace Core.GamePlay.MyPlayer
         {
             _leftHand = _fsm.blackBoard.PlayerModel.leftHand;
             _rightHand = _fsm.blackBoard.PlayerModel.rightHand;
+            _isStartSwing = false;
             base.EnterState();
         }
 
@@ -37,6 +39,7 @@ namespace Core.GamePlay.MyPlayer
         {
             if (_springJoint != null)
                 _springJoint.maxDistance = float.MaxValue;
+            _shootSilk.UnUseSilk();
             base.ExitState();
         }
 
@@ -64,6 +67,8 @@ namespace Core.GamePlay.MyPlayer
 
         public override void Update()
         {
+            if(!_isStartSwing)
+                return;
             if ((Vector3.Angle(_holdPivot.position - _rb.transform.position, Vector3.down) > 87 && Vector3.Dot(_fsm.blackBoard.GetVelocity, Vector3.up) > 0))
             {
                 _fsm.ChangeAction(FSMState.JumpFromSwing);
@@ -101,6 +106,7 @@ namespace Core.GamePlay.MyPlayer
 
         private void InitSwing()
         {
+            _isStartSwing = true;
             if (_springJoint == null)
             {
                 _springJoint = _fsm.gameObject.AddComponent<SpringJoint>();

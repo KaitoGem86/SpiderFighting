@@ -22,7 +22,7 @@ namespace Core.GamePlay.MyPlayer
 
         protected virtual void Move()
         {
-            _fsm.blackBoard.Character.SetVelocity(_moveDirection * _speed);
+            _fsm.blackBoard.Character.SetMovementDirection(_moveDirection * _speed);
         }
 
         protected virtual void Rotate()

@@ -181,6 +181,7 @@ Transform:
   - {fileID: 4945183960761637718}
   - {fileID: 7024975289402960969}
   - {fileID: 5433040765438833912}
+  - {fileID: 2305340981751820506}
   m_Father: {fileID: 2032646152031061193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1871133555841143395
@@ -1225,6 +1226,7 @@ MonoBehaviour:
   HoldPivot: {fileID: 3130167574732683904}
   SwingPivot: {fileID: 0}
   PlayerModel: {fileID: 8855097191973596313}
+  GlobalVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &4369872665408434342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1700,6 +1702,182 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7639815536116238673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8251543490426444040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2305340981751820506}
+  - component: {fileID: 8639091338892093024}
+  m_Layer: 0
+  m_Name: JumpFromSwingState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2305340981751820506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251543490426444040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8581614525833004515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8639091338892093024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251543490426444040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016eb46beb748114b97621b5ea60aded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 4369872665408434342}
+  _animancer: {fileID: 3014555728300254076}
+  _transitions:
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8639091338892093024}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.JumpFromSwingState,
+              Assembly-CSharp
+            m_MethodName: CompleteJumpFromSwing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 2de87520fbb7f2b46b45af192ab42a12, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8639091338892093024}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.JumpFromSwingState,
+              Assembly-CSharp
+            m_MethodName: CompleteJumpFromSwing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: c885c43748f3a0848b7516676ab170b9, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8639091338892093024}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.JumpFromSwingState,
+              Assembly-CSharp
+            m_MethodName: CompleteJumpFromSwing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0fa6febe67c7220458c7edf291069ab8, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8639091338892093024}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.JumpFromSwingState,
+              Assembly-CSharp
+            m_MethodName: CompleteJumpFromSwing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 11bb077c26e8e914b8164c8800cbca28, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8639091338892093024}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.JumpFromSwingState,
+              Assembly-CSharp
+            m_MethodName: CompleteJumpFromSwing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 7a3d1807630c9a649b9c4b9278454190, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _stateType: 14
+  _canChangeToItself: 0
+  _movementMode: 0
+  _speed: 3
 --- !u!1 &8414098350887397751
 GameObject:
   m_ObjectHideFlags: 0

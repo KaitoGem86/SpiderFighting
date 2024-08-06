@@ -19,19 +19,20 @@ namespace Core.GamePlay.MyPlayer
                 rigidbody.useGravity = true;
                 rigidbody.isKinematic = false;
                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
-                //rigidbody.velocity = _playerController.GlobalVelocity;
+                rigidbody.velocity = _fsm.blackBoard.GlobalVelocity;
             }
             else{
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.useGravity = false;
                 rigidbody.isKinematic = true;
                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
-                //_playerController.SetVelocity(_playerController.GlobalVelocity);
+                _fsm.blackBoard.Character.SetVelocity(_fsm.blackBoard.GlobalVelocity);
             }
         }
 
         public override void ExitState()
         {
+            _fsm.blackBoard.GlobalVelocity = _fsm.blackBoard.GetVelocity;
             base.ExitState();
         }
 

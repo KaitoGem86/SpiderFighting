@@ -41,5 +41,9 @@ namespace Core.GamePlay.Support{
             _origin = origin;
             return ShootSilkToTarget(_origin.position, endPos, duration);
         }
+
+        public void UnUseSilk(){
+            _silkController.UnUseSilk();
+        }
     }
 }

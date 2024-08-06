@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
 {
-    public class InAirState<T> : LocalmotionState<T> where T : ClipTransition
+    public class InAirState<T> : LocalmotionState<T> where T : ITransition
     {
         public override void Update()
         {
@@ -21,7 +21,9 @@ namespace Core.GamePlay.MyPlayer
         protected override void Move()
         {
             Vector3 tmp = _moveDirection * _speed;
-            _fsm.blackBoard.Character.AddForce(tmp);
+            Debug.DrawRay(_fsm.blackBoard.Character.transform.position, tmp, Color.red);
+            tmp.y = _fsm.blackBoard.Character.GetVelocity().y;
+            _fsm.blackBoard.Character.SetVelocity(tmp);
         }
 
         protected override void GetInput()
