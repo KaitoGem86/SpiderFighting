@@ -19,7 +19,7 @@ namespace Core.GamePlay.MyPlayer{
 
         public void OnCollided(ref CollisionResult collisionResult){
             Debug.Log("OnCollided");
-            blackBoard.CurrentState.OnCollided(ref collisionResult);
+            blackBoard.CurrentState?.OnCollided(ref collisionResult);
         }
 
         public void OnCollisionEnter(Collision collision){
