@@ -18,7 +18,7 @@ namespace Extensions.SystemGame.AIFSM
         public virtual void EnterState()
         {
             this.gameObject.SetActive(true);
-            var state = _animancer.Play(_transition);
+            var state = _animancer.Play(_transition );
             state.Time = 0;
         }
         public virtual void Update() { }

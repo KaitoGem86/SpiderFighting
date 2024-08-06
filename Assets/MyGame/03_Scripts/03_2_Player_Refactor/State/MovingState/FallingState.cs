@@ -10,7 +10,7 @@ namespace Core.GamePlay.MyPlayer{
 
         public override void Update(){
             if (_fsm.blackBoard.Character.IsGrounded()){
-                _fsm.ChangeAction(FSMState.Idle);
+                _fsm.ChangeAction(FSMState.Landing);
             }
         }
     }

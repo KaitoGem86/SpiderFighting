@@ -47,7 +47,7 @@ namespace Core.GamePlay.MyPlayer
             var angle = Vector3.Angle(Vector3.up, surfaceNormal);
             if (angle < 45)
             {
-                _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Idle);
+                _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Landing);
             }
             else
             {

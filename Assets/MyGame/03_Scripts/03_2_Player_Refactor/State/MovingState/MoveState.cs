@@ -10,6 +10,11 @@ namespace Core.GamePlay.MyPlayer
     {
         private Transform _checkWallPivot;
 
+        public override void EnterState()
+        {
+            base.EnterState();
+        }
+
         public override void Update()
         {
             if (InputManager.instance.jump)
