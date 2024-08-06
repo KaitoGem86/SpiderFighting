@@ -1,4 +1,6 @@
+using System.Security.Cryptography;
 using Core.GamePlay.Player;
+using Core.GamePlay.Support;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
@@ -24,5 +26,8 @@ namespace Core.GamePlay.MyPlayer{
         public Rigidbody SwingPivot;
         public PlayerModel PlayerModel;
         public Vector3 GlobalVelocity;
+
+        [Header("Combat")]
+        public FindEnemyToAttack FindEnemyToAttack;
     }
 }

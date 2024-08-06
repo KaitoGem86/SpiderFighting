@@ -8637,30 +8637,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 7404812075282125282}
   _animancer: {fileID: 6917293708525823124}
-  _transition:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes:
-      - 1
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1641633038593792454}
-            m_TargetAssemblyTypeName: Extensions.SystemGame.AIFSM.DeadState, Assembly-CSharp
-            m_MethodName: CompleteDead
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -8718,31 +8694,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 7404812075282125282}
   _animancer: {fileID: 6917293708525823124}
-  _transition:
-    _FadeDuration: 0.06000001
-    _Events:
-      _NormalizedTimes:
-      - 0.95
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 4861733751411881542}
-            m_TargetAssemblyTypeName: Extensions.SystemGame.AIFSM.HittedState, Assembly-CSharp
-            m_MethodName: ReturnToWaitAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
   _transitions:
   - _FadeDuration: 0.06000001
     _Events:
@@ -8848,37 +8799,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 7404812075282125282}
   _animancer: {fileID: 6917293708525823124}
-  _transition:
-    _FadeDuration: 0.28333336
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
-    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
-    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
-    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
-    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
-    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
-    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - -180
-    - -135
-    - -90
-    - -45
-    - 0
-    - 45
-    - 90
-    - 135
-    - 180
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
   _transitions:
   - _FadeDuration: 0.28333336
     _Events:
@@ -8959,15 +8879,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 6917293708525823124}
-  _transition:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: bece9fda18844864e8aa81cabea0f742, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
   _transitions: []
   _stateType: 1
   _canChangeToItself: 0
@@ -9070,58 +8981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 7404812075282125282}
   _animancer: {fileID: 6917293708525823124}
-  _transition:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes:
-      - 0.6445833
-      - 0.84875
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 2867093695785342668}
-            m_TargetAssemblyTypeName: Extensions.SystemGame.AIFSM.AIAttackState,
-              Assembly-CSharp
-            m_MethodName: ApplyDamage
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 2867093695785342668}
-            m_TargetAssemblyTypeName: Extensions.SystemGame.AIFSM.AIAttackState,
-              Assembly-CSharp
-            m_MethodName: CompleteAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: 7400000, guid: 6d0e5268c3914bb4590e20535c351216, type: 2}
-    - {fileID: 7400000, guid: 18b8ad95859430b4891f35865bb4fa33, type: 2}
-    - {fileID: 7400000, guid: 81afa42af8fb08f4a9f1e52cb13fff6d, type: 2}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - 0
-    - 1
-    - 2
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -9223,25 +9082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 7404812075282125282}
   _animancer: {fileID: 6917293708525823124}
-  _transition:
-    _FadeDuration: 0.46000004
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: 7400000, guid: bece9fda18844864e8aa81cabea0f742, type: 2}
-    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
-    - {fileID: 7400000, guid: 82aaa36036bdcb246bdc018a9b15e3f0, type: 3}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - 0
-    - 3
-    - 5
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
   _transitions:
   - _FadeDuration: 0.46000004
     _Events:

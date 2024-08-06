@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ff3df4bab91fb4ba4120bb11f78129, type: 3}
   m_Name: FindEnemyToAttack
   m_EditorClassIdentifier: 
+  _distance: 20

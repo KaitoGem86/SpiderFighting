@@ -42,6 +42,10 @@ namespace Core.GamePlay.MyPlayer
         public void Swing(){
             _fsm.ChangeAction(FSMState.Swing);
         }
+
+        public virtual void Attack(){
+            _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.StartAttack);
+        }
     }
 
     public class ClipTransitionPlayerState : BasePlayerState<ClipTransition> { }
