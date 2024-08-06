@@ -36,6 +36,7 @@ namespace Core.GamePlay.MyPlayer{
 
         public override void Attack()
         {
+            if(!_canChangeToAttack) return;
             _fsm.ChangeAction(FSMState.Attack);
         }
 
