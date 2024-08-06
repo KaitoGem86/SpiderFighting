@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 3014555728300254076}
-  _transition:
-    _FadeDuration: 0.25
+  _transitions:
+  - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes: []
       _Callbacks: []
@@ -179,6 +179,7 @@ Transform:
   - {fileID: 8738691819227806531}
   - {fileID: 7256468068515757570}
   - {fileID: 4945183960761637718}
+  - {fileID: 7024975289402960969}
   m_Father: {fileID: 2032646152031061193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1871133555841143395
@@ -378,19 +379,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 3014555728300254076}
-  _transition:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 0}
-    _Speed: 1
-    _NormalizedStartTime: NaN
+  _transitions: []
   _stateType: 11
   _canChangeToItself: 0
-  _movementMode: 1
-  _speed: 0
+  _movementMode: 2
+  _speed: 3
+  _diveVelocityThreshold: 5
 --- !u!1 &3658722729763782344
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,11 +431,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 3014555728300254076}
-  _transition:
-    _FadeDuration: 0.25
+  _transitions:
+  - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 1
+      - 0.9894737
       _Callbacks:
       - m_PersistentCalls:
           m_Calls:
@@ -510,13 +504,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 3014555728300254076}
-  _transition:
-    _FadeDuration: 0.25
+  _transitions:
+  - _FadeDuration: 0.16000001
     _Events:
       _NormalizedTimes:
-      - 0.95
+      - 0.5
+      - 0.9545455
       - NaN
       _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 316422619145572285}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.LandState, Assembly-CSharp
+            m_MethodName: CanChangeToAction
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       - m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 316422619145572285}
@@ -532,25 +541,24 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       _Names: []
-    _Speed: 1
+    _Speed: NaN
     _Animations:
     - {fileID: 7400000, guid: 655cf98028bcea24d91e325ffc5da69a, type: 2}
     - {fileID: 7400000, guid: 6f26f8a11c6795847987d6c3d76d64d5, type: 3}
     - {fileID: 7400000, guid: 13001bbae5931034eabf552992cac52b, type: 2}
-    _Speeds:
-    - NaN
-    - NaN
-    - NaN
+    _Speeds: []
     _SynchronizeChildren: 
     _Thresholds:
     - 0
     - 1
     - 2
     _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
+    _ExtrapolateSpeed: 0
   _stateType: 8
   _canChangeToItself: 0
   _movementMode: 1
+  _speed: 3
+  _landingVelocityThreshold: 20
 --- !u!1 &3812938625370790156
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +634,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2786564477363336937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4488376278830859947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7024975289402960969}
+  - component: {fileID: 4119066610984837458}
+  m_Layer: 0
+  m_Name: DiveState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7024975289402960969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488376278830859947}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8581614525833004515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4119066610984837458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488376278830859947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ed1bdb8f35bde4f99a44a1c0eb1e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 4369872665408434342}
+  _animancer: {fileID: 3014555728300254076}
+  _transitions:
+  - _FadeDuration: 0.34666672
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: b72a4ace4acfa4444a89affd2c33d123, type: 2}
+    _Speed: 2
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: e1d0abb978a5de24191d123e3287dd3c, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  _stateType: 12
+  _canChangeToItself: 0
+  _movementMode: 2
+  _speed: 3
 --- !u!1 &4815822924509637307
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +1048,7 @@ MonoBehaviour:
   _maxAcceleration: 20
   _brakingDecelerationWalking: 20
   _groundFriction: 8
-  _maxFallSpeed: 40
+  _maxFallSpeed: 120
   _brakingDecelerationFalling: 0
   _fallingLateralFriction: 0.3
   _airControl: 0.3
@@ -1001,7 +1077,7 @@ MonoBehaviour:
   _jumpPreGroundedTime: 0.15
   _jumpPostGroundedTime: 0.15
   _gravity: {x: 0, y: -9.81, z: 0}
-  _gravityScale: 1
+  _gravityScale: 2
   _useRootMotion: 0
   _impartPlatformMovement: 0
   _impartPlatformRotation: 0
@@ -1060,11 +1136,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 3014555728300254076}
-  _transition:
-    _FadeDuration: 0.25
+  _transitions:
+  - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.95
+      - 0.9
       - NaN
       _Callbacks:
       - m_PersistentCalls:
@@ -1135,8 +1211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 3014555728300254076}
-  _transition:
-    _FadeDuration: 0.25
+  _transitions:
+  - _FadeDuration: 0.1575
     _Events:
       _NormalizedTimes: []
       _Callbacks: []
@@ -1153,7 +1229,7 @@ MonoBehaviour:
     - 7
     - 20
     _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
+    _ExtrapolateSpeed: 0
   _stateType: 2
   _canChangeToItself: 0
   _movementMode: 1
@@ -1456,8 +1532,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 3014555728300254076}
-  _transition:
-    _FadeDuration: 0.25
+  _transitions:
+  - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes: []
       _Callbacks: []

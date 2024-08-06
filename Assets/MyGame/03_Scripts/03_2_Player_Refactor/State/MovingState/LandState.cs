@@ -42,6 +42,11 @@ namespace Core.GamePlay.MyPlayer
             }
         }
 
+        public void CanChangeToAction()
+        {
+            _isCanChangeAction = true;
+        }
+
         public void CompleteLand()
         {
             _fsm.ChangeAction(FSMState.Idle);

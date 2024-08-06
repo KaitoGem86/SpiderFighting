@@ -6,9 +6,12 @@ namespace Extensions.SystemGame.AIFSM
     {
         [SerializeField] protected FSM<T2> _fsm;
         [SerializeField] protected AnimancerComponent _animancer;
-        [SerializeField] protected T1 _transition;
+        protected T1 _transition;
+        [SerializeField] protected T1[] _transitions;
         [SerializeField] protected FSMState _stateType;
         [SerializeField] protected bool _canChangeToItself = false;
+
+        protected int _currentTransitionIndex;
 
         protected virtual void Awake()
         {
@@ -18,6 +21,8 @@ namespace Extensions.SystemGame.AIFSM
         public virtual void EnterState()
         {
             this.gameObject.SetActive(true);
+            _currentTransitionIndex = GetIndexTransition();
+            _transition = _transitions[_currentTransitionIndex];
             var state = _animancer.Play(_transition );
             state.Time = 0;
         }
@@ -35,6 +40,10 @@ namespace Extensions.SystemGame.AIFSM
         public bool CanChangeToItself
         {
             get { return _canChangeToItself; }
+        }
+
+        protected virtual int GetIndexTransition(){
+            return Random.Range(0, _transitions.Length);
         }
     }
 }
