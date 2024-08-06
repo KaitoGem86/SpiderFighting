@@ -19,7 +19,6 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.Landing);
                 return;
             }
-            Debug.Log(_fsm.blackBoard.GetVelocity.magnitude);
             if (_fsm.blackBoard.GetVelocity.magnitude > _diveVelocityThreshold)
             {
                 _fsm.ChangeAction(FSMState.Dive);
