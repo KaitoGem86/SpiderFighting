@@ -1,0 +1,40 @@
+newmtl Model001_Material001
+map_Kd Gwenface 3.png
+map_bump Gwenface N.png
+
+newmtl Model001_Material002
+map_Kd Teeth.png
+map_bump Untitled.00yjfgd1.png
+
+newmtl Model001_Material003
+map_Kd Suit D.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material004
+map_Kd Suit_DiffuseColorMap.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material005
+map_Kd Metal_D.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material006
+map_Kd Gwen_Eye_D.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material007
+map_Kd Shoes_D.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material008
+map_Kd gwen brow 3.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material009
+map_Kd Gwen_lashes.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material010
+map_Kd R9Hair291.png
+map_bump Normal_Map.png
+

@@ -1,0 +1,148 @@
+newmtl Model001_Material001
+map_Kd Gwenface 3.png
+map_bump Gwenface N.png
+
+newmtl Model001_Material002
+map_Kd Teeth.png
+map_bump Untitled.00yjfgd1.png
+
+newmtl Model001_Material003
+map_Kd Suit D.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material004
+map_Kd Suit_DiffuseColorMap.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material005
+map_Kd Gwen arms 3.png
+map_bump Arms_N.png
+
+newmtl Model001_Material006
+map_Kd Gwen arms 3.png
+map_bump Arms_N.png
+
+newmtl Model001_Material007
+map_Kd Gwen body.png
+map_bump body n.png
+
+newmtl Model001_Material008
+map_Kd Gwen legs 4.png
+map_bump legs n 1.png
+
+newmtl Model001_Material009
+map_Kd Gwen arms 3.png
+map_bump Arms_N.png
+
+newmtl Model001_Material010
+map_Kd Gwen legs 4.png
+map_bump legs n 1.png
+
+newmtl Model001_Material011
+map_Kd Gwen body.png
+map_bump body n.png
+
+newmtl Model001_Material012
+map_Kd Gwen legs 4.png
+map_bump legs n 1.png
+
+newmtl Model001_Material013
+map_Kd Gwen body.png
+map_bump body n.png
+
+newmtl Model001_Material014
+map_Kd Gwen arms 3.png
+map_bump Arms_N.png
+
+newmtl Model001_Material015
+map_Kd Gwen body.png
+map_bump body n.png
+
+newmtl Model001_Material016
+map_Kd Gwen body.png
+map_bump body n.png
+
+newmtl Model001_Material017
+map_Kd panties_d.png
+map_bump panties_n.png
+
+newmtl Model001_Material018
+map_Kd Suit D.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material019
+map_Kd Suit_DiffuseColorMap.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material020
+map_Kd Suit D.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material021
+map_Kd Suit D.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material022
+map_Kd Suit D.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material023
+map_Kd Suit D.png
+map_bump Suit_NormalMap.png
+
+newmtl Model001_Material024
+map_Kd Uniform 2.png
+map_bump Uniform N.png
+
+newmtl Model001_Material025
+map_Kd Uniform 2.png
+map_bump Uniform 2 N.png
+
+newmtl Model001_Material026
+map_Kd Uniform.png
+map_bump Uniform N.png
+
+newmtl Model001_Material027
+map_Kd Uniform.png
+map_bump Uniform N.png
+
+newmtl Model001_Material028
+map_Kd bra_d.png
+map_bump bra_n.png
+
+newmtl Model001_Material029
+map_Kd Metal_D.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material030
+map_Kd Gwen_Eye_D.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material031
+map_Kd Shoes_D.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material032
+map_Kd Metal_D.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material033
+map_Kd gwen brow 3.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material034
+map_Kd Gwen_lashes.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material035
+map_Kd R9Hair291.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material036
+map_Kd R9Hair291.png
+map_bump Normal_Map.png
+
+newmtl Model001_Material037
+map_Kd R9Hair291.png
+map_bump Normal_Map.png
+
