@@ -11,6 +11,7 @@ namespace Core.GamePlay.Support{
         [SerializeField] private Color _endColor = Color.white;
         
         private LineRenderer _lineRenderer;
+        private SilkController _silkController;
         private Transform _origin;
         private bool _isInit = false;
 
@@ -19,6 +20,7 @@ namespace Core.GamePlay.Support{
             if (_isInit) return;
             _isInit = true;
             _lineRenderer = Instantiate(_shootSilkPrefab).GetComponent<LineRenderer>();
+            _silkController = _lineRenderer.gameObject.GetComponent<SilkController>();
             _lineRenderer.startWidth = _startWidth;
             _lineRenderer.endWidth = _endWidth;
             _lineRenderer.startColor = _startColor;
@@ -29,8 +31,7 @@ namespace Core.GamePlay.Support{
 
         public Tween ShootSilkToTarget(Vector3 startPos, Vector3 endPos, float duration)
         {
-            _lineRenderer.SetPosition(0, startPos);
-            _lineRenderer.SetPosition(1, startPos);
+            _silkController.UpdateSilk(_origin, endPos);
 
             return DOTween.To(() => startPos, x => _lineRenderer.SetPosition(1, x), endPos, duration);
         }
@@ -39,6 +40,10 @@ namespace Core.GamePlay.Support{
         {
             _origin = origin;
             return ShootSilkToTarget(_origin.position, endPos, duration);
+        }
+
+        public void UnUseSilk(){
+            _silkController.UnUseSilk();
         }
     }
 }
