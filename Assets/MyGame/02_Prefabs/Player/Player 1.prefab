@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 912367310724788939}
   - component: {fileID: 903554854483018514}
   - component: {fileID: 2264582453556230962}
+  - component: {fileID: 114454267557637551}
   m_Layer: 0
   m_Name: StartAttackState
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.058333337
     _Events:
@@ -313,6 +314,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &114454267557637551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600686454186896605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: d0d847a7716b70540a2037d173c8521d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 903554854483018514}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransitionSequence,
+          Animancer
+        m_MethodName: Dodge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &693987737528677758
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +354,7 @@ GameObject:
   - component: {fileID: 202946126366314748}
   - component: {fileID: 4570649316912923520}
   - component: {fileID: 8850815833840062881}
+  - component: {fileID: 6186694813386613911}
   m_Layer: 0
   m_Name: StopMovingState
   m_TagString: Untagged
@@ -359,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -394,6 +425,35 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
           Animancer
         m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6186694813386613911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693987737528677758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: d0d847a7716b70540a2037d173c8521d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4570649316912923520}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: Dodge
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -528,6 +588,7 @@ Transform:
   - {fileID: 912367310724788939}
   - {fileID: 4817271069625195291}
   - {fileID: 3362605415226546046}
+  - {fileID: 5879227092252199102}
   m_Father: {fileID: 2032646152031061193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1871133555841143395
@@ -607,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -876,7 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions: []
   _stateType: 11
   _canChangeToItself: 0
@@ -987,7 +1048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -1060,7 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.16000001
     _Events:
@@ -1238,7 +1299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.34666672
     _Events:
@@ -1320,6 +1381,95 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4614336704454022899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5879227092252199102}
+  - component: {fileID: 1792431748906910219}
+  m_Layer: 0
+  m_Name: DodgeState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5879227092252199102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614336704454022899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8581614525833004515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792431748906910219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614336704454022899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef62b1c00a48d84a8b611cdc8f1c6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 4369872665408434342}
+  _animancer: {fileID: 872527583909876332}
+  _transitions:
+  - _FadeDuration: 0
+    _Events:
+      _NormalizedTimes:
+      - 0.95967746
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1792431748906910219}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.DodgeState, Assembly-CSharp
+            m_MethodName: CompleteDodge
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: d775e8eda0087764ebb63cc18e895f41, type: 2}
+    - {fileID: 7400000, guid: d775e8eda0087764ebb63cc18e895f41, type: 2}
+    - {fileID: 7400000, guid: 779843b9e19305f478df10e72e206703, type: 2}
+    - {fileID: 7400000, guid: 779843b9e19305f478df10e72e206703, type: 2}
+    - {fileID: 7400000, guid: d775e8eda0087764ebb63cc18e895f41, type: 2}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - -180
+    - -90
+    - 0
+    - 90
+    - 180
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 0
+  _stateType: 17
+  _canChangeToItself: 0
+  _movementMode: 1
+  _speed: 0
 --- !u!1 &4815822924509637307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1659,7 @@ GameObject:
   - component: {fileID: 2918740459164932081}
   - component: {fileID: 4369872665408434342}
   - component: {fileID: 8917293616794470225}
+  - component: {fileID: 872527583909876332}
   m_Layer: 6
   m_Name: Player 1
   m_TagString: Player
@@ -1745,6 +1896,20 @@ MonoBehaviour:
   _standingDownwardForceScale: 1
   _camera: {fileID: 0}
   _playerController: {fileID: 4369872665408434342}
+--- !u!114 &872527583909876332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482327496165697713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 3589925273918481459}
+  _ActionOnDisable: 0
 --- !u!1 &6139145611532588738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -1861,6 +2026,7 @@ GameObject:
   - component: {fileID: 6627729145601162421}
   - component: {fileID: 8177936166930561195}
   - component: {fileID: 7973069686424263221}
+  - component: {fileID: 1242360013278179680}
   m_Layer: 0
   m_Name: MoveState
   m_TagString: Untagged
@@ -1896,7 +2062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.1575
     _Events:
@@ -1949,6 +2115,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1242360013278179680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496610246800478664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: d0d847a7716b70540a2037d173c8521d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8177936166930561195}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
+          Animancer
+        m_MethodName: Dodge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6658364924344111009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,6 +2155,7 @@ GameObject:
   - component: {fileID: 4817271069625195291}
   - component: {fileID: 3268278830347701962}
   - component: {fileID: 2635288075608208704}
+  - component: {fileID: 4751271388069163281}
   m_Layer: 0
   m_Name: AttackState
   m_TagString: Untagged
@@ -1995,7 +2191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.10333335
     _Events:
@@ -2156,6 +2352,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4751271388069163281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658364924344111009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: d0d847a7716b70540a2037d173c8521d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3268278830347701962}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
+          Animancer
+        m_MethodName: Dodge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7136247102644778278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -2620,7 +2845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -2762,6 +2987,7 @@ GameObject:
   - component: {fileID: 4160172536826106096}
   - component: {fileID: 2793011893209144442}
   - component: {fileID: 5853242502535691822}
+  - component: {fileID: 2706454908064592625}
   m_Layer: 0
   m_Name: IdleState
   m_TagString: Untagged
@@ -2797,7 +3023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
-  _animancer: {fileID: 3014555728300254076}
+  _animancer: {fileID: 872527583909876332}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -2830,6 +3056,35 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
           Animancer
         m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2706454908064592625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414098350887397751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: d0d847a7716b70540a2037d173c8521d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2793011893209144442}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: Dodge
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2938,9 +3193,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4634127451460540814, guid: e8e3a6d534147474e8f9318bc053e7c1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3014555728300254076}
-    - targetCorrespondingSourceObject: {fileID: 4634127451460540814, guid: e8e3a6d534147474e8f9318bc053e7c1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 483206850379181146}
     - targetCorrespondingSourceObject: {fileID: 4634127451460540814, guid: e8e3a6d534147474e8f9318bc053e7c1, type: 3}
       insertIndex: -1
@@ -2961,20 +3213,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4634127451460540814, guid: e8e3a6d534147474e8f9318bc053e7c1, type: 3}
   m_PrefabInstance: {fileID: 201054807630911227}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3014555728300254076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4793501351542296437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Animator: {fileID: 3589925273918481459}
-  _ActionOnDisable: 0
 --- !u!114 &483206850379181146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2999,7 +3237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0958f32c4ad7c4bb80ae94f402f7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animancer: {fileID: 3014555728300254076}
+  animancer: {fileID: 0}
   PlayerDisplay: {fileID: 5074747585852536943}
   leftHand: {fileID: 5112460397329815422}
   rightHand: {fileID: 2223850658745533267}

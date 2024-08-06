@@ -46,6 +46,10 @@ namespace Core.GamePlay.MyPlayer
         public virtual void Attack(){
             _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.StartAttack);
         }
+
+        public virtual void Dodge(){
+            _fsm.ChangeAction(FSMState.Dodge);
+        }
     }
 
     public class ClipTransitionPlayerState : BasePlayerState<ClipTransition> { }

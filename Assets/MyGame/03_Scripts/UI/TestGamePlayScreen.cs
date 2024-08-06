@@ -10,15 +10,13 @@ namespace Core.UI{
         public DefaultEvent onZip;
         public BoolEvent onSwing;
         public DefaultEvent onChangeSkin;
+        public DefaultEvent onDodge;
         public PlayerController playerController;
         public Core.GamePlay.MyPlayer.PlayerController player;
         public DefaultEvent onAttack;
         private bool _isSwing = false;
         
         public void Update(){
-            if(Input.GetKeyDown(KeyCode.C)){
-                OnClickJump();
-            }
             if(Input.GetKeyDown(KeyCode.Z)){
                 OnClickZip();
             }
@@ -34,6 +32,9 @@ namespace Core.UI{
             if(Input.GetMouseButtonDown(1)){
                 OnClickAttack();    
             }
+            if(Input.GetKeyDown(KeyCode.LeftShift)){
+                OnCLickDodge();
+            }
         }
 
 
@@ -45,6 +46,10 @@ namespace Core.UI{
 
         public void OnClickChangeSkin(){
             onChangeSkin?.Raise();
+        }
+
+        public void OnCLickDodge(){
+            onDodge?.Raise();
         }
 
         public void OnClickZip(){
