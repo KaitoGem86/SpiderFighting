@@ -11,6 +11,7 @@ namespace Core.UI{
         public BoolEvent onSwing;
         public DefaultEvent onChangeSkin;
         public DefaultEvent onDodge;
+        public DefaultEvent onUltilmateAttack;
         public PlayerController playerController;
         public Core.GamePlay.MyPlayer.PlayerController player;
         public DefaultEvent onAttack;
@@ -35,6 +36,9 @@ namespace Core.UI{
             if(Input.GetKeyDown(KeyCode.LeftShift)){
                 OnCLickDodge();
             }
+            if(Input.GetKeyDown(KeyCode.Q)){
+                OnClickUltilmateAttack();
+            }
         }
 
 
@@ -50,6 +54,10 @@ namespace Core.UI{
 
         public void OnCLickDodge(){
             onDodge?.Raise();
+        }
+
+        public void OnClickUltilmateAttack(){
+            onUltilmateAttack?.Raise();
         }
 
         public void OnClickZip(){

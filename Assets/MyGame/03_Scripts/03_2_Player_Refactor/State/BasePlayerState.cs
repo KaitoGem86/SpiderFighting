@@ -50,6 +50,10 @@ namespace Core.GamePlay.MyPlayer
         public virtual void Dodge(){
             _fsm.ChangeAction(FSMState.Dodge);
         }
+
+        public virtual void UltimateAttackState(){
+            _fsm.ChangeAction(FSMState.UltimateAttack);
+        }
     }
 
     public class ClipTransitionPlayerState : BasePlayerState<ClipTransition> { }
