@@ -11,5 +11,13 @@ namespace Core.GamePlay.MyPlayer{
         public Transform PlayerDisplay;
         public Character Character;
         public Vector3 RuntimeSurfaceNormal;
+        public Vector3 GetVelocity{
+            get {
+                if(Character.GetMovementMode() == MovementMode.None)
+                    return Character.GetCharacterMovement().rigidbody.velocity;
+                else 
+                    return Character.GetVelocity();
+            }
+        }
     }
 }
