@@ -10,19 +10,22 @@ namespace Core.GamePlay.MyPlayer{
         [SerializeField] private float _mediumRange;
         [SerializeField] private float _longRange;
         private IHitted _enemy;
+        private bool _canChangeToAttack;
+
         
         public override void EnterState()
         {
             _enemy = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform);
             if (_enemy == null){
-                _fsm.ChangeAction(FSMState.Idle);
+                _fsm.ChangeAction(FSMState.Attack);
                 return;
             }
             base.EnterState();
+            _canChangeToAttack = false;
         }
 
         public void ApplyDamage(){
-            _enemy.HittedByPlayer();
+            _enemy?.HittedByPlayer();
         }
 
         public void GoToEnemy(float time){
@@ -34,6 +37,10 @@ namespace Core.GamePlay.MyPlayer{
         public override void Attack()
         {
             _fsm.ChangeAction(FSMState.Attack);
+        }
+
+        public void CanChangeToAttack(){
+            _canChangeToAttack = true;
         }
 
         public void CompleteAttack(){
