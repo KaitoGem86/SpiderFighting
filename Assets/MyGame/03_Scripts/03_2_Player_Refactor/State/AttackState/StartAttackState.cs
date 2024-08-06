@@ -28,7 +28,7 @@ namespace Core.GamePlay.MyPlayer{
         public void GoToEnemy(float time){
             _fsm.transform.DOMove(_enemy.TargetEnemy.position + (_fsm.transform.position - _enemy.TargetEnemy.transform.position).normalized * 1f, time);
             var forward = _enemy.TargetEnemy.position - _fsm.transform.position; forward.y = 0;
-            _fsm.blackBoard.PlayerDisplay.DORotateQuaternion(Quaternion.LookRotation(forward), time);
+            _fsm.blackBoard.PlayerDisplay.DORotateQuaternion(Quaternion.LookRotation(forward), 0.05f);
         }
 
         public override void Attack()

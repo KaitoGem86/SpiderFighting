@@ -24,6 +24,7 @@ namespace Extensions.SystemGame.AIFSM{
         Swing,
         JumpFromSwing,
         StartAttack,
+        LastAttack,
     }
 
     public class FSM<T> : MonoBehaviour where T : BlackBoard{
