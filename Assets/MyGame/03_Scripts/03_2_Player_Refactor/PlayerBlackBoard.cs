@@ -1,3 +1,4 @@
+using Core.GamePlay.Player;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
@@ -19,5 +20,8 @@ namespace Core.GamePlay.MyPlayer{
                     return Character.GetVelocity();
             }
         }
+        public Transform HoldPivot;
+        public Rigidbody SwingPivot;
+        public PlayerModel PlayerModel;
     }
 }

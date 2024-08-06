@@ -11,6 +11,7 @@ namespace Core.UI{
         public BoolEvent onSwing;
         public DefaultEvent onChangeSkin;
         public PlayerController playerController;
+        public Core.GamePlay.MyPlayer.PlayerController player;
         public DefaultEvent onAttack;
         private bool _isSwing = false;
         
@@ -51,7 +52,7 @@ namespace Core.UI{
         }
 
         public void OnClickSwing(bool Value){
-            if(playerController.IsOnGround()){
+            if(player.blackBoard.Character.IsOnGround()){
                 OnClickJump();
                 return;
             }

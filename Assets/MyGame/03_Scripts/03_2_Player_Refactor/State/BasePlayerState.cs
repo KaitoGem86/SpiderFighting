@@ -37,6 +37,10 @@ namespace Core.GamePlay.MyPlayer
 
         public virtual void OnCollided(ref CollisionResult collisionResult) { }
         public virtual void OnCollisionEnter(Collision collision) { }
+ 
+        public void Swing(){
+            _fsm.ChangeAction(FSMState.Swing);
+        }
     }
 
     public class ClipTransitionPlayerState : BasePlayerState<ClipTransition> { }

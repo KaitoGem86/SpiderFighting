@@ -21,6 +21,8 @@ namespace Extensions.SystemGame.AIFSM{
         Climbing,
         FallingDown,
         Dive,
+        Swing,
+        JumpFromSwing,
     }
 
     public class FSM<T> : MonoBehaviour where T : BlackBoard{

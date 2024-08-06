@@ -12,7 +12,7 @@ namespace Core.GamePlay.MyPlayer
             GetInput();
         }
 
-        public void LateUpdate()
+        public virtual void LateUpdate()
         {
             Move();
             Rotate();
@@ -51,16 +51,16 @@ namespace Core.GamePlay.MyPlayer
             }
             else
             {
-                RaycastHit hit;
-                if (Physics.Raycast(_fsm.blackBoard.Character.transform.position, -surfaceNormal, out hit, 100))
-                {
-                    if (hit.distance < 0.8f)
-                    {
-                        _surfaceNormal = hit.normal;
-                        _fsm.blackBoard.RuntimeSurfaceNormal = _surfaceNormal;
-                        _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Climbing);
-                    }
-                }
+                // RaycastHit hit;
+                // if (Physics.Raycast(_fsm.blackBoard.Character.transform.position, -surfaceNormal, out hit, 100))
+                // {
+                //     if (hit.distance < 0.8f)
+                //     {
+                //         _surfaceNormal = hit.normal;
+                //         _fsm.blackBoard.RuntimeSurfaceNormal = _surfaceNormal;
+                //         _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Climbing);
+                //     }
+                // }
             }
         }
 
@@ -75,16 +75,16 @@ namespace Core.GamePlay.MyPlayer
             }
             else
             {
-                RaycastHit hit;
-                if (Physics.Raycast(_fsm.blackBoard.Character.transform.position, -surfaceNormal, out hit, 100))
-                {
-                    if (hit.distance < 0.8f)
-                    {
-                        _surfaceNormal = hit.normal;
-                        _fsm.blackBoard.RuntimeSurfaceNormal = _surfaceNormal;
-                        _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Climbing);
-                    }
-                }
+                // RaycastHit hit;
+                // if (Physics.Raycast(_fsm.blackBoard.Character.transform.position, -surfaceNormal, out hit, 100))
+                // {
+                //     if (hit.distance < 0.8f)
+                //     {
+                //         _surfaceNormal = hit.normal;
+                //         _fsm.blackBoard.RuntimeSurfaceNormal = _surfaceNormal;
+                //         _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Climbing);
+                //     }
+                // }
             }
         }
     }
