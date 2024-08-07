@@ -9,7 +9,7 @@ namespace Core.UI{
     {
         public DefaultEvent onZip;
         public BoolEvent onSwing;
-        public DefaultEvent onChangeSkin;
+        public IntEvent onChangeSkin;
         public DefaultEvent onDodge;
         public DefaultEvent onUltilmateAttack;
         public PlayerController playerController;
@@ -49,7 +49,7 @@ namespace Core.UI{
         }
 
         public void OnClickChangeSkin(){
-            onChangeSkin?.Raise();
+            onChangeSkin?.Raise(3);
         }
 
         public void OnCLickDodge(){

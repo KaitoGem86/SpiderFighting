@@ -6,6 +6,7 @@ namespace Core.GamePlay.Player
     public class PlayerModel : MonoBehaviour
     {
         public AnimancerComponent animancer;
+        public Animator animator;
         public Transform PlayerDisplay;
         public Transform leftHand;
         public Transform rightHand;
@@ -15,6 +16,7 @@ namespace Core.GamePlay.Player
         [ContextMenu("Init Player Models")]
         public void InitPlayerModels()
         {
+            animator = GetComponent<Animator>();
             PlayerDisplay = transform;
             leftHand = FindChildWithNameContaining(PlayerDisplay, "hand_l");
             rightHand = FindChildWithNameContaining(PlayerDisplay, "hand_r");

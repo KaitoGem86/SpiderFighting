@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using Animancer;
 using Core.GamePlay.Player;
 using Core.GamePlay.Support;
 using EasyCharacterMovement;
@@ -8,6 +9,12 @@ using UnityEngine;
 namespace Core.GamePlay.MyPlayer{
     public class PlayerBlackBoard : BlackBoard{
         public IPlayerState CurrentState;
+
+        [Header("Skin")]
+        public PlayerModel[] PlayerModels;
+        public PlayerModel CurrentPlayerModel;
+        public AnimancerComponent Animancer;
+        public AnimancerState CurrentAnimancerState;
         
         [Header("Movement")]
         public Transform CameraTransform;

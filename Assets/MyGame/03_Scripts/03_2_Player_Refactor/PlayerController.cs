@@ -2,12 +2,15 @@ using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
-namespace Core.GamePlay.MyPlayer{
-    public class PlayerController : FSM<PlayerBlackBoard>{
+namespace Core.GamePlay.MyPlayer
+{
+    public class PlayerController : FSM<PlayerBlackBoard>
+    {
 
         protected override void Awake()
         {
             base.Awake();
+            OnChangePlayerModel(0);
             currentStateType = FSMState.None;
         }
 
@@ -17,16 +20,26 @@ namespace Core.GamePlay.MyPlayer{
             blackBoard.CurrentState = _currentState as IPlayerState;
         }
 
-        public void OnCollided(ref CollisionResult collisionResult){
+        public void OnCollided(ref CollisionResult collisionResult)
+        {
             blackBoard.CurrentState?.OnCollided(ref collisionResult);
         }
 
-        public void OnCollisionEnter(Collision collision){
+        public void OnCollisionEnter(Collision collision)
+        {
             blackBoard.CurrentState.OnCollisionEnter(collision);
         }
 
-        public void OnTriggerEnter(Collider other){
-            //blackBoard.CurrentState.OnTriggerEnter(other);
+        public void OnChangePlayerModel(int index)
+        {
+            var playerModel = blackBoard.CurrentPlayerModel;
+            playerModel?.gameObject.SetActive(false);
+            playerModel = blackBoard.PlayerModels[index];
+            playerModel.gameObject.SetActive(true);
+            blackBoard.CurrentPlayerModel = playerModel;
+            blackBoard.Animancer.Animator = playerModel.animator;
+            if (blackBoard.CurrentAnimancerState != null)
+                blackBoard.Animancer.Play(blackBoard.CurrentAnimancerState);
         }
     }
 }
