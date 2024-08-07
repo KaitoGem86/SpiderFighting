@@ -244,7 +244,7 @@ TextureImporter:
         width: 180
         height: 180
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,6 +252,69 @@ TextureImporter:
       bones: []
       spriteID: 49d386508ce56c847b524fad05b251f9
       internalID: 1060060863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_7
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 190
+        width: 151
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f255076cfe87d4ebda302e14daf7b4
+      internalID: -94242720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_8
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 7
+        width: 158
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8c5f244d0ee9742b9822e0200dea01
+      internalID: -1217127628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_9
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 141
+        width: 171
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ec1879ba6acba4fb17d0dd4638e860
+      internalID: 1891615560
       vertices: []
       indices: 
       edges: []
@@ -274,6 +337,9 @@ TextureImporter:
       icons_4: -1067313945
       icons_5: 1839476649
       icons_6: 1060060863
+      icons_7: -94242720
+      icons_8: -1217127628
+      icons_9: 1891615560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

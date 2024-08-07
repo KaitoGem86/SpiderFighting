@@ -15,8 +15,10 @@ namespace Core.SystemGame.Factory
 
         public virtual void Init(int poolId, Transform activeParent = null)
         {
-            if (_isInit)
+            if (_isInit){
+                if(_activeParent != null && activeParent != null)
                 return;
+            }
             _isInit = true;
             _poolId = poolId;
             _activeParent = activeParent;

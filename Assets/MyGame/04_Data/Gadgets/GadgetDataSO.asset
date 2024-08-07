@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14407fbcb3a9458409c42b97b311a1a5, type: 3}
+  m_Name: GadgetDataSO
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 2488041822340301321, guid: ec5178f5f4697b3459d39d4ffe505824, type: 3}
+  gadgets:
+  - icon: {fileID: 1891615560, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+    id: 0
+    name: Web Shooter
+  - icon: {fileID: -1217127628, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+    id: 1
+    name: Concussive Blast
+  - icon: {fileID: -94242720, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+    id: 2
+    name: Healing Bot
+  - icon: {fileID: 1891615560, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+    id: 0
+    name: Web Shooter
+  - icon: {fileID: -1217127628, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+    id: 1
+    name: Concussive Blast
+  - icon: {fileID: -94242720, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+    id: 2
+    name: Healing Bot

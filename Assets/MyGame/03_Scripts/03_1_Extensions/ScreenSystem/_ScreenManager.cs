@@ -24,6 +24,7 @@ namespace MyTools.ScreenSystem
         [SerializeField] private Transform _screenCanvas;
         [SerializeField] private SerializedDictionary<_ScreenTypeEnum, _BaseScreen> _screenDict = new SerializedDictionary<_ScreenTypeEnum, _BaseScreen>();
         private _ScreenTypeEnum _currentScreenType = _ScreenTypeEnum.None;
+        public Transform ScreenCanvas => _screenCanvas;
 
 #if UNITY_EDITOR
         [ContextMenu("LoadPopupPrefabs")]

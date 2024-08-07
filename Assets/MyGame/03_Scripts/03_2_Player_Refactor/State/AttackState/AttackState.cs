@@ -12,7 +12,6 @@ namespace Core.GamePlay.MyPlayer
         private int _currentHitInCombo = 0;
         private IHitted _enemy;
 
-
         protected override void Awake()
         {
 
