@@ -8,6 +8,7 @@ namespace Core.GamePlay.MyPlayer{
         [SerializeField] Image _icon;
         [SerializeField] TMP_Text _name;
         [SerializeField] IntEvent _onGadgetSelected;
+        public RectTransform controlRect; 
 
         private GadgetData _data;
 
@@ -21,5 +22,7 @@ namespace Core.GamePlay.MyPlayer{
             Debug.Log("GadgetElement.OnClick " + _data.name + " " + _data.id);
             _onGadgetSelected?.Raise(_data.id);
         }
+
+        public TMP_Text Name => _name;
     }
 }

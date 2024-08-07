@@ -6,12 +6,15 @@ using TMPro;
 using UnityEngine.EventSystems;
 using System;
 using MyTools.ScreenSystem;
+using Core.GamePlay.MyPlayer;
 
-public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginDragHandler, IPointerExitHandler, IPointerEnterHandler {
+public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginDragHandler, IPointerExitHandler, IPointerEnterHandler
+{
     [Header("Test variables")]
     public bool initTest; //Test initialization
     public bool isInfinite; //Is infinite scrolling (Required initialization)
     public string[] testData; //Test data
+    public GadgetDataSO _gadgetDataSO;
 
     [Header("Text prefab")]
     public GameObject templateValues;
@@ -38,7 +41,7 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
     public float padding = 0; //Spacing from upper and lower borders
     [Range(0, 1)]
     public float colorPad = 0.115f; //Padding of text color
-    public Vector3 maxFontSize = new Vector3(1.2f, 1.2f, 1.2f); //Maximun font size
+    public Vector3 maxFontSize; //Maximun font size
 
     public bool isElastic = true; //Is elastic movement
     public float maxElastic = 50; //Maximun elasity distance
@@ -71,8 +74,12 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
 
     float _padScroll;
 
-    public float MouseScroll {
-        get {
+    private List<GadgetElement> _elements = new List<GadgetElement>();
+
+    public float MouseScroll
+    {
+        get
+        {
             float mouseScroll = Input.mouseScrollDelta.y;
 
             if (mouseScroll != 0)
@@ -83,20 +90,24 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
     }
 
     //Get TrackPad Scroll
-    void OnGUI() {
+    void OnGUI()
+    {
         if (Event.current.type == EventType.ScrollWheel)
             _padScroll = (-Event.current.delta.y / 10) * touchpadSensibility;
         else
             _padScroll = 0;
     }
 
-    
-    private void Awake(){
+
+    private void Awake()
+    {
         camera = Camera.main;
-//        targetCanvas = _ScreenManager.Instance.ScreenCanvas.GetComponent<RectTransform>();
+        _gadgetDataSO.Init(123, contentTarget);
+        targetCanvas = _ScreenManager.Instance.ScreenCanvas.GetComponent<RectTransform>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         heightText = heightTemplate / 2;
         middle = GetComponent<RectTransform>().sizeDelta.y / 2;
         contentSize.topPad = middle - heightText;
@@ -110,72 +121,117 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
     /// <param name="dataToInit"> List of texts to show </param>
     /// <param name="isInfinite"> Is scroll will be infinite </param>
     /// <param name="firstTarget"> Which text in list will be first </param>
-    public void Initialize(List<string> dataToInit, bool isInfinite = false, int firstTarget = 0) {
-        countTotal = dataToInit.Count;
-        for (int i = 0; i < contentTarget.childCount; i++) {
-            Destroy(contentTarget.GetChild(i).gameObject);
+    public void Initialize(List<string> dataToInit, bool isInfinite = false, int firstTarget = 0)
+    {
+        //countTotal = dataToInit.Count;
+        countTotal = _gadgetDataSO.gadgets.Count;
+        // for (int i = 0; i < contentTarget.childCount; i++) {
+        //     Destroy(contentTarget.GetChild(i).gameObject);
+        // }
+
+        for (int i = 0; i < _elements.Count; i++)
+        {
+            _gadgetDataSO.DespawnObject(_elements[i].gameObject);
         }
+        _elements.Clear();
 
         this.isInfinite = isInfinite;
 
-        if (isInfinite) {
+        if (isInfinite)
+        {
             int half = (int)(countCheck / 2) + 1;
 
-            if (dataToInit.Count > half) {
+            if (_gadgetDataSO.gadgets.Count > half)
+            {
                 padCount = half;
-                for (int i = dataToInit.Count - half; i < dataToInit.Count; i++) {
-                    var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-                    textComponent.text = dataToInit[i];
-                    textComponent.transform.parent.name = i + "";
-                    textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
-                        new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                for (int i = _gadgetDataSO.gadgets.Count - half; i < _gadgetDataSO.gadgets.Count; i++)
+                {
+                    // var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+                    // textComponent.text = dataToInit[i];
+                    // textComponent.transform.parent.name = i + "";
+                    // textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
+                    //     new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                    var element = _gadgetDataSO.Spawn(_gadgetDataSO.gadgets[i]).GetComponent<GadgetElement>();
+                    element.controlRect.name = i + "";
+                    element.controlRect.sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                    _elements.Add(element);
                 }
-            } else {
-                padCount = dataToInit.Count;
-                for (int j = 0; j < Mathf.CeilToInt((float)half / (float)dataToInit.Count); j++) {
+            }
+            else
+            {
+                padCount = _gadgetDataSO.gadgets.Count;
+                for (int j = 0; j < Mathf.CeilToInt((float)half / (float)_gadgetDataSO.gadgets.Count); j++)
+                {
 
-                    for (int i = 0; i < dataToInit.Count; i++) {
-                        var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-                        textComponent.text = dataToInit[i];
-                        textComponent.transform.parent.name = i + "";
-                        textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
-                            new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                    for (int i = 0; i < _gadgetDataSO.gadgets.Count; i++)
+                    {
+                        // var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+                        // textComponent.text = dataToInit[i];
+                        // textComponent.transform.parent.name = i + "";
+                        // textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
+                        //     new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                        var element = _gadgetDataSO.Spawn(_gadgetDataSO.gadgets[i]).GetComponent<GadgetElement>();
+                        element.controlRect.name = i + "";
+                        element.controlRect.sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                        _elements.Add(element);
                     }
                 }
             }
             isElastic = false;
             contentTarget.anchoredPosition = new Vector2(0, (firstTarget + padCount) * (heightText * 2));
-        } else {
+        }
+        else
+        {
             padCount = (int)(countCheck / 2) + 1;
             contentTarget.anchoredPosition = new Vector2(0, firstTarget * (heightText * 2));
         }
 
-        for (int i = 0; i < dataToInit.Count; i++) {
-            var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-            textComponent.text = dataToInit[i];
-            textComponent.transform.parent.name = i + "";
-            textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
-                new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+        for (int i = 0; i < _gadgetDataSO.gadgets.Count; i++)
+        {
+            // var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+            // textComponent.text = dataToInit[i];
+            // textComponent.transform.parent.name = i + "";
+            // textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
+            //     new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+            var element = _gadgetDataSO.Spawn(_gadgetDataSO.gadgets[i]).GetComponent<GadgetElement>();
+            element.controlRect.name = i + "";
+            element.controlRect.sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+            _elements.Add(element);
         }
 
-        if (isInfinite) {
+        if (isInfinite)
+        {
             int half = (int)(countCheck / 2) + 1;
-            if (dataToInit.Count > half) {
-                for (int i = 0; i < half; i++) {
-                    var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-                    textComponent.text = dataToInit[i];
-                    textComponent.transform.parent.name = i + "";
-                    textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
-                        new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+            if (_gadgetDataSO.gadgets.Count > half)
+            {
+                for (int i = 0; i < half; i++)
+                {
+                    // var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+                    // textComponent.text = dataToInit[i];
+                    // textComponent.transform.parent.name = i + "";
+                    // textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
+                    //     new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                    var element = _gadgetDataSO.Spawn(_gadgetDataSO.gadgets[i]).GetComponent<GadgetElement>();
+                    element.controlRect.name = i + "";
+                    element.controlRect.sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                    _elements.Add(element);
                 }
-            } else {
-                for (int j = 0; j < Mathf.CeilToInt((float)half / (float)dataToInit.Count); j++) {
-                    for (int i = 0; i < dataToInit.Count; i++) {
-                        var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-                        textComponent.text = dataToInit[i];
-                        textComponent.transform.parent.name = i + "";
-                        textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
-                            new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+            }
+            else
+            {
+                for (int j = 0; j < Mathf.CeilToInt((float)half / (float)_gadgetDataSO.gadgets.Count); j++)
+                {
+                    for (int i = 0; i < _gadgetDataSO.gadgets.Count; i++)
+                    {
+                        // var textComponent = Instantiate(templateValues, contentTarget.transform).transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+                        // textComponent.text = dataToInit[i];
+                        // textComponent.transform.parent.name = i + "";
+                        // textComponent.transform.parent.GetComponent<RectTransform>().sizeDelta =
+                        //     new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                        var element = _gadgetDataSO.Spawn(_gadgetDataSO.gadgets[i]).GetComponent<GadgetElement>();
+                        element.controlRect.name = i + "";
+                        element.controlRect.sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, heightTemplate);
+                        _elements.Add(element);
                     }
                 }
             }
@@ -189,101 +245,141 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
     /// Return list ID of current concentration
     /// </summary>
     /// <returns></returns>
-    public int GetCurrentValue() {
+    public int GetCurrentValue()
+    {
         return int.Parse(contentTarget.GetChild(currentCenter).name);
     }
 
-    private void Update() {
-        if (Input.GetMouseButtonUp(0)) {
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
             isDragging = false;
         }
 
-        if (isCanUseMouseWheel && isInArea && Input.mouseScrollDelta.y != 0) {
+        if (isCanUseMouseWheel && isInArea && Input.mouseScrollDelta.y != 0)
+        {
             isDragging = true;
-        } else if(!Input.GetMouseButton(0)) {
+        }
+        else if (!Input.GetMouseButton(0))
+        {
             isDragging = false;
         }
 
-        if (initTest) {
+        if (initTest)
+        {
             initTest = false;
             var newList = new List<string>();
-            for (int i = 0; i < testData.Length; i++) {
+            for (int i = 0; i < testData.Length; i++)
+            {
                 newList.Add(testData[i]);
             }
             Initialize(newList, isInfinite);
         }
 
-        if (isInitialized) {
-            if (!isDragging) {
-                if (contentTarget.anchoredPosition.y + inertia < 0) {
-                    if (isElastic) {
+        if (isInitialized)
+        {
+            if (!isDragging)
+            {
+                if (contentTarget.anchoredPosition.y + inertia < 0)
+                {
+                    if (isElastic)
+                    {
                         contentTarget.anchoredPosition = new Vector2(0, contentTarget.anchoredPosition.y + inertia);
                         inertia = inertia * Mathf.Clamp(1 - Mathf.Abs(contentTarget.anchoredPosition.y) /
                                maxElastic, 0, 1);
-                    } else {
+                    }
+                    else
+                    {
                         contentTarget.anchoredPosition = new Vector2(0, 0);
                         inertia = 0;
                     }
-                } else if (contentTarget.anchoredPosition.y + inertia > contentTarget.sizeDelta.y - middle * 2) {
-                    if (isElastic) {
+                }
+                else if (contentTarget.anchoredPosition.y + inertia > contentTarget.sizeDelta.y - middle * 2)
+                {
+                    if (isElastic)
+                    {
                         contentTarget.anchoredPosition = new Vector2(0, contentTarget.anchoredPosition.y + inertia);
                         inertia = inertia * Mathf.Clamp(1 - Mathf.Abs((contentTarget.sizeDelta.y - middle * 2) -
                         contentTarget.anchoredPosition.y) /
                            maxElastic, 0, 1);
-                    } else {
+                    }
+                    else
+                    {
                         contentTarget.anchoredPosition = new Vector2(0, contentTarget.sizeDelta.y - middle * 2);
                         inertia = 0;
                     }
-                } else {
+                }
+                else
+                {
                     contentTarget.anchoredPosition = new Vector2(0, contentTarget.anchoredPosition.y + inertia);
                     inertia = Mathf.Lerp(inertia, 0, inertiaSense * Time.deltaTime);
                 }
-            } else {
-                if (isCanUseMouseWheel && isInArea && MouseScroll != 0) {
-                    if (isElastic) {
-                        if (contentTarget.anchoredPosition.y < 0) {
+            }
+            else
+            {
+                if (isCanUseMouseWheel && isInArea && MouseScroll != 0)
+                {
+                    if (isElastic)
+                    {
+                        if (contentTarget.anchoredPosition.y < 0)
+                        {
                             inertia = 0;
                             contentTarget.anchoredPosition = new Vector2(0,
                                 contentTarget.anchoredPosition.y + ((isInvertMouseWheel ? -1 : 1) * MouseScroll * mouseWheelSensibility)
                                 * Mathf.Clamp(1 - Mathf.Abs(contentTarget.anchoredPosition.y) /
                                    maxElastic, 0, 1));
-                        } else if (contentTarget.anchoredPosition.y > contentTarget.sizeDelta.y - middle * 2) {
+                        }
+                        else if (contentTarget.anchoredPosition.y > contentTarget.sizeDelta.y - middle * 2)
+                        {
                             inertia = 0;
                             contentTarget.anchoredPosition = new Vector2(0,
                                 contentTarget.anchoredPosition.y + ((isInvertMouseWheel ? -1 : 1) * MouseScroll * mouseWheelSensibility)
                                 * Mathf.Clamp(1 - Mathf.Abs((contentTarget.sizeDelta.y - middle * 2) -
                                 contentTarget.anchoredPosition.y) /
                                    maxElastic, 0, 1));
-                        } else {
+                        }
+                        else
+                        {
                             inertia += ((isInvertMouseWheel ? -1 : 1) * MouseScroll
                                 * mouseWheelSensibility);
                             contentTarget.anchoredPosition = new Vector2(0,
                                 contentTarget.anchoredPosition.y + ((isInvertMouseWheel ? -1 : 1) * MouseScroll * mouseWheelSensibility));
                         }
 
-                    } else {
+                    }
+                    else
+                    {
                         inertia += ((isInvertMouseWheel ? -1 : 1) * MouseScroll
                             * mouseWheelSensibility);
                         contentTarget.anchoredPosition = new Vector2(0, Mathf.Clamp(
                             contentTarget.anchoredPosition.y + ((isInvertMouseWheel ? -1 : 1) * MouseScroll * mouseWheelSensibility),
                             0, contentTarget.sizeDelta.y - middle * 2));
                     }
-                } else {
-                    if (isElastic) {
-                        if (contentTarget.anchoredPosition.y < 0) {
+                }
+                else
+                {
+                    if (isElastic)
+                    {
+                        if (contentTarget.anchoredPosition.y < 0)
+                        {
                             inertia = 0;
                             contentTarget.anchoredPosition = new Vector2(0,
                                 startPosContent + (-startPosMouse + (Input.mousePosition.y / camera.pixelHeight)
                                 * targetCanvas.sizeDelta.y) * Mathf.Clamp(1 - Mathf.Abs(contentTarget.anchoredPosition.y) /
                                    maxElastic, 0, 1));
-                        } else if (contentTarget.anchoredPosition.y > contentTarget.sizeDelta.y - middle * 2) {
+                        }
+                        else if (contentTarget.anchoredPosition.y > contentTarget.sizeDelta.y - middle * 2)
+                        {
                             inertia = 0;
                             contentTarget.anchoredPosition = new Vector2(0,
                                 startPosContent + (-startPosMouse + (Input.mousePosition.y / camera.pixelHeight)
                                 * targetCanvas.sizeDelta.y) * Mathf.Clamp(1 - Mathf.Abs((contentTarget.sizeDelta.y - middle * 2) -
                                 contentTarget.anchoredPosition.y) /
                                    maxElastic, 0, 1));
-                        } else {
+                        }
+                        else
+                        {
                             inertia = startPosContent + (-startPosMouse + (Input.mousePosition.y / camera.pixelHeight) * targetCanvas.sizeDelta.y) -
                             contentTarget.anchoredPosition.y;
                             contentTarget.anchoredPosition = new Vector2(0,
@@ -293,7 +389,9 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
 
                         startPosMouse = (Input.mousePosition.y / camera.pixelHeight) * targetCanvas.sizeDelta.y;
                         startPosContent = contentTarget.anchoredPosition.y;
-                    } else {
+                    }
+                    else
+                    {
                         inertia = startPosContent + (-startPosMouse + (Input.mousePosition.y / camera.pixelHeight) * targetCanvas.sizeDelta.y) -
                             contentTarget.anchoredPosition.y;
                         contentTarget.anchoredPosition = new Vector2(0, Mathf.Clamp(
@@ -302,24 +400,32 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
                     }
                 }
             }
-            if (isInfinite) {
-                if (contentTarget.anchoredPosition.y < middle) {
+            if (isInfinite)
+            {
+                if (contentTarget.anchoredPosition.y < middle)
+                {
                     contentTarget.anchoredPosition = new Vector2(0, contentTarget.anchoredPosition.y +
                         (padCount + (countTotal - padCount)) *
                         (heightText * 2));
-                    for (int i = 0; i < (padCount + (countTotal - padCount)); i++) {
-                        contentTarget.GetChild(i).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 0;
+                    for (int i = 0; i < (padCount + (countTotal - padCount)); i++)
+                    {
+                        //contentTarget.GetChild(i).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 0;
+                        _elements[i].Name.fontSize = 0;
                     }
                     startPosMouse = (Input.mousePosition.y / camera.pixelHeight) * targetCanvas.sizeDelta.y;
                     startPosContent = contentTarget.anchoredPosition.y;
-                } else if (contentTarget.anchoredPosition.y > contentTarget.sizeDelta.y - middle * 3) {
+                }
+                else if (contentTarget.anchoredPosition.y > contentTarget.sizeDelta.y - middle * 3)
+                {
                     contentTarget.anchoredPosition = new Vector2(0, contentTarget.anchoredPosition.y -
                         (padCount + (countTotal - padCount)) *
                         (heightText * 2));
-                    for (int i = contentTarget.childCount - 1;
-                        i >= contentTarget.childCount -
-                        (padCount + (countTotal - padCount)); i--) {
-                        contentTarget.GetChild(i).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 0;
+                    for (int i = _elements.Count - 1;
+                        i >= _elements.Count -
+                        (padCount + (countTotal - padCount)); i--)
+                    {
+                        //contentTarget.GetChild(i).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 0;
+                        _elements[i].Name.fontSize = 0;
                     }
                     startPosMouse = (Input.mousePosition.y / camera.pixelHeight) * targetCanvas.sizeDelta.y;
                     startPosContent = contentTarget.anchoredPosition.y;
@@ -330,23 +436,29 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
 
             int startPoint = Mathf.CeilToInt((contentPos - (middle + heightText)) / (heightText * 2));
             int minID = Mathf.Max(0, startPoint);
-            int maxID = Mathf.Min(contentTarget.transform.childCount, startPoint + countCheck + 1);
+            int maxID = Mathf.Min(_elements.Count, startPoint + countCheck + 1);
             minID = Mathf.Clamp(minID, 0, int.MaxValue);
             maxID = Mathf.Clamp(maxID, 0, int.MaxValue);
             /*currentCenter = Mathf.Clamp(Mathf.RoundToInt((contentPos - (middle + heightText)) / (heightText * 2)) +
                 padCount, 0, contentTarget.childCount - 1);*/
 
-            currentCenter = Mathf.Clamp(Mathf.RoundToInt(contentPos / (heightText * 2)), 0, contentTarget.childCount - 1);
+            currentCenter = Mathf.Clamp(Mathf.RoundToInt(contentPos / (heightText * 2)), 0, _elements.Count - 1);
 
-            if (maxID > minID) {
-                for (int i = minID; i < maxID; i++) {
-                    var currentRect = contentTarget.transform.GetChild(i).GetComponent<RectTransform>();
-                    var currentText = contentTarget.transform.GetChild(i).GetChild(0).GetComponent<RectTransform>();
+            if (maxID > minID)
+            {
+                for (int i = minID; i < maxID; i++)
+                {
+                    //var currentRect = contentTarget.transform.GetChild(i).GetComponent<RectTransform>();
+                    var currentRect = _elements[i].GetComponent<RectTransform>();
+                    var currentText = _elements[i].controlRect;
                     float ratio = Mathf.Clamp(1 - Mathf.Abs(contentPos + currentRect.anchoredPosition.y + middle) / (middle - padding), 0, 1);
-                    if (contentPos + currentRect.anchoredPosition.y + middle > 0) {
+                    if (contentPos + currentRect.anchoredPosition.y + middle > 0)
+                    {
                         currentText.GetComponent<RectTransform>().anchoredPosition =
                             new Vector2(0, -curveShift.Evaluate(1 - ratio) * shiftUp);
-                    } else {
+                    }
+                    else
+                    {
                         currentText.GetComponent<RectTransform>().anchoredPosition =
                             new Vector2(0, curveShift.Evaluate(1 - ratio) * shiftDown);
                     }
@@ -357,23 +469,27 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
                 }
             }
 
-            if (Mathf.Abs(inertia) < minVelocity && !Input.GetMouseButton(0)) {
+            if (Mathf.Abs(inertia) < minVelocity && !Input.GetMouseButton(0))
+            {
                 inertia = 0;
                 contentTarget.anchoredPosition = new Vector2(0,
-                    Mathf.Lerp(contentTarget.anchoredPosition.y, -contentTarget.transform.GetChild(currentCenter).
+                    Mathf.Lerp(contentTarget.anchoredPosition.y, -_elements[currentCenter].
                     GetComponent<RectTransform>().anchoredPosition.y - middle, speedLerp * Time.deltaTime));
             }
         }
     }
 
-    public void OnDrop(PointerEventData eventData) {
+    public void OnDrop(PointerEventData eventData)
+    {
         isDragging = false;
     }
 
-    public void OnDrag(PointerEventData eventData) {
+    public void OnDrag(PointerEventData eventData)
+    {
     }
 
-    public void OnBeginDrag(PointerEventData eventData) {
+    public void OnBeginDrag(PointerEventData eventData)
+    {
         isDragging = true;
         startPosMouse = (Input.mousePosition.y / camera.pixelHeight) * targetCanvas.sizeDelta.y;
         startPosContent = contentTarget.anchoredPosition.y;
@@ -381,11 +497,13 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
 
     bool isInArea;
 
-    public void OnPointerEnter(PointerEventData eventData) {
+    public void OnPointerEnter(PointerEventData eventData)
+    {
         isInArea = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData) {
+    public void OnPointerExit(PointerEventData eventData)
+    {
         isInArea = false;
     }
 }

@@ -842,6 +842,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScrollSystemFixed
       objectReference: {fileID: 0}
+    - target: {fileID: 7817251506741685103, guid: 5667cac651955634c849427787500207, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1132,6 +1136,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 268623367}
     - target: {fileID: 7817251506741685096, guid: 5667cac651955634c849427787500207, type: 3}
+      propertyPath: _gadgetDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: bb79fba3908394443b5f8104a1566125, type: 2}
+    - target: {fileID: 7817251506741685096, guid: 5667cac651955634c849427787500207, type: 3}
       propertyPath: maxFontSize.x
       value: 1
       objectReference: {fileID: 0}
@@ -1237,7 +1245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817251506741685100, guid: 5667cac651955634c849427787500207, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 194
       objectReference: {fileID: 0}
     - target: {fileID: 7817251506741685100, guid: 5667cac651955634c849427787500207, type: 3}
       propertyPath: m_LocalScale.x

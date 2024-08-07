@@ -18,6 +18,7 @@ namespace Core.GamePlay.MyPlayer{
         public GameObject Spawn(GadgetData data){
             var go = SpawnObject();
             go.GetComponent<GadgetElement>().Init(data);
+            go.transform.localScale = Vector3.one;
             return go;
         }
     }
