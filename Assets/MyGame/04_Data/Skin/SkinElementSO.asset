@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5a74aa849969e479f669d7ef639220, type: 3}
+  m_Name: SkinElementSO
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 4239026039880957425, guid: 7df9d6a6f85cae34e84bf1d0efccc592, type: 3}
+  SkinDatas:
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 12a743a5830dfac478a2d146fdccc672, type: 2}
+    index: 0
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: aeba042b5d829fa4f91ecbd03422fd67, type: 2}
+    index: 1
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 9d3d07bc640870549b0e3f55935b641d, type: 2}
+    index: 2
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: e2b7e75c3333ae94995177813f117bf3, type: 2}
+    index: 3
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 12a743a5830dfac478a2d146fdccc672, type: 2}
+    index: 4
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 6fdce7c1a2b03ec41a1d269f2a34f3a5, type: 2}
+    index: 5
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 6fdce7c1a2b03ec41a1d269f2a34f3a5, type: 2}
+    index: 6
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 9ff54fe2b368aaf4db0335a9018b5f26, type: 2}
+    index: 7
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 6050691d9f927b248a74637586d684f5, type: 2}
+    index: 8
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 109defc641e876c43b34974912331a0c, type: 2}
+    index: 9
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: 94a2f40f79387be42a4f9c0f1626e5c2, type: 2}
+    index: 10
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: aeba042b5d829fa4f91ecbd03422fd67, type: 2}
+    index: 11
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: aeba042b5d829fa4f91ecbd03422fd67, type: 2}
+    index: 12
+  - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
+    selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
+    avatar: {fileID: 21300000, guid: aeba042b5d829fa4f91ecbd03422fd67, type: 2}
+    index: 13
+  SkinElements: []
