@@ -73,6 +73,7 @@ namespace Core.GamePlay.MyPlayer
 
         public void CompleteAttack()
         {
+            _currentHitInCombo = -1;
             _fsm.ChangeAction(FSMState.Idle);
         }
 
