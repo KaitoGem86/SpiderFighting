@@ -12,6 +12,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
+            _fsm.blackBoard.Character.StopJumping();
             base.EnterState();
             var velocity = _fsm.blackBoard.Character.GetCharacterMovement().velocity.magnitude;
             GetInput();

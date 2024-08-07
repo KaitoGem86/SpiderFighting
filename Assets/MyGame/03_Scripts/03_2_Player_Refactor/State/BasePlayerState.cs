@@ -42,12 +42,11 @@ namespace Core.GamePlay.MyPlayer
         public virtual void OnCollisionEnter(Collision collision) { }
  
         public void Swing(){
-            if(_fsm.blackBoard.Character.IsOnGround()){
-                InputManager.instance.jump = true;
-                StartCoroutine(AfterClickJump());
-                return;
-            }
             _fsm.ChangeAction(FSMState.Swing);
+        }
+
+        public void Jump(){
+            _fsm.ChangeAction(FSMState.Jumping);
         }
 
         public virtual void Attack(){
@@ -60,12 +59,6 @@ namespace Core.GamePlay.MyPlayer
 
         public virtual void UltimateAttackState(){
             _fsm.ChangeAction(FSMState.UltimateAttack);
-        }
-
-        
-        private IEnumerator AfterClickJump(){
-            yield return new WaitForEndOfFrame();
-            InputManager.instance.jump = false;
         }
     }
 

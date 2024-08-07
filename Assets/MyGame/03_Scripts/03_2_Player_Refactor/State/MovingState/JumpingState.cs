@@ -15,7 +15,6 @@ namespace Core.GamePlay.MyPlayer{
 
         public override void ExitState()
         {
-            _fsm.blackBoard.Character.StopJumping();  
             base.ExitState();
         }
     }

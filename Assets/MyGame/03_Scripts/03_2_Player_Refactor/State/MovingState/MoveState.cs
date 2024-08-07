@@ -17,11 +17,6 @@ namespace Core.GamePlay.MyPlayer
 
         public override void Update()
         {
-            if (InputManager.instance.jump)
-            {
-                _fsm.ChangeAction(FSMState.Jumping);
-                return;
-            }
             if (!_fsm.blackBoard.Character.IsOnGround())
             {
                 _fsm.ChangeAction(FSMState.FallingDown);

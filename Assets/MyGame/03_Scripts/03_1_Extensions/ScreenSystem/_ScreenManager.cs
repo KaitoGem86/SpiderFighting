@@ -84,21 +84,21 @@ namespace MyTools.ScreenSystem
             return _screenCanvas.GetComponent<RectTransform>().sizeDelta.y;
         }
 
-#if UNITY_EDITOR
-        private void Update(){
-            if(Input.GetKeyDown(KeyCode.A)){
-                _screenDict[_currentScreenType].Hide();
-            }
-            else if(Input.GetKeyDown(KeyCode.S)){
-                ShowScreen(_currentScreenType);
-            }
-            if(Input.GetKeyDown(KeyCode.D)){
-                ShowScreen(_ScreenTypeEnum.SelectPlant);
-            }
-            if(Input.GetKeyDown(KeyCode.F)){
-                ShowScreen(_ScreenTypeEnum.Recipe);
-            }
-        }
-#endif
+// #if UNITY_EDITOR
+//         private void Update(){
+//             if(Input.GetKeyDown(KeyCode.A)){
+//                 _screenDict[_currentScreenType].Hide();
+//             }
+//             else if(Input.GetKeyDown(KeyCode.S)){
+//                 ShowScreen(_currentScreenType);
+//             }
+//             if(Input.GetKeyDown(KeyCode.D)){
+//                 ShowScreen(_ScreenTypeEnum.SelectPlant);
+//             }
+//             if(Input.GetKeyDown(KeyCode.F)){
+//                 ShowScreen(_ScreenTypeEnum.Recipe);
+//             }
+//         }
+// #endif
     }
 }
