@@ -8,7 +8,7 @@ namespace Core.GamePlay.Support{
         public List<SkinData> SkinDatas;
         public List<SkinElement> SkinElements = new List<SkinElement>();
 
-        public List<SkinElement> Spawn(){
+        public List<SkinElement> Spawn(Transform activeParent){
             foreach (var element in SkinElements){
                 if(element == null) continue;
                 DespawnObject(element.gameObject);
@@ -16,6 +16,7 @@ namespace Core.GamePlay.Support{
             SkinElements.Clear();
             foreach (var skinData in SkinDatas){
                 var skinElement = SpawnObject().GetComponent<SkinElement>();
+                skinElement.transform.SetParent(activeParent);
                 skinElement.Init(skinData);
                 SkinElements.Add(skinElement);
             }

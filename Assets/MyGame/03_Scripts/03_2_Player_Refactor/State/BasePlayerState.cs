@@ -1,6 +1,8 @@
+using System.Collections;
 using Animancer;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
+using SFRemastered.InputSystem;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
@@ -40,6 +42,11 @@ namespace Core.GamePlay.MyPlayer
         public virtual void OnCollisionEnter(Collision collision) { }
  
         public void Swing(){
+            if(_fsm.blackBoard.Character.IsOnGround()){
+                InputManager.instance.jump = true;
+                StartCoroutine(AfterClickJump());
+                return;
+            }
             _fsm.ChangeAction(FSMState.Swing);
         }
 
@@ -53,6 +60,12 @@ namespace Core.GamePlay.MyPlayer
 
         public virtual void UltimateAttackState(){
             _fsm.ChangeAction(FSMState.UltimateAttack);
+        }
+
+        
+        private IEnumerator AfterClickJump(){
+            yield return new WaitForEndOfFrame();
+            InputManager.instance.jump = false;
         }
     }
 
