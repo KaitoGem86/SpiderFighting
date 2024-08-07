@@ -14,21 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 2488041822340301321, guid: ec5178f5f4697b3459d39d4ffe505824, type: 3}
   gadgets:
-  - icon: {fileID: 1891615560, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+  - DefaultBG: {fileID: 21300000, guid: eecbdd7375dd2c14586b00bbd3f823d1, type: 2}
+    SelectedBG: {fileID: 21300000, guid: f2352a32e0abd0743852234ee9f9e4d0, type: 2}
+    icon: {fileID: 1891615560, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
     id: 0
     name: Web Shooter
-  - icon: {fileID: -1217127628, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+  - DefaultBG: {fileID: 21300000, guid: eecbdd7375dd2c14586b00bbd3f823d1, type: 2}
+    SelectedBG: {fileID: 21300000, guid: f2352a32e0abd0743852234ee9f9e4d0, type: 2}
+    icon: {fileID: -1217127628, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
     id: 1
     name: Concussive Blast
-  - icon: {fileID: -94242720, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
-    id: 2
-    name: Healing Bot
-  - icon: {fileID: 1891615560, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
-    id: 0
-    name: Web Shooter
-  - icon: {fileID: -1217127628, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
-    id: 1
-    name: Concussive Blast
-  - icon: {fileID: -94242720, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
+  - DefaultBG: {fileID: 21300000, guid: eecbdd7375dd2c14586b00bbd3f823d1, type: 2}
+    SelectedBG: {fileID: 21300000, guid: f2352a32e0abd0743852234ee9f9e4d0, type: 2}
+    icon: {fileID: -94242720, guid: 1617f5ba7012ac84c84ed300ffc841c3, type: 3}
     id: 2
     name: Healing Bot

@@ -6,6 +6,8 @@ using UnityEngine;
 namespace Core.GamePlay.MyPlayer{
     [Serializable]
     public class GadgetData {
+        public Sprite DefaultBG;
+        public Sprite SelectedBG;
         public Sprite icon;
         public int id;
         public string name;

@@ -239,6 +239,7 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
 
         contentSize.UpdateLayout();
         isInitialized = true;
+        OnSelectAnElement(0);
     }
 
     /// <summary>
@@ -476,6 +477,15 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
                     Mathf.Lerp(contentTarget.anchoredPosition.y, -_elements[currentCenter].
                     GetComponent<RectTransform>().anchoredPosition.y - middle, speedLerp * Time.deltaTime));
             }
+        }
+    }
+
+    public void OnSelectAnElement(int id)
+    {
+        contentTarget.anchoredPosition = new Vector2(0, -_elements[id].GetComponent<RectTransform>().anchoredPosition.y - middle);
+        foreach(var element in _elements)
+        {
+            element.OnSelect(element.Id == id);
         }
     }
 

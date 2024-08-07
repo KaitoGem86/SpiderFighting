@@ -134,9 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9344ca514e9ee894e9e3aa986f187cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _background: {fileID: 1489279353141602413}
   _icon: {fileID: 5944089263947215425}
   _name: {fileID: 2488041822422771104}
-  _onGadgetSelected: {fileID: 0}
+  _onGadgetSelected: {fileID: 11400000, guid: 6607810dc14c8aa4fb253424620b6fb2, type: 2}
   controlRect: {fileID: 5504484947227878463}
 --- !u!114 &6015828167809280568
 MonoBehaviour:
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eecbdd7375dd2c14586b00bbd3f823d1, type: 2}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
