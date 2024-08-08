@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 4570649316912923520}
   - component: {fileID: 8850815833840062881}
   - component: {fileID: 6186694813386613911}
+  - component: {fileID: 6131632740052611259}
   m_Layer: 0
   m_Name: StopMovingState
   m_TagString: Untagged
@@ -531,6 +532,36 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
           Animancer
         m_MethodName: Dodge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6131632740052611259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693987737528677758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca91edaa871b23449b522e2d19d7aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 2c7b89c9ffc74e34e839bb3f781e671b, type: 2}
+  _unregisterOnDisable: 1
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4570649316912923520}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: Jump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -762,56 +793,6 @@ MonoBehaviour:
   _canChangeToItself: 0
   _movementMode: 0
   _ultimateAttackEffect: {fileID: 0}
---- !u!1 &1614705941186391265
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3130167574732683904}
-  - component: {fileID: 8784986846216152709}
-  m_Layer: 6
-  m_Name: FindZipPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &3130167574732683904
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614705941186391265}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2081829108407041016}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8784986846216152709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614705941186391265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8303d8eef761f408af2cdf3e203318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _displayZipPoint: {fileID: 0}
-  _playerController: {fileID: 2032646152031061193}
-  _radius: 40
-  _focusPanel: {fileID: 0}
-  _centerPoint: {fileID: 0}
-  _cameraController: {fileID: 0}
 --- !u!1 &1633333876150643314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,23 +1362,8 @@ MonoBehaviour:
   _transitions:
   - _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes:
-      - 0.9894737
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1905768533108820506}
-            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.SpawnState, Assembly-CSharp
-            m_MethodName: CompleteSpawn
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
+      _NormalizedTimes: []
+      _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400000, guid: 655cf98028bcea24d91e325ffc5da69a, type: 2}
     _Speed: 1
@@ -1941,38 +1907,6 @@ MonoBehaviour:
   m_Damping: 0.3
   m_DampingWhenOccluded: 0.3
   m_OptimalTargetDistance: 0
---- !u!1 &4826555158033998368
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2081829108407041016}
-  m_Layer: 6
-  m_Name: Module
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2081829108407041016
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4826555158033998368}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3130167574732683904}
-  m_Father: {fileID: 2032646152031061193}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5474444007284838494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,7 +1980,6 @@ Transform:
   - {fileID: 6879794849635501629}
   - {fileID: 1063777792551107247}
   - {fileID: 4177377559996717007}
-  - {fileID: 2081829108407041016}
   - {fileID: 8581614525833004515}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2187,11 +2120,12 @@ MonoBehaviour:
   PlayerDisplay: {fileID: 5074747585852536943}
   Character: {fileID: 8917293616794470225}
   RuntimeSurfaceNormal: {x: 0, y: 0, z: 0}
-  HoldPivot: {fileID: 3130167574732683904}
+  HoldPivot: {fileID: 0}
   SwingPivot: {fileID: 0}
   PlayerModel: {fileID: 0}
   GlobalVelocity: {x: 0, y: 0, z: 0}
   FindEnemyToAttack: {fileID: 11400000, guid: 327121c53c1175a4b888ab80a3f244ed, type: 2}
+  HealingBotPivot: {fileID: 0}
 --- !u!114 &4369872665408434342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2220,7 +2154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b5d3084b0823145b7e19a0d40cdc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handleInput: 1
+  _handleInput: 0
   _rotationMode: 1
   _rotationRate: 540
   _defaultMovementMode: 1
@@ -2462,6 +2396,7 @@ GameObject:
   - component: {fileID: 8177936166930561195}
   - component: {fileID: 7973069686424263221}
   - component: {fileID: 1242360013278179680}
+  - component: {fileID: 5877592805652981634}
   m_Layer: 0
   m_Name: MoveState
   m_TagString: Untagged
@@ -2570,6 +2505,36 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
           Animancer
         m_MethodName: Dodge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5877592805652981634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496610246800478664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca91edaa871b23449b522e2d19d7aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 2c7b89c9ffc74e34e839bb3f781e671b, type: 2}
+  _unregisterOnDisable: 1
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8177936166930561195}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
+          Animancer
+        m_MethodName: Jump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3642,7 +3607,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2793011893209144442}
         m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
           Animancer
-        m_MethodName: Swing
+        m_MethodName: Jump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
