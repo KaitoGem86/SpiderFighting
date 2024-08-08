@@ -1,3 +1,4 @@
+using Core.GamePlay.MyPlayer;
 using MyTools.ScreenSystem;
 using MyTools.Sound;
 using UnityEngine;
@@ -5,8 +6,11 @@ using UnityEngine;
 namespace Core.Manager {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance { get; private set; }
+
         private void Awake(){
             Application.targetFrameRate = 60;
+            Instance = this;
         }
 
         private void Start(){
@@ -26,5 +30,7 @@ namespace Core.Manager {
         public void FocusOnPlayer(bool value){
             Time.timeScale = value ? 0.3f : 1;
         }
+
+        public PlayerData PlayerData;
     }
 }

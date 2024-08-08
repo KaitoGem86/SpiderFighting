@@ -10,8 +10,13 @@ namespace Core.GamePlay.MyPlayer
         protected override void Awake()
         {
             base.Awake();
-            OnChangePlayerModel(0);
             currentStateType = FSMState.None;
+        }
+
+        protected override void OnEnable(){
+            OnChangePlayerModel(blackBoard.PlayerData.playerSerializeData.skinIndex); 
+            blackBoard.GadgetsController.ChangeGadget(blackBoard.PlayerData.playerSerializeData.gadgetIndex);
+            base.OnEnable();
         }
 
         public override void ChangeAction(FSMState newState)

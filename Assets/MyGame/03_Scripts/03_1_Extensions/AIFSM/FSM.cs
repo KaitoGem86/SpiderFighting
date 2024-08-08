@@ -47,7 +47,7 @@ namespace Extensions.SystemGame.AIFSM{
             }
         }
 
-        protected void OnEnable(){
+        protected virtual void OnEnable(){
             ChangeAction(_startState);
         }
 

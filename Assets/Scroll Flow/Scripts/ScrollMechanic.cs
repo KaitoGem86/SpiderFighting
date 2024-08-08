@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 using System;
 using MyTools.ScreenSystem;
 using Core.GamePlay.MyPlayer;
+using Core.Manager;
 
 public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginDragHandler, IPointerExitHandler, IPointerEnterHandler
 {
@@ -239,7 +240,7 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
 
         contentSize.UpdateLayout();
         isInitialized = true;
-        OnSelectAnElement(0);
+        OnSelectAnElement(GameManager.Instance.PlayerData.playerSerializeData.gadgetIndex);
     }
 
     /// <summary>
