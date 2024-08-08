@@ -77,4 +77,16 @@ MonoBehaviour:
     name: Cash
     rewardType: 0
     rewardAmount: 500
-  _achivementProgresses: []
+  _achivementProgresses:
+  - icon: {fileID: 21300000, guid: c5e24ea62692df442900ba931ad04661, type: 2}
+    achivementType: 0
+    targetAmount: 10
+    name: Mission
+  - icon: {fileID: 21300000, guid: 53eaaa57fa3356e4bbfe74329e9d3aef, type: 3}
+    achivementType: 1
+    targetAmount: 10
+    name: Chest
+  - icon: {fileID: 21300000, guid: 1e594ed82d5185a4eabdbfe4ed006ad5, type: 2}
+    achivementType: 2
+    targetAmount: 10
+    name: Graffiti
