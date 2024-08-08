@@ -27,6 +27,7 @@ namespace Extensions.SystemGame.AIFSM{
         LastAttack,
         Dodge,
         UltimateAttack,
+        UseGadget,
     }
 
     public class FSM<T> : MonoBehaviour where T : BlackBoard{

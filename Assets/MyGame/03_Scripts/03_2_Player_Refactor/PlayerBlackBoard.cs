@@ -37,5 +37,6 @@ namespace Core.GamePlay.MyPlayer{
         [Header("Combat")]
         public FindEnemyToAttack FindEnemyToAttack;
         public Transform HealingBotPivot;
+        public GadgetsController GadgetsController;
     }
 }

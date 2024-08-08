@@ -21,6 +21,7 @@ namespace Core.UI{
         public DefaultEvent onUltilmateAttack;
         public Core.GamePlay.MyPlayer.PlayerController player;
         public DefaultEvent onAttack;
+        public DefaultEvent onUseGadget;
         private bool _isSwing = false;
 
         private void Awake(){
@@ -49,6 +50,9 @@ namespace Core.UI{
             }
             if(Input.GetKeyDown(KeyCode.Q)){
                 OnClickUltilmateAttack();
+            }
+            if(Input.GetKeyDown(KeyCode.E)){
+                OnClickUseGadget();
             }
         }
 
@@ -90,6 +94,10 @@ namespace Core.UI{
 
         public void OnClickAttack(){
             onAttack?.Raise();
+        }
+
+        public void OnClickUseGadget(){
+            onUseGadget?.Raise();
         }
 
         public void OnChangeEquipGadget(int id){

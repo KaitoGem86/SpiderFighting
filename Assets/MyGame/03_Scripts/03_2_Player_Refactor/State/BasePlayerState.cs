@@ -60,6 +60,10 @@ namespace Core.GamePlay.MyPlayer
         public virtual void UltimateAttackState(){
             _fsm.ChangeAction(FSMState.UltimateAttack);
         }
+
+        public virtual void UseGadget(){
+            _fsm.ChangeAction(FSMState.UseGadget);
+        }
     }
 
     public class ClipTransitionPlayerState : BasePlayerState<ClipTransition> { }

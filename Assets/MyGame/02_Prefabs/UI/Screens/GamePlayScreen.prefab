@@ -1792,7 +1792,19 @@ MonoBehaviour:
   _duration: 0.2
   _onClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 141142550374703996}
+        m_TargetAssemblyTypeName: Core.UI.GamePlayScreen, Assembly-CSharp
+        m_MethodName: OnClickUseGadget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6957083680925948844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,6 +2318,7 @@ MonoBehaviour:
   onUltilmateAttack: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
   player: {fileID: 0}
   onAttack: {fileID: 11400000, guid: 134e53335c4279341b502d37013f7d78, type: 2}
+  onUseGadget: {fileID: 11400000, guid: e7f937d84fdc3b84e81b12e10dffdc91, type: 2}
 --- !u!95 &1624600879168138067
 Animator:
   serializedVersion: 5
