@@ -9,6 +9,14 @@ namespace Core.GamePlay.MyPlayer{
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private bool _useLeftHand;
 
+        private /// <summary>
+        /// Awake is called when the script instance is being loaded.
+        /// </summary>
+        void Awake()
+        {
+            _webBulletSO.Init(1978);
+        }
+
         public override void UseGadget()
         {
             var enemy = _findEnemyToAttack.FindEnemyByDistance(_playerController.transform);
