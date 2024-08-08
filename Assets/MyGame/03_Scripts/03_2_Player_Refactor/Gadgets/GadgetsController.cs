@@ -11,5 +11,15 @@ namespace Core.GamePlay.MyPlayer
         { 
 
         }
+
+        public void ChangeGadget(int index) {
+            if (_currentGadget != null)
+            {
+                _currentGadget.gameObject.SetActive(false);
+            }
+
+            _currentGadget = _gadgets[index];
+            _currentGadget.gameObject.SetActive(true);
+        }
     }
 }

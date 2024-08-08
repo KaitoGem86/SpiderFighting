@@ -2246,6 +2246,7 @@ GameObject:
   - component: {fileID: 34339292322978581}
   - component: {fileID: 141142550374703996}
   - component: {fileID: 1624600879168138067}
+  - component: {fileID: 8671461180585147851}
   m_Layer: 5
   m_Name: GamePlayScreen
   m_TagString: Untagged
@@ -2296,6 +2297,8 @@ MonoBehaviour:
   ScreenType: 2
   _joystick: {fileID: 5497225836908427871}
   _lookPanel: {fileID: 2360681983198056847}
+  _gadgetIcon: {fileID: 3717030747792973393}
+  _gadgetDataSO: {fileID: 11400000, guid: bb79fba3908394443b5f8104a1566125, type: 2}
   onZip: {fileID: 11400000, guid: 71c7e6fd360d2d7499a19c5aa65232d4, type: 2}
   onSwing: {fileID: 11400000, guid: 2c7b89c9ffc74e34e839bb3f781e671b, type: 2}
   onChangeSkin: {fileID: 11400000, guid: 90c0864d4dd0e114fb1032bba20e8fe2, type: 2}
@@ -2324,6 +2327,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8671461180585147851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200792813347899596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a309d31daba28e64d93cd2bf3a1ea452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 6607810dc14c8aa4fb253424620b6fb2, type: 2}
+  _unregisterOnDisable: 0
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 141142550374703996}
+        m_TargetAssemblyTypeName: Core.UI.GamePlayScreen, Assembly-CSharp
+        m_MethodName: OnChangeEquipGadget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8222829468134793007
 GameObject:
   m_ObjectHideFlags: 0

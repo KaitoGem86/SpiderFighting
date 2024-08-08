@@ -1,15 +1,19 @@
 using System.Collections;
+using Core.GamePlay.MyPlayer;
 using Core.GamePlay.Player;
 using MyTools.Event;
 using MyTools.ScreenSystem;
 using SFRemastered.InputSystem;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Core.UI{
     public class GamePlayScreen : _BaseScreen
     {
         [SerializeField] private Joystick _joystick;
         [SerializeField] private GameObject _lookPanel;
+        [SerializeField] private Image _gadgetIcon;
+        [SerializeField] private GadgetDataSO _gadgetDataSO;
         public DefaultEvent onZip;
         public BoolEvent onSwing;
         public IntEvent onChangeSkin;
@@ -86,6 +90,11 @@ namespace Core.UI{
 
         public void OnClickAttack(){
             onAttack?.Raise();
+        }
+
+        public void OnChangeEquipGadget(int id){
+            var data = _gadgetDataSO.gadgets[id];
+            _gadgetIcon.sprite = data.icon;
         }
     
     
