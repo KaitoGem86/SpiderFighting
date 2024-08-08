@@ -12,6 +12,7 @@ namespace Core.GamePlay.MyPlayer
         public int gadgetIndex;
         public Dictionary<RewardType, int> rewards;
         public Dictionary<AchivementType, int> achivements;
+        public int maxReceiveProgress;
 
 
         public void InitData()
@@ -30,6 +31,7 @@ namespace Core.GamePlay.MyPlayer
             {
                 achivements.Add((AchivementType)achivementType, 0);
             }
+            maxReceiveProgress = 0;
         }
     }
 }

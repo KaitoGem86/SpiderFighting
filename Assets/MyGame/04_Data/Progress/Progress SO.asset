@@ -90,3 +90,4 @@ MonoBehaviour:
     achivementType: 2
     targetAmount: 10
     name: Graffiti
+  levelStart: 1
