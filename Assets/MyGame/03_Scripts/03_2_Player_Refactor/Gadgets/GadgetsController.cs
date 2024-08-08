@@ -9,7 +9,7 @@ namespace Core.GamePlay.MyPlayer
 
         public void UseGadget()
         { 
-
+            _currentGadget.UseGadget();
         }
 
         public void ChangeGadget(int index) {

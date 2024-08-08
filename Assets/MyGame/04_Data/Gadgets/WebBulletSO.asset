@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3f3744cfda3424f907c8eca6225030, type: 3}
+  m_Name: WebBulletSO
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 6676432807153969411, guid: 7d8ec288356823e45bee71a55bf408d9, type: 3}
