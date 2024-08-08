@@ -33,5 +33,15 @@ namespace Core.GamePlay.MyPlayer
             }
             maxReceiveProgress = 0;
         }
+
+        public void UpdateExp(int value)
+        {
+            Exp += value;
+            if (Exp >= 1000)
+            {
+                Exp -= 1000;
+                Level++;
+            }
+        }
     }
 }

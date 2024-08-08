@@ -39,7 +39,7 @@ namespace Progress.UI
             for (int i = 0; i < progressSO.ProgressDatas.Count; i++)
             {
                 var progressData = progressSO.ProgressDatas[i];
-                var progressElement = _progressSO.Spawn(progressData, _playerData.playerSerializeData.Level, _progressSO.levelStart, i).GetComponent<ProgressElement>();
+                var progressElement = _progressSO.Spawn(progressData, _playerData.playerSerializeData.Level, _playerData.playerSerializeData.maxReceiveProgress, _progressSO.levelStart, i).GetComponent<ProgressElement>();
                 progressElement.transform.SetParent(_progressContainer);
                 _progressElements.Add(progressElement);
             }
