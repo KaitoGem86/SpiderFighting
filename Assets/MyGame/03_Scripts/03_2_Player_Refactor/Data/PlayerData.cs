@@ -27,6 +27,11 @@ namespace Core.GamePlay.MyPlayer{
             SaveData();
         }
 
+        private void OnApplicationQuit()
+        {
+            SaveData();
+        }
+
         private void SaveData(){
             var json = JsonConvert.SerializeObject(playerSerializeData);
             Debug.Log(json);
