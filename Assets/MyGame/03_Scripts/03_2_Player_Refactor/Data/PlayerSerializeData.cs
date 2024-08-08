@@ -1,25 +1,35 @@
-namespace Core.GamePlay.MyPlayer{
+using System.Collections.Generic;
+using Data.Reward;
+
+namespace Core.GamePlay.MyPlayer
+{
     [System.Serializable]
-    public class PlayerSerializeData {
+    public class PlayerSerializeData
+    {
         public int Exp;
         public int Level;
-        public int cash;
         public int skinIndex;
         public int gadgetIndex;
-        public int skillPoint;
-        public int yellowPiece;
-        public int purplePiece;
+        public Dictionary<RewardType, int> rewards;
+        public Dictionary<AchivementType, int> achivements;
 
 
-        public void InitData(){
+        public void InitData()
+        {
             Exp = 0;
             Level = 1;
-            cash = 0;
-            skinIndex = 5;
+            skinIndex = 2;
             gadgetIndex = 0;
-            skillPoint = 0;
-            yellowPiece = 0;
-            purplePiece = 0;
+            rewards = new Dictionary<RewardType, int>();
+            foreach (var rewardType in RewardType.GetValues(typeof(RewardType)))
+            {
+                rewards.Add((RewardType)rewardType, 0);
+            }
+            achivements = new Dictionary<AchivementType, int>();
+            foreach (var achivementType in AchivementType.GetValues(typeof(AchivementType)))
+            {
+                achivements.Add((AchivementType)achivementType, 0);
+            }
         }
     }
 }

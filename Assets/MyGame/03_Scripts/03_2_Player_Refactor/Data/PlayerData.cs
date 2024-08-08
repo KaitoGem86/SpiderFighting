@@ -29,6 +29,7 @@ namespace Core.GamePlay.MyPlayer{
 
         private void SaveData(){
             var json = JsonConvert.SerializeObject(playerSerializeData);
+            Debug.Log(json);
             PlayerPrefs.SetString("PlayerData", json);
         }
 
