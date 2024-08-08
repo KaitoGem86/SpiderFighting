@@ -80,7 +80,11 @@ namespace Core.UI{
         }
 
         public void OnClickOpenSkin(){
-            _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.Inventory);
+            _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.Selection);
+        }
+
+        public void OnClickOpenProgress(){
+            _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.Progress);
         }
 
         public void OnClickSwing(bool Value){

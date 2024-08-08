@@ -5,7 +5,9 @@ using UnityEngine;
 namespace Progress{
     [System.Serializable]
     public class ProgressData {
-        public Sprite background;
+        public Sprite receivedBackground;
+        public Sprite canReceiveBackground;
+        public Sprite lockedBackground;
         public Sprite icon;
         public string name;
         public RewardType rewardType;
