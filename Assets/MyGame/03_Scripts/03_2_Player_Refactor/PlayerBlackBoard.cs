@@ -9,6 +9,8 @@ using UnityEngine;
 namespace Core.GamePlay.MyPlayer{
     public class PlayerBlackBoard : BlackBoard{
         public IPlayerState CurrentState;
+        [Header("Player Data")]
+        public PlayerData PlayerData;
 
         [Header("Skin")]
         public PlayerModel[] PlayerModels;

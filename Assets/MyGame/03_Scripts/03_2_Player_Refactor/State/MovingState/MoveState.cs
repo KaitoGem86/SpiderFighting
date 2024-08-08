@@ -10,9 +10,16 @@ namespace Core.GamePlay.MyPlayer
     {
         private Transform _checkWallPivot;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            _speed = _fsm.blackBoard.PlayerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.Speed);
+        }
+
         public override void EnterState()
         {
             base.EnterState();
+            _fsm.blackBoard.Character.maxWalkSpeed = _speed;
         }
 
         public override void Update()

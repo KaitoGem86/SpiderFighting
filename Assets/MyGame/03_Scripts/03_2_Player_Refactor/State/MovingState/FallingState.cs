@@ -7,6 +7,11 @@ namespace Core.GamePlay.MyPlayer
     public class FallingState : InAirState<ClipTransition>
     {
         [SerializeField] private float _diveVelocityThreshold = 1f;
+        protected override void Awake(){
+            base.Awake();
+            _diveVelocityThreshold = _fsm.blackBoard.PlayerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.DiveVelocityThreshold);
+        }
+
         public override void EnterState()
         {
             this.gameObject.SetActive(true);
@@ -19,7 +24,7 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.Landing);
                 return;
             }
-            if (_fsm.blackBoard.GetVelocity.magnitude > _diveVelocityThreshold)
+            if (_fsm.blackBoard.GetVelocity.y > _diveVelocityThreshold)
             {
                 _fsm.ChangeAction(FSMState.Dive);
                 return;

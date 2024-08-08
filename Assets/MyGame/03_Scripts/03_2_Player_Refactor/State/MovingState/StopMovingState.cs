@@ -25,7 +25,11 @@ namespace Core.GamePlay.MyPlayer{
 
         public override void Update()
         {
-            base.Update();
+            if (!_fsm.blackBoard.Character.IsOnGround())
+            {
+                _fsm.ChangeAction(FSMState.FallingDown);
+                return;
+            }
             GetInput();
             if (_moveDirection.magnitude > 0.1f)
             {
