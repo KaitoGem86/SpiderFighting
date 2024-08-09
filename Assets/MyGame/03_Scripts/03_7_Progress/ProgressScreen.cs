@@ -3,16 +3,31 @@ using MyTools.ScreenSystem;
 using System.Collections.Generic;
 using Core.GamePlay.MyPlayer;
 using Core.Manager;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Progress.UI
 {
     public class ProgressScreen : _BaseScreen
     {
+        [Header("General")]
         [SerializeField] private Transform _progressContainer;
+        [SerializeField] private List<ProgressSO> _progressSOs;
         [SerializeField] private ProgressSO _progressSO;
         [SerializeField] List<Achivement> _achivements;
+        
+        [Header("Claim Reward")]
         [SerializeField] private GameObject _claimRewardButton;
         [SerializeField] private GameObject _lockIcon;
+        
+        [Header("NavigationBar")]
+        [SerializeField] private List<Image> _navigationButtons;
+
+        [Header("Progress Bar")]
+        [SerializeField] private Slider _progressSlider;
+        [SerializeField] private TMP_Text _progressText;
+        [SerializeField] private TMP_Text _progressLevelText;
+        [SerializeField] private TMP_Text _progressNextLevelText;
 
         private List<ProgressElement> _progressElements = new List<ProgressElement>();
         private PlayerData _playerData;
@@ -26,11 +41,13 @@ namespace Progress.UI
         {
             _playerData = GameManager.Instance.PlayerData;
             base.OnCompleteShowItSelf();
-            ShowProgress(_progressSO);
+            var progress = _progressSOs[GetIndexProgressSO(_playerData.playerSerializeData.Level)];
+            ShowProgress(progress);
         }
 
         public void ShowProgress(ProgressSO progressSO)
         {
+            ShowProgressInfomation();
             foreach (var progressElement in _progressElements)
             {
                 _progressSO.DespawnObject(progressElement.gameObject);
@@ -68,6 +85,30 @@ namespace Progress.UI
         public void Exit()
         {
             _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.GamePlay);
+        }
+
+        private void ShowProgressInfomation(){
+            var exp = _playerData.playerSerializeData.Exp;
+            var maxProgress = 1000;
+            var level = _playerData.playerSerializeData.Level;
+            var nextLevel = level + 1;
+            _progressSlider.value = exp / maxProgress;
+            _progressText.text = $"{exp}/{maxProgress}";
+            _progressLevelText.text = "LEVEL " + level.ToString();
+            _progressNextLevelText.text = "LEVEL " + nextLevel.ToString();
+        }
+
+        private int GetIndexProgressSO(int level)
+        {
+            for(int i = 0; i < _progressSOs.Count; i++)
+            {
+                var progressSO = _progressSOs[i];
+                if (progressSO.levelStart <= level && progressSO.levelStart + progressSO.ProgressDatas.Count >= level)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }

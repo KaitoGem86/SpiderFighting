@@ -9,6 +9,7 @@ namespace Progress{
         [SerializeField] private List<ProgressData> _progressDatas;
         [SerializeField] private List<AchivementProgress> _achivementProgresses;
         public int levelStart;
+        public Sprite icon;
 
         public GameObject Spawn(ProgressData data, int currentLevel, int maxReceivedProgress, int levelStart, int index)
         {

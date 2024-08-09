@@ -1460,6 +1460,10 @@ MonoBehaviour:
   - {fileID: 3950255618119363698}
   _claimRewardButton: {fileID: 5718389120874572374}
   _lockIcon: {fileID: 8269074550624419509}
+  _progressSlider: {fileID: 2048299601580542383}
+  _progressText: {fileID: 4838300936782839915}
+  _progressLevelText: {fileID: 7787348657819718724}
+  _progressNextLevelText: {fileID: 3907916607319575668}
 --- !u!1 &3114508929110217453
 GameObject:
   m_ObjectHideFlags: 0
