@@ -53,14 +53,14 @@ namespace Core.GamePlay.MyPlayer
             if (_fsm.blackBoard.Character.GetCharacterMovement().groundCollider == null) return;
             if (other.collider.gameObject == _fsm.blackBoard.Character.GetCharacterMovement().groundCollider.gameObject) return;
             base.OnCollided(ref other);
-            if (Physics.Raycast(_checkWallPivot.position, _fsm.blackBoard.PlayerDisplay.forward, out var hit, _fsm.blackBoard.Character.GetRadius()))
-            {
-                if (Vector3.Angle(hit.normal, Vector3.up) > _fsm.blackBoard.Character.GetCharacterMovement().slopeLimit)
-                {
-                    //_stateContainer.SurfaceNormal = hit.normal;
-                    //_stateContainer.ChangeAction(ActionEnum.Climbing);
-                }
-            }
+            // if (Physics.Raycast(_checkWallPivot.position, _fsm.blackBoard.PlayerDisplay.forward, out var hit, _fsm.blackBoard.Character.GetRadius()))
+            // {
+            //     if (Vector3.Angle(hit.normal, Vector3.up) > _fsm.blackBoard.Character.GetCharacterMovement().slopeLimit)
+            //     {
+            //         //_stateContainer.SurfaceNormal = hit.normal;
+            //         //_stateContainer.ChangeAction(ActionEnum.Climbing);
+            //     }
+            // }
         }
     }
 }

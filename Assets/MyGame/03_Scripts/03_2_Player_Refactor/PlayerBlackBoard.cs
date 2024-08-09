@@ -33,7 +33,6 @@ namespace Core.GamePlay.MyPlayer{
         }
         public Transform HoldPivot;
         public Rigidbody SwingPivot;
-        public PlayerModel PlayerModel;
         public Vector3 GlobalVelocity;
 
         [Header("Combat")]

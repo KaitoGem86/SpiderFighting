@@ -22,7 +22,7 @@ namespace Core.GamePlay.Support
         public void Update()
         {
             if (_lerpHpBar.fillAmount != _hpBar.fillAmount)
-                _lerpHpBar.fillAmount = Mathf.Lerp(_lerpHpBar.fillAmount, _hpBar.fillAmount, Time.deltaTime * 5);
+                _lerpHpBar.fillAmount = Mathf.Lerp(_lerpHpBar.fillAmount, _hpBar.fillAmount, Time.deltaTime * 60);
         }
 
         void LateUpdate(){

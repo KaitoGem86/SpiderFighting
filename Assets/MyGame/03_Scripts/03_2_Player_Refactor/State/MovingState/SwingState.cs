@@ -29,8 +29,8 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
-            _leftHand = _fsm.blackBoard.PlayerModel.leftHand;
-            _rightHand = _fsm.blackBoard.PlayerModel.rightHand;
+            _leftHand = _fsm.blackBoard.CurrentPlayerModel.leftHand;
+            _rightHand = _fsm.blackBoard.CurrentPlayerModel.rightHand;
             _isStartSwing = false;
             base.EnterState();
         }
