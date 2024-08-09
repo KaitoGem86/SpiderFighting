@@ -21,7 +21,7 @@ namespace Core.GamePlay.MyPlayer
             }
             _fsm.blackBoard.Character.useRootMotion = true;
             base.EnterState();
-            _isCanChangeNextAttack = false;
+            _isCanChangeNextAttack = false;    
         }
 
         public override void ExitState()
