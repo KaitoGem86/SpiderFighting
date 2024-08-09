@@ -29,7 +29,7 @@ namespace Core.GamePlay.MyPlayer
         {
             if (_rotateDirection == Vector3.zero) return;
             Quaternion targetRotation = Quaternion.LookRotation(_rotateDirection);
-            _fsm.blackBoard.PlayerDisplay.rotation = Quaternion.Slerp(_fsm.blackBoard.PlayerDisplay.rotation, targetRotation, Time.deltaTime * 10);
+            _fsm.blackBoard.CurrentPlayerModel.PlayerDisplay.rotation = Quaternion.Slerp(_fsm.blackBoard.CurrentPlayerModel.PlayerDisplay.rotation, targetRotation, Time.deltaTime * 10);
         }
 
         protected virtual void GetInput()

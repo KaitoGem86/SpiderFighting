@@ -9,6 +9,10 @@ namespace Core.GamePlay.Enemy{
         private Vector3 _targetPos;
 
         public override void EnterState(){
+            if(Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _fsm.blackBoard.target.position) > _longRange){
+                _fsm.ChangeAction(FSMState.Moving);
+                return;
+            }
             base.EnterState();
             _fsm.blackBoard.navMeshAgent.ResetPath();
             _targetPos = _fsm.blackBoard.target.position - (_fsm.blackBoard.target.position - _fsm.blackBoard.navMeshAgent.transform.position).normalized * 1;

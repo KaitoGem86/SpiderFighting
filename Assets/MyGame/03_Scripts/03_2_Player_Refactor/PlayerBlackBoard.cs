@@ -20,7 +20,7 @@ namespace Core.GamePlay.MyPlayer{
         
         [Header("Movement")]
         public Transform CameraTransform;
-        public Transform PlayerDisplay;
+        public Transform PlayerDisplay => CurrentPlayerModel.PlayerDisplay;
         public Character Character;
         public Vector3 RuntimeSurfaceNormal;
         public Vector3 GetVelocity{
