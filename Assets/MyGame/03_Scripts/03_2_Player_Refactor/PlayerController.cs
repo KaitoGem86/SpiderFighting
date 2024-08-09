@@ -42,7 +42,7 @@ namespace Core.GamePlay.MyPlayer
             playerModel = blackBoard.PlayerModels[index];
             playerModel.gameObject.SetActive(true);
             blackBoard.CurrentPlayerModel = playerModel;
-            blackBoard.Animancer.Animator = playerModel.animator;
+            blackBoard.Animancer.Animator.avatar = playerModel.animator.avatar;
             if (blackBoard.CurrentAnimancerState != null)
                 blackBoard.Animancer.Play(blackBoard.CurrentAnimancerState);
         }
