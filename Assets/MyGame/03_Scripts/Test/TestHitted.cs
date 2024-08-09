@@ -7,6 +7,11 @@ public class TestHitted : MonoBehaviour, IHitted{
         Debug.Log("Hitted by player");
     }
 
+    public void KnockBack()
+    {
+        Debug.Log("Knock back");
+    }
+
     public Transform TargetEnemy
     {
         get => transform;

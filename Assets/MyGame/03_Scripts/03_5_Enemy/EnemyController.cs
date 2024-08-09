@@ -45,6 +45,10 @@ namespace Core.GamePlay.Enemy
             }
         }
 
+        public void KnockBack(){
+            ChangeAction(FSMState.KnockBack);
+        }
+
         public Transform TargetEnemy { get => this.transform; }
         public bool IsIgnore { get; set; }
         public EnemySO EnemySO { get => _soController; }

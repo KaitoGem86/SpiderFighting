@@ -1,3 +1,4 @@
+using Animancer;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,6 +10,8 @@ namespace Core.GamePlay.Enemy
         [Header("========= General =========")]
         public Vector3 defaultPosition;
         public Vector3 targetPosition;
+        public AnimancerComponent animancerComponent;
+
 
         [Header("========= Movement =========")]
         public NavMeshAgent navMeshAgent;
