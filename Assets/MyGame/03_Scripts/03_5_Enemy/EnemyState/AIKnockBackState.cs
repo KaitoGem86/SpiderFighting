@@ -21,5 +21,10 @@ namespace Core.GamePlay.Enemy{
             _fsm.blackBoard.animancerComponent.Animator.applyRootMotion = true;
             base.ExitState();
         }
+
+        public void CompleteKnockBack()
+        {
+            _fsm.ChangeAction(FSMState.WaitAttack);
+        }
     }
 }

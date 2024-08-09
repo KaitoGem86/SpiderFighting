@@ -14,7 +14,7 @@ namespace Core.GamePlay.MyPlayer
 
         protected override void Awake()
         {
-
+            _fsm.blackBoard.GlobalVelocity = Vector3.zero;
             base.Awake();
             _currentHitInCombo = -1;
         }

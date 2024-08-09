@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Core.GamePlay.Enemy
 {
-    
+
 
     public class EnemyController : FSM<EnemyBlackBoard>, IHitted
     {
@@ -16,7 +16,8 @@ namespace Core.GamePlay.Enemy
         private EnemySO _soController;
         private EnemyData _runtimeData;
 
-        public void OnDisable(){
+        public void OnDisable()
+        {
             onEnemyDead?.Invoke();
             onEnemyDead = null;
         }
@@ -34,6 +35,7 @@ namespace Core.GamePlay.Enemy
             _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _soController.initData.HP);
             _floatingDamageTextSO.Spawn(10, _unitCanvas);
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
+            blackBoard.attackDelayTime = 5;
             if (_runtimeData.HP <= 0)
             {
                 IsIgnore = true;
@@ -45,8 +47,21 @@ namespace Core.GamePlay.Enemy
             }
         }
 
-        public void KnockBack(){
-            ChangeAction(FSMState.KnockBack);
+        public void KnockBack()
+        {
+            _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _soController.initData.HP);
+            _floatingDamageTextSO.Spawn(10, _unitCanvas);
+            _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
+            blackBoard.attackDelayTime = 5;
+            if (_runtimeData.HP <= 0)
+            {
+                IsIgnore = true;
+                ChangeAction(FSMState.Dead);
+            }
+            else
+            {
+                ChangeAction(FSMState.KnockBack);
+            }
         }
 
         public Transform TargetEnemy { get => this.transform; }

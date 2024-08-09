@@ -16,6 +16,7 @@ namespace Core.GamePlay.MyPlayer{
         public override void EnterState()
         {
             _enemy = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform);
+            _fsm.blackBoard.GlobalVelocity = Vector3.zero;
             if (_enemy == null){
                 _fsm.ChangeAction(FSMState.Attack);
                 return;

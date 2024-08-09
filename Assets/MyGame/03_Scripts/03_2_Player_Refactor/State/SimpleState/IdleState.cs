@@ -7,6 +7,12 @@ namespace Core.GamePlay.MyPlayer
     {
         bool _isCanChangeAction = true;
 
+        public override void EnterState()
+        {
+            _fsm.blackBoard.GlobalVelocity = Vector3.zero;
+            base.EnterState();
+        }
+
         public override void Update()
         {
             if (!_isCanChangeAction)
