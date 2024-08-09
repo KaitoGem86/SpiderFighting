@@ -101,6 +101,7 @@ MonoBehaviour:
   _claimButton: {fileID: 7479625454686704532}
   _receivedIcon: {fileID: 9157018575315404119}
   _lockedIcon: {fileID: 4382808033066666307}
+  _onClaimReward: {fileID: 11400000, guid: 3059b02143d5e96469b0d9154a48d1fc, type: 2}
 --- !u!1 &1599025195753114606
 GameObject:
   m_ObjectHideFlags: 0

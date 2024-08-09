@@ -1345,6 +1345,7 @@ GameObject:
   - component: {fileID: 1214256238279909639}
   - component: {fileID: 8429065177758468494}
   - component: {fileID: 6343239044193213346}
+  - component: {fileID: 8161450851890348762}
   m_Layer: 0
   m_Name: ProgressScreen
   m_TagString: Untagged
@@ -1453,6 +1454,8 @@ MonoBehaviour:
   _showWithAnimation: 0
   ScreenType: 4
   _progressContainer: {fileID: 2350380610775650546}
+  _progressSOs:
+  - {fileID: 11400000, guid: c50f202f388db814c88cd47ad50e0634, type: 2}
   _progressSO: {fileID: 11400000, guid: c50f202f388db814c88cd47ad50e0634, type: 2}
   _achivements:
   - {fileID: 5723318818556119708}
@@ -1460,10 +1463,40 @@ MonoBehaviour:
   - {fileID: 3950255618119363698}
   _claimRewardButton: {fileID: 5718389120874572374}
   _lockIcon: {fileID: 8269074550624419509}
+  _navigationButtons: []
   _progressSlider: {fileID: 2048299601580542383}
   _progressText: {fileID: 4838300936782839915}
   _progressLevelText: {fileID: 7787348657819718724}
   _progressNextLevelText: {fileID: 3907916607319575668}
+--- !u!114 &8161450851890348762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2537912064431154238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a309d31daba28e64d93cd2bf3a1ea452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 3059b02143d5e96469b0d9154a48d1fc, type: 2}
+  _unregisterOnDisable: 1
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6343239044193213346}
+        m_TargetAssemblyTypeName: Progress.UI.ProgressScreen, Assembly-CSharp
+        m_MethodName: OnClaimReward
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3114508929110217453
 GameObject:
   m_ObjectHideFlags: 0

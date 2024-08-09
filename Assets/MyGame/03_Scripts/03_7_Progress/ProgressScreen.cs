@@ -34,15 +34,16 @@ namespace Progress.UI
 
         private void Awake()
         {
-            _progressSO.Init(1980, _progressContainer);
+            
         }
 
         protected override void OnCompleteShowItSelf()
         {
             _playerData = GameManager.Instance.PlayerData;
             base.OnCompleteShowItSelf();
-            var progress = _progressSOs[GetIndexProgressSO(_playerData.playerSerializeData.Level)];
-            ShowProgress(progress);
+            var _progressSO = _progressSOs[GetIndexProgressSO(_playerData.playerSerializeData.Level)];
+            _progressSO.Init(1980, _progressContainer);
+            ShowProgress(_progressSO);
         }
 
         public void ShowProgress(ProgressSO progressSO)
@@ -109,6 +110,11 @@ namespace Progress.UI
                 }
             }
             return -1;
+        }
+
+        public void OnClaimReward(int level){
+            _playerData.playerSerializeData.maxReceiveProgress = level;
+            ShowProgress(_progressSOs[GetIndexProgressSO(level)]);
         }
     }
 }
