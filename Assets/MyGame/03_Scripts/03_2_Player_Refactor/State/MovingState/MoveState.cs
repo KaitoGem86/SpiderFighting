@@ -19,7 +19,7 @@ namespace Core.GamePlay.MyPlayer
         public override void EnterState()
         {
             base.EnterState();
-            _fsm.blackBoard.Character.maxWalkSpeed = _speed;
+            //_fsm.blackBoard.Character.maxWalkSpeed = _speed;
         }
 
         public override void Update()
@@ -39,7 +39,7 @@ namespace Core.GamePlay.MyPlayer
         public void LateUpdate()
         {
             Move();
-            Rotate();
+            //Rotate();
             _transition.State.Parameter = _moveDirection.magnitude * _speed;
         }
 

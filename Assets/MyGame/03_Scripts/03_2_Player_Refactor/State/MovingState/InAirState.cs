@@ -15,20 +15,22 @@ namespace Core.GamePlay.MyPlayer
         public virtual void LateUpdate()
         {
             Move();
-            Rotate();
+            //Rotate();
         }
 
-        protected override void Move()
-        {
-            Vector3 tmp = _moveDirection * _speed;
-            Debug.DrawRay(_fsm.blackBoard.Character.transform.position, tmp, Color.red);
-            _fsm.blackBoard.Character.AddForce(tmp, ForceMode.Force);
-        }
+
+        // protected override void Move()
+        // {
+        //     Vector3 tmp = _moveDirection * _speed;
+        //     // Debug.DrawRay(_fsm.blackBoard.Character.transform.position, tmp, Color.red);
+        //     // _fsm.blackBoard.Character.AddForce(tmp, ForceMode.Force);
+        //     _fsm.blackBoard.Character.SetMovementDirection(tmp);
+        // }
 
         protected override void GetInput()
         {
             base.GetInput();
-            _moveDirection = Vector3.Project(_moveDirection, _fsm.blackBoard.PlayerDisplay.forward);
+            //_moveDirection = Vector3.Project(_moveDirection, _fsm.blackBoard.PlayerDisplay.forward);
             // if (_moveDirection == Vector3.zero)
             // {
             //     _moveDirection = _fsm.blackBoard.CameraTransform.forward;

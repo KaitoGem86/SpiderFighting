@@ -11,7 +11,6 @@ namespace Core.GamePlay.MyPlayer
         {
             _fsm.blackBoard.GlobalVelocity = Vector3.zero;
             base.EnterState();
-            Debug.Log(_fsm.blackBoard.Character.GetVelocity());
         }
 
         public override void Update()
@@ -35,15 +34,15 @@ namespace Core.GamePlay.MyPlayer
 
         public void LateUpdate()
         {
-            ReRotateCharacter();
+            //ReRotateCharacter();
         }
 
-        private void ReRotateCharacter()
-        {
-            var rotateDir = _fsm.blackBoard.PlayerDisplay.transform.forward;
-            rotateDir.y = 0;
-            var targetRotation = Quaternion.LookRotation(rotateDir);
-            _fsm.blackBoard.PlayerDisplay.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.PlayerDisplay.transform.rotation, targetRotation, Time.deltaTime * 10);
-        }
+        // private void ReRotateCharacter()
+        // {
+        //     var rotateDir = _fsm.blackBoard.PlayerDisplay.transform.forward;
+        //     rotateDir.y = 0;
+        //     var targetRotation = Quaternion.LookRotation(rotateDir);
+        //     _fsm.blackBoard.PlayerDisplay.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.PlayerDisplay.transform.rotation, targetRotation, Time.deltaTime * 10);
+        // }
     }
 }

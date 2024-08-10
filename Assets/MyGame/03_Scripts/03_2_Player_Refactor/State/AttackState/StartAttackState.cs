@@ -46,6 +46,8 @@ namespace Core.GamePlay.MyPlayer{
         }
 
         public void CompleteAttack(){
+            _moveDirection = Vector3.zero;
+            Move();
             _fsm.ChangeAction(FSMState.Idle);
         }
 

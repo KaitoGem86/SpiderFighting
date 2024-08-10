@@ -27,7 +27,7 @@ namespace Core.GamePlay.MyPlayer
             _fsm.blackBoard.Character.StopJumping();
             base.EnterState();
             var velocity = _fsm.blackBoard.Character.GetCharacterMovement().velocity.magnitude;
-            _remainMoveDirection = _fsm.blackBoard.Character.GetVelocity();
+            _remainMoveDirection = _fsm.transform.forward * velocity;
             GetInput();
             if(_moveDirection.magnitude < 0.1f && velocity < _landingVelocityThreshold)
             {
@@ -54,6 +54,7 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.Moving);
                 return;
             }
+            base.Update();
         }
 
         public void FixedUpdate()

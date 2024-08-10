@@ -29,6 +29,7 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.Dive);
                 return;
             }
+            base.Update();
         }
     }
 }
