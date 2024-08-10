@@ -9,7 +9,6 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
-            _fsm.blackBoard.GlobalVelocity = Vector3.zero;
             base.EnterState();
         }
 
