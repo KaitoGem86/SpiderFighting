@@ -7,7 +7,6 @@ namespace Core.GamePlay.MyPlayer
 {
     public class LocalmotionState<T> : BasePlayerState<T> where T : ITransition
     {
-        [SerializeField] protected float _speed;
         protected Vector3 _moveDirection;
         protected Vector3 _rotateDirection;
         protected Vector3 _direction;

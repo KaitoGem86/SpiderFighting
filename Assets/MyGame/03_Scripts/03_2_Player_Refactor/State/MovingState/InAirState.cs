@@ -22,7 +22,7 @@ namespace Core.GamePlay.MyPlayer
         {
             Vector3 tmp = _moveDirection * _speed;
             Debug.DrawRay(_fsm.blackBoard.Character.transform.position, tmp, Color.red);
-            _fsm.blackBoard.Character.AddForce(tmp);
+            _fsm.blackBoard.Character.AddForce(tmp, ForceMode.Force);
         }
 
         protected override void GetInput()

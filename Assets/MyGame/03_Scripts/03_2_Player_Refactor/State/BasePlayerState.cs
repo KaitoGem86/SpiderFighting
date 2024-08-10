@@ -3,6 +3,7 @@ using Animancer;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
 using SFRemastered.InputSystem;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
@@ -10,6 +11,8 @@ namespace Core.GamePlay.MyPlayer
     public class BasePlayerState<T> : BaseState<T, PlayerBlackBoard>, IPlayerState where T : ITransition
     {
         [SerializeField] protected MovementMode _movementMode; 
+        [SerializeField] protected bool _isInterpolating;
+        [SerializeField] protected float _speed;
 
         public override void EnterState()
         {
@@ -21,14 +24,14 @@ namespace Core.GamePlay.MyPlayer
                 rigidbody.useGravity = true;
                 rigidbody.isKinematic = false;
                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
-                rigidbody.velocity = _fsm.blackBoard.GlobalVelocity;
+                rigidbody.velocity = _isInterpolating ? _fsm.blackBoard.GlobalVelocity : _fsm.blackBoard.GlobalVelocity.normalized * _speed;
             }
             else{
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.useGravity = false;
                 rigidbody.isKinematic = true;
                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
-                _fsm.blackBoard.Character.SetVelocity(_fsm.blackBoard.GlobalVelocity);
+                _fsm.blackBoard.Character.SetVelocity(_isInterpolating ? _fsm.blackBoard.GlobalVelocity : _fsm.blackBoard.GlobalVelocity.normalized * _speed);
             }
         }
 
