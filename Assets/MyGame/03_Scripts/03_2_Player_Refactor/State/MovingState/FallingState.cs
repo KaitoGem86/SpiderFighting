@@ -14,7 +14,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
-            this.gameObject.SetActive(true);
+            base.EnterState();
         }
 
         public override void Update()
