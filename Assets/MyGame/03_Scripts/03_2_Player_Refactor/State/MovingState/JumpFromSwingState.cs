@@ -32,11 +32,6 @@ namespace Core.GamePlay.MyPlayer
             base.Update();
         }
 
-        public override void FixedUpdate()
-        {
-            Move();
-        }
-
         private Vector3 JumpVelocityFromSwing()
         {
             var velocity = _fsm.blackBoard.GlobalVelocity;
