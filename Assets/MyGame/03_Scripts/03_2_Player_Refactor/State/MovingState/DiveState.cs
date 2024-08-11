@@ -10,6 +10,7 @@ namespace Core.GamePlay.MyPlayer{
                 _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Landing);
                 return;
             }
+            base.Update();
         }
     }
 }

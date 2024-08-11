@@ -45,9 +45,9 @@ namespace Core.GamePlay.MyPlayer
 
         private void FindPivot()
         {
-            var forward = _fsm.blackBoard.PlayerDisplay.forward;
+            var forward = _fsm.transform.forward;
             forward.y = 0;
-            var right = _fsm.blackBoard.PlayerDisplay.right;
+            var right = _fsm.transform.right;
             right.y = 0;
             if (_fsm.transform.position.y < 10)
             {
@@ -80,7 +80,7 @@ namespace Core.GamePlay.MyPlayer
         {
             GetInput();
             _fsm.blackBoard.Character.GetCharacterMovement().rigidbody.AddForce(_moveDirection * _speed, ForceMode.Force);
-            RotateCharacterUpwardFlowSilk();
+            //RotateCharacterUpwardFlowSilk();
         }
 
         public override void LateUpdate()
