@@ -1,3 +1,4 @@
+using UnityEngine;
 using Animancer;
 using Extensions.SystemGame.AIFSM;
 
@@ -22,6 +23,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void FixedUpdate()
         {
+            Debug.Log(_moveDirection);
             Move();
         }
     }
