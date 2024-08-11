@@ -12,7 +12,7 @@ namespace Core.GamePlay.MyPlayer
             GetInput();
         }
 
-        public virtual void LateUpdate()
+        public virtual void FixedUpdate()
         {
             Move();
             //Rotate();

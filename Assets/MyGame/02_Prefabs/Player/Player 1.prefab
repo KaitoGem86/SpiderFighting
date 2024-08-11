@@ -359,6 +359,7 @@ MonoBehaviour:
   _stateType: 15
   _canChangeToItself: 0
   _movementMode: 0
+  _isInterpolating: 0
   _speed: 10
   _timeToAttack: 0.4
   _mediumRange: 7
@@ -481,6 +482,7 @@ MonoBehaviour:
   _stateType: 7
   _canChangeToItself: 0
   _movementMode: 1
+  _isInterpolating: 1
   _speed: 3
   _damping: 0.05
 --- !u!114 &8850815833840062881
@@ -792,6 +794,8 @@ MonoBehaviour:
   _stateType: 18
   _canChangeToItself: 0
   _movementMode: 0
+  _isInterpolating: 0
+  _speed: 0
   _ultimateAttackEffect: {fileID: 0}
 --- !u!1 &1633333876150643314
 GameObject:
@@ -1050,6 +1054,7 @@ MonoBehaviour:
   _stateType: 13
   _canChangeToItself: 0
   _movementMode: 0
+  _isInterpolating: 1
   _speed: 30
   _shootSilk: {fileID: 11400000, guid: 17b53d2302a5dc5409853efe81fcbc96, type: 2}
 --- !u!114 &6554512304298042596
@@ -1249,11 +1254,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 872527583909876332}
-  _transitions: []
+  _transitions:
+  - _FadeDuration: 0.17333336
+    _Events:
+      _NormalizedTimes:
+      - 0.25
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: b72a4ace4acfa4444a89affd2c33d123, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
   _stateType: 11
   _canChangeToItself: 0
   _movementMode: 1
-  _speed: 20
+  _isInterpolating: 1
+  _speed: 30
   _diveVelocityThreshold: 5
 --- !u!114 &6985780758551972131
 MonoBehaviour:
@@ -1458,6 +1473,8 @@ MonoBehaviour:
   _stateType: 19
   _canChangeToItself: 0
   _movementMode: 1
+  _isInterpolating: 0
+  _speed: 0
 --- !u!114 &4096899443020883469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,6 +1562,8 @@ MonoBehaviour:
   _stateType: 0
   _canChangeToItself: 0
   _movementMode: 1
+  _isInterpolating: 0
+  _speed: 0
 --- !u!1 &3676252151780558931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,10 +1649,13 @@ MonoBehaviour:
       _Names: []
     _Speed: NaN
     _Animations:
-    - {fileID: 7400000, guid: 655cf98028bcea24d91e325ffc5da69a, type: 2}
-    - {fileID: 7400000, guid: 6f26f8a11c6795847987d6c3d76d64d5, type: 3}
-    - {fileID: 7400000, guid: 13001bbae5931034eabf552992cac52b, type: 2}
-    _Speeds: []
+    - {fileID: 7400000, guid: 317aded23d64fc14c8713dff3ccb36e5, type: 2}
+    - {fileID: 7400000, guid: 1e5095849e522c241afbd056f22ea028, type: 2}
+    - {fileID: 7400000, guid: bee7d7c15a121db4c8f6739575c1bd95, type: 2}
+    _Speeds:
+    - 1
+    - 0.7
+    - 1
     _SynchronizeChildren: 
     _Thresholds:
     - 0
@@ -1644,8 +1666,10 @@ MonoBehaviour:
   _stateType: 8
   _canChangeToItself: 0
   _movementMode: 1
+  _isInterpolating: 1
   _speed: 3
-  _landingVelocityThreshold: 20
+  _landingVelocityThreshold: 40
+  _damping: 0.1
 --- !u!1 &3812938625370790156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1846,7 @@ MonoBehaviour:
   _stateType: 12
   _canChangeToItself: 0
   _movementMode: 2
+  _isInterpolating: 1
   _speed: 40
 --- !u!114 &7419429048511183263
 MonoBehaviour:
@@ -1970,6 +1995,7 @@ MonoBehaviour:
   _stateType: 17
   _canChangeToItself: 0
   _movementMode: 1
+  _isInterpolating: 1
   _speed: 0
 --- !u!1 &4815822924509637307
 GameObject:
@@ -2269,7 +2295,7 @@ MonoBehaviour:
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 1
-  _triggerInteraction: 2
+  _triggerInteraction: 1
   _advanced:
     minMoveDistance: 0
     maxMovementIterations: 5
@@ -2327,12 +2353,10 @@ MonoBehaviour:
   CurrentPlayerModel: {fileID: 0}
   Animancer: {fileID: 872527583909876332}
   CameraTransform: {fileID: 2891768364681447400}
-  PlayerDisplay: {fileID: 5074747585852536943}
   Character: {fileID: 8917293616794470225}
   RuntimeSurfaceNormal: {x: 0, y: 0, z: 0}
-  HoldPivot: {fileID: 0}
+  HoldPivot: {fileID: 4177377559996717007}
   SwingPivot: {fileID: 0}
-  PlayerModel: {fileID: 0}
   GlobalVelocity: {x: 0, y: 0, z: 0}
   FindEnemyToAttack: {fileID: 11400000, guid: 327121c53c1175a4b888ab80a3f244ed, type: 2}
   HealingBotPivot: {fileID: 934142211166127097}
@@ -2377,7 +2401,7 @@ MonoBehaviour:
   _maxFallSpeed: 120
   _brakingDecelerationFalling: 0
   _fallingLateralFriction: 0.3
-  _airControl: 0.3
+  _airControl: 1
   _maxFlySpeed: 10
   _brakingDecelerationFlying: 0
   _flyingFriction: 0.5
@@ -2398,7 +2422,7 @@ MonoBehaviour:
   _canEverJump: 1
   _jumpWhileCrouching: 0
   _jumpMaxCount: 1
-  _jumpImpulse: 12
+  _jumpImpulse: 24
   _jumpMaxHoldTime: 0.35
   _jumpPreGroundedTime: 0.15
   _jumpPostGroundedTime: 0.15
@@ -2487,7 +2511,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5482327496165697713}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 017d7b60e7056914fbec7ea6b218d514, type: 2}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -2617,7 +2641,8 @@ MonoBehaviour:
   _stateType: 9
   _canChangeToItself: 0
   _movementMode: 1
-  _speed: 20
+  _isInterpolating: 0
+  _speed: 15
 --- !u!114 &3048203115265659547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2718,6 +2743,7 @@ MonoBehaviour:
   _stateType: 2
   _canChangeToItself: 0
   _movementMode: 1
+  _isInterpolating: 1
   _speed: 25
 --- !u!114 &7973069686424263221
 MonoBehaviour:
@@ -2987,6 +3013,8 @@ MonoBehaviour:
   _stateType: 4
   _canChangeToItself: 1
   _movementMode: 1
+  _isInterpolating: 0
+  _speed: 0
 --- !u!114 &2635288075608208704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3125,10 +3153,25 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
+      - 0.43208367
       - 0.83734274
       - 0.9765195
       - NaN
       _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 402850231746971639}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.LastAttackState, Assembly-CSharp
+            m_MethodName: ApplyDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       - m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 402850231746971639}
@@ -3164,10 +3207,25 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
+      - 0.357335
       - 0.83734274
       - 0.9765195
       - NaN
       _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 402850231746971639}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.LastAttackState, Assembly-CSharp
+            m_MethodName: ApplyDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       - m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 402850231746971639}
@@ -3203,10 +3261,25 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
+      - 0.3172589
       - 0.83734274
       - 0.9765195
       - NaN
       _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 402850231746971639}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.LastAttackState, Assembly-CSharp
+            m_MethodName: ApplyDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       - m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 402850231746971639}
@@ -3242,6 +3315,8 @@ MonoBehaviour:
   _stateType: 16
   _canChangeToItself: 0
   _movementMode: 1
+  _isInterpolating: 0
+  _speed: 0
 --- !u!1 &7194908100875461061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,6 +3775,7 @@ MonoBehaviour:
   _stateType: 14
   _canChangeToItself: 0
   _movementMode: 0
+  _isInterpolating: 1
   _speed: 3
 --- !u!1 &8414098350887397751
 GameObject:
@@ -3764,6 +3840,8 @@ MonoBehaviour:
   _stateType: 1
   _canChangeToItself: 0
   _movementMode: 1
+  _isInterpolating: 0
+  _speed: 0
 --- !u!114 &5853242502535691822
 MonoBehaviour:
   m_ObjectHideFlags: 0

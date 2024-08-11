@@ -74,18 +74,13 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.JumpFromSwing);
                 return;
             }
+            base.Update();
         }
 
-        public void FixedUpdate()
+        public override void FixedUpdate()
         {
-            GetInput();
             _fsm.blackBoard.Character.GetCharacterMovement().rigidbody.AddForce(_moveDirection * _speed, ForceMode.Force);
             //RotateCharacterUpwardFlowSilk();
-        }
-
-        public override void LateUpdate()
-        {
-
         }
 
         public void ChangeToJumping(bool isSwing)

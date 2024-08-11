@@ -29,7 +29,7 @@ namespace Core.GamePlay.MyPlayer
             var velocity = _fsm.blackBoard.Character.GetCharacterMovement().velocity.magnitude;
             _remainMoveDirection = _fsm.transform.forward * velocity;
             GetInput();
-            if(_moveDirection.magnitude < 0.1f && velocity < _landingVelocityThreshold)
+            if (_moveDirection.magnitude < 0.1f && velocity < _landingVelocityThreshold)
             {
                 _transition.State.Parameter = 0;
                 _remainMoveDirection = Vector3.zero;
@@ -54,22 +54,19 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.Moving);
                 return;
             }
+            if (_speed < 0.1f)
+            {
+                _speed = 0;
+                Move();
+                _fsm.ChangeAction(FSMState.Idle);
+                return;
+            }
             base.Update();
         }
 
         public void FixedUpdate()
         {
             _speed = Mathf.Lerp(_speed, 0, _damping);
-            if (_speed < 0.1f)
-            {
-                _speed = 0;
-                if (_isCanChangeAction)
-                {
-                    Move();
-                    _fsm.ChangeAction(FSMState.Idle);
-                }
-                return;
-            }
             _moveDirection = _remainMoveDirection;
             Move();
             _remainMoveDirection = Vector3.Lerp(_remainMoveDirection, Vector3.zero, _damping * Time.deltaTime);
