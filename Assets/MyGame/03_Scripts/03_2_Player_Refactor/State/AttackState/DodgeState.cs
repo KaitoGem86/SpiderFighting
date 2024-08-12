@@ -16,6 +16,8 @@ namespace Core.GamePlay.MyPlayer
 
         public void CompleteDodge()
         {
+            _fsm.blackBoard.GlobalVelocity = Vector3.zero;
+            _fsm.blackBoard.Character.SetMovementDirection(Vector3.zero);
             _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Idle);
         }
 

@@ -31,7 +31,7 @@ namespace Core.GamePlay.MyPlayer
                 rigidbody.useGravity = false;
                 rigidbody.isKinematic = true;
                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
-                _fsm.blackBoard.Character.SetVelocity(_isInterpolating ? _fsm.blackBoard.GlobalVelocity : _fsm.blackBoard.GlobalVelocity.normalized * _speed);
+                _fsm.blackBoard.Character.SetMovementDirection(_isInterpolating ? _fsm.blackBoard.GlobalVelocity : _fsm.blackBoard.GlobalVelocity.normalized * _speed);
             }
         }
 
