@@ -12,7 +12,7 @@ namespace Core.GamePlay.Support{
             _webBulletSO = so;
             _isMoving = true;
             this.transform.position = origin.position;
-            _direction = targetEnemy.TargetEnemy.position - origin.position;
+            _direction = targetEnemy.TargetEnemy.position + Vector3.up - origin.position;
             StartCoroutine(Despawn());
         }
 
@@ -30,11 +30,12 @@ namespace Core.GamePlay.Support{
         }
 
         private void OnTriggerEnter(Collider other){
+            Debug.Log("OnTriggerEnter" + other.name);
             _isMoving = false;
             _webBulletSO.DespawnObject(this.gameObject);
             var enemy = other.GetComponent<IHitted>();
             if (enemy != null){
-                enemy.HittedByPlayer();
+                enemy.HittedByPlayer(Extensions.SystemGame.AIFSM.FSMState.StunLock);
             }
         }
 

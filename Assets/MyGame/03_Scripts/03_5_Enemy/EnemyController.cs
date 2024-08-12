@@ -16,7 +16,8 @@ namespace Core.GamePlay.Enemy
         private EnemySO _soController;
         private EnemyData _runtimeData;
 
-        protected override void OnEnable(){
+        protected override void OnEnable()
+        {
             base.OnEnable();
             blackBoard.isReadyToAttack = false;
         }
@@ -37,7 +38,35 @@ namespace Core.GamePlay.Enemy
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
         }
 
-        public void HittedByPlayer()
+        public void HittedByPlayer(FSMState state)
+        {
+            switch (state)
+            {
+                case FSMState.StunLock:
+                    StunLock();
+                    break;
+                case FSMState.KnockBack:
+                    KnockBack();
+                    break;
+                default:
+                    _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _soController.initData.HP);
+                    _floatingDamageTextSO.Spawn(10, _unitCanvas);
+                    _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
+                    blackBoard.attackDelayTime = 5;
+                    if (_runtimeData.HP <= 0)
+                    {
+                        IsIgnore = true;
+                        ChangeAction(FSMState.Dead);
+                    }
+                    else
+                    {
+                        ChangeAction(FSMState.Hit);
+                    }
+                    break;
+            }
+        }
+
+        private void StunLock()
         {
             _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _soController.initData.HP);
             _floatingDamageTextSO.Spawn(10, _unitCanvas);
@@ -50,7 +79,7 @@ namespace Core.GamePlay.Enemy
             }
             else
             {
-                ChangeAction(FSMState.Hit);
+                ChangeAction(FSMState.StunLock);
             }
         }
 

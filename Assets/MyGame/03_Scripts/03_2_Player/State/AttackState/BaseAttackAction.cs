@@ -56,7 +56,7 @@ namespace Core.GamePlay.Player
         }
 
         public void AttackEnemy(){ 
-            _enemy?.HittedByPlayer();
+            _enemy?.HittedByPlayer(Extensions.SystemGame.AIFSM.FSMState.Hit);
         }
 
         public void CanChangeToAttack()

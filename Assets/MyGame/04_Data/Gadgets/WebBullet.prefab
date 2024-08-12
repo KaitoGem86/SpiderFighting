@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4600271919375759440}
   - component: {fileID: 4920109512691387570}
   - component: {fileID: 3150782135361512631}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: WebBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

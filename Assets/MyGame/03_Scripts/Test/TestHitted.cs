@@ -1,8 +1,9 @@
 using Core.GamePlay.Support;
+using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 public class TestHitted : MonoBehaviour, IHitted{
-    public void HittedByPlayer()
+    public void HittedByPlayer(FSMState state)
     {
         Debug.Log("Hitted by player");
     }

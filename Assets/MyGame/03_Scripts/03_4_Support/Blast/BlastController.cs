@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using Extensions.SystemGame.AIFSM;
 
 namespace Core.GamePlay.Support
 {
@@ -46,7 +47,7 @@ namespace Core.GamePlay.Support
             var enemy = _findEnemyToAttack.FindAllEnemyByDistance(this.transform, 10);
             foreach (var hitted in enemy)
             {
-                hitted.KnockBack();
+                hitted.HittedByPlayer(FSMState.KnockBack);
             }
             StartCoroutine(Despawn(3));
         }

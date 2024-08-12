@@ -1,4 +1,7 @@
 using Extensions.SystemGame.AIFSM;
+using UnityEngine;
+using DG.Tweening;
+
 
 namespace Core.GamePlay.MyPlayer
 {
@@ -20,6 +23,7 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.Idle);
                 return;
             }
+            RotateToTarget();
             base.EnterState();
         }
 
@@ -47,6 +51,13 @@ namespace Core.GamePlay.MyPlayer
         public void ChangeGadget(int index)
         {
             _currentGadget = index;
+        }
+
+        private void RotateToTarget()
+        {
+            //var forward = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform).TargetEnemy.position - _fsm.transform.position; forward.y = 0;
+            var target = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform).TargetEnemy.position;
+            _fsm.transform.DOLookAt(target, 0.2f);
         }
     }
 }

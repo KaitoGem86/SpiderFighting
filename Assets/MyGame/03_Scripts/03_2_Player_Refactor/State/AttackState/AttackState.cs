@@ -52,7 +52,7 @@ namespace Core.GamePlay.MyPlayer
 
         public void ApplyDamage()
         {
-            _enemy?.HittedByPlayer();
+            _enemy?.HittedByPlayer(FSMState.Hit);
         }
 
 

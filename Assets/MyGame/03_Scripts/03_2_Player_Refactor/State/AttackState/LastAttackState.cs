@@ -43,7 +43,7 @@ namespace Core.GamePlay.MyPlayer
 
         public void ApplyDamage()
         {
-            _enemy?.KnockBack();
+            _enemy?.HittedByPlayer(FSMState.KnockBack);
         }
 
         public override void Attack()

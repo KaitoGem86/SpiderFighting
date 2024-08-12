@@ -84,7 +84,7 @@ namespace Core.GamePlay.Player
 
         public void AttackEnemy()
         {
-            _enemyTarget?.HittedByPlayer();
+            _enemyTarget?.HittedByPlayer(Extensions.SystemGame.AIFSM.FSMState.Hit);
         }
 
         public void ShootSilk()

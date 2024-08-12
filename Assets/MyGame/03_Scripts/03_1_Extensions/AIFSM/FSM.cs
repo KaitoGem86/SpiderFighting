@@ -29,6 +29,7 @@ namespace Extensions.SystemGame.AIFSM{
         UltimateAttack,
         UseGadget,
         KnockBack,
+        StunLock,
     }
 
     public class FSM<T> : MonoBehaviour where T : BlackBoard{
