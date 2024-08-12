@@ -10,7 +10,11 @@ namespace Core.GamePlay.Support{
         public void ShowHitVFX()
         {
             _hitVFXs[_currentIndex].SetActive(false);
-            _currentIndex = Random.Range(0, _hitVFXs.Length);
+            int index = Random.Range(0, _hitVFXs.Length);
+            if (index == _currentIndex)
+            {
+                _currentIndex = (index + 1) % _hitVFXs.Length;
+            }
             _hitVFXs[_currentIndex].SetActive(true);
             StartCoroutine(HideVFX());
         }
