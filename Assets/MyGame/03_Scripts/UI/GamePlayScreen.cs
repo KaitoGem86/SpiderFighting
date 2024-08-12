@@ -43,10 +43,13 @@ namespace Core.UI
 
         public void Update()
         {
-            // if (Input.GetKeyDown(KeyCode.Z))
-            // {
-            //     OnClickZip();
-            // }
+            
+            
+            if (_isSwing)
+            {
+                onSwing?.Raise(value: true);
+            }
+#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 OnClickSwing(true);
@@ -55,26 +58,27 @@ namespace Core.UI
             {
                 OnClickSwing(false);
             }
-            if (_isSwing)
+            if (Input.GetKeyDown(KeyCode.Z))
             {
-                onSwing?.Raise(value: true);
+                OnClickZip();
             }
-            // if (Input.GetMouseButtonDown(1))
-            // {
-            //     OnClickAttack();
-            // }
-            // if (Input.GetKeyDown(KeyCode.LeftShift))
-            // {
-            //     OnCLickDodge();
-            // }
-            // if (Input.GetKeyDown(KeyCode.Q))
-            // {
-            //     OnClickUltilmateAttack();
-            // }
-            // if (Input.GetKeyDown(KeyCode.E))
-            // {
-            //     OnClickUseGadget();
-            // }
+            if (Input.GetMouseButtonDown(1))
+            {
+                OnClickAttack();
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                OnCLickDodge();
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                OnClickUltilmateAttack();
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                OnClickUseGadget();
+            }
+#endif     
         }
 
 

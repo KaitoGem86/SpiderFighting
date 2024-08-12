@@ -37,6 +37,7 @@ namespace Core.GamePlay.MyPlayer{
         public Transform HoldPivot;
         public Rigidbody SwingPivot;
         public Vector3 GlobalVelocity;
+        public Rigidbody rig;
 
         [Header("Combat")]
         public FindEnemyToAttack FindEnemyToAttack;

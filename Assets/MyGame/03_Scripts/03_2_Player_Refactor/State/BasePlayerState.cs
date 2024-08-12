@@ -5,10 +5,17 @@ using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
 {
+    public enum InterpolateMode{
+        None,
+        ByGlobalSpeed,
+        BySpeed,
+        ByDirection,
+    }
+
     public class BasePlayerState<T> : BaseState<T, PlayerBlackBoard>, IPlayerState where T : ITransition
     {
         [SerializeField] protected MovementMode _movementMode; 
-        [SerializeField] protected bool _isInterpolating;
+        [SerializeField] protected InterpolateMode _interpolateMode;
         [SerializeField] protected float _speed;
 
         public override void EnterState()
@@ -21,14 +28,38 @@ namespace Core.GamePlay.MyPlayer
                 rigidbody.useGravity = true;
                 rigidbody.isKinematic = false;
                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
-                rigidbody.velocity = _isInterpolating ? _fsm.blackBoard.GlobalVelocity : _fsm.blackBoard.GlobalVelocity.normalized * _speed;
+                switch(_interpolateMode){
+                    case InterpolateMode.None:
+                        rigidbody.velocity = Vector3.zero;
+                        break;
+                    case InterpolateMode.ByGlobalSpeed:
+                    case InterpolateMode.ByDirection:
+                        rigidbody.velocity = _fsm.blackBoard.GlobalVelocity;
+                        break;
+                    case InterpolateMode.BySpeed:
+                        rigidbody.velocity = _fsm.blackBoard.GlobalVelocity.normalized * _speed;
+                        break;
+                }
             }
             else{
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.useGravity = false;
                 rigidbody.isKinematic = true;
                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
-                _fsm.blackBoard.Character.SetVelocity(_isInterpolating ? _fsm.blackBoard.GlobalVelocity : _fsm.blackBoard.GlobalVelocity.normalized * _speed);
+                switch(_interpolateMode){
+                    case InterpolateMode.None:
+                        _fsm.blackBoard.Character.SetMovementDirection(Vector3.zero);
+                        break;
+                    case InterpolateMode.ByGlobalSpeed:
+                        _fsm.blackBoard.Character.SetVelocity(_fsm.blackBoard.GlobalVelocity);
+                        break;
+                    case InterpolateMode.BySpeed:
+                        _fsm.blackBoard.Character.SetVelocity(_fsm.blackBoard.GlobalVelocity.normalized * _speed);
+                        break;
+                    case InterpolateMode.ByDirection:
+                        _fsm.blackBoard.Character.SetMovementDirection(_fsm.blackBoard.GlobalVelocity);
+                        break;
+                }
             }
         }
 

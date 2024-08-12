@@ -18,7 +18,6 @@ namespace Core.GamePlay.MyPlayer
         public override void EnterState()
         {
             _enemy = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform);
-            _fsm.blackBoard.GlobalVelocity = Vector3.zero;
             if (_enemy == null)
             {
                 if (!_fsm.blackBoard.Character.IsOnGround())
@@ -34,6 +33,7 @@ namespace Core.GamePlay.MyPlayer
             }
             base.EnterState();
             _canChangeToAttack = false;
+            _fsm.blackBoard.Character.SetMovementDirection(Vector3.zero);
         }
 
         public void ApplyDamage()
@@ -43,7 +43,7 @@ namespace Core.GamePlay.MyPlayer
 
         public void GoToEnemy(float time)
         {
-            _fsm.transform.DOMove(_enemy.TargetEnemy.position + (_fsm.transform.position - _enemy.TargetEnemy.transform.position).normalized * 1f, time);
+            _fsm.blackBoard.rig.DOMove(_enemy.TargetEnemy.position + (_fsm.transform.position - _enemy.TargetEnemy.transform.position).normalized * 1f, time);
             var forward = _enemy.TargetEnemy.position - _fsm.transform.position; forward.y = 0;
             _fsm.transform.DORotateQuaternion(Quaternion.LookRotation(forward), 0.05f);
         }
