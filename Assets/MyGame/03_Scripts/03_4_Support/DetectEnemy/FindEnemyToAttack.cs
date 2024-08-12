@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.GamePlay.Support{
@@ -19,6 +20,18 @@ namespace Core.GamePlay.Support{
                 }
             }
             return enemy;
+        }
+
+        public List<IHitted> FindAllEnemyByDistance(Transform finder, float distance){
+            Collider[] colliders = Physics.OverlapSphere(finder.position, distance);
+            var enemies = new List<IHitted>();
+            for (int i = 0; i < colliders.Length; i++){
+                IHitted hittedByPlayer = colliders[i].GetComponent<IHitted>();
+                if (hittedByPlayer != null && !hittedByPlayer.IsIgnore){
+                    enemies.Add(hittedByPlayer);
+                }
+            }
+            return enemies;
         }
     }
 }

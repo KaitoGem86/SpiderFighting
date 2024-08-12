@@ -56,7 +56,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.34, z: 0}
 --- !u!54 &7138290393103578044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   _normal: {fileID: 7984221340136405360}
   _explosion: {fileID: 6242064739170352141}
   _rb: {fileID: 7138290393103578044}
+  _collider: {fileID: 5383746541675123097}
+  _findEnemyToAttack: {fileID: 11400000, guid: 327121c53c1175a4b888ab80a3f244ed, type: 2}
 --- !u!1001 &3394243106157796100
 PrefabInstance:
   m_ObjectHideFlags: 0

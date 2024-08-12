@@ -9,6 +9,8 @@ namespace Core.GamePlay.Support
         [SerializeField] GameObject _normal;
         [SerializeField] GameObject _explosion;
         [SerializeField] Rigidbody _rb;
+        [SerializeField] Collider _collider;
+        [SerializeField] private FindEnemyToAttack _findEnemyToAttack;
 
         private BlastSO _so;
 
@@ -16,6 +18,7 @@ namespace Core.GamePlay.Support
         {
             _normal.SetActive(true);
             _explosion.SetActive(false);
+            _collider.enabled = true;
         }
 
         public void Shoot(BlastSO so, Transform origin, IHitted hitted)
@@ -39,6 +42,12 @@ namespace Core.GamePlay.Support
         {
             _explosion.SetActive(true);
             _normal.SetActive(false);
+            _collider.enabled = false;
+            var enemy = _findEnemyToAttack.FindAllEnemyByDistance(this.transform, 10);
+            foreach (var hitted in enemy)
+            {
+                hitted.KnockBack();
+            }
             StartCoroutine(Despawn(3));
         }
 
