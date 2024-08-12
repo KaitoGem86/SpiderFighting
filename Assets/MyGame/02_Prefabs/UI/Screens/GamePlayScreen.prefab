@@ -409,8 +409,8 @@ MonoBehaviour:
   _onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
+      - m_Target: {fileID: 141142550374703996}
+        m_TargetAssemblyTypeName: Core.UI.GamePlayScreen, Assembly-CSharp
         m_MethodName: OnCLickDodge
         m_Mode: 1
         m_Arguments:
@@ -545,8 +545,8 @@ MonoBehaviour:
   _onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
+      - m_Target: {fileID: 141142550374703996}
+        m_TargetAssemblyTypeName: Core.UI.GamePlayScreen, Assembly-CSharp
         m_MethodName: OnClickZip
         m_Mode: 1
         m_Arguments:
@@ -1045,8 +1045,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
+        - m_Target: {fileID: 141142550374703996}
+          m_TargetAssemblyTypeName: Core.UI.GamePlayScreen, Assembly-CSharp
           m_MethodName: OnClickSwing
           m_Mode: 6
           m_Arguments:
@@ -1061,8 +1061,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
+        - m_Target: {fileID: 141142550374703996}
+          m_TargetAssemblyTypeName: Core.UI.GamePlayScreen, Assembly-CSharp
           m_MethodName: OnClickSwing
           m_Mode: 6
           m_Arguments:
@@ -1241,7 +1241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8113753708256919351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2064,8 +2064,8 @@ MonoBehaviour:
   _onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
+      - m_Target: {fileID: 141142550374703996}
+        m_TargetAssemblyTypeName: Core.UI.GamePlayScreen, Assembly-CSharp
         m_MethodName: OnClickAttack
         m_Mode: 1
         m_Arguments:
@@ -2200,8 +2200,8 @@ MonoBehaviour:
   _onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Core.UI.TestGamePlayScreen, Assembly-CSharp
+      - m_Target: {fileID: 141142550374703996}
+        m_TargetAssemblyTypeName: Core.UI.GamePlayScreen, Assembly-CSharp
         m_MethodName: OnClickUltilmateAttack
         m_Mode: 1
         m_Arguments:
@@ -2231,7 +2231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8833112158068069936
 RectTransform:
   m_ObjectHideFlags: 0
