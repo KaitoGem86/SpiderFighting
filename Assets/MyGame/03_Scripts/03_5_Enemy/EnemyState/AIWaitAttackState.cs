@@ -1,12 +1,15 @@
 using DG.Tweening;
 using UnityEngine;
 using Extensions.SystemGame.AIFSM;
+using MyTools.Event;
 
 namespace Core.GamePlay.Enemy
 {
     public class AIWaitAttackState : LinearMixerTransitionState<EnemyBlackBoard>
     {
         [SerializeField] private float _moveSpeed = 5f;
+        [SerializeField] private DefaultEvent _onReadyToAttack;
+
 
         public override void EnterState()
         {
@@ -14,12 +17,17 @@ namespace Core.GamePlay.Enemy
             _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.enemyPosition, 5f);
             _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
             _fsm.blackBoard.navMeshAgent.speed = _moveSpeed;
+            if (!_fsm.blackBoard.isReadyToAttack)
+            {
+                _onReadyToAttack?.Raise();
+                _fsm.blackBoard.isReadyToAttack = true;
+            }
         }
 
         public override void Update()
         {
             _fsm.blackBoard.attackDelayTime -= Time.deltaTime;
-            
+
             base.Update();
             if (Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _fsm.blackBoard.targetPosition) < 0.1f)
             {
@@ -55,7 +63,7 @@ namespace Core.GamePlay.Enemy
         private void RotateDisplayWithVelocity()
         {
             var forward = _fsm.blackBoard.target.position - _fsm.blackBoard.navMeshAgent.transform.position;
-           _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 5);
+            _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 5);
         }
     }
 }

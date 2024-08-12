@@ -1,11 +1,14 @@
 using DG.Tweening;
 using UnityEngine;
 using Extensions.SystemGame.AIFSM;
+using MyTools.Event;
 namespace Core.GamePlay.Enemy{
     public class AIAttackState : LinearMixerTransitionState<EnemyBlackBoard>{
         [SerializeField] private float _meleeRange;
         [SerializeField] private float _mediumRange;
         [SerializeField] private float _longRange;
+        [SerializeField] private DefaultEvent _onAttack;
+        [SerializeField] private DefaultEvent _onCompleteAttack;
         private Vector3 _targetPos;
 
         public override void EnterState(){
@@ -15,6 +18,8 @@ namespace Core.GamePlay.Enemy{
             }
             base.EnterState();
             _fsm.blackBoard.navMeshAgent.ResetPath();
+            _fsm.blackBoard.isReadyToAttack = false;
+            _onAttack?.Raise();
             _targetPos = _fsm.blackBoard.target.position - (_fsm.blackBoard.target.position - _fsm.blackBoard.navMeshAgent.transform.position).normalized * 1;
             SetParamWithDistance();
             MoveToTargetInTime(0.3f);
@@ -26,6 +31,7 @@ namespace Core.GamePlay.Enemy{
         }
 
         public override void ExitState(){
+            _onCompleteAttack?.Raise();
             _fsm.blackBoard.attackDelayTime = 5f;
             base.ExitState();
         }

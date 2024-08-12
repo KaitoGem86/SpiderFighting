@@ -31,7 +31,6 @@ namespace Core.GamePlay.Mission{
         }
 
         public void NextQuestStep(){
-            Debug.Log("Next Quest Step " + infor.QuestName);
             _currentStepIndex++;
             if (_currentStepIndex >= _steps.Length){
                 FinishQuest();

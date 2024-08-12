@@ -1,5 +1,6 @@
 using Animancer;
 using Extensions.SystemGame.AIFSM;
+using MyTools.Event;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,8 +22,11 @@ namespace Core.GamePlay.Enemy
 
         [Header("========= Attack =========")]
         public float attackDelayTime = 5f;
-
         public Vector3 enemyPosition => target.position;
+        public bool isReadyToAttack = false;
+        public DefaultEvent onReadyToAttack;
+        public DefaultEvent onAttack;
+        public DefaultEvent onCompleteAttack;
 
         void Awake()
         {

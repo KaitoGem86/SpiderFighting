@@ -16,10 +16,17 @@ namespace Core.GamePlay.Enemy
         private EnemySO _soController;
         private EnemyData _runtimeData;
 
+        protected override void OnEnable(){
+            base.OnEnable();
+            blackBoard.isReadyToAttack = false;
+        }
+
         public void OnDisable()
         {
             onEnemyDead?.Invoke();
             onEnemyDead = null;
+            blackBoard.onAttack?.Raise();
+            blackBoard.onCompleteAttack?.Raise();
         }
 
         public void Init(EnemySO soConTroller)

@@ -32,8 +32,8 @@ namespace Core.GamePlay.MyPlayer
 
          public void LateUpdate()
         {   
-            var forward = _enemy != null  ? _enemy.TargetEnemy.position - _fsm.blackBoard.PlayerDisplay.position : _fsm.blackBoard.PlayerDisplay.forward; forward.y = 0;
-            _fsm.blackBoard.PlayerDisplay.rotation = Quaternion.Slerp(_fsm.blackBoard.PlayerDisplay.rotation, Quaternion.LookRotation(forward), 0.2f);
+            var forward = _enemy != null  ? _enemy.TargetEnemy.position - _fsm.transform.position : _fsm.transform.forward; forward.y = 0;
+            _fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, Quaternion.LookRotation(forward), 0.2f);
         }
 
         public void CanChangeNextAttack()

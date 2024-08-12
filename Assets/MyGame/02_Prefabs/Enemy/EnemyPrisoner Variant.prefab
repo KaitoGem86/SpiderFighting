@@ -6575,6 +6575,10 @@ MonoBehaviour:
   elapsedTimeToChangeTarget: 1
   isChasePlayer: 0
   attackDelayTime: 5
+  isReadyToAttack: 0
+  onReadyToAttack: {fileID: 11400000, guid: c351fa2c3a1a8d0419b875476932214c, type: 2}
+  onAttack: {fileID: 11400000, guid: 91c05fb0d3169de4593d085f26d9c340, type: 2}
+  onCompleteAttack: {fileID: 11400000, guid: c61098f8c67115d4ebe5ca26615a0b85, type: 2}
 --- !u!136 &7799646478287119800
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8890,6 +8894,7 @@ MonoBehaviour:
   _stateType: 3
   _canChangeToItself: 0
   _moveSpeed: 2
+  _onReadyToAttack: {fileID: 11400000, guid: c351fa2c3a1a8d0419b875476932214c, type: 2}
 --- !u!1 &4406740418712311291
 GameObject:
   m_ObjectHideFlags: 0
@@ -9184,6 +9189,8 @@ MonoBehaviour:
   _meleeRange: 1
   _mediumRange: 3
   _longRange: 5
+  _onAttack: {fileID: 11400000, guid: 91c05fb0d3169de4593d085f26d9c340, type: 2}
+  _onCompleteAttack: {fileID: 11400000, guid: c61098f8c67115d4ebe5ca26615a0b85, type: 2}
 --- !u!1 &5933227918899897011
 GameObject:
   m_ObjectHideFlags: 0
