@@ -24,6 +24,7 @@ namespace Core.GamePlay.MyPlayer{
         public Transform PlayerDisplay => CurrentPlayerModel.PlayerDisplay;
         public Character Character;
         public Vector3 RuntimeSurfaceNormal;
+        public Transform CheckWallPivot;
         public BoolEvent OnReachMaxSpeed;
         public Vector3 GetVelocity{
             get {

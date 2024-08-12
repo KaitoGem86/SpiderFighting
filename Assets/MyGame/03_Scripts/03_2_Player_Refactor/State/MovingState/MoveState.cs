@@ -14,6 +14,7 @@ namespace Core.GamePlay.MyPlayer
         {
             base.Awake();
             _speed = _fsm.blackBoard.PlayerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.Speed);
+            _checkWallPivot = _fsm.blackBoard.CheckWallPivot;
         }
 
         public override void EnterState()
@@ -53,14 +54,16 @@ namespace Core.GamePlay.MyPlayer
             if (_fsm.blackBoard.Character.GetCharacterMovement().groundCollider == null) return;
             if (other.collider.gameObject == _fsm.blackBoard.Character.GetCharacterMovement().groundCollider.gameObject) return;
             base.OnCollided(ref other);
-            // if (Physics.Raycast(_checkWallPivot.position, _fsm.blackBoard.PlayerDisplay.forward, out var hit, _fsm.blackBoard.Character.GetRadius()))
-            // {
-            //     if (Vector3.Angle(hit.normal, Vector3.up) > _fsm.blackBoard.Character.GetCharacterMovement().slopeLimit)
-            //     {
-            //         //_stateContainer.SurfaceNormal = hit.normal;
-            //         //_stateContainer.ChangeAction(ActionEnum.Climbing);
-            //     }
-            // }
+            if (Physics.Raycast(_checkWallPivot.position, _fsm.blackBoard.PlayerDisplay.forward, out var hit, _fsm.blackBoard.Character.GetRadius()))
+            {
+                if (Vector3.Angle(hit.normal, Vector3.up) > _fsm.blackBoard.Character.GetCharacterMovement().slopeLimit)
+                {
+                    _fsm.blackBoard.RuntimeSurfaceNormal = hit.normal;
+                    //_stateContainer.ChangeAction(ActionEnum.Climbing);
+                    _fsm.blackBoard.Character.SetMovementDirection(Vector3.zero);
+                    _fsm.ChangeAction(FSMState.Climbing);
+                }
+            }
         }
     }
 }

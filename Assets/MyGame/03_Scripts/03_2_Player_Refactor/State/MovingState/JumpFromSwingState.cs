@@ -35,7 +35,6 @@ namespace Core.GamePlay.MyPlayer
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            _fsm.blackBoard.PlayerDisplay.localRotation = Quaternion.Lerp(_fsm.blackBoard.PlayerDisplay.localRotation, Quaternion.identity, Time.deltaTime * 10);
         }
 
         private Vector3 JumpVelocityFromSwing()
