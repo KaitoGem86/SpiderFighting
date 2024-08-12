@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 8850815833840062881}
   - component: {fileID: 6186694813386613911}
   - component: {fileID: 6131632740052611259}
+  - component: {fileID: 516678611930760535}
   m_Layer: 0
   m_Name: StopMovingState
   m_TagString: Untagged
@@ -565,6 +566,35 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
           Animancer
         m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &516678611930760535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693987737528677758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4570649316912923520}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: UltimateAttackState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1234,6 +1264,7 @@ GameObject:
   - component: {fileID: 2981155170910874191}
   - component: {fileID: 6985780758551972131}
   - component: {fileID: 683190513405676337}
+  - component: {fileID: 3457947392238319104}
   m_Layer: 0
   m_Name: FallingState
   m_TagString: Untagged
@@ -1344,6 +1375,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3457947392238319104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058254785452513768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2981155170910874191}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: UltimateAttackState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3290448017565936362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,7 +1414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3321229646103155394}
   - component: {fileID: 4937733726271395945}
-  - component: {fileID: 4096899443020883469}
+  - component: {fileID: 7257622088831719347}
   m_Layer: 0
   m_Name: UseGadgetState
   m_TagString: Untagged
@@ -1490,7 +1550,7 @@ MonoBehaviour:
   _movementMode: 1
   _isInterpolating: 0
   _speed: 0
---- !u!114 &4096899443020883469
+--- !u!114 &7257622088831719347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1499,18 +1559,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3290448017565936362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a309d31daba28e64d93cd2bf3a1ea452, type: 3}
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _subject: {fileID: 11400000, guid: 6607810dc14c8aa4fb253424620b6fb2, type: 2}
-  _unregisterOnDisable: 0
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4937733726271395945}
-        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.UseGadgetState, Assembly-CSharp
-        m_MethodName: ChangeGadget
-        m_Mode: 0
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: UltimateAttackState
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1804,6 +1864,7 @@ GameObject:
   - component: {fileID: 4119066610984837458}
   - component: {fileID: 7419429048511183263}
   - component: {fileID: 4097977995389308428}
+  - component: {fileID: 552351224047322205}
   m_Layer: 0
   m_Name: DiveState
   m_TagString: Untagged
@@ -1922,6 +1983,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &552351224047322205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488376278830859947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4119066610984837458}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransitionSequence,
+          Animancer
+        m_MethodName: UltimateAttackState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4614336704454022899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,6 +2022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5879227092252199102}
   - component: {fileID: 1792431748906910219}
+  - component: {fileID: 7559258149805239890}
   m_Layer: 0
   m_Name: DodgeState
   m_TagString: Untagged
@@ -2012,6 +2103,35 @@ MonoBehaviour:
   _movementMode: 1
   _isInterpolating: 1
   _speed: 0
+--- !u!114 &7559258149805239890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614336704454022899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1792431748906910219}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
+          Animancer
+        m_MethodName: UltimateAttackState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4815822924509637307
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,7 +2596,7 @@ MonoBehaviour:
   _jumpPreGroundedTime: 0.15
   _jumpPostGroundedTime: 0.15
   _gravity: {x: 0, y: -9.81, z: 0}
-  _gravityScale: 2
+  _gravityScale: 3
   _useRootMotion: 0
   _impartPlatformMovement: 0
   _impartPlatformRotation: 0
@@ -2626,6 +2746,7 @@ GameObject:
   - component: {fileID: 8738691819227806531}
   - component: {fileID: 3953795567644155457}
   - component: {fileID: 3048203115265659547}
+  - component: {fileID: 4920646719759120921}
   m_Layer: 0
   m_Name: JumpState
   m_TagString: Untagged
@@ -2721,6 +2842,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4920646719759120921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139145611532588738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3953795567644155457}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: UltimateAttackState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6496610246800478664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +2884,8 @@ GameObject:
   - component: {fileID: 7973069686424263221}
   - component: {fileID: 1242360013278179680}
   - component: {fileID: 5877592805652981634}
+  - component: {fileID: 1683704839121753689}
+  - component: {fileID: 6902775443427539933}
   m_Layer: 0
   m_Name: MoveState
   m_TagString: Untagged
@@ -2882,6 +3034,64 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1683704839121753689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496610246800478664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: e7f937d84fdc3b84e81b12e10dffdc91, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8177936166930561195}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
+          Animancer
+        m_MethodName: UseGadget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6902775443427539933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496610246800478664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8177936166930561195}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
+          Animancer
+        m_MethodName: UltimateAttackState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6658364924344111009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2894,6 +3104,7 @@ GameObject:
   - component: {fileID: 3268278830347701962}
   - component: {fileID: 2635288075608208704}
   - component: {fileID: 4751271388069163281}
+  - component: {fileID: 4894093014296484769}
   m_Layer: 0
   m_Name: AttackState
   m_TagString: Untagged
@@ -3121,6 +3332,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4894093014296484769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658364924344111009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3268278830347701962}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
+          Animancer
+        m_MethodName: UltimateAttackState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6715436542355007867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,6 +3508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3362605415226546046}
   - component: {fileID: 402850231746971639}
+  - component: {fileID: 5433565161739286180}
   m_Layer: 0
   m_Name: LastAttackState
   m_TagString: Untagged
@@ -3472,6 +3713,35 @@ MonoBehaviour:
   _movementMode: 1
   _isInterpolating: 0
   _speed: 0
+--- !u!114 &5433565161739286180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136247102644778278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 061a528c983463644b6eff2e1be22bb9, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 402850231746971639}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: UltimateAttackState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7194908100875461061
 GameObject:
   m_ObjectHideFlags: 0

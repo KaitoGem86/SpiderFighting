@@ -40,7 +40,7 @@ namespace Core.GamePlay.MyPlayer
             if (_springJoint != null)
                 _springJoint.maxDistance = float.MaxValue;
             _shootSilk.UnUseSilk();
-            
+
             base.ExitState();
         }
 
@@ -68,7 +68,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void Update()
         {
-            if(!_isStartSwing)
+            if (!_isStartSwing)
                 return;
             if ((Vector3.Angle(_holdPivot.position - _rb.transform.position, Vector3.down) > 87 && Vector3.Dot(_fsm.blackBoard.GetVelocity, Vector3.up) > 0))
             {
@@ -81,7 +81,7 @@ namespace Core.GamePlay.MyPlayer
         public override void FixedUpdate()
         {
             _fsm.blackBoard.Character.GetCharacterMovement().rigidbody.AddForce(_moveDirection * _speed, ForceMode.Force);
-            //RotateCharacterUpwardFlowSilk();
+            Rotate();
         }
 
         public void ChangeToJumping(bool isSwing)
@@ -128,6 +128,14 @@ namespace Core.GamePlay.MyPlayer
             var targetRotation = _fsm.blackBoard.PlayerDisplay.rotation;
             _fsm.blackBoard.PlayerDisplay.rotation = Quaternion.Slerp(rotation, targetRotation, Time.fixedDeltaTime * 5);
         }
+
+        protected override void Rotate()
+        {
+            Quaternion rotation = Quaternion.LookRotation(_fsm.transform.forward, (_rb.transform.position - _holdPivot.position).normalized);
+            _fsm.transform.rotation = Quaternion.Lerp(_fsm.transform.rotation, rotation, 0.2f * 10 * Time.fixedDeltaTime);
+            _fsm.blackBoard.Character.RotateTowardsWithSlerp(_fsm.blackBoard.Character.GetCharacterMovement().rigidbody.velocity.normalized, false);
+        }
+
 
         protected override int GetIndexTransition()
         {

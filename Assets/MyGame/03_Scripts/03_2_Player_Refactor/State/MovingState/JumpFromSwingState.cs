@@ -2,6 +2,7 @@ using UnityEngine;
 using Animancer;
 using Extensions.SystemGame.AIFSM;
 using Unity.VisualScripting;
+using DG.Tweening;
 
 namespace Core.GamePlay.MyPlayer
 {
@@ -13,7 +14,10 @@ namespace Core.GamePlay.MyPlayer
         public override void EnterState()
         {
             base.EnterState();
-            _fsm.blackBoard.Character.AddForce((_fsm.blackBoard.Character.GetVelocity() + Vector3.up * 5), ForceMode.Impulse);
+            _fsm.blackBoard.Character.AddForce((Vector3.up * 10), ForceMode.Impulse);
+            // var forward = _fsm.transform.forward;
+            // forward.y = 0;
+            // _fsm.transform.DORotateQuaternion(Quaternion.LookRotation(forward), 0.1f);
         }
 
         public void CompleteJumpFromSwing()
@@ -29,11 +33,6 @@ namespace Core.GamePlay.MyPlayer
                 return;
             }
             base.Update();
-        }
-
-        public override void FixedUpdate()
-        {
-            base.FixedUpdate();
         }
 
         // private Vector3 JumpVelocityFromSwing()

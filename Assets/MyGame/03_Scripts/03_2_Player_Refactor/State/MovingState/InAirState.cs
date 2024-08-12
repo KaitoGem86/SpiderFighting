@@ -1,5 +1,6 @@
 using Animancer;
 using EasyCharacterMovement;
+using TMPro;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
@@ -15,16 +16,19 @@ namespace Core.GamePlay.MyPlayer
         public virtual void FixedUpdate()
         {
             Move();
+            Rotate();
         }
 
-
-        // protected override void Move()
-        // {
-        //     Vector3 tmp = _moveDirection * _speed;
-        //     // Debug.DrawRay(_fsm.blackBoard.Character.transform.position, tmp, Color.red);
-        //     // _fsm.blackBoard.Character.AddForce(tmp, ForceMode.Force);
-        //     _fsm.blackBoard.Character.SetMovementDirection(tmp);
-        // }
+        protected override void Rotate()
+        {
+            var forward = _fsm.transform.forward;
+            forward.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(forward, Vector3.up);
+            _fsm.transform.rotation = Quaternion.Lerp(_fsm.transform.rotation, rotation, 0.2f * 10 * Time.fixedDeltaTime);
+            var vel = _fsm.blackBoard.GetVelocity;
+            vel.y = 0;
+            _fsm.blackBoard.Character.RotateTowardsWithSlerp(vel, false);
+        }
 
         protected override void GetInput()
         {
@@ -66,16 +70,16 @@ namespace Core.GamePlay.MyPlayer
             }
             else
             {
-                // RaycastHit hit;
-                // if (Physics.Raycast(_fsm.blackBoard.Character.transform.position, -surfaceNormal, out hit, 100))
-                // {
-                //     if (hit.distance < 0.8f)
-                //     {
-                //         _surfaceNormal = hit.normal;
-                //         _fsm.blackBoard.RuntimeSurfaceNormal = _surfaceNormal;
-                //         _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Climbing);
-                //     }
-                // }
+                RaycastHit hit;
+                if (Physics.Raycast(_fsm.blackBoard.Character.transform.position, -surfaceNormal, out hit, 100))
+                {
+                    if (hit.distance < 0.8f)
+                    {
+                        _surfaceNormal = hit.normal;
+                        _fsm.blackBoard.RuntimeSurfaceNormal = _surfaceNormal;
+                        _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Climbing);
+                    }
+                }
             }
         }
     }
