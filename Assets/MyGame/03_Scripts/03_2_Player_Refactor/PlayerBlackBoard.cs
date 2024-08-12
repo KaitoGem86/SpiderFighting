@@ -4,6 +4,7 @@ using Core.GamePlay.Player;
 using Core.GamePlay.Support;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
+using MyTools.Event;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer{
@@ -23,6 +24,7 @@ namespace Core.GamePlay.MyPlayer{
         public Transform PlayerDisplay => CurrentPlayerModel.PlayerDisplay;
         public Character Character;
         public Vector3 RuntimeSurfaceNormal;
+        public BoolEvent OnReachMaxSpeed;
         public Vector3 GetVelocity{
             get {
                 if(Character.GetMovementMode() == MovementMode.None)

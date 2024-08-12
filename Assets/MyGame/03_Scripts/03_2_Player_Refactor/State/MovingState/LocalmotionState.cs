@@ -1,4 +1,5 @@
 using Animancer;
+using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
 using SFRemastered.InputSystem;
 using UnityEngine;
@@ -14,14 +15,25 @@ namespace Core.GamePlay.MyPlayer
         protected Transform _cameraTransform;
         protected Collider _groundCollider;
 
-        protected override void Awake(){
+        protected override void Awake()
+        {
             base.Awake();
             _cameraTransform = _fsm.blackBoard.CameraTransform;
         }
 
         protected virtual void Move()
         {
-            _fsm.blackBoard.Character.SetMovementDirection(_moveDirection * _speed);
+            if (_movementMode == MovementMode.None)
+            {
+                var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
+                rigidbody.velocity = Vector3.Lerp(rigidbody.velocity, _moveDirection * _speed, Time.deltaTime * 10);
+                Rotate();
+            }
+            else
+            {
+                _fsm.blackBoard.Character.SetMovementDirection(_moveDirection * _speed);
+
+            }
         }
 
         protected virtual void Rotate()

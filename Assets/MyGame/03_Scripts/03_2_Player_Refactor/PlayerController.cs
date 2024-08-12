@@ -6,7 +6,6 @@ namespace Core.GamePlay.MyPlayer
 {
     public class PlayerController : FSM<PlayerBlackBoard>
     {
-
         protected override void Awake()
         {
             base.Awake();
@@ -46,6 +45,15 @@ namespace Core.GamePlay.MyPlayer
             blackBoard.Animancer.Animator.avatar = playerModel.animator.avatar;
             if (blackBoard.CurrentAnimancerState != null)
                 blackBoard.Animancer.Play(blackBoard.CurrentAnimancerState);
+        }
+
+        protected void Update(){
+            if(blackBoard.GetVelocity.magnitude > 60){
+                blackBoard.OnReachMaxSpeed.Raise(true);
+            }
+            else{
+                blackBoard.OnReachMaxSpeed.Raise(false);
+            }
         }
     }
 }
