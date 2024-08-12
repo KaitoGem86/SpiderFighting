@@ -39,6 +39,7 @@ namespace Core.GamePlay.MyPlayer
         {
             var playerModel = blackBoard.CurrentPlayerModel;
             playerModel?.gameObject.SetActive(false);
+            blackBoard.PlayerData.playerSerializeData.skinIndex = index;
             playerModel = blackBoard.PlayerModels[index];
             playerModel.gameObject.SetActive(true);
             blackBoard.CurrentPlayerModel = playerModel;

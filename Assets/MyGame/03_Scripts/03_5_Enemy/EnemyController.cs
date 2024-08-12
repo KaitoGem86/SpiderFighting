@@ -13,6 +13,7 @@ namespace Core.GamePlay.Enemy
         [SerializeField] private RectTransform _unitCanvas;
         [SerializeField] private HPBarController _hpBarController;
         [SerializeField] FloatingDamageTextSO _floatingDamageTextSO;
+        [SerializeField] private HitVFXController _hitVFXController;
         private EnemySO _soController;
         private EnemyData _runtimeData;
 
@@ -49,6 +50,7 @@ namespace Core.GamePlay.Enemy
                     KnockBack();
                     break;
                 default:
+                    _hitVFXController.ShowHitVFX();
                     _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _soController.initData.HP);
                     _floatingDamageTextSO.Spawn(10, _unitCanvas);
                     _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
@@ -85,6 +87,7 @@ namespace Core.GamePlay.Enemy
 
         public void KnockBack()
         {
+            _hitVFXController.ShowHitVFX();
             _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _soController.initData.HP);
             _floatingDamageTextSO.Spawn(10, _unitCanvas);
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
