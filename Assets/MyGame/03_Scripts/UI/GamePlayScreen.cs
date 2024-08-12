@@ -5,15 +5,17 @@ using MyTools.Event;
 using MyTools.ScreenSystem;
 using SFRemastered.InputSystem;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Core.UI{
+namespace Core.UI
+{
     public class GamePlayScreen : _BaseScreen
     {
         [SerializeField] private Joystick _joystick;
-        [SerializeField] private GameObject _lookPanel;
         [SerializeField] private Image _gadgetIcon;
         [SerializeField] private GadgetDataSO _gadgetDataSO;
+        [SerializeField] private EventTrigger _lookPanel;
         public DefaultEvent onZip;
         public BoolEvent onSwing;
         public IntEvent onChangeSkin;
@@ -24,34 +26,54 @@ namespace Core.UI{
         public DefaultEvent onUseGadget;
         private bool _isSwing = false;
 
-        private void Awake(){
+        private void Awake()
+        {
             InputManager.instance.joystickMove = _joystick;
-            InputManager.instance.lookPanel = _lookPanel;
+            Debug.Log("GamePlayScreen Awake " + _lookPanel.name);
+            InputManager.instance.lookPanel = _lookPanel.gameObject;
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerDown;
+            entry.callback.AddListener((data) => { InputManager.instance.LookPressed(data); });
+            _lookPanel.triggers.Add(entry);
+
+            EventTrigger.Entry entry2 = new EventTrigger.Entry();
+            entry2.eventID = EventTriggerType.PointerUp;
+            entry2.callback.AddListener((data2) => { InputManager.instance.LookReleased(); });
+            _lookPanel.triggers.Add(entry2);
         }
-        
-        public void Update(){
-            if(Input.GetKeyDown(KeyCode.Z)){
+
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
                 OnClickZip();
             }
-            if(Input.GetKeyDown(KeyCode.Space)){
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 OnClickSwing(true);
             }
-            if(Input.GetKeyUp(KeyCode.Space)){
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
                 OnClickSwing(false);
             }
-            if(_isSwing){
+            if (_isSwing)
+            {
                 onSwing?.Raise(value: true);
             }
-            if(Input.GetMouseButtonDown(1)){
-                OnClickAttack();    
+            if (Input.GetMouseButtonDown(1))
+            {
+                OnClickAttack();
             }
-            if(Input.GetKeyDown(KeyCode.LeftShift)){
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
                 OnCLickDodge();
             }
-            if(Input.GetKeyDown(KeyCode.Q)){
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
                 OnClickUltilmateAttack();
             }
-            if(Input.GetKeyDown(KeyCode.E)){
+            if (Input.GetKeyDown(KeyCode.E))
+            {
                 OnClickUseGadget();
             }
         }
@@ -63,31 +85,38 @@ namespace Core.UI{
             StartCoroutine(AfterClickJump());
         }
 
-        public void OnClickChangeSkin(){
+        public void OnClickChangeSkin()
+        {
             onChangeSkin?.Raise(3);
         }
 
-        public void OnCLickDodge(){
+        public void OnCLickDodge()
+        {
             onDodge?.Raise();
         }
 
-        public void OnClickUltilmateAttack(){
+        public void OnClickUltilmateAttack()
+        {
             onUltilmateAttack?.Raise();
         }
 
-        public void OnClickZip(){
+        public void OnClickZip()
+        {
             onZip?.Raise();
         }
 
-        public void OnClickOpenSkin(){
+        public void OnClickOpenSkin()
+        {
             _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.Selection);
         }
 
-        public void OnClickOpenProgress(){
+        public void OnClickOpenProgress()
+        {
             _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.Progress);
         }
 
-        public void OnClickSwing(bool Value){
+        public void OnClickSwing(bool Value)
+        {
             // if(player.blackBoard.Character.IsOnGround()){
             //     OnClickJump();
             //     return;
@@ -96,21 +125,25 @@ namespace Core.UI{
             _isSwing = Value;
         }
 
-        public void OnClickAttack(){
+        public void OnClickAttack()
+        {
             onAttack?.Raise();
         }
 
-        public void OnClickUseGadget(){
+        public void OnClickUseGadget()
+        {
             onUseGadget?.Raise();
         }
 
-        public void OnChangeEquipGadget(int id){
+        public void OnChangeEquipGadget(int id)
+        {
             var data = _gadgetDataSO.gadgets[id];
             _gadgetIcon.sprite = data.icon;
         }
-    
-    
-        private IEnumerator AfterClickJump(){
+
+
+        private IEnumerator AfterClickJump()
+        {
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
             InputManager.instance.jump = false;

@@ -40,6 +40,7 @@ namespace Core.GamePlay.MyPlayer
             if (_springJoint != null)
                 _springJoint.maxDistance = float.MaxValue;
             _shootSilk.UnUseSilk();
+            
             base.ExitState();
         }
 

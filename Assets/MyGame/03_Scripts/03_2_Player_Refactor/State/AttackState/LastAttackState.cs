@@ -52,6 +52,12 @@ namespace Core.GamePlay.MyPlayer
             _fsm.ChangeAction(FSMState.StartAttack);
         }
 
+        public override void UltimateAttackState()
+        {
+            if (!_isCanChangeNextAttack) return;
+            base.UltimateAttackState();
+        }
+
         public void CompleteAttack()
         {
             _fsm.ChangeAction(FSMState.Idle);
