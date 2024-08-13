@@ -12,6 +12,8 @@ namespace Core.GamePlay.Enemy
         public Vector3 defaultPosition;
         public Vector3 targetPosition;
         public AnimancerComponent animancerComponent;
+        public EnemyModel[] enemyModels;
+        public EnemyModel currentEnemyModel;
 
 
         [Header("========= Movement =========")]
@@ -24,6 +26,7 @@ namespace Core.GamePlay.Enemy
         public float attackDelayTime = 5f;
         public Vector3 enemyPosition => target.position;
         public bool isReadyToAttack = false;
+        public EnemyWeaponController weaponController;
         public DefaultEvent onReadyToAttack;
         public DefaultEvent onAttack;
         public DefaultEvent onCompleteAttack;

@@ -35,6 +35,8 @@ namespace Core.GamePlay.Enemy
         {
             _soController = soConTroller;
             _runtimeData = new EnemyData(_soController.initData);
+            RandomEnemySkin();
+            SetEnemyType(WeaponType.Hand);
             IsIgnore = false;
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
         }
@@ -101,6 +103,21 @@ namespace Core.GamePlay.Enemy
             {
                 ChangeAction(FSMState.KnockBack);
             }
+        }
+
+        private void SetEnemyType(WeaponType type)
+        {
+            blackBoard.weaponController.SetTypeOfEnemy(type, blackBoard.currentEnemyModel.rightHand);
+        }
+        
+        private void RandomEnemySkin(){
+            foreach (var model in blackBoard.enemyModels){
+                model.gameObject.SetActive(false);
+            }
+            var index = UnityEngine.Random.Range(0, blackBoard.enemyModels.Length);
+            blackBoard.currentEnemyModel = blackBoard.enemyModels[index];
+            blackBoard.currentEnemyModel.gameObject.SetActive(true);
+            blackBoard.animancerComponent.Animator.avatar = blackBoard.currentEnemyModel.animator.avatar;
         }
 
         public Transform TargetEnemy { get => this.transform; }

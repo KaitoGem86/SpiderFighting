@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 4918089244901029}
   - component: {fileID: 95506648598065221}
   - component: {fileID: 205543296916850521}
+  - component: {fileID: 5553284004334903804}
   m_Layer: 0
   m_Name: Elemy_Prisoner_03
   m_TagString: Untagged
@@ -294,6 +295,21 @@ LODGroup:
     renderers:
     - renderer: {fileID: 137655078908770367}
   m_Enabled: 1
+--- !u!114 &5553284004334903804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023911343311394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0580578892f412a4c834fb42ab1c727f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95506648598065221}
+  leftHand: {fileID: 4354285061521710}
+  rightHand: {fileID: 4136886780865167}
 --- !u!1 &1025481869087357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,6 +1645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4908589755430121}
+  - component: {fileID: 7439412362240869774}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -1658,6 +1675,19 @@ Transform:
   - {fileID: 4282669675001428}
   m_Father: {fileID: 4043017215805444}
   m_LocalEulerAnglesHint: {x: 100.31886, y: -11.006829, z: -172.14223}
+--- !u!114 &7439412362240869774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211741208166211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7772801777e163f43bc3699d948414a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponType: 2
 --- !u!1 &1219820695729670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3026,6 +3056,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4470138623644044}
+  - component: {fileID: 3694662253386981480}
   m_Layer: 0
   m_Name: Club
   m_TagString: Untagged
@@ -3049,6 +3080,19 @@ Transform:
   - {fileID: 4757694654312223}
   m_Father: {fileID: 4043017215805444}
   m_LocalEulerAnglesHint: {x: -0.000013233493, y: -0.0000064033006, z: 0.000015367927}
+--- !u!114 &3694662253386981480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424565238805840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e11ea87be22f3418980ecf4f87b61b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponType: 1
 --- !u!1 &1425008526581627
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,6 +3134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4043017215805444}
+  - component: {fileID: 3249240172309530067}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -3116,6 +3161,23 @@ Transform:
   - {fileID: 4754763715315660}
   m_Father: {fileID: 4958753050300541}
   m_LocalEulerAnglesHint: {x: 16.709797, y: -2.48378, z: 141.78633}
+--- !u!114 &3249240172309530067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433036940363576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91811fddf1327e44994bfab997899846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapons:
+  - {fileID: 8821046636110805699}
+  - {fileID: 3694662253386981480}
+  - {fileID: 7439412362240869774}
+  - {fileID: 2674768286619584680}
 --- !u!1 &1436129866378261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,6 +3863,7 @@ GameObject:
   - component: {fileID: 4898467255632346}
   - component: {fileID: 95476671951916067}
   - component: {fileID: 205485095327153267}
+  - component: {fileID: 7393792978358920259}
   m_Layer: 0
   m_Name: Elemy_Prisoner_02
   m_TagString: Untagged
@@ -3870,6 +3933,21 @@ LODGroup:
     renderers:
     - renderer: {fileID: 137618566327606440}
   m_Enabled: 1
+--- !u!114 &7393792978358920259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472134339889661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0580578892f412a4c834fb42ab1c727f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95476671951916067}
+  leftHand: {fileID: 4124528330525184}
+  rightHand: {fileID: 4702150881525839}
 --- !u!1 &1472513944425898
 GameObject:
   m_ObjectHideFlags: 0
@@ -4983,6 +5061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4754763715315660}
+  - component: {fileID: 2674768286619584680}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -5007,6 +5086,19 @@ Transform:
   - {fileID: 4349700168472237}
   m_Father: {fileID: 4043017215805444}
   m_LocalEulerAnglesHint: {x: 94.13844, y: -1.4678333, z: 168.87874}
+--- !u!114 &2674768286619584680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592904339972817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d2f46726e26b447b32d2341e343ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponType: 3
 --- !u!1 &1596993401861749
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,6 +6127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4322399157897726}
+  - component: {fileID: 8821046636110805699}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -6057,6 +6150,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4043017215805444}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &8821046636110805699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715999565237848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbc23697bde45e408fa070e5a9dedd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponType: 0
 --- !u!1 &1716095059235493
 GameObject:
   m_ObjectHideFlags: 0
@@ -6195,6 +6301,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4509307261149996}
   - component: {fileID: 205038199750999861}
+  - component: {fileID: 3675605673572816074}
+  - component: {fileID: 1277593888147945603}
   m_Layer: 0
   m_Name: Elemy_Prisoner_01
   m_TagString: Untagged
@@ -6243,6 +6351,42 @@ LODGroup:
     renderers:
     - renderer: {fileID: 137461795396067638}
   m_Enabled: 1
+--- !u!114 &3675605673572816074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753721354175312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0580578892f412a4c834fb42ab1c727f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1277593888147945603}
+  leftHand: {fileID: 4338240340414152}
+  rightHand: {fileID: 4153862847704090}
+--- !u!95 &1277593888147945603
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753721354175312}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: e543f1427611c814a8cfdcdea84f6b23, type: 2}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1758060763928189
 GameObject:
   m_ObjectHideFlags: 0
@@ -6572,12 +6716,17 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   animancerComponent: {fileID: 3833721888932012638}
+  enemyModels:
+  - {fileID: 7393792978358920259}
+  - {fileID: 3675605673572816074}
+  - {fileID: 5553284004334903804}
   navMeshAgent: {fileID: 7962744550671859998}
   target: {fileID: 0}
   elapsedTimeToChangeTarget: 1
   isChasePlayer: 0
   attackDelayTime: 5
   isReadyToAttack: 0
+  weaponController: {fileID: 3249240172309530067}
   onReadyToAttack: {fileID: 11400000, guid: c351fa2c3a1a8d0419b875476932214c, type: 2}
   onAttack: {fileID: 11400000, guid: 91c05fb0d3169de4593d085f26d9c340, type: 2}
   onCompleteAttack: {fileID: 11400000, guid: c61098f8c67115d4ebe5ca26615a0b85, type: 2}
