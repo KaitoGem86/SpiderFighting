@@ -6578,15 +6578,15 @@ MonoBehaviour:
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"valueA":{"_name":"isChasePlayer","_targetVariableID":"bf5a3dd9-75dc-489b-826c-207307adcb3b"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":-373.2512,"y":592.9742},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_action":{"method":{"_baseInfo":"Core.GamePlay.Enemy.EnemyController|ChangeAction|System.Void","_paramsInfo":"Extensions.SystemGame.AIFSM.FSMState"},"parameters":[{"_type":"Extensions.SystemGame.AIFSM.FSMState","_value":{"$content":2,"$type":"Extensions.SystemGame.AIFSM.FSMState"}}],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":-125.4117,"y":593.9512},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"},{"_position":{"x":351.0449,"y":464.6511},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"6"},{"_position":{"x":214.5228,"y":603.7338},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"7"},{"_condition":{"vectorA":{"_name":"myPos","_targetVariableID":"d6edd70f-746b-4d2e-8153-bdbafe28cd6b"},"vectorB":{"_name":"defaultPos","_targetVariableID":"9765b414-572f-45ba-bce7-114696f1f709"},"comparison":1,"distance":{"_value":100.0},"$type":"NodeCanvas.Tasks.Conditions.CheckVectorDistance"},"_position":{"x":-106.1827,"y":703.8123},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"8"},{"_action":{"actions":[{"valueA":{"_name":"isChasePlayer","_targetVariableID":"bf5a3dd9-75dc-489b-826c-207307adcb3b"},"valueB":{},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"valueA":{"_name":"targetPosition","_targetVariableID":"5204ab03-9393-4961-89bd-7910625b3be5"},"valueB":{"_name":"defaultPos","_targetVariableID":"9765b414-572f-45ba-bce7-114696f1f709"},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[UnityEngine.Vector3,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":152.5989,"y":699.2739},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_position":{"x":488.1869,"y":606.8447},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"10"},{"_position":{"x":488.2219,"y":717.1465},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"11"},{"_condition":{"valueA":{"_name":"isChasePlayer","_targetVariableID":"bf5a3dd9-75dc-489b-826c-207307adcb3b"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":297.9399,"y":813.921},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"12"},{"_position":{"x":488.3139,"y":832.8287},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"13"},{"_position":{"x":316.7568,"y":960.1047},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"14"},{"_condition":{"vectorA":{"_name":"myPos","_targetVariableID":"d6edd70f-746b-4d2e-8153-bdbafe28cd6b"},"vectorB":{"_name":"enemyPosition","_targetVariableID":"a20a5139-8b55-4b31-999b-fcd3e795c877"},"comparison":2,"distance":{"_value":1.0},"$type":"NodeCanvas.Tasks.Conditions.CheckVectorDistance"},"_position":{"x":76.87009,"y":1031.503},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"15"},{"_action":{"method":{"_baseInfo":"Core.GamePlay.Enemy.EnemyController|ChangeAction|System.Void","_paramsInfo":"Extensions.SystemGame.AIFSM.FSMState"},"parameters":[{"_type":"Extensions.SystemGame.AIFSM.FSMState","_value":{"$content":3,"$type":"Extensions.SystemGame.AIFSM.FSMState"}}],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":373.8589,"y":1030.503},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"16"},{"_action":{"valueA":{"_name":"targetPosition","_targetVariableID":"5204ab03-9393-4961-89bd-7910625b3be5"},"valueB":{"_name":"enemyPosition","_targetVariableID":"a20a5139-8b55-4b31-999b-fcd3e795c877"},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":152.5989,"y":699.2739},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_position":{"x":488.1869,"y":606.8447},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"10"},{"_position":{"x":488.2219,"y":717.1465},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"11"},{"_condition":{"valueA":{"_name":"isChasePlayer","_targetVariableID":"bf5a3dd9-75dc-489b-826c-207307adcb3b"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":297.9399,"y":813.921},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"12"},{"_position":{"x":488.3139,"y":832.8287},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"13"},{"_position":{"x":316.7568,"y":960.1047},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"14"},{"_condition":{"vectorA":{"_name":"myPos","_targetVariableID":"d6edd70f-746b-4d2e-8153-bdbafe28cd6b"},"vectorB":{"_name":"enemyPosition","_targetVariableID":"a20a5139-8b55-4b31-999b-fcd3e795c877"},"comparison":2,"distance":{"_value":2.0},"$type":"NodeCanvas.Tasks.Conditions.CheckVectorDistance"},"_position":{"x":76.87009,"y":1031.503},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"15"},{"_action":{"method":{"_baseInfo":"Core.GamePlay.Enemy.EnemyController|ChangeAction|System.Void","_paramsInfo":"Extensions.SystemGame.AIFSM.FSMState"},"parameters":[{"_type":"Extensions.SystemGame.AIFSM.FSMState","_value":{"$content":3,"$type":"Extensions.SystemGame.AIFSM.FSMState"}}],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":373.8589,"y":1030.503},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"16"},{"_action":{"valueA":{"_name":"targetPosition","_targetVariableID":"5204ab03-9393-4961-89bd-7910625b3be5"},"valueB":{"_name":"enemyPosition","_targetVariableID":"a20a5139-8b55-4b31-999b-fcd3e795c877"},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[UnityEngine.Vector3,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"_position":{"x":419.2728,"y":938.5876},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"17"},{"_position":{"x":747.6149,"y":721.9563},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"18"},{"_condition":{"conditions":[{"valueA":{"_name":"isChasePlayer","_targetVariableID":"bf5a3dd9-75dc-489b-826c-207307adcb3b"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},{"vectorA":{"_name":"myPos","_targetVariableID":"d6edd70f-746b-4d2e-8153-bdbafe28cd6b"},"vectorB":{"_name":"targetPosition","_targetVariableID":"5204ab03-9393-4961-89bd-7910625b3be5"},"comparison":2,"distance":{"_value":0.1},"$type":"NodeCanvas.Tasks.Conditions.CheckVectorDistance"}],"$type":"NodeCanvas.Framework.ConditionList"},"_position":{"x":647.7869,"y":843.5506},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"19"},{"_action":{"method":{"_baseInfo":"Core.GamePlay.Enemy.EnemyController|ChangeAction|System.Void","_paramsInfo":"Extensions.SystemGame.AIFSM.FSMState"},"parameters":[{"_type":"Extensions.SystemGame.AIFSM.FSMState","_value":{"$content":1,"$type":"Extensions.SystemGame.AIFSM.FSMState"}}],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":949.4529,"y":846.7986},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"20"},{"_position":{"x":863.1748,"y":508.8563},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"21"},{"_condition":{"valueA":{"_name":"attackDelayTime","_targetVariableID":"76e14b6a-1450-488c-aea8-c025f81178a6"},"checkType":2,"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},"_position":{"x":823.0549,"y":596.8543},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"22"},{"_action":{"actions":[{"method":{"_baseInfo":"Core.GamePlay.Enemy.EnemyController|ChangeAction|System.Void","_paramsInfo":"Extensions.SystemGame.AIFSM.FSMState"},"parameters":[{"_type":"Extensions.SystemGame.AIFSM.FSMState","_value":{"$content":4,"$type":"Extensions.SystemGame.AIFSM.FSMState"}}],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},{"valueA":{"_name":"attackDelayTime","_targetVariableID":"76e14b6a-1450-488c-aea8-c025f81178a6"},"valueB":{"_value":5.0},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":1002.065,"y":599.1807},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"23"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"16"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":1003.065,"y":600.1807},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"23"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"16"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.28
     _category: 
     _comments: 
-    _translation: {x: 251, y: -558}
+    _translation: {x: -14, y: -718}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
@@ -8884,6 +8884,54 @@ MonoBehaviour:
     _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.9664773
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1641633038593792454}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
+            m_MethodName: CompleteDead
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.9664773
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1641633038593792454}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
+            m_MethodName: CompleteDead
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
   _stateType: 6
   _canChangeToItself: 0
 --- !u!1 &1434888764071800428
@@ -8988,6 +9036,54 @@ MonoBehaviour:
   _fsm: {fileID: 7404812075282125282}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
+  - _FadeDuration: 0.06000001
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4861733751411881542}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
+            m_MethodName: ReturnToWaitAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.06000001
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4861733751411881542}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
+            m_MethodName: ReturnToWaitAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
   - _FadeDuration: 0.06000001
     _Events:
       _NormalizedTimes:
@@ -9177,6 +9273,66 @@ MonoBehaviour:
     - 180
     _DefaultParameter: 0
     _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.28333336
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
+    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
+    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
+    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
+    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
+    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
+    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - -180
+    - -135
+    - -90
+    - -45
+    - 0
+    - 45
+    - 90
+    - 135
+    - 180
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.28333336
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
+    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
+    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
+    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
+    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
+    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
+    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - -180
+    - -135
+    - -90
+    - -45
+    - 0
+    - 45
+    - 90
+    - 135
+    - 180
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
   _stateType: 3
   _canChangeToItself: 0
   _moveSpeed: 2
@@ -9234,6 +9390,72 @@ MonoBehaviour:
       _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400000, guid: a3f275accf984ff409b88e9c4145a59d, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.973366
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 3447867315307947791}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIKnockBackState, Assembly-CSharp
+              m_MethodName: CompleteKnockBack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 24ebadb7f95d1684c9d1ef84978ddbb3, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.973366
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 3447867315307947791}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIKnockBackState, Assembly-CSharp
+              m_MethodName: CompleteKnockBack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 24ebadb7f95d1684c9d1ef84978ddbb3, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
     _Others:
@@ -9359,6 +9581,22 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: afbdaedb6fed059489bc231e5557f109, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
+  - _FadeDuration: 2.15
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: -203655887218126122, guid: ebf5f6f90f6a2d443b465234bcbd04e3, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 2.15
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
   _stateType: 1
   _canChangeToItself: 0
 --- !u!1 &4474664798021586532
@@ -9464,7 +9702,7 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.6368371
+      - 0.6385301
       - 0.87594694
       - NaN
       _Callbacks:
@@ -9548,9 +9786,107 @@ MonoBehaviour:
       _Names: []
     _Speed: 1
     _Animations:
-    - {fileID: 7400000, guid: 6d0e5268c3914bb4590e20535c351216, type: 2}
-    - {fileID: 7400000, guid: 18b8ad95859430b4891f35865bb4fa33, type: 2}
-    - {fileID: 7400000, guid: 81afa42af8fb08f4a9f1e52cb13fff6d, type: 2}
+    - {fileID: 1827226128182048838, guid: 86ce6b2b023712b4ab2dc281cfd8f8dd, type: 3}
+    - {fileID: 1827226128182048838, guid: 86ce6b2b023712b4ab2dc281cfd8f8dd, type: 3}
+    - {fileID: 1827226128182048838, guid: 86ce6b2b023712b4ab2dc281cfd8f8dd, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 1
+    - 2
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.6368371
+      - 0.87594694
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2867093695785342668}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
+            m_MethodName: ApplyDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2867093695785342668}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
+            m_MethodName: CompleteAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: c9ffd254c8ebfae4fbe97ac489238d8d, type: 2}
+    - {fileID: 7400000, guid: c9ffd254c8ebfae4fbe97ac489238d8d, type: 2}
+    - {fileID: 7400000, guid: c9ffd254c8ebfae4fbe97ac489238d8d, type: 2}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 1
+    - 2
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.6368371
+      - 0.87594694
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2867093695785342668}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
+            m_MethodName: ApplyDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2867093695785342668}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
+            m_MethodName: CompleteAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
+    - {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
+    - {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
     _Speeds: []
     _SynchronizeChildren: 
     _Thresholds:
@@ -9649,6 +9985,42 @@ MonoBehaviour:
     - 5
     _DefaultParameter: 0
     _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.46000004
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: -203655887218126122, guid: ebf5f6f90f6a2d443b465234bcbd04e3, type: 3}
+    - {fileID: -203655887218126122, guid: f863e9868f072334ab213b0d853249cf, type: 3}
+    - {fileID: -203655887218126122, guid: 0a33bea7baab3ca44bafa9071057762f, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 3
+    - 5
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.46000004
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
+    - {fileID: -203655887218126122, guid: 4b6978bd9a6c5da44ba41fc75539cfe8, type: 3}
+    - {fileID: -203655887218126122, guid: 3f28d7c88151c1545b15287f2de36751, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 3
+    - 5
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
   _stateType: 2
   _canChangeToItself: 0
 --- !u!1 &7036164567441574783
@@ -9737,6 +10109,72 @@ MonoBehaviour:
   _fsm: {fileID: 7404812075282125282}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
+  - _FadeDuration: 0.120000005
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.97424024
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 4712983029008049134}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
+              m_MethodName: CompleteStunLock
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  - _FadeDuration: 0.120000005
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.97424024
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 4712983029008049134}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
+              m_MethodName: CompleteStunLock
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
   - _FadeDuration: 0.120000005
     _Events:
       _NormalizedTimes: []

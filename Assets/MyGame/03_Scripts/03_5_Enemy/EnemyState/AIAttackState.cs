@@ -59,6 +59,7 @@ namespace Core.GamePlay.Enemy{
 
         public void ApplyDamage(){
             Debug.Log("Apply Damage");
+            _fsm.blackBoard.weaponController.OnWeaponAttack(_fsm.blackBoard.target);
         }
 
         public void CompleteAttack(){
