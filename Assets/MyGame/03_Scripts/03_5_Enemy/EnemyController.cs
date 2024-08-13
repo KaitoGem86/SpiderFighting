@@ -19,7 +19,6 @@ namespace Core.GamePlay.Enemy
 
         protected override void OnEnable()
         {
-            Debug.Log("OnEnable EnemyController");
             //base.OnEnable();
             blackBoard.isReadyToAttack = false;
         }
@@ -40,7 +39,6 @@ namespace Core.GamePlay.Enemy
             SetEnemyType(WeaponType.Rifle);
             IsIgnore = false;
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
-            Debug.Log("Init Enemy");
             ChangeAction(_startState);
         }
 

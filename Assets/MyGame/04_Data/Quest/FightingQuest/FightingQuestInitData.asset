@@ -15,4 +15,4 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   data:
   - enemySO: {fileID: 11400000, guid: 8b78cd0366f35f547b770b28b832cc60, type: 2}
-    count: 5
+    count: 1
