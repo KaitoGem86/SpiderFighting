@@ -2,8 +2,9 @@ using DG.Tweening;
 using UnityEngine;
 using Extensions.SystemGame.AIFSM;
 using MyTools.Event;
+using Animancer;
 namespace Core.GamePlay.Enemy{
-    public class AIAttackState : LinearMixerTransitionState<EnemyBlackBoard>{
+    public class AIAttackState : BaseEnemyState<LinearMixerTransition>{
         [SerializeField] private float _meleeRange;
         [SerializeField] private float _mediumRange;
         [SerializeField] private float _longRange;

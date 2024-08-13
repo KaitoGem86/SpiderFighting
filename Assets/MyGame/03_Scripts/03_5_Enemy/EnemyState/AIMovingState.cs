@@ -1,9 +1,10 @@
+using Animancer;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 namespace Core.GamePlay.Enemy
 {
-    public class AIMovingState : LinearMixerTransitionState<EnemyBlackBoard>
+    public class AIMovingState : BaseEnemyState<LinearMixerTransition>
     {
         public override void EnterState()
         {

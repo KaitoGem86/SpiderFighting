@@ -1,7 +1,8 @@
+using Animancer;
 using Extensions.SystemGame.AIFSM;
 
 namespace Core.GamePlay.Enemy{
-    public class HittedState : ClipTransitionState<EnemyBlackBoard>
+    public class HittedState : BaseEnemyState<ClipTransition>
     {
         public override void EnterState()
         {

@@ -1,7 +1,8 @@
+using Animancer;
 using Extensions.SystemGame.AIFSM;
 
 namespace Core.GamePlay.Enemy{
-    public class AIKnockBackState : ClipTransitionSequenceState<EnemyBlackBoard>
+    public class AIKnockBackState : BaseEnemyState<ClipTransitionSequence>
     {
         public override void EnterState()
         {

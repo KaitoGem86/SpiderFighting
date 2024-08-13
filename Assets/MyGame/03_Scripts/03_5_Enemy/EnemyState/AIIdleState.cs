@@ -1,8 +1,9 @@
 using UnityEngine;
 using Extensions.SystemGame.AIFSM;
+using Animancer;
 
 namespace Core.GamePlay.Enemy{
-    public class AIIdleState : ClipTransitionState<EnemyBlackBoard>
+    public class AIIdleState : BaseEnemyState<ClipTransition>
     {
         public override void EnterState()
         {

@@ -27,6 +27,7 @@ namespace Core.GamePlay.Enemy
         public Vector3 enemyPosition => target.position;
         public bool isReadyToAttack = false;
         public EnemyWeaponController weaponController;
+        public WeaponType weaponType;
         public DefaultEvent onReadyToAttack;
         public DefaultEvent onAttack;
         public DefaultEvent onCompleteAttack;

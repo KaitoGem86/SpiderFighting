@@ -1,7 +1,8 @@
+using Animancer;
 using Extensions.SystemGame.AIFSM;
 
 namespace Core.GamePlay.Enemy{
-    public class StunLockState : ClipTransitionSequenceState<EnemyBlackBoard> {
+    public class StunLockState : BaseEnemyState<ClipTransitionSequence> {
         public override void EnterState()
         {
             _fsm.blackBoard.navMeshAgent.ResetPath();
