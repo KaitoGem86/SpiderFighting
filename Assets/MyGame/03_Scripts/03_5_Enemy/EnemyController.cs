@@ -19,7 +19,8 @@ namespace Core.GamePlay.Enemy
 
         protected override void OnEnable()
         {
-            base.OnEnable();
+            Debug.Log("OnEnable EnemyController");
+            //base.OnEnable();
             blackBoard.isReadyToAttack = false;
         }
 
@@ -36,9 +37,11 @@ namespace Core.GamePlay.Enemy
             _soController = soConTroller;
             _runtimeData = new EnemyData(_soController.initData);
             RandomEnemySkin();
-            SetEnemyType(WeaponType.Hand);
+            SetEnemyType(WeaponType.Club);
             IsIgnore = false;
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
+            Debug.Log("Init Enemy");
+            ChangeAction(_startState);
         }
 
         public void HittedByPlayer(FSMState state)
@@ -108,6 +111,7 @@ namespace Core.GamePlay.Enemy
         private void SetEnemyType(WeaponType type)
         {
             blackBoard.weaponController.SetTypeOfEnemy(type, blackBoard.currentEnemyModel.rightHand);
+            blackBoard.weaponType = type;
         }
         
         private void RandomEnemySkin(){

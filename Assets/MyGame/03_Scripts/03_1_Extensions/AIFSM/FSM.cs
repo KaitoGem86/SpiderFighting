@@ -34,7 +34,7 @@ namespace Extensions.SystemGame.AIFSM{
 
     public class FSM<T> : MonoBehaviour where T : BlackBoard{
         [SerializeField] Transform _stateContainer;
-        [SerializeField] FSMState _startState;
+        [SerializeField] protected FSMState _startState;
         Dictionary<FSMState, IState> _dictStates;
         protected IState _currentState;
 
