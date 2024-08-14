@@ -14,12 +14,14 @@ namespace Core.GamePlay.Enemy
         [SerializeField] private HPBarController _hpBarController;
         [SerializeField] FloatingDamageTextSO _floatingDamageTextSO;
         [SerializeField] private HitVFXController _hitVFXController;
+        [SerializeField] private EnemyGroupSO _enemyGroupSO;
         private EnemySO _soController;
         private EnemyData _runtimeData;
 
         protected override void OnEnable()
         {
             //base.OnEnable();
+            _enemyGroupSO.AddEnemy(this);
             blackBoard.isReadyToAttack = false;
         }
 
@@ -29,6 +31,7 @@ namespace Core.GamePlay.Enemy
             onEnemyDead = null;
             blackBoard.onAttack?.Raise();
             blackBoard.onCompleteAttack?.Raise();
+            _enemyGroupSO.RemoveEnemy(this);
         }
 
         public void Init(EnemySO soConTroller)
@@ -125,6 +128,7 @@ namespace Core.GamePlay.Enemy
         public Transform TargetEnemy { get => this.transform; }
         public bool IsIgnore { get; set; }
         public bool IsPlayer { get => false; }
+        public bool CanAttackInGroup => _enemyGroupSO.CheckAttack;
         public EnemySO EnemySO { get => _soController; }
         public Action onEnemyDead;
     }

@@ -6688,6 +6688,7 @@ MonoBehaviour:
   _hpBarController: {fileID: 8909795628872485541}
   _floatingDamageTextSO: {fileID: 11400000, guid: 88ea78ce53ea43744b79caf9dff4a6c9, type: 2}
   _hitVFXController: {fileID: 480683334994914139}
+  _enemyGroupSO: {fileID: 11400000, guid: a945d07e6a6195e4993783bdc672a989, type: 2}
 --- !u!114 &1497934967715043381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6710,7 +6711,6 @@ MonoBehaviour:
   - {fileID: 5553284004334903804}
   currentEnemyModel: {fileID: 0}
   navMeshAgent: {fileID: 7962744550671859998}
-  target: {fileID: 0}
   elapsedTimeToChangeTarget: 1
   isChasePlayer: 0
   attackDelayTime: 5
