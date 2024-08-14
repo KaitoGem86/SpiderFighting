@@ -26,6 +26,8 @@ namespace Core.GamePlay.Enemy
         [Header("========= Attack =========")]
         public float attackDelayTime = 5f;
         public bool isReadyToAttack = false;
+        public float sightRange = 10f;
+        public float attackRange = 2f;
         public IHitted targetToAttack;
         public Vector3 targetPos => targetToAttack.TargetEnemy.position;
 

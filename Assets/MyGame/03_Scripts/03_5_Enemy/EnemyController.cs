@@ -39,7 +39,7 @@ namespace Core.GamePlay.Enemy
             _soController = soConTroller;
             _runtimeData = new EnemyData(_soController.initData);
             RandomEnemySkin();
-            SetEnemyType(WeaponType.Rifle);
+            SetEnemyType(soConTroller.initData.enemyType);
             IsIgnore = false;
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
             ChangeAction(_startState);

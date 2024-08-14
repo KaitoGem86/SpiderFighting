@@ -7,6 +7,7 @@ namespace Core.GamePlay.Enemy
     [System.Serializable]
     public class EnemyData{
         public float HP = 100;
+        public WeaponType enemyType;
         public EnemyData(EnemyData data){
             HP = data.HP;
         }

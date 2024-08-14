@@ -6604,8 +6604,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{"myAIState":{"_propertyPath":"Core.GamePlay.Enemy.EnemyController.currentStateType","_name":"myAIState","_id":"e79639ac-0bec-47c4-ac59-c231871c4d2f","$type":"NodeCanvas.Framework.Variable`1[[Extensions.SystemGame.AIFSM.FSMState,
-    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"sightRange":{"_value":10.0,"_name":"sightRange","_id":"10015451-917e-40f1-a9e3-4888e0b0578a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"attackRange":{"_value":2.0,"_name":"attackRange","_id":"e7f9b978-e243-4513-904e-2b88edba264a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"sightRange":{"_value":10.0,"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.sightRange","_name":"sightRange","_id":"10015451-917e-40f1-a9e3-4888e0b0578a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"attackRange":{"_value":2.0,"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.attackRange","_name":"attackRange","_id":"e7f9b978-e243-4513-904e-2b88edba264a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"blackBoard":{"_propertyPath":"Core.GamePlay.Enemy.EnemyController.blackBoard","_name":"blackBoard","_id":"1599886a-2449-4c20-9595-bb40e642ddde","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.EnemyBlackBoard,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"position":{"_propertyPath":"UnityEngine.Transform.position","_name":"position","_id":"a35908df-b7e8-4df8-b17a-7ec73ac0b403","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"targetToAttack":{"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.targetToAttack","_name":"targetToAttack","_id":"071262aa-4d0f-49de-bf97-dfd08aac4361","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Support.IHitted,
@@ -6613,16 +6613,17 @@ MonoBehaviour:
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"targetPos":{"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.targetPos","_name":"targetPos","_id":"5082c5be-55f1-4cdc-8c41-d621bc5ec8b1","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"attackDelayTime":{"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.attackDelayTime","_name":"attackDelayTime","_id":"aa83f03f-f519-40c3-8435-478188ac80d0","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"controller":{"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.controller","_name":"controller","_id":"e5790c59-9a75-4042-b660-03b5047a6f87","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.EnemyController,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myWeaponType":{"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.weaponType","_name":"myWeaponType","_id":"e75f55ef-b44d-494a-9353-85760a8b6b27","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.WeaponType,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
   _serializedVariables:
   - _json: '{"_propertyPath":"Core.GamePlay.Enemy.EnemyController.currentStateType","_name":"myAIState","_id":"e79639ac-0bec-47c4-ac59-c231871c4d2f","$type":"NodeCanvas.Framework.Variable`1[[Extensions.SystemGame.AIFSM.FSMState,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
-  - _json: '{"_value":10.0,"_name":"sightRange","_id":"10015451-917e-40f1-a9e3-4888e0b0578a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":10.0,"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.sightRange","_name":"sightRange","_id":"10015451-917e-40f1-a9e3-4888e0b0578a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":2.0,"_name":"attackRange","_id":"e7f9b978-e243-4513-904e-2b88edba264a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":2.0,"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.attackRange","_name":"attackRange","_id":"e7f9b978-e243-4513-904e-2b88edba264a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_propertyPath":"Core.GamePlay.Enemy.EnemyController.blackBoard","_name":"blackBoard","_id":"1599886a-2449-4c20-9595-bb40e642ddde","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.EnemyBlackBoard,
@@ -6644,6 +6645,9 @@ MonoBehaviour:
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.controller","_name":"controller","_id":"e5790c59-9a75-4042-b660-03b5047a6f87","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.EnemyController,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Core.GamePlay.Enemy.EnemyBlackBoard.weaponType","_name":"myWeaponType","_id":"e75f55ef-b44d-494a-9353-85760a8b6b27","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.WeaponType,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
 --- !u!195 &7962744550671859998
@@ -6715,6 +6719,8 @@ MonoBehaviour:
   isChasePlayer: 0
   attackDelayTime: 5
   isReadyToAttack: 0
+  sightRange: 10
+  attackRange: 2
   weaponController: {fileID: 3249240172309530067}
   weaponType: 0
   onReadyToAttack: {fileID: 11400000, guid: c351fa2c3a1a8d0419b875476932214c, type: 2}
