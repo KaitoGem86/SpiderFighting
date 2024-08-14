@@ -9,7 +9,6 @@ namespace Core.GamePlay.Enemy
         public override void EnterState()
         {
             base.EnterState();
-            _fsm.blackBoard.elapsedTimeToChangeTarget = 1f;
             _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
             //RotateDisplayWithVelocity();
         }

@@ -21,8 +21,6 @@ namespace Core.GamePlay.Enemy
         [Header("========= Movement =========")]
         public NavMeshAgent navMeshAgent;
         public float speed = 5f;
-        public float elapsedTimeToChangeTarget = 1f;
-        public bool isChasePlayer = false;
 
         [Header("========= Attack =========")]
         public float damage;
@@ -36,9 +34,6 @@ namespace Core.GamePlay.Enemy
         [Header("========= Weapon =========")]
         public EnemyWeaponController weaponController;
         public WeaponType weaponType;
-        public DefaultEvent onReadyToAttack;
-        public DefaultEvent onAttack;
-        public DefaultEvent onCompleteAttack;
 
         void Awake()
         {
