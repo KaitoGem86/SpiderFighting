@@ -20,10 +20,12 @@ namespace Core.GamePlay.Enemy
 
         [Header("========= Movement =========")]
         public NavMeshAgent navMeshAgent;
+        public float speed = 5f;
         public float elapsedTimeToChangeTarget = 1f;
         public bool isChasePlayer = false;
 
         [Header("========= Attack =========")]
+        public float damage;
         public float attackDelayTime = 5f;
         public bool isReadyToAttack = false;
         public float sightRange = 10f;
@@ -41,6 +43,14 @@ namespace Core.GamePlay.Enemy
         void Awake()
         {
             defaultPosition = transform.position;
+        }
+
+        public void Init(EnemyData data){
+            attackRange = data.AttackRange;
+            sightRange = data.SightRange;
+            speed = data.Speed;
+            attackDelayTime = data.CooldownAttackTime;
+            weaponType = data.enemyType;
         }
     }
 }

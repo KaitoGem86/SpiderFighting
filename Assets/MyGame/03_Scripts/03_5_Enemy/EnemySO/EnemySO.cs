@@ -5,11 +5,29 @@ using UnityEngine;
 namespace Core.GamePlay.Enemy
 {
     [System.Serializable]
-    public class EnemyData{
+    public class EnemyData
+    {
+        public int Level;
         public float HP = 100;
+        public float Damage;
+        public float BlockRate;
+        public float BlockTime;
+        public float AttackRange;
+        public float SightRange;
+        public float Speed;
+        public float CooldownAttackTime;
         public WeaponType enemyType;
-        public EnemyData(EnemyData data){
+        public EnemyData(EnemyData data)
+        {
             HP = data.HP;
+            Damage = data.Damage;
+            BlockRate = data.BlockRate;
+            BlockTime = data.BlockTime;
+            AttackRange = data.AttackRange;
+            SightRange = data.SightRange;
+            Speed = data.Speed;
+            CooldownAttackTime = data.CooldownAttackTime;
+            enemyType = data.enemyType;
         }
     }
 

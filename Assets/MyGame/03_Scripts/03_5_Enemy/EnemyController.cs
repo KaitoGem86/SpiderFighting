@@ -38,6 +38,7 @@ namespace Core.GamePlay.Enemy
         {
             _soController = soConTroller;
             _runtimeData = new EnemyData(_soController.initData);
+            blackBoard.Init(_runtimeData);
             RandomEnemySkin();
             SetEnemyType(soConTroller.initData.enemyType);
             IsIgnore = false;

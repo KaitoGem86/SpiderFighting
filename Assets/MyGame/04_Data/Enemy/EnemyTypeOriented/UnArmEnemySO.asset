@@ -10,9 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bad81cc776b09544acf879e49650805, type: 3}
-  m_Name: ClubEnemySO
+  m_Name: UnArmEnemySO
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1792417927769246, guid: dd9848f02208d1f42924866c6b1c7a4d, type: 3}
   initData:
+    Level: 0
     HP: 100
-    enemyType: 1
+    Damage: 0
+    BlockRate: 0
+    BlockTime: 0
+    AttackRange: 1
+    SightRange: 10
+    Speed: 0
+    CooldownAttackTime: 5
+    enemyType: 0

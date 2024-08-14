@@ -25,7 +25,7 @@ MonoBehaviour:
     position","$type":"Core.GamePlay.Enemy.MoveToTarget"},"_position":{"x":-860.8212,"y":1791.3},"_comment":"Move
     to default position","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"21"},{"isDynamic":true,"_condition":{"finder":1,"blackBoard":{"_name":"blackBoard","_targetVariableID":"1599886a-2449-4c20-9595-bb40e642ddde"},"$type":"Core.GamePlay.Enemy.CheckFindTargetCCT"},"_position":{"x":-540.9397,"y":1688.861},"_comment":"C\u00f3
     enemy kh\u00f4ng","$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"22"},{"_position":{"x":-499.7867,"y":1807.783},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"23"},{"_condition":{"vectorA":{"_name":"position","_targetVariableID":"a35908df-b7e8-4df8-b17a-7ec73ac0b403"},"vectorB":{"_name":"targetPos","_targetVariableID":"5082c5be-55f1-4cdc-8c41-d621bc5ec8b1"},"comparison":2,"distance":{"_name":"attackRange","_targetVariableID":"e7f9b978-e243-4513-904e-2b88edba264a"},"$type":"NodeCanvas.Tasks.Conditions.CheckVectorDistance"},"_position":{"x":-954.7091,"y":1914.038},"_comment":"C\u00f3
-    qu\u00e1 g\u1ea7n enemy kh\u00f4ng","$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"24"},{"_position":{"x":-843.3131,"y":2020.538},"_comment":"di
+    qu\u00e1 g\u1ea7n enemy kh\u00f4ng","$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"24"},{"_position":{"x":-835.3118,"y":2017.538},"_comment":"di
     chuy\u1ec3n l\u00f9i ra xa player","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"25"},{"isDynamic":true,"_condition":{"vectorA":{"_name":"position","_targetVariableID":"a35908df-b7e8-4df8-b17a-7ec73ac0b403"},"vectorB":{"_name":"targetPos","_targetVariableID":"5082c5be-55f1-4cdc-8c41-d621bc5ec8b1"},"comparison":1,"distance":{"_name":"sightRange","_targetVariableID":"10015451-917e-40f1-a9e3-4888e0b0578a"},"$type":"NodeCanvas.Tasks.Conditions.CheckVectorDistance"},"_position":{"x":-621.7101,"y":1996.46},"_comment":"Qu\u00e1
     xa so v\u1edbi sight Range","$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"26"},{"_action":{"speed":5.0,"distance":1.0,"blackBoard":{"_name":"blackBoard","_targetVariableID":"1599886a-2449-4c20-9595-bb40e642ddde"},"targetPosition":{"_name":"defaultPosition","_targetVariableID":"c0e30b61-76d3-4864-9747-f068d56c5fa6"},"targetName":"default
     position","$type":"Core.GamePlay.Enemy.MoveToTarget"},"_position":{"x":-541.7027,"y":2115.978},"_comment":"Move
@@ -127,7 +127,7 @@ MonoBehaviour:
     _version: 3.28
     _category: 
     _comments: 
-    _translation: {x: -112, y: 136}
-    _zoomFactor: 0.25153014
+    _translation: {x: 449, y: -273}
+    _zoomFactor: 0.2516486
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}
