@@ -1013,10 +1013,10 @@ GameObject:
   - component: {fileID: 744121902585229181}
   - component: {fileID: 4969916325449387968}
   - component: {fileID: 7070927777235297703}
-  - component: {fileID: 2013173178573179815}
-  - component: {fileID: 1273705379691033476}
   - component: {fileID: 8846291530932667467}
   - component: {fileID: 7025558645246550821}
+  - component: {fileID: 650164566257275114}
+  - component: {fileID: 8818636489921025615}
   m_Layer: 8
   m_Name: KingPinNew
   m_TagString: Untagged
@@ -1116,60 +1116,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &2013173178573179815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553592753768227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ef9c3ba6f16ee4ba4757f3500981ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stateContainer: {fileID: 2382872240469570607}
-  _startState: 0
-  blackBoard: {fileID: 1273705379691033476}
-  currentStateType: 0
-  _unitCanvas: {fileID: 9066894514879477381}
-  _hpBarController: {fileID: 9105187874119087014}
-  _floatingDamageTextSO: {fileID: 11400000, guid: 88ea78ce53ea43744b79caf9dff4a6c9, type: 2}
-  _hitVFXController: {fileID: 1496249544650417380}
-  _enemyGroupSO: {fileID: 0}
---- !u!114 &1273705379691033476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553592753768227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 932efa883c8739c4eb481ab6868a9322, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 2013173178573179815}
-  defaultPosition: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  animancerComponent: {fileID: 4521190569619427038}
-  enemyModels:
-  - {fileID: 8841389358949594385}
-  currentEnemyModel: {fileID: 0}
-  navMeshAgent: {fileID: 744121902585229181}
-  speed: 5
-  elapsedTimeToChangeTarget: 1
-  isChasePlayer: 0
-  damage: 0
-  attackDelayTime: 5
-  isReadyToAttack: 0
-  sightRange: 10
-  attackRange: 2
-  weaponController: {fileID: 0}
-  weaponType: 0
-  onReadyToAttack: {fileID: 11400000, guid: c351fa2c3a1a8d0419b875476932214c, type: 2}
-  onAttack: {fileID: 11400000, guid: 91c05fb0d3169de4593d085f26d9c340, type: 2}
-  onCompleteAttack: {fileID: 11400000, guid: c61098f8c67115d4ebe5ca26615a0b85, type: 2}
 --- !u!114 &8846291530932667467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,6 +1161,49 @@ MonoBehaviour:
   _serializedBlackboard: '{"_variables":{}}'
   _objectReferences: []
   _serializedVariables: []
+--- !u!114 &650164566257275114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553592753768227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcfb9978b4fac54cb1a634b97e329f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  defaultPosition: {x: 0, y: 0, z: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  animancerComponent: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  speed: 5
+  damage: 0
+  attackDelayTime: 5
+  isReadyToAttack: 0
+  sightRange: 10
+  attackRange: 2
+--- !u!114 &8818636489921025615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553592753768227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232003379bf1d2a49aa9fb489e35c2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateContainer: {fileID: 2382872240469570607}
+  _startState: 0
+  blackBoard: {fileID: 650164566257275114}
+  currentStateType: 0
+  _unitCanvas: {fileID: 1229326262345273606}
+  _hpBarController: {fileID: 9105187874119087014}
+  _floatingDamageTextSO: {fileID: 11400000, guid: 88ea78ce53ea43744b79caf9dff4a6c9, type: 2}
+  _hitVFXController: {fileID: 1496249544650417380}
 --- !u!1 &1559369139176168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,6 +2400,401 @@ Transform:
   - {fileID: 4933635521143618}
   m_Father: {fileID: 4497334164704049}
   m_LocalEulerAnglesHint: {x: -10.063032, y: -74.26983, z: 22.434002}
+--- !u!1 &267199880949140400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6001793452744798761}
+  - component: {fileID: 524068208326216593}
+  m_Layer: 0
+  m_Name: StunLock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6001793452744798761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267199880949140400}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.08, y: 0, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &524068208326216593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267199880949140400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58aa058390f42db4f8d8fc0b6e9e8a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 0}
+  _transitions:
+  - _FadeDuration: 0.120000005
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.97424024
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 524068208326216593}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
+              m_MethodName: CompleteStunLock
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  - _FadeDuration: 0.120000005
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.97424024
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 524068208326216593}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
+              m_MethodName: CompleteStunLock
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  - _FadeDuration: 0.120000005
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.97424024
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 524068208326216593}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
+              m_MethodName: CompleteStunLock
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  - _FadeDuration: 0.120000005
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.97424024
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 524068208326216593}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
+              m_MethodName: CompleteStunLock
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  _stateType: 21
+  _canChangeToItself: 0
+--- !u!1 &1336684122521484648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2536121674682947305}
+  - component: {fileID: 1334407746041777283}
+  m_Layer: 0
+  m_Name: Idle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2536121674682947305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336684122521484648}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.08, y: 0, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334407746041777283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336684122521484648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92085c8b92a67f648a92e64850c7a538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 0}
+  _transitions:
+  - _FadeDuration: 1.4333334
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 2529502f4d6f00841803bbbbfd67d2ac, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.2
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: afbdaedb6fed059489bc231e5557f109, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.13333334
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: -203655887218126122, guid: ebf5f6f90f6a2d443b465234bcbd04e3, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.31
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _stateType: 1
+  _canChangeToItself: 0
+--- !u!1 &1581699135873828475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3474476843006822807}
+  - component: {fileID: 4059415696837056254}
+  m_Layer: 0
+  m_Name: KnockBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3474476843006822807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581699135873828475}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.08, y: 0, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4059415696837056254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581699135873828475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0dd7ebcc7c268f41bae648380f57170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 0}
+  _transitions:
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: a3f275accf984ff409b88e9c4145a59d, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others: []
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.973366
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 4059415696837056254}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIKnockBackState, Assembly-CSharp
+              m_MethodName: CompleteKnockBack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 24ebadb7f95d1684c9d1ef84978ddbb3, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.973366
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 4059415696837056254}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIKnockBackState, Assembly-CSharp
+              m_MethodName: CompleteKnockBack
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 24ebadb7f95d1684c9d1ef84978ddbb3, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others: []
+  _stateType: 20
+  _canChangeToItself: 0
 --- !u!1 &2278859058710948585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,6 +2855,425 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &2361219266381492193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8862399331741762068}
+  - component: {fileID: 4576298019654165499}
+  m_Layer: 0
+  m_Name: Hit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8862399331741762068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2361219266381492193}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.08, y: 0, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4576298019654165499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2361219266381492193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5a86e08ff629c4fbee8817bb1dcb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 0}
+  _transitions:
+  - _FadeDuration: 0.06000001
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4576298019654165499}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
+            m_MethodName: ReturnToWaitAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.06000001
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4576298019654165499}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
+            m_MethodName: ReturnToWaitAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.06000001
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4576298019654165499}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
+            m_MethodName: ReturnToWaitAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.06000001
+    _Events:
+      _NormalizedTimes:
+      - 0.95
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4576298019654165499}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
+            m_MethodName: ReturnToWaitAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _stateType: 5
+  _canChangeToItself: 1
+--- !u!1 &3663947271410316048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2198459290067438900}
+  - component: {fileID: 8658203121320416571}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2198459290067438900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663947271410316048}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.08, y: 0, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8658203121320416571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663947271410316048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494ec06b330e57747bb50bab61ed0aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _transitions:
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.6385301
+      - 0.87594694
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8658203121320416571}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
+            m_MethodName: ApplyDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8658203121320416571}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
+            m_MethodName: CompleteAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: 6d0e5268c3914bb4590e20535c351216, type: 2}
+    - {fileID: 7400000, guid: 18b8ad95859430b4891f35865bb4fa33, type: 2}
+    - {fileID: 7400000, guid: 81afa42af8fb08f4a9f1e52cb13fff6d, type: 2}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 1
+    - 2
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  _stateType: 4
+  _canChangeToItself: 0
+  _meleeRange: 1
+  _mediumRange: 3
+  _longRange: 5
+  _onAttack: {fileID: 11400000, guid: 91c05fb0d3169de4593d085f26d9c340, type: 2}
+  _onCompleteAttack: {fileID: 11400000, guid: c61098f8c67115d4ebe5ca26615a0b85, type: 2}
+--- !u!1 &6254239218560996484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7657223384207687824}
+  - component: {fileID: 3416422028265300454}
+  m_Layer: 0
+  m_Name: WaitAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7657223384207687824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254239218560996484}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.08, y: 0, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3416422028265300454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254239218560996484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd720e35acae2d94183c5712f84262d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 0}
+  _transitions:
+  - _FadeDuration: 0.28333336
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
+    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
+    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
+    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
+    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
+    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
+    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - -180
+    - -135
+    - -90
+    - -45
+    - 0
+    - 45
+    - 90
+    - 135
+    - 180
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.28333336
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
+    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
+    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
+    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
+    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
+    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
+    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - -180
+    - -135
+    - -90
+    - -45
+    - 0
+    - 45
+    - 90
+    - 135
+    - 180
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.28333336
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
+    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
+    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
+    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
+    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
+    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
+    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - -180
+    - -135
+    - -90
+    - -45
+    - 0
+    - 45
+    - 90
+    - 135
+    - 180
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.28333336
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
+    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
+    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
+    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
+    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
+    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
+    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
+    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - -180
+    - -135
+    - -90
+    - -45
+    - 0
+    - 45
+    - 90
+    - 135
+    - 180
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  _stateType: 3
+  _canChangeToItself: 0
+  _moveSpeed: 2
+  _onReadyToAttack: {fileID: 11400000, guid: c351fa2c3a1a8d0419b875476932214c, type: 2}
 --- !u!1 &6544113030461114460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,6 +3329,272 @@ MonoBehaviour:
   - {fileID: 8722430517791152197}
   - {fileID: 1132673656809070640}
   - {fileID: 7304949864959420273}
+--- !u!1 &6607219790529399013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2556298815269265730}
+  - component: {fileID: 5835843188027201071}
+  m_Layer: 0
+  m_Name: Move
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2556298815269265730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607219790529399013}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.08, y: 0, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5835843188027201071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607219790529399013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c00fb0ede98d24fa50a25f8092f1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 0}
+  _transitions:
+  - _FadeDuration: 0.46000004
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 7400000, guid: bece9fda18844864e8aa81cabea0f742, type: 2}
+    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
+    - {fileID: 7400000, guid: 82aaa36036bdcb246bdc018a9b15e3f0, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 2
+    - 4
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.46000004
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: 1827226128182048838, guid: 4f2bca1d0485b9840b554dc5356bfcf9, type: 3}
+    - {fileID: 1827226128182048838, guid: 14336ea1aadc005429eff24ddc6d7ce5, type: 3}
+    - {fileID: 1827226128182048838, guid: 1cf8eba7bc36ef342b3197cc9d21af85, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 2
+    - 4
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.46000004
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: -203655887218126122, guid: ebf5f6f90f6a2d443b465234bcbd04e3, type: 3}
+    - {fileID: -203655887218126122, guid: f863e9868f072334ab213b0d853249cf, type: 3}
+    - {fileID: -203655887218126122, guid: 0a33bea7baab3ca44bafa9071057762f, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 2
+    - 4
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  - _FadeDuration: 0.46000004
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Speed: 1
+    _Animations:
+    - {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
+    - {fileID: -203655887218126122, guid: 4b6978bd9a6c5da44ba41fc75539cfe8, type: 3}
+    - {fileID: -203655887218126122, guid: 3f28d7c88151c1545b15287f2de36751, type: 3}
+    _Speeds: []
+    _SynchronizeChildren: 
+    _Thresholds:
+    - 0
+    - 2
+    - 4
+    _DefaultParameter: 0
+    _ExtrapolateSpeed: 1
+  _stateType: 2
+  _canChangeToItself: 0
+--- !u!1 &7038396484905301580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8267191971754705500}
+  - component: {fileID: 8395662772365884165}
+  m_Layer: 0
+  m_Name: Dead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8267191971754705500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038396484905301580}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.08, y: 0, z: -0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8395662772365884165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038396484905301580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46c67d97b3026e4ca760be4865b7f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 0}
+  _transitions:
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.9664773
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8395662772365884165}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
+            m_MethodName: CompleteDead
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.9664773
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8395662772365884165}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
+            m_MethodName: CompleteDead
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.9664773
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8395662772365884165}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
+            m_MethodName: CompleteDead
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.9664773
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8395662772365884165}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
+            m_MethodName: CompleteDead
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _stateType: 6
+  _canChangeToItself: 0
 --- !u!1 &8270088260037081166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,7 +3623,15 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2198459290067438900}
+  - {fileID: 2536121674682947305}
+  - {fileID: 2556298815269265730}
+  - {fileID: 7657223384207687824}
+  - {fileID: 8862399331741762068}
+  - {fileID: 8267191971754705500}
+  - {fileID: 3474476843006822807}
+  - {fileID: 6001793452744798761}
   m_Father: {fileID: 4967908381333475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2002859219257809172

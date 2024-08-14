@@ -26,5 +26,9 @@ namespace Core.GamePlay.Enemy
         public float attackRange = 2f;
         public IHitted targetToAttack;
         public Vector3 targetPos => targetToAttack.TargetEnemy.position;
+
+        [Header("========= Weapon =========")]
+        public EnemyWeaponController weaponController;
+        public WeaponType weaponType;
     }
 }

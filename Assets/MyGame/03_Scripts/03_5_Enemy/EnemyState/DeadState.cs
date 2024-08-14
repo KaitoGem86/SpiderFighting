@@ -8,10 +8,5 @@ namespace Core.GamePlay.Enemy{
         {
             base.EnterState();
         }
-
-        public void CompleteDead(){
-            var enemyController = (EnemyController) _fsm;
-            enemyController.EnemySO.DespawnObject(_fsm.gameObject);
-        }
     }
 }

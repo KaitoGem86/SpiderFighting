@@ -1,9 +1,10 @@
 using Animancer;
 using Extensions.SystemGame.AIFSM;
+using UnityEngine;
 
 namespace Core.GamePlay.Enemy
 {
-    public class BaseEnemyState<T> : BaseState<T, EnemyBlackBoard> where T : ITransition
+    public class BaseEnemyState<T> : BaseState<T, BaseEnemyBlackBoard> where T : ITransition
     {
         protected override int GetIndexTransition()
         {

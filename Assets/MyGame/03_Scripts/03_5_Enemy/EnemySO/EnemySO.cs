@@ -4,9 +4,7 @@ using UnityEngine;
 
 namespace Core.GamePlay.Enemy
 {
-    [System.Serializable]
-    public class EnemyData
-    {
+    public class BaseEnemyData{
         public int Level;
         public float HP = 100;
         public float Damage;
@@ -16,6 +14,11 @@ namespace Core.GamePlay.Enemy
         public float SightRange;
         public float Speed;
         public float CooldownAttackTime;
+    }
+
+    [System.Serializable]
+    public class EnemyData : BaseEnemyData
+    {
         public WeaponType enemyType;
         public EnemyData(EnemyData data)
         {

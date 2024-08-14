@@ -13,10 +13,6 @@ namespace Core.GamePlay.Enemy
         public EnemyModel[] enemyModels;
         public EnemyModel currentEnemyModel;
 
-        [Header("========= Weapon =========")]
-        public EnemyWeaponController weaponController;
-        public WeaponType weaponType;
-
         void Awake()
         {
             defaultPosition = transform.position;

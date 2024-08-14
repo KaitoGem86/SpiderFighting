@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyBehaviourTree
   m_EditorClassIdentifier: 
   _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"repeaterMode":2,"repeatTimes":{"_value":1},"_position":{"x":2619.477,"y":274.3306},"$type":"NodeCanvas.BehaviourTrees.Repeater","$id":"0"},{"dynamic":true,"_position":{"x":2634.377,"y":417.4575},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"1"},{"_condition":{"valueA":{"_type":"System.Enum","_name":"myAIState","_targetVariableID":"e79639ac-0bec-47c4-ac59-c231871c4d2f"},"valueB":{"_type":"Extensions.SystemGame.AIFSM.FSMState","_value":{"$content":6,"$type":"Extensions.SystemGame.AIFSM.FSMState"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"},"_position":{"x":-202.0418,"y":942.653},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"2"},{"_position":{"x":-166.0418,"y":1038.653},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"3"},{"_action":{"fsmType":6,"actionName":"Wait
-    in dead state for 4s","timer":4.0,"$type":"Core.GamePlay.Enemy.ActionInSecond"},"_position":{"x":-210.2248,"y":1134.745},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_position":{"x":-12.08426,"y":1131.61},"_comment":"Do
+    in dead state for 4s","timer":4.0,"$type":"Core.GamePlay.Enemy.ActionInSecond"},"_position":{"x":-204.3797,"y":1127.439},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_action":{"method":{"_baseInfo":"Core.GamePlay.Enemy.EnemyController|EnemyDead|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"overrideAgent":{"_type":"Core.GamePlay.Enemy.EnemyController","_name":"controller","_targetVariableID":"e5790c59-9a75-4042-b660-03b5047a6f87"},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":-34.00322,"y":1125.765},"_comment":"Do
     something to despawn game object","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"},{"_condition":{"valueA":{"_type":"System.Enum","_name":"myAIState","_targetVariableID":"e79639ac-0bec-47c4-ac59-c231871c4d2f"},"valueB":{"_type":"Extensions.SystemGame.AIFSM.FSMState","_value":{"$content":20,"$type":"Extensions.SystemGame.AIFSM.FSMState"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"},"_position":{"x":133.9582,"y":947.653},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"6"},{"_position":{"x":186.8879,"y":1040.922},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"7"},{"_action":{"boolVariable":{"_name":"IsIgnore","_targetVariableID":"cdb3abad-9d45-455e-90d8-b50bead4bed6"},"$type":"NodeCanvas.Tasks.Actions.SetBoolean"},"_position":{"x":-18.26932,"y":1261.671},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"_action":{"fsmType":20,"actionName":"Wait
     in knock back state for 4s","timer":4.0,"$type":"Core.GamePlay.Enemy.ActionInSecond"},"_position":{"x":128.9216,"y":1264.428},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_action":{"anim":1,"animancer":{"_name":"AnimancerComponent","_targetVariableID":"7cc19a36-2403-48e9-8029-e8c58af42c14"},"blackBoard":{"_name":"blackBoard","_targetVariableID":"1599886a-2449-4c20-9595-bb40e642ddde"},"des":"return
     to stand","$type":"Core.GamePlay.Enemy.ExitStateByAnim"},"_position":{"x":296.2794,"y":1233.521},"_comment":"return
@@ -117,7 +117,7 @@ MonoBehaviour:
     Rifle","rect":{"xMin":5688.947,"yMin":1524.339,"xMax":7904.224,"yMax":2851.906}},{"name":"Attack 
     Hand","rect":{"xMin":-961.2162,"yMin":1519.953,"xMax":1074.372,"yMax":2820.226}},{"name":"Attack
     Club","rect":{"xMin":1179.779,"yMin":1539.582,"xMax":3287.217,"yMax":2787.249}},{"name":"Hit
-    Respone","rect":{"xMin":-240.2248,"yMin":877.653,"xMax":1175.743,"yMax":1353.428},"autoGroup":true},{"name":"Wandering","rect":{"xMin":2867.347,"yMin":663.2985,"xMax":3273.546,"yMax":1042.003}}],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+    Respone","rect":{"xMin":-234.3797,"yMin":877.653,"xMax":1182.743,"yMax":1353.428},"autoGroup":true},{"name":"Wandering","rect":{"xMin":2867.347,"yMin":663.2985,"xMax":3273.546,"yMax":1042.003}}],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 6894984900215606783, guid: 616fff3d1a454ae79c573151383bf091, type: 3}
@@ -129,7 +129,7 @@ MonoBehaviour:
     _version: 3.28
     _category: 
     _comments: 
-    _translation: {x: -691, y: -225}
-    _zoomFactor: 0.25006688
+    _translation: {x: -760, y: -342}
+    _zoomFactor: 0.2500864
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}

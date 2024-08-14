@@ -6724,13 +6724,13 @@ MonoBehaviour:
   isReadyToAttack: 0
   sightRange: 10
   attackRange: 2
+  weaponController: {fileID: 3249240172309530067}
+  weaponType: 0
   enemyModels:
   - {fileID: 7393792978358920259}
   - {fileID: 3675605673572816074}
   - {fileID: 5553284004334903804}
   currentEnemyModel: {fileID: 0}
-  weaponController: {fileID: 3249240172309530067}
-  weaponType: 0
 --- !u!136 &7799646478287119800
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8832,7 +8832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46c67d97b3026e4ca760be4865b7f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 7404812075282125282}
+  _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
   - _FadeDuration: 0.25
@@ -9032,7 +9032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5a86e08ff629c4fbee8817bb1dcb75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 7404812075282125282}
+  _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
   - _FadeDuration: 0.06000001
@@ -9209,7 +9209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd720e35acae2d94183c5712f84262d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 7404812075282125282}
+  _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
   - _FadeDuration: 0.28333336
@@ -9380,7 +9380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0dd7ebcc7c268f41bae648380f57170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 7404812075282125282}
+  _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
   - _FadeDuration: 0.25
@@ -9513,7 +9513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92085c8b92a67f648a92e64850c7a538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 7404812075282125282}
+  _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
   - _FadeDuration: 1.4333334
@@ -9647,7 +9647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494ec06b330e57747bb50bab61ed0aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 7404812075282125282}
+  _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
   - _FadeDuration: 0.25
@@ -9897,7 +9897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c00fb0ede98d24fa50a25f8092f1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 7404812075282125282}
+  _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
   - _FadeDuration: 0.46000004
@@ -10057,7 +10057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58aa058390f42db4f8d8fc0b6e9e8a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 7404812075282125282}
+  _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
   _transitions:
   - _FadeDuration: 0.120000005
