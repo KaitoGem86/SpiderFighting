@@ -26,12 +26,11 @@ namespace Core.GamePlay.Enemy
 
         public override void Update()
         {
-            _fsm.blackBoard.attackDelayTime -= Time.deltaTime;
-
             base.Update();
             if (Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _fsm.blackBoard.targetPosition) < 0.1f)
             {
-                _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.targetPos, 5f);
+                Debug.Log(_fsm.blackBoard.attackRange + " " + _fsm.blackBoard.sightRange);
+                _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.targetPos, Random.Range(_fsm.blackBoard.attackRange, _fsm.blackBoard.sightRange));
                 _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
             }
             PlayAnimationWithDirection();
@@ -46,6 +45,7 @@ namespace Core.GamePlay.Enemy
 
         public static Vector3 GetRandomPointOnCircle(Vector3 center, float radius)
         {
+            Debug.Log(radius );
             float angle = Random.Range(0f, Mathf.PI * 2);
             float x = center.x + radius * Mathf.Cos(angle);
             float y = center.y; // Assuming the circle is in the XZ plane

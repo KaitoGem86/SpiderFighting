@@ -7,7 +7,7 @@ namespace Core.GamePlay.Enemy
     public class MoveToTarget : ActionTask
     {
         public float speed;
-        public float distance;
+        public BBParameter<float> distance;
         public BBParameter<EnemyBlackBoard> blackBoard;
         public BBParameter<Vector3> targetPosition;
         public string targetName;
@@ -25,7 +25,7 @@ namespace Core.GamePlay.Enemy
         {
             blackBoard.value.targetPosition = targetPosition.value;
             var distance = Vector3.Distance(blackBoard.value.controller.transform.position, targetPosition.value);
-            if (distance < this.distance)
+            if (distance < this.distance.value)
             {
                 EndAction(true);
             }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
   data:
-  - enemySO: {fileID: 11400000, guid: 8b78cd0366f35f547b770b28b832cc60, type: 2}
+  - enemySO: {fileID: 11400000, guid: aa90c3b4d32d8174e97aa27da63af760, type: 2}
     count: 1

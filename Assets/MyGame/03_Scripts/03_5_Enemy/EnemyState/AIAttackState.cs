@@ -17,12 +17,13 @@ namespace Core.GamePlay.Enemy{
             _fsm.blackBoard.navMeshAgent.ResetPath();
             _fsm.blackBoard.isReadyToAttack = false;
             _onAttack?.Raise();
-            _targetPos = _fsm.blackBoard.targetPos - (_fsm.blackBoard.targetPos - _fsm.blackBoard.navMeshAgent.transform.position).normalized * 1;
-            SetParamWithDistance();
-            MoveToTargetInTime(0.3f);
+            _targetPos = _fsm.blackBoard.targetPos;
+            //SetParamWithDistance();
+            //MoveToTargetInTime(0.3f);
         }
 
         public override void Update(){
+            _targetPos = _fsm.blackBoard.targetPos;
             base.Update();
             RotateToEnemy();
         }
