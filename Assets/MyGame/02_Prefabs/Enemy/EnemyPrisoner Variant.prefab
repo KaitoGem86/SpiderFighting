@@ -9322,7 +9322,7 @@ MonoBehaviour:
     _DefaultParameter: 0
     _ExtrapolateSpeed: 1
   _stateType: 3
-  _canChangeToItself: 0
+  _canChangeToItself: 1
   _moveSpeed: 2
   _onReadyToAttack: {fileID: 11400000, guid: c351fa2c3a1a8d0419b875476932214c, type: 2}
 --- !u!1 &4406740418712311291

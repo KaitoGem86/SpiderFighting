@@ -20,7 +20,6 @@ namespace Core.GamePlay.Enemy
             _fsm.blackBoard.navMeshAgent.speed = _moveSpeed;
             if (!_fsm.blackBoard.isReadyToAttack)
             {
-                _onReadyToAttack?.Raise();
                 _fsm.blackBoard.isReadyToAttack = true;
             }
         }

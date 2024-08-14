@@ -29,8 +29,8 @@ namespace Core.GamePlay.Enemy
         {
             onEnemyDead?.Invoke();
             onEnemyDead = null;
-            blackBoard.onAttack?.Raise();
-            blackBoard.onCompleteAttack?.Raise();
+            //blackBoard.onAttack?.Raise();
+            //blackBoard.onCompleteAttack?.Raise();
             _enemyGroupSO.RemoveEnemy(this);
         }
 

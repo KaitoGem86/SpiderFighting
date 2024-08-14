@@ -1,3 +1,4 @@
+using Core.GamePlay.Enemy;
 using Core.GamePlay.MyPlayer;
 using MyTools.ScreenSystem;
 using MyTools.Sound;
@@ -6,6 +7,8 @@ using UnityEngine;
 namespace Core.Manager {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private EnemyGroupSO _enemyGroupSO;
+        
         public static GameManager Instance { get; private set; }
 
         private void Awake(){
@@ -16,6 +19,11 @@ namespace Core.Manager {
         private void Start(){
             MySoundManager.Instance.PlayMusic();
             _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.GamePlay);
+            _enemyGroupSO.Init();
+        }
+
+        private void OnApplicationQuit(){
+            _enemyGroupSO.Dispose();
         }
 
         private void Update(){
