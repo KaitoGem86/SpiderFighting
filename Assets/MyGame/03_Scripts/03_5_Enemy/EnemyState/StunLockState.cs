@@ -10,8 +10,5 @@ namespace Core.GamePlay.Enemy{
             base.EnterState();
         }
 
-        public void CompleteStunLock(){
-            _fsm.ChangeAction(FSMState.WaitAttack);
-        }
     }
 }

@@ -15,9 +15,5 @@ namespace Core.GamePlay.Enemy{
         {
             base.ExitState();
         }
-
-        public void ReturnToWaitAttack(){
-            _fsm.ChangeAction(FSMState.WaitAttack);
-        }
     }
 }
