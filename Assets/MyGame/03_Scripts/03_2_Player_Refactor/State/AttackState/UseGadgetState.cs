@@ -56,7 +56,7 @@ namespace Core.GamePlay.MyPlayer
         private void RotateToTarget()
         {
             //var forward = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform).TargetEnemy.position - _fsm.transform.position; forward.y = 0;
-            var target = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform);
+            var target = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform, false);
             if (target == null) return;
             _fsm.transform.DOLookAt(target.TargetEnemy.position, 0.2f);
         }

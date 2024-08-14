@@ -16,7 +16,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void UseGadget()
         {
-            var enemy = _findEnemyToAttack.FindEnemyByDistance(_playerController.transform);
+            var enemy = _findEnemyToAttack.FindEnemyByDistance(_playerController.transform, false);
             if(enemy != null){
                 _blastSO.Spawn(_useLeftHand?_playerController.blackBoard.CurrentPlayerModel.leftHand : _playerController.blackBoard.CurrentPlayerModel.rightHand, enemy);
             }

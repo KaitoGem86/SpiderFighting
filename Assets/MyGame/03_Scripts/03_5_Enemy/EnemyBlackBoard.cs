@@ -1,4 +1,5 @@
 using Animancer;
+using Core.GamePlay.Support;
 using Extensions.SystemGame.AIFSM;
 using MyTools.Event;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Core.GamePlay.Enemy
     public class EnemyBlackBoard : BlackBoard
     {
         [Header("========= General =========")]
+        public EnemyController controller;
         public Vector3 defaultPosition;
         public Vector3 targetPosition;
         public AnimancerComponent animancerComponent;
@@ -18,14 +20,16 @@ namespace Core.GamePlay.Enemy
 
         [Header("========= Movement =========")]
         public NavMeshAgent navMeshAgent;
-        public Transform target;
         public float elapsedTimeToChangeTarget = 1f;
         public bool isChasePlayer = false;
 
         [Header("========= Attack =========")]
         public float attackDelayTime = 5f;
-        public Vector3 enemyPosition => target.position;
         public bool isReadyToAttack = false;
+        public IHitted targetToAttack;
+        public Vector3 targetPos => targetToAttack.TargetEnemy.position;
+
+        [Header("========= Weapon =========")]
         public EnemyWeaponController weaponController;
         public WeaponType weaponType;
         public DefaultEvent onReadyToAttack;

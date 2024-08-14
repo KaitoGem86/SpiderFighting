@@ -12,7 +12,7 @@ namespace Core.GamePlay.MyPlayer
         public override void EnterState()
         {
             _fsm.blackBoard.GlobalVelocity = Vector3.zero;
-            _enemy = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform);
+            _enemy = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform, false);
 
             if (_enemy != null && Vector3.Distance(_enemy.TargetEnemy.position, _fsm.transform.position) > 2f)
             {

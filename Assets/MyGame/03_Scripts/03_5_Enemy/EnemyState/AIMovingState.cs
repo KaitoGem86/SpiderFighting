@@ -14,27 +14,11 @@ namespace Core.GamePlay.Enemy
             //RotateDisplayWithVelocity();
         }
 
-        public override void Update()
+        public void LateUpdate()
         {
-            _fsm.blackBoard.elapsedTimeToChangeTarget -= Time.deltaTime;
-            if (_fsm.blackBoard.elapsedTimeToChangeTarget <= 0)
-            {
-                _fsm.blackBoard.elapsedTimeToChangeTarget = 1f;
-                if (_fsm.blackBoard.isChasePlayer)
-                {
-                    _fsm.blackBoard.targetPosition = _fsm.blackBoard.enemyPosition;
-                }
-                _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
-                //RotateDisplayWithVelocity();
-            }
+            _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
             _transition.State.Parameter = _fsm.blackBoard.navMeshAgent.velocity.magnitude;
-            base.Update();
             _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_fsm.blackBoard.targetPosition - _fsm.blackBoard.navMeshAgent.transform.position), Time.deltaTime * 5);
-        }
-
-        public override void ExitState()
-        {
-            base.ExitState();
         }
     }
 }

@@ -19,4 +19,5 @@ public class TestHitted : MonoBehaviour, IHitted{
     }
 
     public bool IsIgnore { get; set; }
+    public bool IsPlayer { get;}
 }

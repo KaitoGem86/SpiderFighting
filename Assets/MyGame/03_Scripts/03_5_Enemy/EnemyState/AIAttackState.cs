@@ -13,15 +13,11 @@ namespace Core.GamePlay.Enemy{
         private Vector3 _targetPos;
 
         public override void EnterState(){
-            if(Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _fsm.blackBoard.target.position) > _longRange){
-                _fsm.ChangeAction(FSMState.Moving);
-                return;
-            }
             base.EnterState();
             _fsm.blackBoard.navMeshAgent.ResetPath();
             _fsm.blackBoard.isReadyToAttack = false;
             _onAttack?.Raise();
-            _targetPos = _fsm.blackBoard.target.position - (_fsm.blackBoard.target.position - _fsm.blackBoard.navMeshAgent.transform.position).normalized * 1;
+            _targetPos = _fsm.blackBoard.targetPos - (_fsm.blackBoard.targetPos - _fsm.blackBoard.navMeshAgent.transform.position).normalized * 1;
             SetParamWithDistance();
             MoveToTargetInTime(0.3f);
         }
@@ -59,7 +55,7 @@ namespace Core.GamePlay.Enemy{
 
         public void ApplyDamage(){
             Debug.Log("Apply Damage");
-            _fsm.blackBoard.weaponController.OnWeaponAttack(_fsm.blackBoard.target);
+            _fsm.blackBoard.weaponController.OnWeaponAttack(_fsm.blackBoard.targetToAttack.TargetEnemy);
         }
 
         public void CompleteAttack(){

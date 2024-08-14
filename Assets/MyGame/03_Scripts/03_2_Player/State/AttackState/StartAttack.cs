@@ -25,7 +25,7 @@ namespace Core.GamePlay.Player
         public override void Enter(ActionEnum actionBefore)
         {
             _isStartGoToEnemy = false;
-            _enemyTarget = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
+            _enemyTarget = _findEnemyModule.FindEnemyByDistance(_playerController.transform, false);
             if (_enemyTarget == null)
             {
                 _stateContainer.ChangeAction(ActionEnum.Idle);

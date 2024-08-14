@@ -124,6 +124,7 @@ namespace Core.GamePlay.Enemy
 
         public Transform TargetEnemy { get => this.transform; }
         public bool IsIgnore { get; set; }
+        public bool IsPlayer { get => false; }
         public EnemySO EnemySO { get => _soController; }
         public Action onEnemyDead;
     }

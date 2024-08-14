@@ -12,7 +12,7 @@ namespace Core.GamePlay.Enemy{
 
         protected override void OnExecute()
         {
-            var fsm = blackboard.GetVariable<EnemyController>("myAIFSM").value;
+            var fsm = blackboard.GetVariable<EnemyController>("controller").value;
             fsm.ChangeAction(fsmType);
         }
 

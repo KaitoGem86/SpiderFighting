@@ -1,10 +1,12 @@
+using Core.GamePlay.Support;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
 {
-    public class PlayerController : FSM<PlayerBlackBoard>
+    public class PlayerController : FSM<PlayerBlackBoard>, IHitted
     {
         protected override void Awake()
         {
@@ -55,5 +57,14 @@ namespace Core.GamePlay.MyPlayer
                 blackBoard.OnReachMaxSpeed.Raise(false);
             }
         }
+
+        public void HittedByPlayer(FSMState state)
+        {
+            
+        }
+
+        public Transform TargetEnemy => transform;
+        public bool IsIgnore { get; set; }
+        public bool IsPlayer => true;
     }
 }

@@ -6,6 +6,5 @@ namespace Extensions.SystemGame.AIFSM
 {
     public class BlackBoard : MonoBehaviour
     {
-
     }
 }

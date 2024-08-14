@@ -12,7 +12,7 @@ namespace Core.GamePlay.Player
 
         public override void Enter(ActionEnum actionBefore)
         {
-            _enemy = _findEnemyModule.FindEnemyByDistance(_playerController.transform);
+            _enemy = _findEnemyModule.FindEnemyByDistance(_playerController.transform, false);
             if(_enemy == null)
             {
                 _stateContainer.ChangeAction(ActionEnum.Idle);

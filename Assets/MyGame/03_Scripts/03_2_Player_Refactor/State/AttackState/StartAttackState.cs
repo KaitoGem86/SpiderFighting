@@ -17,7 +17,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
-            _enemy = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform);
+            _enemy = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform, false);
             if (_enemy == null)
             {
                 if (!_fsm.blackBoard.Character.IsOnGround())

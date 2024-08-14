@@ -15,7 +15,7 @@ namespace Core.GamePlay.Enemy
         public override void EnterState()
         {
             base.EnterState();
-            _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.enemyPosition, 5f);
+            _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.targetPos, 5f);
             _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
             _fsm.blackBoard.navMeshAgent.speed = _moveSpeed;
             if (!_fsm.blackBoard.isReadyToAttack)
@@ -32,7 +32,7 @@ namespace Core.GamePlay.Enemy
             base.Update();
             if (Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _fsm.blackBoard.targetPosition) < 0.1f)
             {
-                _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.enemyPosition, 5f);
+                _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.targetPos, 5f);
                 _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
             }
             PlayAnimationWithDirection();
@@ -56,14 +56,14 @@ namespace Core.GamePlay.Enemy
 
         private void PlayAnimationWithDirection()
         {
-            Vector3 direction = (_fsm.blackBoard.enemyPosition - _fsm.blackBoard.navMeshAgent.transform.position).normalized;
+            Vector3 direction = (_fsm.blackBoard.targetPos - _fsm.blackBoard.navMeshAgent.transform.position).normalized;
             float angle = Vector3.SignedAngle(-_fsm.blackBoard.navMeshAgent.velocity, -direction, Vector3.up);
             _transition.State.Parameter = angle;
         }
 
         private void RotateDisplayWithVelocity()
         {
-            var forward = _fsm.blackBoard.target.position - _fsm.blackBoard.navMeshAgent.transform.position;
+            var forward = _fsm.blackBoard.targetPos - _fsm.blackBoard.navMeshAgent.transform.position;
             _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 5);
         }
     }
