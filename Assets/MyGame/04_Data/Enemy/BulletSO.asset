@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3f3744cfda3424f907c8eca6225030, type: 3}
   m_Name: BulletSO
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 6676432807153969411, guid: 7d8ec288356823e45bee71a55bf408d9, type: 3}
+  _prefab: {fileID: 6676432807153969411, guid: e036d739b61c0644ca1180d523957a1d, type: 3}
   hitState: 5
   speed: 10
