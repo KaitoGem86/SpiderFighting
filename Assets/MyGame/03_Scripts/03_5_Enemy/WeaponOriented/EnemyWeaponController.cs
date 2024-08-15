@@ -27,5 +27,11 @@ namespace Core.GamePlay.Enemy{
         public void OnWeaponAttack(Transform target){
             _weaponDict[_currentWeaponType].OnWeaponAttack(target);
         }
+
+        public void OnAim(Transform target){
+            if (_weaponDict[_currentWeaponType] is BaseRangeWeapon rangeWeapon){
+                rangeWeapon.OnAim(target);
+            }
+        }
     }
 }

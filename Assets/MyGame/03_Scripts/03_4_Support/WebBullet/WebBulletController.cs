@@ -1,45 +1,58 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Core.GamePlay.Support{
-    public class WebBulletController : MonoBehaviour{
+namespace Core.GamePlay.Support
+{
+    public class WebBulletController : MonoBehaviour
+    {
         [SerializeField] private Rigidbody _rb;
-        private WebBulletSO _webBulletSO; 
+        private WebBulletSO _webBulletSO;
         private bool _isMoving = false;
         private Vector3 _direction;
+        private float _speed;
 
-        public void Shoot(WebBulletSO so, Transform origin, IHitted targetEnemy){
+        public void Shoot(WebBulletSO so, Transform origin, IHitted targetEnemy)
+        {
             _webBulletSO = so;
             _isMoving = true;
-            this.transform.position = origin.position;
+            this.transform.SetParent(null); 
+            _rb.position = origin.position;
             _direction = targetEnemy.TargetEnemy.position + Vector3.up - origin.position;
             StartCoroutine(Despawn());
+            _speed = _webBulletSO.speed;
         }
 
-        public void Shoot(WebBulletSO so, Transform origin, Vector3 direction){
+        public void Shoot(WebBulletSO so, Transform origin, Vector3 direction)
+        {
             _webBulletSO = so;
             _isMoving = true;
-            this.transform.position = origin.position;
+            this.transform.SetParent(null);
+            _rb.position = origin.position;
             _direction = direction;
             StartCoroutine(Despawn());
+            _speed = _webBulletSO.speed;
         }
 
-        private void LateUpdate(){
-            if(!_isMoving) return;
-            this.transform.position = Vector3.MoveTowards(this.transform.position, this.transform.position + _direction, Time.deltaTime * 100);
+        private void FixedUpdate()
+        {
+            if (!_isMoving) return;
+            _rb.position = _rb.position + _direction.normalized * Time.fixedDeltaTime * _speed;
         }
 
-        private void OnTriggerEnter(Collider other){
-            Debug.Log("OnTriggerEnter" + other.name);
+        private void OnTriggerEnter(Collider other)
+        {
             _isMoving = false;
-            _webBulletSO.DespawnObject(this.gameObject);
             var enemy = other.GetComponent<IHitted>();
-            if (enemy != null){
-                enemy.HittedByPlayer(Extensions.SystemGame.AIFSM.FSMState.StunLock);
+            if (enemy != null)
+            {
+                enemy.HittedByPlayer(_webBulletSO.hitState);
             }
+            _webBulletSO.DespawnObject(this.gameObject);
+
         }
 
-        private IEnumerator Despawn(){
+        private IEnumerator Despawn()
+        {
             yield return new WaitForSeconds(10);
             _isMoving = false;
             _webBulletSO.DespawnObject(this.gameObject);

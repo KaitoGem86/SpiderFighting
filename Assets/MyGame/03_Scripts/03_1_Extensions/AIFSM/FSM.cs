@@ -30,6 +30,7 @@ namespace Extensions.SystemGame.AIFSM{
         UseGadget,
         KnockBack,
         StunLock,
+        AIM,
     }
 
     public class FSM<T> : MonoBehaviour, IFSM where T : BlackBoard{
