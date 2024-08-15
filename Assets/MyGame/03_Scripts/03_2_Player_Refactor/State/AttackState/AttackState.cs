@@ -28,6 +28,7 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.StartAttack);
                 return;
             }
+            _fsm.blackBoard.Character.useRootMotion = true;
             base.EnterState();
             if (_currentHitInCombo == -1)
             {
@@ -36,6 +37,12 @@ namespace Core.GamePlay.MyPlayer
             _currentHitInCombo++;
             _transition.State.Parameter = _currentHitInCombo;
             _isCanChangeNextAttack = false;
+        }
+
+        public override void ExitState()
+        {
+            _fsm.blackBoard.Character.useRootMotion = false;
+            base.ExitState();
         }
 
         public void LateUpdate()
