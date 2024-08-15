@@ -2,6 +2,7 @@ using System;
 using Core.GamePlay.Support;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
+using DamageNumbersPro;
 
 namespace Core.GamePlay.Enemy
 {
@@ -9,7 +10,8 @@ namespace Core.GamePlay.Enemy
     {
         [SerializeField] protected RectTransform _unitCanvas;
         [SerializeField] protected HPBarController _hpBarController;
-        [SerializeField] protected FloatingDamageTextSO _floatingDamageTextSO;
+        [SerializeField] protected Transform _damgeNumberParent;
+        [SerializeField] protected DamageNumber _damageNumber;
         [SerializeField] protected HitVFXController _hitVFXController;
         protected BaseEnemyData _initData;
         protected BaseEnemyData _runtimeData;
@@ -27,7 +29,7 @@ namespace Core.GamePlay.Enemy
                 default:
                     _hitVFXController.ShowHitVFX();
                     _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _initData.HP);
-                    _floatingDamageTextSO.Spawn(10, _unitCanvas);
+                    _damageNumber.Spawn(_damgeNumberParent.position, 10, _damgeNumberParent);
                     _hpBarController.SetHP(_runtimeData.HP, _initData.HP);
                     blackBoard.attackDelayTime = 5;
                     if (_runtimeData.HP <= 0)
@@ -46,7 +48,7 @@ namespace Core.GamePlay.Enemy
         private void StunLock()
         {
             _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _initData.HP);
-            _floatingDamageTextSO.Spawn(10, _unitCanvas);
+            _damageNumber.Spawn(_damgeNumberParent.position, 10, _damgeNumberParent);
             _hpBarController.SetHP(_runtimeData.HP, _initData.HP);
             blackBoard.attackDelayTime = 5;
             if (_runtimeData.HP <= 0)
@@ -64,7 +66,7 @@ namespace Core.GamePlay.Enemy
         {
             _hitVFXController.ShowHitVFX();
             _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _initData.HP);
-            _floatingDamageTextSO.Spawn(10, _unitCanvas);
+            _damageNumber.Spawn(_damgeNumberParent.position, 10, _damgeNumberParent);
             _hpBarController.SetHP(_runtimeData.HP, _initData.HP);
             blackBoard.attackDelayTime = 5;
             if (_runtimeData.HP <= 0)
