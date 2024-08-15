@@ -6708,7 +6708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateContainer: {fileID: 1770476399219667906}
-  _startState: 0
+  _startState: 1
   blackBoard: {fileID: 1497934967715043381}
   currentStateType: 0
   _unitCanvas: {fileID: 224266875319684546}
@@ -9419,31 +9419,7 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
-    _Others:
-    - _FadeDuration: 0.25
-      _Events:
-        _NormalizedTimes:
-        - 0.973366
-        - NaN
-        _Callbacks:
-        - m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 3447867315307947791}
-              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIKnockBackState, Assembly-CSharp
-              m_MethodName: CompleteKnockBack
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _Names: []
-      _Clip: {fileID: 7400000, guid: 24ebadb7f95d1684c9d1ef84978ddbb3, type: 2}
-      _Speed: 1
-      _NormalizedStartTime: NaN
+    _Others: []
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes: []
