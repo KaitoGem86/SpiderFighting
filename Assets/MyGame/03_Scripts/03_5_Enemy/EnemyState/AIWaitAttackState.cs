@@ -29,8 +29,7 @@ namespace Core.GamePlay.Enemy
             base.Update();
             if (Vector3.Distance(_blackBoard.navMeshAgent.transform.position, _blackBoard.targetPosition) < 0.1f)
             {
-                Debug.Log(_blackBoard.attackRange + " " + _blackBoard.sightRange);
-                _blackBoard.targetPosition = GetRandomPointOnCircle(_blackBoard.targetPos, Random.Range(_blackBoard.attackRange, _blackBoard.sightRange));
+                _blackBoard.targetPosition = GetRandomPointOnCircle(_blackBoard.targetPos, Random.Range(_blackBoard.attackRange, _blackBoard.attackRange + 2));
                 _blackBoard.navMeshAgent.SetDestination(_blackBoard.targetPosition);
             }
             PlayAnimationWithDirection();
@@ -63,7 +62,8 @@ namespace Core.GamePlay.Enemy
         private void RotateDisplayWithVelocity()
         {
             var forward = _blackBoard.targetPos - _blackBoard.navMeshAgent.transform.position;
-            _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 5);
+            _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 10);
         }
+
     }
 }

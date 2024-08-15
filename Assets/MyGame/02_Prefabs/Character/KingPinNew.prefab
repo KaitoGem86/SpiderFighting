@@ -1166,8 +1166,10 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"defaultPosition":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.defaultPosition","_name":"defaultPosition","_id":"7988d4d8-eb37-4380-967d-04e8bf05db2a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"position":{"_propertyPath":"UnityEngine.Transform.position","_name":"position","_id":"1c4a75f7-ca8a-427b-a8bd-ce60974d55f8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IsIgnore":{"_propertyPath":"Core.GamePlay.Enemy.BossController.IsIgnore","_name":"IsIgnore","_id":"11e544ff-9e07-4ab3-8c28-415b51c6d656","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetPosition":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.targetPosition","_name":"targetPosition","_id":"5fce21dd-1a72-4b68-b871-08d69cd6dda7","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetPosition":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.targetPos","_name":"targetPosition","_id":"5fce21dd-1a72-4b68-b871-08d69cd6dda7","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"animancerComponent":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.animancerComponent","_name":"animancerComponent","_id":"c2f1ad88-5158-43c4-b43d-820da8b4d17d","$type":"NodeCanvas.Framework.Variable`1[[Animancer.AnimancerComponent,
+    Animancer, Version=7.4.2.25, Culture=neutral, PublicKeyToken=null]]"},"blackBoard":{"_propertyPath":"Core.GamePlay.Enemy.BossController.blackBoard","_name":"blackBoard","_id":"be534801-04a4-4c30-ae02-a3e7aab5b627","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.BossBlackBoard,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
   _serializedVariables:
   - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossController.currentStateType","_name":"myAIState","_id":"1b9b485a-024e-4bdd-9a4d-abade8e783f3","$type":"NodeCanvas.Framework.Variable`1[[System.Enum,
@@ -1191,8 +1193,14 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossController.IsIgnore","_name":"IsIgnore","_id":"11e544ff-9e07-4ab3-8c28-415b51c6d656","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.targetPosition","_name":"targetPosition","_id":"5fce21dd-1a72-4b68-b871-08d69cd6dda7","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+  - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.targetPos","_name":"targetPosition","_id":"5fce21dd-1a72-4b68-b871-08d69cd6dda7","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.animancerComponent","_name":"animancerComponent","_id":"c2f1ad88-5158-43c4-b43d-820da8b4d17d","$type":"NodeCanvas.Framework.Variable`1[[Animancer.AnimancerComponent,
+      Animancer, Version=7.4.2.25, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossController.blackBoard","_name":"blackBoard","_id":"be534801-04a4-4c30-ae02-a3e7aab5b627","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.BossBlackBoard,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
 --- !u!114 &650164566257275114
 MonoBehaviour:
@@ -1206,7 +1214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcfb9978b4fac54cb1a634b97e329f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   defaultPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   animancerComponent: {fileID: 4521190569619427038}
@@ -1219,6 +1226,7 @@ MonoBehaviour:
   attackRange: 2
   weaponController: {fileID: 7725680759156103615}
   weaponType: 0
+  bossController: {fileID: 8818636489921025615}
 --- !u!114 &8818636489921025615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,7 +1381,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582037015976346}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

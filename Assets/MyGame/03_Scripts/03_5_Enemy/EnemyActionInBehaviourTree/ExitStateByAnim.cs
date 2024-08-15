@@ -8,7 +8,7 @@ namespace Core.GamePlay.Enemy
     {
         public AnimationClip anim;
         public BBParameter<AnimancerComponent> animancer;
-        public BBParameter<EnemyBlackBoard> blackBoard;
+        public BBParameter<BaseEnemyBlackBoard> blackBoard;
         public string des;
 
         protected override string info => des;
