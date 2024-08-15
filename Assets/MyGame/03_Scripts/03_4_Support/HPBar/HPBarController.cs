@@ -7,6 +7,7 @@ namespace Core.GamePlay.Support
     {
         [SerializeField] private Image _hpBar;
         [SerializeField] private Image _lerpHpBar;
+        [SerializeField] private bool _isInCanvas;
 
         public void Init(float currentHP, float maxHP)
         {
@@ -22,15 +23,17 @@ namespace Core.GamePlay.Support
         public void Update()
         {
             if (_lerpHpBar.fillAmount != _hpBar.fillAmount)
-                _lerpHpBar.fillAmount = Mathf.Lerp(_lerpHpBar.fillAmount, _hpBar.fillAmount, Time.deltaTime * 60);
+                _lerpHpBar.fillAmount = Mathf.Lerp(_lerpHpBar.fillAmount, _hpBar.fillAmount, Time.deltaTime * 5);
         }
 
         void LateUpdate(){
+            if (_isInCanvas)
+                return;
             var forward = Camera.main.transform.forward;
             forward.y = 0;
             forward.Normalize();
             Debug.DrawRay(this.transform.position, Camera.main.transform.position - this.transform.position, Color.red);
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(-forward), Time.deltaTime * 5);   
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(-forward), Time.deltaTime * 20);   
         }
     }
 }
