@@ -6165,7 +6165,7 @@ MonoBehaviour:
   _weaponType: 0
   _checkLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _range: 1
 --- !u!1 &1716095059235493
 GameObject:
@@ -9663,7 +9663,7 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.6385301
+      - 0.5
       - 0.87594694
       - NaN
       _Callbacks:
