@@ -21,8 +21,8 @@ namespace Core.GamePlay.Enemy
 
         public void OnDisable()
         {
-            onEnemyDead?.Invoke();
-            onEnemyDead = null;
+            blackBoard.onEnemyDead?.Invoke();
+            blackBoard.onEnemyDead = null;
             _enemyGroupSO.RemoveEnemy(this);
         }
 
@@ -63,6 +63,5 @@ namespace Core.GamePlay.Enemy
         private EnemyData runtimeData => (EnemyData)_runtimeData;
         public bool CanAttackInGroup => _enemyGroupSO.CheckAttack;
         public EnemySO EnemySO { get => _soController; }
-        public Action onEnemyDead;
     }
 }

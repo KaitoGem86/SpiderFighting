@@ -1,3 +1,4 @@
+using System;
 using Animancer;
 using Core.GamePlay.Support;
 using Extensions.SystemGame.AIFSM;
@@ -8,8 +9,8 @@ namespace Core.GamePlay.Enemy
 {
     public class BaseEnemyBlackBoard : BlackBoard
     {
-        public virtual IFSM fsm { get;}
-        public virtual IHitted hitted { get;}
+        public virtual IFSM fsm { get; }
+        public virtual IHitted hitted { get; }
 
         [Header("========= General =========")]
         public Vector3 defaultPosition;
@@ -32,5 +33,6 @@ namespace Core.GamePlay.Enemy
         [Header("========= Weapon =========")]
         public EnemyWeaponController weaponController;
         public WeaponType weaponType;
+        public Action onEnemyDead;
     }
 }

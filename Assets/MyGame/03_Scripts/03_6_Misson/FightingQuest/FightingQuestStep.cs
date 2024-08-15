@@ -23,7 +23,7 @@ namespace Core.GamePlay.Mission
             {
                 for (int i = 0; i < enemyData.count; i++)
                 {
-                    var go = enemyData.enemySO.Spawn(new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5))).GetComponent<EnemyController>();
+                    var go = enemyData.enemySO.Spawn(new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5))).GetComponent<BaseEnemyBlackBoard>();
                     go.onEnemyDead += UpdateRemainingEnemy;
                 }
                 _enemyCount += enemyData.count;

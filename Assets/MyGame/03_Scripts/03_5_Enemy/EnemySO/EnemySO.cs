@@ -47,7 +47,7 @@ namespace Core.GamePlay.Enemy
     {
         public EnemyData initData;
 
-        public GameObject Spawn(Vector3 position = default)
+        public virtual GameObject Spawn(Vector3 position = default)
         {
             var go = SpawnObject();
             go.transform.position = position;

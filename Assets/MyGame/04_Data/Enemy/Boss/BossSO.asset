@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f03e4a3e144469419b633dd94f377ef, type: 3}
+  m_Name: BossSO
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 1553592753768227, guid: d594168d21fb8524db65d7fd178e2254, type: 3}
+  initData:
+    Level: 0
+    HP: 0
+    Damage: 0
+    BlockRate: 0
+    BlockTime: 0
+    AttackRange: 0
+    SightRange: 0
+    Speed: 0
+    CooldownAttackTime: 0
+    enemyType: 0
+  bossData:
+    Level: 0
+    HP: 1000
+    Damage: 0
+    BlockRate: 0
+    BlockTime: 0
+    AttackRange: 2
+    SightRange: 10
+    Speed: 0
+    CooldownAttackTime: 0

@@ -2,15 +2,26 @@ using Core.SystemGame.Factory;
 using UnityEngine;
 
 namespace Core.GamePlay.Enemy{
+    [System.Serializable]
     public class BossData : BaseEnemyData{
-
+        public BossData(BossData data){
+            HP = data.HP;
+            Damage = data.Damage;
+            BlockRate = data.BlockRate;
+            BlockTime = data.BlockTime;
+            AttackRange = data.AttackRange;
+            SightRange = data.SightRange;
+            Speed = data.Speed;
+            CooldownAttackTime = data.CooldownAttackTime;
+        }
     }
 
-    public class BossSO : BaseSOWithPool
+    [CreateAssetMenu(fileName = "BossSO", menuName = "MyGame/Enemy/BossSO", order = 1)]
+    public class BossSO : EnemySO
     {   
-        public BossData initData;
+        public BossData bossData;
 
-        public GameObject Spawn(Vector3 position = default)
+        public override GameObject Spawn(Vector3 position = default)
         {
             var go = SpawnObject();
             go.transform.position = position;

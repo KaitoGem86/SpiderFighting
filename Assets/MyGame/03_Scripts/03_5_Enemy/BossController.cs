@@ -3,11 +3,11 @@ namespace Core.GamePlay.Enemy{
         private BossSO _bossSO;
 
         public void Init(BossSO bossSO){
-            _initData = bossSO.initData;
+            _initData = bossSO.bossData;
             _bossSO = bossSO;
-            _runtimeData = new BossData();
+            _runtimeData = new BossData(bossSO.bossData);
             IsIgnore = false;
-            _hpBarController.SetHP(_runtimeData.HP, bossSO.initData.HP);
+            _hpBarController.SetHP(_runtimeData.HP, bossSO.bossData.HP);
             ChangeAction(_startState);
         }
 
