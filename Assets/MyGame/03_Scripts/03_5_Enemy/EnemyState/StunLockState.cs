@@ -5,8 +5,8 @@ namespace Core.GamePlay.Enemy{
     public class StunLockState : BaseEnemyState<ClipTransitionSequence> {
         public override void EnterState()
         {
-            _fsm.blackBoard.navMeshAgent.ResetPath();
-            _fsm.blackBoard.navMeshAgent.isStopped = true;
+            _blackBoard.navMeshAgent.ResetPath();
+            _blackBoard.navMeshAgent.isStopped = true;
             base.EnterState();
         }
 

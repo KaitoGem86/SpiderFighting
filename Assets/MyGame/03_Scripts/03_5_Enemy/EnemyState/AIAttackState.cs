@@ -14,28 +14,26 @@ namespace Core.GamePlay.Enemy{
 
         public override void EnterState(){
             base.EnterState();
-            _fsm.blackBoard.navMeshAgent.ResetPath();
-            _fsm.blackBoard.isReadyToAttack = false;
+            _blackBoard.navMeshAgent.ResetPath();
+            _blackBoard.isReadyToAttack = false;
             _onAttack?.Raise();
-            _targetPos = _fsm.blackBoard.targetPos;
-            //SetParamWithDistance();
-            //MoveToTargetInTime(0.3f);
+            _targetPos = _blackBoard.targetPos;
         }
 
         public override void Update(){
-            _targetPos = _fsm.blackBoard.targetPos;
+            _targetPos = _blackBoard.targetPos;
             base.Update();
             RotateToEnemy();
         }
 
         public override void ExitState(){
             _onCompleteAttack?.Raise();
-            _fsm.blackBoard.attackDelayTime = 5f;
+            _blackBoard.attackDelayTime = 5f;
             base.ExitState();
         }
 
         private void SetParamWithDistance(){
-            float distance = Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _targetPos);
+            float distance = Vector3.Distance(_blackBoard.navMeshAgent.transform.position, _targetPos);
             if (distance <= _meleeRange){
                 _transition.State.Parameter = 0;
             } else if (distance <= _mediumRange){
@@ -46,21 +44,17 @@ namespace Core.GamePlay.Enemy{
         }
 
         private void MoveToTargetInTime(float timer){
-            _fsm.blackBoard.navMeshAgent.SetDestination(_targetPos);
-            _fsm.blackBoard.navMeshAgent.speed = Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _targetPos) / timer;
+            _blackBoard.navMeshAgent.SetDestination(_targetPos);
+            _blackBoard.navMeshAgent.speed = Vector3.Distance(_blackBoard.navMeshAgent.transform.position, _targetPos) / timer;
         }
         
         private void RotateToEnemy(){
-            _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation,Quaternion.LookRotation(_targetPos - _fsm.blackBoard.navMeshAgent.transform.position), Time.deltaTime * 2);
+            _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation,Quaternion.LookRotation(_targetPos - _blackBoard.navMeshAgent.transform.position), Time.deltaTime * 2);
         }
 
         public void ApplyDamage(){
             Debug.Log("Apply Damage");
-            _fsm.blackBoard.weaponController.OnWeaponAttack(_fsm.blackBoard.targetToAttack.TargetEnemy);
-        }
-
-        public void CompleteAttack(){
-            _fsm.ChangeAction(FSMState.WaitAttack);
+            _blackBoard.weaponController.OnWeaponAttack(_blackBoard.targetToAttack.TargetEnemy);
         }
     }
 }

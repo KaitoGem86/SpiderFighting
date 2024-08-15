@@ -6,9 +6,9 @@ namespace Core.GamePlay.Enemy{
     {
         public override void EnterState()
         {
-            _fsm.blackBoard.navMeshAgent.ResetPath();
-            _fsm.blackBoard.navMeshAgent.isStopped = true;
-            _fsm.blackBoard.animancerComponent.Animator.applyRootMotion = true;
+            _blackBoard.navMeshAgent.ResetPath();
+            _blackBoard.navMeshAgent.isStopped = true;
+            _blackBoard.animancerComponent.Animator.applyRootMotion = true;
             base.EnterState();
         }
 
@@ -19,7 +19,7 @@ namespace Core.GamePlay.Enemy{
 
         public override void ExitState()
         {
-            _fsm.blackBoard.animancerComponent.Animator.applyRootMotion = true;
+            _blackBoard.animancerComponent.Animator.applyRootMotion = true;
             base.ExitState();
         }
     }

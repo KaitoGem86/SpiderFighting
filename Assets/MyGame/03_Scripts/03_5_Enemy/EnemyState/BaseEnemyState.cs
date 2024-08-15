@@ -8,7 +8,7 @@ namespace Core.GamePlay.Enemy
     {
         protected override int GetIndexTransition()
         {
-            switch(_fsm.blackBoard.weaponType){
+            switch(_blackBoard.weaponType){
                 case WeaponType.Hand:
                     return 0;
                 case WeaponType.Club:

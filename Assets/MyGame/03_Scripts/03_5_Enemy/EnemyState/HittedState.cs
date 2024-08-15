@@ -7,8 +7,8 @@ namespace Core.GamePlay.Enemy{
         public override void EnterState()
         {
             base.EnterState();
-            _fsm.blackBoard.navMeshAgent.isStopped = true;
-            _fsm.blackBoard.navMeshAgent.ResetPath();
+            _blackBoard.navMeshAgent.isStopped = true;
+            _blackBoard.navMeshAgent.ResetPath();
         }
 
         public override void ExitState()

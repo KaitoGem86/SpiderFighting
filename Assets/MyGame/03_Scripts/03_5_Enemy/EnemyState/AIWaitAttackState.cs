@@ -15,23 +15,23 @@ namespace Core.GamePlay.Enemy
         public override void EnterState()
         {
             base.EnterState();
-            _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.targetPos, 5f);
-            _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
-            _fsm.blackBoard.navMeshAgent.speed = _moveSpeed;
-            if (!_fsm.blackBoard.isReadyToAttack)
+            _blackBoard.targetPosition = GetRandomPointOnCircle(_blackBoard.targetPos, 5f);
+            _blackBoard.navMeshAgent.SetDestination(_blackBoard.targetPosition);
+            _blackBoard.navMeshAgent.speed = _moveSpeed;
+            if (!_blackBoard.isReadyToAttack)
             {
-                _fsm.blackBoard.isReadyToAttack = true;
+                _blackBoard.isReadyToAttack = true;
             }
         }
 
         public override void Update()
         {
             base.Update();
-            if (Vector3.Distance(_fsm.blackBoard.navMeshAgent.transform.position, _fsm.blackBoard.targetPosition) < 0.1f)
+            if (Vector3.Distance(_blackBoard.navMeshAgent.transform.position, _blackBoard.targetPosition) < 0.1f)
             {
-                Debug.Log(_fsm.blackBoard.attackRange + " " + _fsm.blackBoard.sightRange);
-                _fsm.blackBoard.targetPosition = GetRandomPointOnCircle(_fsm.blackBoard.targetPos, Random.Range(_fsm.blackBoard.attackRange, _fsm.blackBoard.sightRange));
-                _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
+                Debug.Log(_blackBoard.attackRange + " " + _blackBoard.sightRange);
+                _blackBoard.targetPosition = GetRandomPointOnCircle(_blackBoard.targetPos, Random.Range(_blackBoard.attackRange, _blackBoard.sightRange));
+                _blackBoard.navMeshAgent.SetDestination(_blackBoard.targetPosition);
             }
             PlayAnimationWithDirection();
             RotateDisplayWithVelocity();
@@ -39,7 +39,7 @@ namespace Core.GamePlay.Enemy
 
         public override void ExitState()
         {
-            _fsm.blackBoard.navMeshAgent.ResetPath();
+            _blackBoard.navMeshAgent.ResetPath();
             base.ExitState();
         }
 
@@ -55,15 +55,15 @@ namespace Core.GamePlay.Enemy
 
         private void PlayAnimationWithDirection()
         {
-            Vector3 direction = (_fsm.blackBoard.targetPos - _fsm.blackBoard.navMeshAgent.transform.position).normalized;
-            float angle = Vector3.SignedAngle(-_fsm.blackBoard.navMeshAgent.velocity, -direction, Vector3.up);
+            Vector3 direction = (_blackBoard.targetPos - _blackBoard.navMeshAgent.transform.position).normalized;
+            float angle = Vector3.SignedAngle(-_blackBoard.navMeshAgent.velocity, -direction, Vector3.up);
             _transition.State.Parameter = angle;
         }
 
         private void RotateDisplayWithVelocity()
         {
-            var forward = _fsm.blackBoard.targetPos - _fsm.blackBoard.navMeshAgent.transform.position;
-            _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 5);
+            var forward = _blackBoard.targetPos - _blackBoard.navMeshAgent.transform.position;
+            _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 5);
         }
     }
 }

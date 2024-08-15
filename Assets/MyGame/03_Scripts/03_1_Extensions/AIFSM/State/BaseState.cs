@@ -6,6 +6,7 @@ namespace Extensions.SystemGame.AIFSM
     {
         [SerializeField] protected FSM<T2> _fsm;
         [SerializeField] protected AnimancerComponent _animancer;
+        [SerializeField] protected T2 _blackBoard;
         protected T1 _transition;
         [SerializeField] protected T1[] _transitions;
         [SerializeField] protected FSMState _stateType;

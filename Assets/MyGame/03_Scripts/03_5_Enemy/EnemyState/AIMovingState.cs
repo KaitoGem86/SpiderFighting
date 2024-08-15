@@ -9,15 +9,15 @@ namespace Core.GamePlay.Enemy
         public override void EnterState()
         {
             base.EnterState();
-            _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
+            _blackBoard.navMeshAgent.SetDestination(_blackBoard.targetPosition);
             //RotateDisplayWithVelocity();
         }
 
         public void LateUpdate()
         {
-            _fsm.blackBoard.navMeshAgent.SetDestination(_fsm.blackBoard.targetPosition);
-            _transition.State.Parameter = _fsm.blackBoard.navMeshAgent.velocity.magnitude;
-            _fsm.blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_fsm.blackBoard.targetPosition - _fsm.blackBoard.navMeshAgent.transform.position), Time.deltaTime * 5);
+            _blackBoard.navMeshAgent.SetDestination(_blackBoard.targetPosition);
+            _transition.State.Parameter = _blackBoard.navMeshAgent.velocity.magnitude;
+            _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_blackBoard.targetPosition - _blackBoard.navMeshAgent.transform.position), Time.deltaTime * 5);
         }
     }
 }

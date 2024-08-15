@@ -1017,6 +1017,7 @@ GameObject:
   - component: {fileID: 7025558645246550821}
   - component: {fileID: 650164566257275114}
   - component: {fileID: 8818636489921025615}
+  - component: {fileID: 8722427846581001443}
   m_Layer: 8
   m_Name: KingPinNew
   m_TagString: Untagged
@@ -1184,6 +1185,8 @@ MonoBehaviour:
   isReadyToAttack: 0
   sightRange: 10
   attackRange: 2
+  weaponController: {fileID: 0}
+  weaponType: 0
 --- !u!114 &8818636489921025615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,6 +1207,27 @@ MonoBehaviour:
   _hpBarController: {fileID: 9105187874119087014}
   _floatingDamageTextSO: {fileID: 11400000, guid: 88ea78ce53ea43744b79caf9dff4a6c9, type: 2}
   _hitVFXController: {fileID: 1496249544650417380}
+--- !u!95 &8722427846581001443
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553592753768227}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8877073affe25fa44a7e333278a41c6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1559369139176168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,7 +2469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _animancer: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
   _transitions:
   - _FadeDuration: 0.120000005
     _Events:
@@ -2458,123 +2483,8 @@ MonoBehaviour:
     _Others:
     - _FadeDuration: 0.25
       _Events:
-        _NormalizedTimes:
-        - 0.97424024
-        - NaN
-        _Callbacks:
-        - m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 524068208326216593}
-              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
-              m_MethodName: CompleteStunLock
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _Names: []
-      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
-      _Speed: 1
-      _NormalizedStartTime: NaN
-  - _FadeDuration: 0.120000005
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    _Others:
-    - _FadeDuration: 0.25
-      _Events:
-        _NormalizedTimes:
-        - 0.97424024
-        - NaN
-        _Callbacks:
-        - m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 524068208326216593}
-              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
-              m_MethodName: CompleteStunLock
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _Names: []
-      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
-      _Speed: 1
-      _NormalizedStartTime: NaN
-  - _FadeDuration: 0.120000005
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    _Others:
-    - _FadeDuration: 0.25
-      _Events:
-        _NormalizedTimes:
-        - 0.97424024
-        - NaN
-        _Callbacks:
-        - m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 524068208326216593}
-              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
-              m_MethodName: CompleteStunLock
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _Names: []
-      _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
-      _Speed: 1
-      _NormalizedStartTime: NaN
-  - _FadeDuration: 0.120000005
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: a11eb50b8b7e6924bb1d94c591672fa2, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    _Others:
-    - _FadeDuration: 0.25
-      _Events:
-        _NormalizedTimes:
-        - 0.97424024
-        - NaN
-        _Callbacks:
-        - m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 524068208326216593}
-              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.StunLockState, Assembly-CSharp
-              m_MethodName: CompleteStunLock
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
+        _NormalizedTimes: []
+        _Callbacks: []
         _Names: []
       _Clip: {fileID: 7400000, guid: a29c21c090a49484aaa2fed91f689407, type: 2}
       _Speed: 1
@@ -2626,38 +2536,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _animancer: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
   _transitions:
-  - _FadeDuration: 1.4333334
+  - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 2529502f4d6f00841803bbbbfd67d2ac, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.2
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: afbdaedb6fed059489bc231e5557f109, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.13333334
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: -203655887218126122, guid: ebf5f6f90f6a2d443b465234bcbd04e3, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.31
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
+    _Clip: {fileID: 7400000, guid: c25181433fc26ee43b6d5a9c7ceb9f8c, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
   _stateType: 1
@@ -2707,7 +2594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _animancer: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -2715,81 +2603,6 @@ MonoBehaviour:
       _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400000, guid: a3f275accf984ff409b88e9c4145a59d, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    _Others: []
-  - _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    _Others:
-    - _FadeDuration: 0.25
-      _Events:
-        _NormalizedTimes:
-        - 0.973366
-        - NaN
-        _Callbacks:
-        - m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 4059415696837056254}
-              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIKnockBackState, Assembly-CSharp
-              m_MethodName: CompleteKnockBack
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _Names: []
-      _Clip: {fileID: 7400000, guid: 24ebadb7f95d1684c9d1ef84978ddbb3, type: 2}
-      _Speed: 1
-      _NormalizedStartTime: NaN
-  - _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    _Others:
-    - _FadeDuration: 0.25
-      _Events:
-        _NormalizedTimes:
-        - 0.973366
-        - NaN
-        _Callbacks:
-        - m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 4059415696837056254}
-              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIKnockBackState, Assembly-CSharp
-              m_MethodName: CompleteKnockBack
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        _Names: []
-      _Clip: {fileID: 7400000, guid: 24ebadb7f95d1684c9d1ef84978ddbb3, type: 2}
-      _Speed: 1
-      _NormalizedStartTime: NaN
-  - _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: c86e9fde4be7e0841b486757e23dd557, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
     _Others: []
@@ -2900,100 +2713,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _animancer: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
   _transitions:
   - _FadeDuration: 0.06000001
     _Events:
-      _NormalizedTimes:
-      - 0.95
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 4576298019654165499}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
-            m_MethodName: ReturnToWaitAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.06000001
-    _Events:
-      _NormalizedTimes:
-      - 0.95
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 4576298019654165499}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
-            m_MethodName: ReturnToWaitAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.06000001
-    _Events:
-      _NormalizedTimes:
-      - 0.95
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 4576298019654165499}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
-            m_MethodName: ReturnToWaitAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.06000001
-    _Events:
-      _NormalizedTimes:
-      - 0.95
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 4576298019654165499}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.HittedState, Assembly-CSharp
-            m_MethodName: ReturnToWaitAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
+      _NormalizedTimes: []
+      _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400000, guid: 0b18039754be4ac8a719e0fceeff8320, type: 3}
     _Speed: 1
@@ -3046,12 +2772,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
       - 0.6385301
-      - 0.87594694
       - NaN
       _Callbacks:
       - m_PersistentCalls:
@@ -3068,26 +2794,12 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 8658203121320416571}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
-            m_MethodName: CompleteAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
       _Names: []
     _Speed: 1
     _Animations:
-    - {fileID: 7400000, guid: 6d0e5268c3914bb4590e20535c351216, type: 2}
-    - {fileID: 7400000, guid: 18b8ad95859430b4891f35865bb4fa33, type: 2}
-    - {fileID: 7400000, guid: 81afa42af8fb08f4a9f1e52cb13fff6d, type: 2}
+    - {fileID: 7400000, guid: 0ac80abbe2084f842877d43482d7d058, type: 2}
+    - {fileID: 7400000, guid: 8b631834ec0e34c4e9318046d5d30329, type: 2}
+    - {fileID: 7400000, guid: 60d0ed5e3b3090a47b303ceca4688fd0, type: 2}
     _Speeds: []
     _SynchronizeChildren: 
     _Thresholds:
@@ -3148,7 +2860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _animancer: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
   _transitions:
   - _FadeDuration: 0.28333336
     _Events:
@@ -3157,105 +2870,15 @@ MonoBehaviour:
       _Names: []
     _Speed: 1
     _Animations:
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
-    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
-    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
-    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
-    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
-    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
-    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - -180
-    - -135
-    - -90
-    - -45
-    - 0
-    - 45
-    - 90
-    - 135
-    - 180
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
-  - _FadeDuration: 0.28333336
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
-    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
-    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
-    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
-    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
-    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
-    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - -180
-    - -135
-    - -90
-    - -45
-    - 0
-    - 45
-    - 90
-    - 135
-    - 180
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
-  - _FadeDuration: 0.28333336
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
-    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
-    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
-    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
-    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
-    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
-    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - -180
-    - -135
-    - -90
-    - -45
-    - 0
-    - 45
-    - 90
-    - 135
-    - 180
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
-  - _FadeDuration: 0.28333336
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
-    - {fileID: 7400000, guid: ef5dbb8756caef846ba09ca46db8884a, type: 3}
-    - {fileID: 7400000, guid: e1e82e39fdd9ec844a8349998376a78e, type: 3}
-    - {fileID: 7400000, guid: 4ef5d32d2023e4d4c9b06427a0ca0f3c, type: 3}
-    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
-    - {fileID: 7400000, guid: 3d8fa2c08fe53964a8e0789eda1e3587, type: 3}
-    - {fileID: 7400000, guid: 3a68323cb27d35841b78a13c1c2e1c2b, type: 3}
-    - {fileID: 7400000, guid: 1766100a830bbc94a876454f824c2589, type: 3}
-    - {fileID: 7400000, guid: 440846d6ffae42149ad850d427017973, type: 3}
+    - {fileID: 5918091445226010643, guid: 558f4e7bdfdb9374dae16cee08d56a7a, type: 3}
+    - {fileID: 6943149045667045301, guid: 454bbade6f79f4046a960fadf0e0b5cd, type: 3}
+    - {fileID: -6972005280777886564, guid: 4a56844e59795fc4d9d4dc7c3095fdc1, type: 3}
+    - {fileID: -8985311317367399622, guid: f65f4a3fd6c558842969645f8acc9a1c, type: 3}
+    - {fileID: -4697482763873360276, guid: 6490ddeef4ecbff4d8430034aa70a93c, type: 3}
+    - {fileID: 358909339717746290, guid: 8a9efa3d91ef72946be929de6591fa41, type: 3}
+    - {fileID: -7801245770563035318, guid: 38a5461ae10f2c64a9de84ba1c1e9a74, type: 3}
+    - {fileID: 8616823170024700035, guid: e1f5aa2e2625c3647a3dd899c66ea3f9, type: 3}
+    - {fileID: 5918091445226010643, guid: 558f4e7bdfdb9374dae16cee08d56a7a, type: 3}
     _Speeds: []
     _SynchronizeChildren: 
     _Thresholds:
@@ -3374,7 +2997,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _animancer: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
   _transitions:
   - _FadeDuration: 0.46000004
     _Events:
@@ -3383,63 +3007,9 @@ MonoBehaviour:
       _Names: []
     _Speed: 1
     _Animations:
-    - {fileID: 7400000, guid: bece9fda18844864e8aa81cabea0f742, type: 2}
-    - {fileID: 7400000, guid: a1b2af45b508b8042ab7dcf501354646, type: 3}
-    - {fileID: 7400000, guid: 82aaa36036bdcb246bdc018a9b15e3f0, type: 3}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - 0
-    - 2
-    - 4
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
-  - _FadeDuration: 0.46000004
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: 1827226128182048838, guid: 4f2bca1d0485b9840b554dc5356bfcf9, type: 3}
-    - {fileID: 1827226128182048838, guid: 14336ea1aadc005429eff24ddc6d7ce5, type: 3}
-    - {fileID: 1827226128182048838, guid: 1cf8eba7bc36ef342b3197cc9d21af85, type: 3}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - 0
-    - 2
-    - 4
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
-  - _FadeDuration: 0.46000004
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: -203655887218126122, guid: ebf5f6f90f6a2d443b465234bcbd04e3, type: 3}
-    - {fileID: -203655887218126122, guid: f863e9868f072334ab213b0d853249cf, type: 3}
-    - {fileID: -203655887218126122, guid: 0a33bea7baab3ca44bafa9071057762f, type: 3}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - 0
-    - 2
-    - 4
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
-  - _FadeDuration: 0.46000004
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Speed: 1
-    _Animations:
-    - {fileID: -203655887218126122, guid: c2a5ab8fb5574864493177a1db2a28cf, type: 3}
-    - {fileID: -203655887218126122, guid: 4b6978bd9a6c5da44ba41fc75539cfe8, type: 3}
-    - {fileID: -203655887218126122, guid: 3f28d7c88151c1545b15287f2de36751, type: 3}
+    - {fileID: 7400000, guid: c25181433fc26ee43b6d5a9c7ceb9f8c, type: 2}
+    - {fileID: 7400000, guid: d9f443632c38fe343a7060d72ab920df, type: 3}
+    - {fileID: -4697482763873360276, guid: 6490ddeef4ecbff4d8430034aa70a93c, type: 3}
     _Speeds: []
     _SynchronizeChildren: 
     _Thresholds:
@@ -3495,100 +3065,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _animancer: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes:
-      - 0.9664773
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 8395662772365884165}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
-            m_MethodName: CompleteDead
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes:
-      - 0.9664773
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 8395662772365884165}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
-            m_MethodName: CompleteDead
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes:
-      - 0.9664773
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 8395662772365884165}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
-            m_MethodName: CompleteDead
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-  - _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes:
-      - 0.9664773
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 8395662772365884165}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.DeadState, Assembly-CSharp
-            m_MethodName: CompleteDead
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
+      _NormalizedTimes: []
+      _Callbacks: []
       _Names: []
     _Clip: {fileID: 6888090741826374104, guid: 1b604700842c46219251ee3f10da31d8, type: 3}
     _Speed: 1

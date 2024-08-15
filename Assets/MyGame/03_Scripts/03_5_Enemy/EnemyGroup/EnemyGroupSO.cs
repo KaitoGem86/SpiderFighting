@@ -34,12 +34,12 @@ namespace Core.GamePlay.Enemy
 
         public void AddEnemy(EnemyController enemyController)
         {
-            enemyControllers.Add(enemyController);
+            enemyControllers?.Add(enemyController);
         }
 
         public void RemoveEnemy(EnemyController enemyController)
         {
-            enemyControllers.Remove(enemyController);
+            enemyControllers?.Remove(enemyController);
         }
 
         public void OnEnemyAttack()

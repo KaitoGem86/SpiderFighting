@@ -8834,6 +8834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
+  _blackBoard: {fileID: 1497934967715043381}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -9034,6 +9035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
+  _blackBoard: {fileID: 1497934967715043381}
   _transitions:
   - _FadeDuration: 0.06000001
     _Events:
@@ -9211,6 +9213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
+  _blackBoard: {fileID: 1497934967715043381}
   _transitions:
   - _FadeDuration: 0.28333336
     _Events:
@@ -9382,6 +9385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
+  _blackBoard: {fileID: 1497934967715043381}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -9515,6 +9519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
+  _blackBoard: {fileID: 1497934967715043381}
   _transitions:
   - _FadeDuration: 1.4333334
     _Events:
@@ -9649,6 +9654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
+  _blackBoard: {fileID: 1497934967715043381}
   _transitions:
   - _FadeDuration: 0.25
     _Events:
@@ -9899,6 +9905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
+  _blackBoard: {fileID: 1497934967715043381}
   _transitions:
   - _FadeDuration: 0.46000004
     _Events:
@@ -10059,6 +10066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 3833721888932012638}
+  _blackBoard: {fileID: 1497934967715043381}
   _transitions:
   - _FadeDuration: 0.120000005
     _Events:
