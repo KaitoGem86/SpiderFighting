@@ -2541,6 +2541,7 @@ MonoBehaviour:
   FindEnemyToAttack: {fileID: 11400000, guid: 327121c53c1175a4b888ab80a3f244ed, type: 2}
   HealingBotPivot: {fileID: 934142211166127097}
   GadgetsController: {fileID: 0}
+  OnAttack: {fileID: 11400000, guid: c39f637dcb61cf34799514968403f73e, type: 2}
 --- !u!114 &4369872665408434342
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,8 +14,9 @@ namespace Core.GamePlay.MyPlayer
             currentStateType = FSMState.None;
         }
 
-        protected override void OnEnable(){
-            OnChangePlayerModel(blackBoard.PlayerData.playerSerializeData.skinIndex); 
+        protected override void OnEnable()
+        {
+            OnChangePlayerModel(blackBoard.PlayerData.playerSerializeData.skinIndex);
             blackBoard.GadgetsController.ChangeGadget(blackBoard.PlayerData.playerSerializeData.gadgetIndex);
             base.OnEnable();
         }
@@ -49,18 +50,31 @@ namespace Core.GamePlay.MyPlayer
                 blackBoard.Animancer.Play(blackBoard.CurrentAnimancerState);
         }
 
-        protected void Update(){
-            if(blackBoard.GetVelocity.magnitude > 60){
+        protected void Update()
+        {
+            if (blackBoard.GetVelocity.magnitude > 60)
+            {
                 blackBoard.OnReachMaxSpeed.Raise(true);
             }
-            else{
+            else
+            {
                 blackBoard.OnReachMaxSpeed.Raise(false);
             }
         }
 
         public void HittedByPlayer(FSMState state)
         {
-            
+            if (currentStateType == FSMState.Dodge || currentStateType == FSMState.UltimateAttack)
+            {
+                Debug.Log("------------------- Miss -----------------");
+                return;
+            }
+            var hp = blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP];
+            var maxHP = blackBoard.PlayerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.HP);
+            hp -= 100;
+            hp = Mathf.Max(0, hp);
+            blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP] = hp;
+            blackBoard.OnAttack.Raise(hp / maxHP);
         }
 
         public Transform TargetEnemy => transform;

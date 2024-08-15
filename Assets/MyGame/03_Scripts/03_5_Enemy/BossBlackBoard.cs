@@ -9,5 +9,6 @@ namespace Core.GamePlay.Enemy
         public BossController bossController;
         public override IFSM fsm => bossController;
         public override IHitted hitted => bossController;
+        public EnemyModel bossModel;
     }
 }

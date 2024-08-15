@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Data.Stat.Player;
 using Newtonsoft.Json;
+using ParadoxNotion.Serialization.FullSerializer.Internal.DirectConverters;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer{
@@ -41,6 +42,11 @@ namespace Core.GamePlay.MyPlayer{
         private void LoadData(){
             var json = PlayerPrefs.GetString("PlayerData");
             playerSerializeData = JsonConvert.DeserializeObject<PlayerSerializeData>(json);
+        }
+
+        public void UpdateStat(PlayerStat key, float value){
+            localStats[key] = value;
+            SaveData();
         }
     }
 }

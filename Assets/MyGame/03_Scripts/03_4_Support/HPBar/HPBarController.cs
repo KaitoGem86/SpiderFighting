@@ -20,6 +20,11 @@ namespace Core.GamePlay.Support
             _hpBar.fillAmount = currentHP / maxHP;
         }
 
+        public void SetHP(float coeficient)
+        {
+            _hpBar.fillAmount = coeficient;
+        }
+
         public void Update()
         {
             if (_lerpHpBar.fillAmount != _hpBar.fillAmount)

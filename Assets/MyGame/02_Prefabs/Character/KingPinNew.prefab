@@ -1024,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4967908381333475
 Transform:
   m_ObjectHideFlags: 0
@@ -1227,6 +1227,7 @@ MonoBehaviour:
   weaponController: {fileID: 7725680759156103615}
   weaponType: 0
   bossController: {fileID: 8818636489921025615}
+  bossModel: {fileID: 8841389358949594385}
 --- !u!114 &8818636489921025615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2592,6 +2593,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponType: 0
+  _checkLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _range: 1.5
 --- !u!1 &1336684122521484648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,7 +2883,7 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.6385301
+      - 0.47
       - NaN
       _Callbacks:
       - m_PersistentCalls:
@@ -3109,8 +3114,8 @@ MonoBehaviour:
     _Speed: 1
     _Animations:
     - {fileID: 7400000, guid: c25181433fc26ee43b6d5a9c7ceb9f8c, type: 2}
-    - {fileID: 7400000, guid: d9f443632c38fe343a7060d72ab920df, type: 3}
-    - {fileID: -4697482763873360276, guid: 6490ddeef4ecbff4d8430034aa70a93c, type: 3}
+    - {fileID: 7400000, guid: aa1a1a738ef89024e867059d2db1350d, type: 2}
+    - {fileID: 7400000, guid: 451031f8bfdca9647bcdce2a9bfdd9b3, type: 2}
     _Speeds: []
     _SynchronizeChildren: 
     _Thresholds:

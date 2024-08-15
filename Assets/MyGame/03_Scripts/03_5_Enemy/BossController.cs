@@ -7,6 +7,7 @@ namespace Core.GamePlay.Enemy{
             _bossSO = bossSO;
             _runtimeData = new BossData(bossSO.bossData);
             IsIgnore = false;
+            blackBoard.weaponController.SetTypeOfEnemy(WeaponType.Hand, blackBoard.bossModel.rightHand);
             _hpBarController.SetHP(_runtimeData.HP, bossSO.bossData.HP);
             ChangeAction(_startState);
         }

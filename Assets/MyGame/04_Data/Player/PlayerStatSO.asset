@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: PlayerStatSO
   m_EditorClassIdentifier: 
   instancesStats:
-    _serializedList: []
+    _serializedList:
+    - Key: 9
+      Value: 500
   stats:
     _serializedList:
+    - Key: 9
+      Value: 500
     - Key: 0
       Value: 10
     - Key: 1

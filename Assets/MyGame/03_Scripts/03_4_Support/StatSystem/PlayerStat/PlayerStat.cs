@@ -9,5 +9,6 @@ namespace Data.Stat.Player{
         MinXLaunchVelocity,
         DiveVelocityThreshold,
         WallRunSpeed,
+        HP,
     }
 }
