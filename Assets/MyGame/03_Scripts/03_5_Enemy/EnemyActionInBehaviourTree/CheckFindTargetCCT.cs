@@ -1,18 +1,16 @@
 using Core.GamePlay.Support;
+using Extensions.SystemGame.AIFSM;
 using NodeCanvas.Framework;
 using UnityEngine;
 
 namespace Core.GamePlay.Enemy{
     public class CheckFindTargetCCT : ConditionTask{
         public FindEnemyToAttack finder;
-        public BBParameter<EnemyBlackBoard> blackBoard;
-
-        private EnemyController finderController;
+        public BBParameter<BaseEnemyBlackBoard> blackBoard;
 
         protected override bool OnCheck()
         {
-            finderController = blackBoard.value.controller;
-            blackBoard.value.targetToAttack = finder.FindEnemyByDistance(finderController.transform, !finderController.IsPlayer);
+            blackBoard.value.targetToAttack = finder.FindEnemyByDistance(blackBoard.value.transform, !blackBoard.value.hitted.IsPlayer);
             return blackBoard.value.targetToAttack != null;
         }
     }

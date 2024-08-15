@@ -6,7 +6,7 @@ namespace Extensions.SystemGame.AIFSM{
         bool CanChangeToItself { get; }
     }
 
-    public interface IRefToBlackBoard<T> where T: BlackBoard{
-        T GetBlackBoard();
+    public interface IFSM {
+        void ChangeAction(FSMState state);
     }
 }

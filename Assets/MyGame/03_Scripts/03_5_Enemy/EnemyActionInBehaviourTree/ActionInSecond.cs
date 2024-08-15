@@ -6,13 +6,14 @@ namespace Core.GamePlay.Enemy{
     public class ActionInSecond : ActionTask{
         public FSMState fsmType;
         public string actionName;
+        public BBParameter<BaseEnemyBlackBoard> blackBoard;
         public float timer;
 
         protected override string info => actionName;
 
         protected override void OnExecute()
         {
-            var fsm = blackboard.GetVariable<EnemyController>("controller").value;
+            var fsm = blackBoard.value.fsm;
             fsm.ChangeAction(fsmType);
         }
 

@@ -8,7 +8,7 @@ namespace Core.GamePlay.Enemy
     {
         public float speed;
         public BBParameter<float> distance;
-        public BBParameter<EnemyBlackBoard> blackBoard;
+        public BBParameter<BaseEnemyBlackBoard> blackBoard;
         public BBParameter<Vector3> targetPosition;
         public string targetName;
 
@@ -18,13 +18,13 @@ namespace Core.GamePlay.Enemy
         protected override void OnExecute()
         {
             blackBoard.value.targetPosition = targetPosition.value;
-            blackBoard.value.controller.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Moving);
+            blackBoard.value.fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Moving);
         }
 
         protected override void OnUpdate()
         {
             blackBoard.value.targetPosition = targetPosition.value;
-            var distance = Vector3.Distance(blackBoard.value.controller.transform.position, targetPosition.value);
+            var distance = Vector3.Distance(blackBoard.value.transform.position, targetPosition.value);
             if (distance < this.distance.value)
             {
                 EndAction(true);

@@ -18,7 +18,7 @@ namespace Core.GamePlay.Enemy
             var state = animancer.value.Play(anim);
             state.Events.OnEnd = () =>
             {
-                blackBoard.value.controller.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Idle);
+                blackBoard.value.fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Idle);
                 EndAction(true);
             };
         }

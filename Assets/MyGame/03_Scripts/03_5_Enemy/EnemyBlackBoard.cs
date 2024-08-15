@@ -9,7 +9,11 @@ namespace Core.GamePlay.Enemy
 {
     public class EnemyBlackBoard : BaseEnemyBlackBoard
     {
+        public override IFSM fsm { get => enemyController;}
+        public override IHitted hitted {get => enemyController;}
+
         [Header("========= General =========")]
+        public EnemyController enemyController;
         public EnemyModel[] enemyModels;
         public EnemyModel currentEnemyModel;
 

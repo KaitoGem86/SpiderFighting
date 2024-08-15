@@ -32,7 +32,7 @@ namespace Extensions.SystemGame.AIFSM{
         StunLock,
     }
 
-    public class FSM<T> : MonoBehaviour where T : BlackBoard{
+    public class FSM<T> : MonoBehaviour, IFSM where T : BlackBoard{
         [SerializeField] Transform _stateContainer;
         [SerializeField] protected FSMState _startState;
         Dictionary<FSMState, IState> _dictStates;

@@ -8,8 +8,10 @@ namespace Core.GamePlay.Enemy
 {
     public class BaseEnemyBlackBoard : BlackBoard
     {
+        public virtual IFSM fsm { get;}
+        public virtual IHitted hitted { get;}
+
         [Header("========= General =========")]
-        public EnemyController controller;
         public Vector3 defaultPosition;
         public Vector3 targetPosition;
         public AnimancerComponent animancerComponent;
