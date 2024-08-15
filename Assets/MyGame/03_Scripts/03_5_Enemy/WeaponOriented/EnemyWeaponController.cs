@@ -20,6 +20,8 @@ namespace Core.GamePlay.Enemy{
             _currentWeaponType = type;
             _weaponDict[_currentWeaponType].gameObject.SetActive(true);
             _weaponDict[_currentWeaponType].transform.SetParent(parent);
+            _weaponDict[_currentWeaponType].transform.localPosition = Vector3.zero;
+            _weaponDict[_currentWeaponType].transform.localRotation = Quaternion.identity;
         }
 
         public void OnWeaponAttack(Transform target){
