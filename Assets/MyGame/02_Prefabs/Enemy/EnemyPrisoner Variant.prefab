@@ -1688,6 +1688,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponType: 2
+  _checkLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1219820695729670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,6 +3096,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponType: 1
+  _checkLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _range: 0.5
+  _height: 1
 --- !u!1 &1425008526581627
 GameObject:
   m_ObjectHideFlags: 0
@@ -5099,6 +5107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponType: 3
+  _checkLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1596993401861749
 GameObject:
   m_ObjectHideFlags: 0
@@ -9712,7 +9723,7 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.6368371
+      - 0.42
       - 0.87594694
       - NaN
       _Callbacks:

@@ -5,7 +5,6 @@ namespace Core.GamePlay.Enemy
 {
     public class HandWeapon : BaseWeaponOriented
     {
-        [SerializeField] LayerMask _checkLayer;
         [SerializeField] private float _range;
         public override void OnWeaponAttack(Transform target)
         {

@@ -6,6 +6,8 @@ namespace Core.GamePlay.Enemy
     public class BaseWeaponOriented : MonoBehaviour
     {
         [SerializeField] private WeaponType _weaponType;
+        [SerializeField] protected LayerMask _checkLayer;
+
         public void SetWeaponActive(bool value)
         {
             //_weapon.SetActive(value);
