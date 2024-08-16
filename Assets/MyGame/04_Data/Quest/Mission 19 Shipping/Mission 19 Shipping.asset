@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Name: Mission 19 Shipping
+  m_EditorClassIdentifier: 
+  infor:
+    id: 0
+    QuestName: Mission 19 Shipping
+    QuestDescription: This is a quest
+  reward:
+    exp: 100
+    currency: 100
+  _stepPrefabs:
+  - {fileID: 5667880772344169435, guid: 450acf4c42580b040aa99a47120ecc74, type: 3}
+  - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
+  - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
+  - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
+  _dataPrefabs:
+  - {fileID: 11400000, guid: c92634711cbbeb34685d6f2d3d976101, type: 2}
+  - {fileID: 11400000, guid: 7389e2970286b29408f8759aa0d1568f, type: 2}
+  - {fileID: 11400000, guid: 9ceec1b9acc05854c8412e27b041a7be, type: 2}
+  - {fileID: 11400000, guid: 691f3853a10eb1f429a26a38bb966d3a, type: 2}
