@@ -11,7 +11,7 @@ namespace DailyReward{
         [SerializeField] private GameObject _claimButton;
         [SerializeField] private GameObject _receivedIcon;
         [SerializeField] private GameObject _lockedIcon;
-        [SerializeField] private IntEvent _onClaimReward;
+        [SerializeField] private DefaultEvent _onClaimReward;
         private ProgressData _data;
         private int _level;
 
@@ -43,7 +43,7 @@ namespace DailyReward{
         public void ClaimReward()
         {
             Debug.Log("Claim Reward");
-            _onClaimReward?.Raise(_level);
+            _onClaimReward?.Raise();
             _claimButton.SetActive(false);
             _receivedIcon.SetActive(true);
             _lockedIcon.SetActive(false);

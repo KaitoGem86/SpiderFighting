@@ -15,6 +15,7 @@ namespace Core.GamePlay.MyPlayer{
             if(PlayerPrefs.HasKey("PlayerData")){
                 Debug.Log("Init Data 1");
                 LoadData();
+                playerSerializeData.UpdateDataWhenStartGame();
             }
             else{
                 Debug.Log("Init Data 2");

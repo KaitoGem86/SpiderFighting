@@ -15,7 +15,8 @@ namespace Core.GamePlay.MyPlayer
         public Dictionary<AchivementType, int> achivements;
         public int maxReceiveProgress;
         public DateTime lastReceiveData;
-
+        public int currentContinuousDay;
+        public bool isClaimedDailyReward;
 
         public void InitData()
         {
@@ -34,7 +35,16 @@ namespace Core.GamePlay.MyPlayer
                 achivements.Add((AchivementType)achivementType, 0);
             }
             maxReceiveProgress = 0;
-            lastReceiveData = DateTime.Now - TimeSpan.FromDays(1);
+            lastReceiveData = DateTime.Now;
+            currentContinuousDay = 0;
+            isClaimedDailyReward = false;
+        }
+
+        public void UpdateDataWhenStartGame(){
+            if (DateTime.Now.Date - lastReceiveData.Date == TimeSpan.FromDays(1))
+            {
+                isClaimedDailyReward = false;
+            }
         }
 
         public void UpdateExp(int value)
