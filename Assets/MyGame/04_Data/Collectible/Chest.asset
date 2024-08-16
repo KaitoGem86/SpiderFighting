@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e417abb052a2b554aacebbe9c761cdc1, type: 3}
+  m_Name: Chest
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 1891251333533220347, guid: 9ddd9077c33080c40b88b7bbcb30b28b, type: 3}
+  collectibleDatas:
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: -372.41998, y: 0.103820324, z: 180.20001}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: -177.81999, y: 102.85382, z: 248.73001}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: -193.95, y: 0.07382032, z: 154.82}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: -115.91, y: 14.123821, z: 73.89}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 28.050001, y: -0.3861797, z: 298.62}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 210.20001, y: -0.3861797, z: 309.26}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 167.40001, y: -0.3861797, z: 186.5}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 17.800001, y: 19.44382, z: 91.28}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: -41.52, y: 1.1238203, z: 186.62}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 200.94, y: 20.40382, z: 106.9}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 311.63, y: 23.48382, z: 134.74}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 442.4, y: -0.016179673, z: 279.6}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 595.39996, y: 28.703821, z: 270.1}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 630.5, y: 27.44382, z: 338.2}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: -15, y: -1.5061797, z: -99.93999}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: -65.59, y: 10.30382, z: -251.15001}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 86.979996, y: 40.10382, z: -309.73004}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: 114.81, y: 0.07382032, z: -389.91998}
+  - rewardType: 0
+    rewardValue: 10
+    position: {x: -80.69, y: 33.22382, z: -382.53003}

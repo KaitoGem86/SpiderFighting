@@ -9,5 +9,9 @@ namespace Collectible{
             this.data = data;
             transform.position = data.position;
         }
+
+        public void OnCollect(){
+            
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.Manager;
 using UnityEngine;
 
 namespace TerrainScannerDEMO
@@ -23,6 +24,7 @@ namespace TerrainScannerDEMO
 
         private void Start()
         {
+            _detector = GameManager.Instance.detector;
             _meshRenderer = GetComponent<MeshRenderer>();
             _cachedMaterial = _meshRenderer.sharedMaterial;
             //_audioTrigger = GetComponent<AudioSource>();
