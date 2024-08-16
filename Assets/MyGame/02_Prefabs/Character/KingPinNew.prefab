@@ -1169,6 +1169,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetPosition":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.targetPos","_name":"targetPosition","_id":"5fce21dd-1a72-4b68-b871-08d69cd6dda7","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"animancerComponent":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.animancerComponent","_name":"animancerComponent","_id":"c2f1ad88-5158-43c4-b43d-820da8b4d17d","$type":"NodeCanvas.Framework.Variable`1[[Animancer.AnimancerComponent,
     Animancer, Version=7.4.2.25, Culture=neutral, PublicKeyToken=null]]"},"blackBoard":{"_propertyPath":"Core.GamePlay.Enemy.BossController.blackBoard","_name":"blackBoard","_id":"be534801-04a4-4c30-ae02-a3e7aab5b627","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.BossBlackBoard,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"currentStateType":{"_propertyPath":"Core.GamePlay.Enemy.BossController.currentStateType","_name":"currentStateType","_id":"0e0b8ca7-cdbd-4d8b-a6c4-6f95400ffece","$type":"NodeCanvas.Framework.Variable`1[[Extensions.SystemGame.AIFSM.FSMState,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -1200,6 +1201,9 @@ MonoBehaviour:
       Animancer, Version=7.4.2.25, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
   - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossController.blackBoard","_name":"blackBoard","_id":"be534801-04a4-4c30-ae02-a3e7aab5b627","$type":"NodeCanvas.Framework.Variable`1[[Core.GamePlay.Enemy.BossBlackBoard,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossController.currentStateType","_name":"currentStateType","_id":"0e0b8ca7-cdbd-4d8b-a6c4-6f95400ffece","$type":"NodeCanvas.Framework.Variable`1[[Extensions.SystemGame.AIFSM.FSMState,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
 --- !u!114 &650164566257275114
@@ -3278,6 +3282,81 @@ MonoBehaviour:
     _NormalizedStartTime: NaN
   _stateType: 6
   _canChangeToItself: 0
+--- !u!1 &7457966851382975528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2727979273284642046}
+  - component: {fileID: 677371837739716586}
+  m_Layer: 8
+  m_Name: Ultimate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2727979273284642046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7457966851382975528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &677371837739716586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7457966851382975528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8582cafae91d19b4d977c84bf99d3b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
+  _transitions:
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: a2edad18fec4f6d439d2a007872781f6, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.10666669
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: e099716ca877a2349894b681fa883b86, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+    - _FadeDuration: 0.2133334
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: eadac3a54b0aa5744a416cfd9b5a8e22, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  _stateType: 18
+  _canChangeToItself: 0
 --- !u!1 &8270088260037081166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,6 +3395,7 @@ Transform:
   - {fileID: 3474476843006822807}
   - {fileID: 6001793452744798761}
   - {fileID: 2257895026751963163}
+  - {fileID: 2727979273284642046}
   m_Father: {fileID: 4967908381333475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2002859219257809172
