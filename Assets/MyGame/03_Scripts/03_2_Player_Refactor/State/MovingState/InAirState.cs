@@ -16,19 +16,19 @@ namespace Core.GamePlay.MyPlayer
         public virtual void FixedUpdate()
         {
             Move();
-            Rotate();
+            //Rotate();
         }
 
-        protected override void Rotate()
-        {
-            var forward = _fsm.transform.forward;
-            forward.y = 0;
-            Quaternion rotation = Quaternion.LookRotation(forward, Vector3.up);
-            _fsm.transform.rotation = Quaternion.Lerp(_fsm.transform.rotation, rotation, 0.2f * 10 * Time.fixedDeltaTime);
-            var vel = _fsm.blackBoard.GetVelocity;
-            vel.y = 0;
-            _fsm.blackBoard.Character.RotateTowardsWithSlerp(vel, false);
-        }
+        // protected override void Rotate()
+        // {
+        //     var forward = _fsm.transform.forward;
+        //     forward.y = 0;
+        //     Quaternion rotation = Quaternion.LookRotation(forward, Vector3.up);
+        //     _fsm.transform.rotation = Quaternion.Lerp(_fsm.transform.rotation, rotation, 0.2f * 10 * Time.fixedDeltaTime);
+        //     var vel = _fsm.blackBoard.GetVelocity;
+        //     vel.y = 0;
+        //     _fsm.blackBoard.Character.RotateTowardsWithSlerp(vel, false);
+        // }
 
         protected override void GetInput()
         {

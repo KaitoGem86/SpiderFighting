@@ -117,18 +117,6 @@ namespace Core.GamePlay.MyPlayer
             _springJoint.massScale = 4.5f;
         }
 
-        private void RotateCharacterUpwardFlowSilk()
-        {
-            var rotation = _fsm.blackBoard.PlayerDisplay.rotation;
-            var velocity = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody.velocity;
-            var upwardDirection = _rb.transform.position - (_handToUse == 1 ? _leftHand.position : _rightHand.position);
-            var forwardDirection = Vector3.ProjectOnPlane(velocity, -upwardDirection);
-            _fsm.blackBoard.PlayerDisplay.transform.up = Vector3.Lerp(_fsm.blackBoard.PlayerDisplay.transform.up, upwardDirection.normalized, 1);
-            _fsm.blackBoard.PlayerDisplay.transform.forward = Vector3.Lerp(_fsm.blackBoard.PlayerDisplay.transform.forward, forwardDirection.normalized, 1);
-            var targetRotation = _fsm.blackBoard.PlayerDisplay.rotation;
-            _fsm.blackBoard.PlayerDisplay.rotation = Quaternion.Slerp(rotation, targetRotation, Time.fixedDeltaTime * 5);
-        }
-
         protected override void Rotate()
         {
             Quaternion rotation = Quaternion.LookRotation(_fsm.transform.forward, (_rb.transform.position - _holdPivot.position).normalized);
