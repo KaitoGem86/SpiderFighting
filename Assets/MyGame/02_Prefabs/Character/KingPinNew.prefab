@@ -1024,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4967908381333475
 Transform:
   m_ObjectHideFlags: 0
@@ -1246,7 +1246,8 @@ MonoBehaviour:
   currentStateType: 0
   _unitCanvas: {fileID: 1229326262345273606}
   _hpBarController: {fileID: 9105187874119087014}
-  _floatingDamageTextSO: {fileID: 11400000, guid: 88ea78ce53ea43744b79caf9dff4a6c9, type: 2}
+  _damgeNumberParent: {fileID: 0}
+  _damageNumber: {fileID: 0}
   _hitVFXController: {fileID: 1496249544650417380}
 --- !u!95 &8722427846581001443
 Animator:
@@ -2832,6 +2833,64 @@ MonoBehaviour:
     _NormalizedStartTime: NaN
   _stateType: 5
   _canChangeToItself: 1
+--- !u!1 &2842428967724534807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2257895026751963163}
+  - component: {fileID: 7953325679439973696}
+  m_Layer: 8
+  m_Name: Aim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2257895026751963163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842428967724534807}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382872240469570607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7953325679439973696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842428967724534807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497cdfcd58033464b973c2d26dd65d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 0}
+  _animancer: {fileID: 4521190569619427038}
+  _blackBoard: {fileID: 650164566257275114}
+  _transitions:
+  - _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 0
+    _NormalizedStartTime: 0
+  _stateType: 22
+  _canChangeToItself: 0
 --- !u!1 &3663947271410316048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2198459290067438900}
-  - component: {fileID: 8658203121320416571}
+  - component: {fileID: 7840302600204414059}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -2864,7 +2923,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2382872240469570607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8658203121320416571
+--- !u!114 &7840302600204414059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2873,22 +2932,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 3663947271410316048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494ec06b330e57747bb50bab61ed0aaa, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d603a48a81b893439ad92952a5b5367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
   _animancer: {fileID: 4521190569619427038}
   _blackBoard: {fileID: 650164566257275114}
   _transitions:
-  - _FadeDuration: 0.25
+  - _FadeDuration: 0.1633333
     _Events:
       _NormalizedTimes:
-      - 0.47
+      - 0.31109822
       - NaN
       _Callbacks:
       - m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 8658203121320416571}
+          - m_Target: {fileID: 7840302600204414059}
             m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
             m_MethodName: ApplyDamage
             m_Mode: 1
@@ -2901,24 +2960,59 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       _Names: []
+    _Clip: {fileID: 7400000, guid: 48a747c4531859f4aa08384b19e59ba7, type: 2}
     _Speed: 1
-    _Animations:
-    - {fileID: 7400000, guid: 0ac80abbe2084f842877d43482d7d058, type: 2}
-    - {fileID: 7400000, guid: 8b631834ec0e34c4e9318046d5d30329, type: 2}
-    - {fileID: 7400000, guid: 60d0ed5e3b3090a47b303ceca4688fd0, type: 2}
-    _Speeds: []
-    _SynchronizeChildren: 
-    _Thresholds:
-    - 0
-    - 1
-    - 2
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.1166667
+    _Events:
+      _NormalizedTimes:
+      - 0.38772982
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 7840302600204414059}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
+            m_MethodName: ApplyDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: d16dedb2d0c14ab43a0cd89d5b0c2f77, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.1066667
+    _Events:
+      _NormalizedTimes:
+      - 0.41247675
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 7840302600204414059}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
+            m_MethodName: ApplyDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: b47d6dd671a87e041b2bab46274e73e9, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
   _stateType: 4
   _canChangeToItself: 0
-  _meleeRange: 1
-  _mediumRange: 3
-  _longRange: 5
   _onAttack: {fileID: 11400000, guid: 91c05fb0d3169de4593d085f26d9c340, type: 2}
   _onCompleteAttack: {fileID: 11400000, guid: c61098f8c67115d4ebe5ca26615a0b85, type: 2}
 --- !u!1 &6254239218560996484
@@ -3221,6 +3315,7 @@ Transform:
   - {fileID: 8267191971754705500}
   - {fileID: 3474476843006822807}
   - {fileID: 6001793452744798761}
+  - {fileID: 2257895026751963163}
   m_Father: {fileID: 4967908381333475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2002859219257809172
