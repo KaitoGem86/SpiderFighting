@@ -16,6 +16,7 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
     public bool isInfinite; //Is infinite scrolling (Required initialization)
     public string[] testData; //Test data
     public GadgetDataSO _gadgetDataSO;
+    public PlayerData _playerData;
 
     [Header("Text prefab")]
     public GameObject templateValues;
@@ -240,7 +241,7 @@ public class ScrollMechanic : MonoBehaviour, IDropHandler, IDragHandler, IBeginD
 
         contentSize.UpdateLayout();
         isInitialized = true;
-        OnSelectAnElement(GameManager.Instance.PlayerData.playerSerializeData.gadgetIndex);
+        OnSelectAnElement(_playerData.playerSerializeData.gadgetIndex);
     }
 
     /// <summary>

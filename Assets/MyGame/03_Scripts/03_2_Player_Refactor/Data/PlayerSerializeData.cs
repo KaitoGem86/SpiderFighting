@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Data.Reward;
 
@@ -13,6 +14,7 @@ namespace Core.GamePlay.MyPlayer
         public Dictionary<RewardType, int> rewards;
         public Dictionary<AchivementType, int> achivements;
         public int maxReceiveProgress;
+        public DateTime lastReceiveData;
 
 
         public void InitData()
@@ -32,6 +34,7 @@ namespace Core.GamePlay.MyPlayer
                 achivements.Add((AchivementType)achivementType, 0);
             }
             maxReceiveProgress = 0;
+            lastReceiveData = DateTime.Now - TimeSpan.FromDays(1);
         }
 
         public void UpdateExp(int value)

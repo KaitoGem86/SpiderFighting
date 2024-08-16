@@ -2363,7 +2363,6 @@ GameObject:
   - component: {fileID: 8917293616794470225}
   - component: {fileID: 872527583909876332}
   - component: {fileID: 6822383321148614867}
-  - component: {fileID: 6265906803641737802}
   - component: {fileID: 397424536552810533}
   - component: {fileID: 6308603332027467591}
   m_Layer: 6
@@ -2511,7 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d993937444b6d4aba3a48bc484bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerData: {fileID: 6265906803641737802}
+  PlayerData: {fileID: 0}
   PlayerModels:
   - {fileID: 1799183922079595344}
   - {fileID: 7461870271675781694}
@@ -2664,25 +2663,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6265906803641737802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5482327496165697713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95be697fd96a3aa489b64e5e972ed577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStatSO: {fileID: 11400000, guid: c63212be20761b84ab9289ade83e299f, type: 2}
-  playerSerializeData:
-    Exp: 0
-    Level: 0
-    skinIndex: 0
-    gadgetIndex: 0
-    maxReceiveProgress: 0
 --- !u!95 &397424536552810533
 Animator:
   serializedVersion: 5

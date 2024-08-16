@@ -8,6 +8,6 @@ namespace MyTools.ScreenSystem{
         LoseGame,
         Setting,
         Tutorials,
-        Recipe
+        DailyReward
     }
 }

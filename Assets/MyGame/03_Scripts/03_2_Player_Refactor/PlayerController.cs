@@ -12,6 +12,7 @@ namespace Core.GamePlay.MyPlayer
         {
             base.Awake();
             currentStateType = FSMState.None;
+            blackBoard.PlayerData.Init();
         }
 
         protected override void OnEnable()

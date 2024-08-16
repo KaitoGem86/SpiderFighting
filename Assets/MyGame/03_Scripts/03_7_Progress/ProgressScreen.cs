@@ -30,7 +30,7 @@ namespace Progress.UI
         [SerializeField] private TMP_Text _progressNextLevelText;
 
         private List<ProgressElement> _progressElements = new List<ProgressElement>();
-        private PlayerData _playerData;
+        [SerializeField] private PlayerData _playerData;
 
         private void Awake()
         {
@@ -39,7 +39,6 @@ namespace Progress.UI
 
         protected override void OnCompleteShowItSelf()
         {
-            _playerData = GameManager.Instance.PlayerData;
             base.OnCompleteShowItSelf();
             var _progressSO = _progressSOs[GetIndexProgressSO(_playerData.playerSerializeData.Level)];
             _progressSO.Init(1980, _progressContainer);

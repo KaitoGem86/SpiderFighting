@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Animancer;
+using Core.GamePlay.MyPlayer;
 using Core.GamePlay.Support;
 using Core.Manager;
 using MyTools.ScreenSystem;
@@ -15,6 +16,7 @@ namespace Core.UI
         [SerializeField] private GameObject _suitPanel;
         [SerializeField] private GameObject _gadgetPanel;
         [SerializeField] private GameObject _skillPanel;
+        [SerializeField] private PlayerData _playerData;
 
         private List<SkinElement> _skinElements;
 
@@ -26,7 +28,7 @@ namespace Core.UI
         {
             _skinElementSO.Init(10001, _container);
             _skinElements = _skinElementSO.Spawn(_container);
-            OnSelectAnElement(GameManager.Instance.PlayerData.playerSerializeData.skinIndex);
+            OnSelectAnElement(_playerData.playerSerializeData.skinIndex);
             base.OnCompleteShowItSelf();
         }
 
@@ -48,7 +50,7 @@ namespace Core.UI
         public void OnSelectSuit(){
             if(_suitPanel.activeSelf) return;
             _suitPanel.SetActive(true);
-            OnSelectAnElement(GameManager.Instance.PlayerData.playerSerializeData.skinIndex);
+            OnSelectAnElement(_playerData.playerSerializeData.skinIndex);
             _gadgetPanel.SetActive(false);
            // _skillPanel.SetActive(false);
         }

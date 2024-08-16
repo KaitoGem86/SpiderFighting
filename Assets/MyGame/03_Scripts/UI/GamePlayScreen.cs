@@ -118,6 +118,11 @@ namespace Core.UI
             _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.Progress);
         }
 
+        public void OnClickOpenDailyReward()
+        {
+            _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.DailyReward);
+        }
+
         public void OnClickSwing(bool Value)
         {
             // if(player.blackBoard.Character.IsOnGround()){

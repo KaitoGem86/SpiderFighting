@@ -5,12 +5,13 @@ using ParadoxNotion.Serialization.FullSerializer.Internal.DirectConverters;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer{
-    public class PlayerData : MonoBehaviour{
+    [CreateAssetMenu(menuName = "PlayerData")]
+    public class PlayerData : ScriptableObject{
         public PlayerStatSO playerStatSO;
         public PlayerSerializeData playerSerializeData;
         public Dictionary<PlayerStat, float> localStats;
 
-        private void Awake(){
+        public void Init(){
             if(PlayerPrefs.HasKey("PlayerData")){
                 Debug.Log("Init Data 1");
                 LoadData();

@@ -39,6 +39,5 @@ namespace Core.Manager {
             Time.timeScale = value ? 0.3f : 1;
         }
 
-        public PlayerData PlayerData;
     }
 }
