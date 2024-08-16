@@ -25,7 +25,7 @@ namespace TerrainScannerDEMO
         {
             _meshRenderer = GetComponent<MeshRenderer>();
             _cachedMaterial = _meshRenderer.sharedMaterial;
-            _audioTrigger = GetComponent<AudioSource>();
+            //_audioTrigger = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -38,7 +38,7 @@ namespace TerrainScannerDEMO
                     _detected = false;
                     _timerToReset = 0f;
                     _meshRenderer.sharedMaterial = _cachedMaterial;
-                    _audioTrigger.PlayOneShot(_sensorExit);
+                    //_audioTrigger.PlayOneShot(_sensorExit);
                 }
 
                 _timerToReset += Time.deltaTime;
@@ -61,7 +61,7 @@ namespace TerrainScannerDEMO
         {
             _detected = true;
             _timeToReset = 2 * _detector.Duration;
-            _audioTrigger.Play();
+            //_audioTrigger.Play();
             _meshRenderer.sharedMaterial = _detectedMaterial;
         }
     }
