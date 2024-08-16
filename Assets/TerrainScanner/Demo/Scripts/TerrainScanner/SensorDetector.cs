@@ -100,19 +100,14 @@ namespace TerrainScannerDEMO
 
                 _timerKill += Time.deltaTime;
             }
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                StartSensor();
-            }
         }
 
-        private void StartSensor()
+        public void StartSensor()
         {
             if (_startSensor) { return; }
             if (_killSensor) { return; }
             _sensorCameraEffect.enabled = true;
-            _sensorStart.Play();
+            //_sensorStart.Play();
             _duration = _maxDistance / _speed;
             _EmissionCacher = _sensorMaterial.GetFloat("_OverlayEmission");
             _sensorMaterial.SetVector("_RevealOrigin", transform.position);

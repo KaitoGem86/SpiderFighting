@@ -23,6 +23,7 @@ namespace Core.UI
         public DefaultEvent onUltilmateAttack;
         public DefaultEvent onAttack;
         public DefaultEvent onUseGadget;
+        public DefaultEvent onUseScan;
         private bool _isSwing = false;
 
         private void Awake()
@@ -78,6 +79,11 @@ namespace Core.UI
             {
                 OnClickUseGadget();
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                OnClickScan();
+            }
 #endif     
         }
 
@@ -106,6 +112,11 @@ namespace Core.UI
         public void OnClickZip()
         {
             onZip?.Raise();
+        }
+
+        public void OnClickScan()
+        {
+            onUseScan?.Raise();
         }
 
         public void OnClickOpenSkin()

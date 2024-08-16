@@ -2510,7 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d993937444b6d4aba3a48bc484bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerData: {fileID: 0}
+  PlayerData: {fileID: 11400000, guid: 0c8172207f6c02f45abdbc6ab00694e4, type: 2}
   PlayerModels:
   - {fileID: 1799183922079595344}
   - {fileID: 7461870271675781694}
@@ -2526,7 +2526,7 @@ MonoBehaviour:
   - {fileID: 1546583688530342290}
   - {fileID: 5376434779340256656}
   - {fileID: 2124432827662691706}
-  CurrentPlayerModel: {fileID: 0}
+  CurrentPlayerModel: {fileID: 1799183922079595344}
   Animancer: {fileID: 872527583909876332}
   CameraTransform: {fileID: 2891768364681447400}
   Character: {fileID: 8917293616794470225}
@@ -4866,7 +4866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4634127451460540814, guid: e8e3a6d534147474e8f9318bc053e7c1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4947039549784813204, guid: e8e3a6d534147474e8f9318bc053e7c1, type: 3}
       propertyPath: m_LocalPosition.x
