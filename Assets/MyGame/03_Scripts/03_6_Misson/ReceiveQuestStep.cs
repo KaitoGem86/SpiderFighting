@@ -7,6 +7,7 @@ namespace Core.GamePlay.Mission
         public override void Init(Quest container)
         {
             base.Init(container);
+            this.transform.position = _questData.position;
         }
 
         private void OnTriggerEnter(Collider other)

@@ -370,7 +370,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
-  - {fileID: 11400000, guid: ad64a7afbea07624b899a74103ce9650, type: 2}
+  - {fileID: 11400000, guid: b125a7aeeb727ca41af0d5eac62effc2, type: 2}
+  - {fileID: 11400000, guid: bb6ab6cba34c4fa45b60f88e4475ffff, type: 2}
+  - {fileID: 11400000, guid: 0e0de9fe6e40f18478f05ae2e66d0ad7, type: 2}
+  - {fileID: 11400000, guid: b306761185fec3b4d995a3e6800cc6d6, type: 2}
+  - {fileID: 11400000, guid: 0870e917277808244be3ec0ec08eaf9e, type: 2}
+  - {fileID: 11400000, guid: 125126b7389c0cd418e9385b8d799647, type: 2}
+  - {fileID: 11400000, guid: a0dd2cc25a60f8c4a856c219da16b6f4, type: 2}
+  - {fileID: 11400000, guid: 0d1048e35f6866d46989c896e198e88a, type: 2}
+  - {fileID: 11400000, guid: 2e07f7346627c9346b5052501df8cd85, type: 2}
+  - {fileID: 11400000, guid: a9c5898a7f87aa444a68d3aa974e3519, type: 2}
+  - {fileID: 11400000, guid: 6fe5760003260c84ebabcc91db969a09, type: 2}
+  - {fileID: 11400000, guid: 13992034bcb5ec24c96949901d9cb4de, type: 2}
+  - {fileID: 11400000, guid: 45a5aa5798c785c488bb470ade995a14, type: 2}
+  - {fileID: 11400000, guid: 101d2c4ef0429984db0d0f4bd411b703, type: 2}
+  - {fileID: 11400000, guid: 7def38e7ce8ed404c9774259d98afb84, type: 2}
+  - {fileID: 11400000, guid: c07b427569c042144b5f96d6abee57c0, type: 2}
+  - {fileID: 11400000, guid: 21f13f9f6a16b4846ab959e7a09d80bb, type: 2}
+  - {fileID: 11400000, guid: 4a543f188eb8cd44b82968384ec05b2f, type: 2}
+  - {fileID: 11400000, guid: f1b1ec0f6a99fa24991f8505ec733a5c, type: 2}
+  - {fileID: 11400000, guid: 38b7c2841a4837d43851fff779150b05, type: 2}
+  - {fileID: 11400000, guid: 9900704bc22c9a84cab6e2a041d6ec00, type: 2}
+  - {fileID: 11400000, guid: 4ce75ffb766348d409fe6dae3f84c771, type: 2}
+  - {fileID: 11400000, guid: 4024aac90fde5794383391f1de40a477, type: 2}
+  - {fileID: 11400000, guid: 6755c54fef6c0b34dad80312b92f9be1, type: 2}
+  - {fileID: 11400000, guid: fc66510bee2a9e44d8428b341d134aca, type: 2}
+  - {fileID: 11400000, guid: b1365947aec27f14eb556c219480f2a0, type: 2}
+  - {fileID: 11400000, guid: 772dc294b881f3147a973cbe03194b5b, type: 2}
+  - {fileID: 11400000, guid: 0fc836be079cae740ae567043dd5410e, type: 2}
+  - {fileID: 11400000, guid: 0c6df0fdd68ccb8459f71163d9ad960b, type: 2}
+  - {fileID: 11400000, guid: 10c9eb5382c9d434ca7ad2062f38b261, type: 2}
+  - {fileID: 11400000, guid: e5d0ca5f0346de045a7a9fb579eeeff1, type: 2}
+  - {fileID: 11400000, guid: 6aae0d49e3c9ae84b8efc4b98889409a, type: 2}
+  - {fileID: 11400000, guid: 7c575aa884c8e1f4faca1ebbfa31c8b0, type: 2}
+  - {fileID: 11400000, guid: d4cb3760ce96ae54caa7c3e70ed6d50e, type: 2}
+  - {fileID: 11400000, guid: 6a91cb89001668c41924ed46567e2478, type: 2}
+  - {fileID: 11400000, guid: 991445a7f7515124cb636fdfa08dc56b, type: 2}
+  - {fileID: 11400000, guid: 383bff9e1276a78458e3e49759e1b4c1, type: 2}
+  - {fileID: 11400000, guid: 253406e1923afa041ac91d22f6913f4c, type: 2}
+  - {fileID: 11400000, guid: 6d4c48fd12abd6c40a5bf98000ea95af, type: 2}
+  - {fileID: 11400000, guid: e1bf8dcf0ddbd1b4592a402b7e0480ba, type: 2}
+  questPath: Assets/MyGame/04_Data/Quest
+  questStepPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 5667880772344169435, guid: 450acf4c42580b040aa99a47120ecc74, type: 3}
+    - Key: 4
+      Value: {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
+    - Key: 3
+      Value: {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
+  questParent: {fileID: 0}
 --- !u!1001 &403988097196410368
 PrefabInstance:
   m_ObjectHideFlags: 0
