@@ -15,9 +15,9 @@ namespace Core.GamePlay.MyPlayer
         {
             base.EnterState();
             _fsm.blackBoard.Character.AddForce((Vector3.up * 10), ForceMode.Impulse);
-            // var forward = _fsm.transform.forward;
-            // forward.y = 0;
-            // _fsm.transform.DORotateQuaternion(Quaternion.LookRotation(forward), 0.1f);
+            var forward = _fsm.transform.forward;
+            forward.y = 0;
+            _fsm.transform.DORotateQuaternion(Quaternion.LookRotation(forward), 0.1f);
         }
 
         public void CompleteJumpFromSwing()

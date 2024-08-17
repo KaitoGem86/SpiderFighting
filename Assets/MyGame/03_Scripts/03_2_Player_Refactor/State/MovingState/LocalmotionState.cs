@@ -27,7 +27,7 @@ namespace Core.GamePlay.MyPlayer
             {
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.velocity = Vector3.Lerp(rigidbody.velocity, _moveDirection * _speed, Time.deltaTime * 10);
-                Rotate();
+                //Rotate();
             }
             else
             {
@@ -40,7 +40,7 @@ namespace Core.GamePlay.MyPlayer
         {
             if (_rotateDirection == Vector3.zero) return;
             Quaternion targetRotation = Quaternion.LookRotation(_rotateDirection);
-            _fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, targetRotation, Time.deltaTime * 10);
+            _fsm.blackBoard.Character.GetCharacterMovement().rigidbody.rotation = Quaternion.Slerp(_fsm.blackBoard.Character.GetCharacterMovement().rotation, targetRotation, Time.deltaTime * 10);
         }
 
         protected virtual void GetInput()
