@@ -64,11 +64,23 @@ namespace Core.GamePlay.MyPlayer
             base.Update();
         }
 
+        protected override void Rotate()
+        {
+            var forward = _fsm.transform.forward;
+            forward.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(forward, Vector3.up);
+            _fsm.transform.rotation = Quaternion.Lerp(_fsm.transform.rotation, rotation, 0.2f * 20 * Time.fixedDeltaTime);
+            var vel = _fsm.blackBoard.GetVelocity;
+            vel.y = 0;
+            _fsm.blackBoard.Character.RotateTowardsWithSlerp(vel, false);
+        }
+
         public void FixedUpdate()
         {
             _speed = Mathf.Lerp(_speed, 0, _damping);
             _moveDirection = _remainMoveDirection;
             Move();
+            Rotate();
             _remainMoveDirection = Vector3.Lerp(_remainMoveDirection, Vector3.zero, _damping * Time.deltaTime);
         }
 
