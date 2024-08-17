@@ -60,7 +60,7 @@ namespace Core.GamePlay.MyPlayer
             {
                 //_speed += _statManager.GetValue(Support.StatType.IncreaseSwingSpeed2).value;
                 //_speed = Mathf.Clamp(_speed, 0, 80);
-                _pivot = _fsm.transform.position + forward.normalized * 30 + right.normalized * 10 * _handToUse + Vector3.up * 20;
+                _pivot = _fsm.transform.position + forward.normalized * 40 + right.normalized * 10 * _handToUse + Vector3.up * 20;
             }
             _handToUse = -_handToUse;
             _rb.transform.position = _pivot;
