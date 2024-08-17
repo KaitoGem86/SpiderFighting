@@ -73,6 +73,7 @@ namespace Core.GamePlay.MyPlayer
         public virtual void OnCollisionEnter(Collision collision) { }
  
         public void Swing(){
+            if(_fsm.transform.position.y > 180) return;
             _fsm.ChangeAction(FSMState.Swing);
         }
 
