@@ -235,8 +235,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     rewardType: 6
+    id: 0
     rewardValue: 0
     position: {x: 0, y: 0, z: 0}
+  remainingTimeToSpawn: 0
+  onCollectEvent: {fileID: 11400000, guid: fb9bf3f608756d943bb1e229e17b2d76, type: 2}
+  onCanCollect: {fileID: 11400000, guid: ef44ca96b600b504588ae44f6a7eb316, type: 2}
 --- !u!205 &-7718148261416010005
 LODGroup:
   m_ObjectHideFlags: 0

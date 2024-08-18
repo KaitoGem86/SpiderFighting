@@ -24,6 +24,7 @@ namespace Core.UI
         public DefaultEvent onAttack;
         public DefaultEvent onUseGadget;
         public DefaultEvent onUseScan;
+        public DefaultEvent onCollect;
         private bool _isSwing = false;
 
         private void Awake()
@@ -117,6 +118,10 @@ namespace Core.UI
         public void OnClickScan()
         {
             onUseScan?.Raise();
+        }
+
+        public void OnClickCollect(){
+            onCollect?.Raise();
         }
 
         public void OnClickOpenSkin()

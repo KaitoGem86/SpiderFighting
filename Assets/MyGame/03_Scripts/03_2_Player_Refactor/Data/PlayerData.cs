@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Collectible;
 using Data.Stat.Player;
 using Newtonsoft.Json;
 using ParadoxNotion.Serialization.FullSerializer.Internal.DirectConverters;
@@ -10,6 +11,7 @@ namespace Core.GamePlay.MyPlayer{
         public PlayerStatSO playerStatSO;
         public PlayerSerializeData playerSerializeData;
         public Dictionary<PlayerStat, float> localStats;
+        public CollectibleSerializeEventListener onCollectReward;
 
         public void Init(){
             if(PlayerPrefs.HasKey("PlayerData")){
@@ -23,6 +25,7 @@ namespace Core.GamePlay.MyPlayer{
                 SaveData();
             }
             localStats = playerStatSO.GetInstancesStats();
+            onCollectReward.RegisterListener();
         }
 
         private void OnApplicationPause(bool pauseStatus)
@@ -49,6 +52,10 @@ namespace Core.GamePlay.MyPlayer{
         public void UpdateStat(PlayerStat key, float value){
             localStats[key] = value;
             SaveData();
+        }
+
+        public void CollectReward(CollectibleData data){
+            
         }
     }
 }

@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 3336605704467624005}
   - component: {fileID: 2886971762783920537}
   - component: {fileID: -7718148261416010005}
+  - component: {fileID: -1773213118970650575}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -235,8 +236,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     rewardType: 0
+    id: 0
     rewardValue: 0
     position: {x: 0, y: 0, z: 0}
+  remainingTimeToSpawn: 0
+  onCollectEvent: {fileID: 11400000, guid: fb9bf3f608756d943bb1e229e17b2d76, type: 2}
+  onCanCollect: {fileID: 11400000, guid: ef44ca96b600b504588ae44f6a7eb316, type: 2}
 --- !u!205 &-7718148261416010005
 LODGroup:
   m_ObjectHideFlags: 0
@@ -261,6 +266,27 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
+--- !u!135 &-1773213118970650575
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891251333533220347}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &4729161070412098429
 GameObject:
   m_ObjectHideFlags: 0
