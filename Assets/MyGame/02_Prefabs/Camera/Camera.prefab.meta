@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/MyGame/02_Prefabs/Camera/Camera.prefab.meta
 guid: 3ef823813a5eef64e8c5699cdee9ad02
 PrefabImporter:
+========
+guid: d9405b6a59225564dacc42a913ad98fd
+DefaultImporter:
+>>>>>>>> feature/collectible_mission:Assets/TerrainScanner/Demo/DEMO_TerrainScanner.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

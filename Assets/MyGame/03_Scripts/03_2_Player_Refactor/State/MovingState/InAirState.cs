@@ -16,7 +16,7 @@ namespace Core.GamePlay.MyPlayer
         public virtual void FixedUpdate()
         {
             Move();
-            //Rotate();
+            Rotate();
         }
 
         protected override void Rotate()

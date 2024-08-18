@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using Animancer;
+using Collectible;
 using Core.GamePlay.Player;
 using Core.GamePlay.Support;
 using EasyCharacterMovement;
@@ -44,5 +45,8 @@ namespace Core.GamePlay.MyPlayer{
         public Transform HealingBotPivot;
         public GadgetsController GadgetsController;
         public FloatEvent OnAttack;
+    
+        [Header("Collectible")]
+        [HideInInspector] public CollectibleController CollectibleController;
     }
 }

@@ -6,5 +6,7 @@ namespace Data.Reward{
         SkillPoint,
         YellowPiece,
         PurplePiece,
+        HP,
+        EXP,
     }
 }

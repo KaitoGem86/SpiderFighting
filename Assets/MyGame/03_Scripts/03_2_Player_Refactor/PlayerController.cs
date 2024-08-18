@@ -78,6 +78,11 @@ namespace Core.GamePlay.MyPlayer
             blackBoard.OnAttack.Raise(hp / maxHP);
         }
 
+        public void CollectReward()
+        {
+            blackBoard.CollectibleController?.OnCollect();
+        }
+
         public Transform TargetEnemy => transform;
         public bool IsIgnore { get; set; }
         public bool IsPlayer => true;

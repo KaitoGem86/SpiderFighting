@@ -2,6 +2,7 @@ using Core.GamePlay.Enemy;
 using Core.GamePlay.MyPlayer;
 using MyTools.ScreenSystem;
 using MyTools.Sound;
+using TerrainScannerDEMO;
 using UnityEngine;
 
 namespace Core.Manager {
@@ -38,6 +39,8 @@ namespace Core.Manager {
         public void FocusOnPlayer(bool value){
             Time.timeScale = value ? 0.3f : 1;
         }
+
+        public SensorDetector detector;
 
     }
 }

@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/MyGame/02_Prefabs/Camera.meta
 guid: 1d8241e4017f0294b8c2c3afbc0d24c5
 folderAsset: yes
+========
+guid: 089ca542be85f6140bf23fd74eabe2a9
+>>>>>>>> feature/collectible_mission:Assets/TerrainScanner/Demo/DEMO_ConstantScanner.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -19,3 +19,22 @@ MonoBehaviour:
     skinIndex: 0
     gadgetIndex: 0
     maxReceiveProgress: 0
+    currentContinuousDay: 0
+    isClaimedDailyReward: 0
+  onCollectReward:
+    _subject: {fileID: 11400000, guid: fb9bf3f608756d943bb1e229e17b2d76, type: 2}
+    _response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.PlayerData, Assembly-CSharp
+          m_MethodName: CollectReward
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

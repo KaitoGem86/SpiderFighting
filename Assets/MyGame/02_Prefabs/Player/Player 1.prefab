@@ -2365,6 +2365,7 @@ GameObject:
   - component: {fileID: 6822383321148614867}
   - component: {fileID: 397424536552810533}
   - component: {fileID: 6308603332027467591}
+  - component: {fileID: 4218760406261144144}
   m_Layer: 6
   m_Name: Player 1
   m_TagString: Player
@@ -2392,6 +2393,7 @@ Transform:
   - {fileID: 5256391595102026210}
   - {fileID: 8581614525833004515}
   - {fileID: 934142211166127097}
+  - {fileID: 628778200635648556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6540529316838119275
@@ -2510,7 +2512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d993937444b6d4aba3a48bc484bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerData: {fileID: 0}
+  PlayerData: {fileID: 11400000, guid: 0c8172207f6c02f45abdbc6ab00694e4, type: 2}
   PlayerModels:
   - {fileID: 1799183922079595344}
   - {fileID: 7461870271675781694}
@@ -2526,7 +2528,7 @@ MonoBehaviour:
   - {fileID: 1546583688530342290}
   - {fileID: 5376434779340256656}
   - {fileID: 2124432827662691706}
-  CurrentPlayerModel: {fileID: 0}
+  CurrentPlayerModel: {fileID: 1799183922079595344}
   Animancer: {fileID: 872527583909876332}
   CameraTransform: {fileID: 2891768364681447400}
   Character: {fileID: 8917293616794470225}
@@ -2541,6 +2543,7 @@ MonoBehaviour:
   HealingBotPivot: {fileID: 934142211166127097}
   GadgetsController: {fileID: 0}
   OnAttack: {fileID: 11400000, guid: c39f637dcb61cf34799514968403f73e, type: 2}
+  CollectibleController: {fileID: 0}
 --- !u!114 &4369872665408434342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2696,6 +2699,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838519e5d02343249e0d4ddd7578cba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4218760406261144144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482327496165697713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: ad4c3be8e7fcc31419b92ff3d14a6fe8, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4369872665408434342}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.PlayerController, Assembly-CSharp
+        m_MethodName: CollectReward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6062627660230465137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4759,6 +4790,85 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &8731406727306466800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628778200635648556}
+  - component: {fileID: 3697580744014893271}
+  - component: {fileID: 5861749490631572183}
+  m_Layer: 6
+  m_Name: Scanner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628778200635648556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731406727306466800}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2032646152031061193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3697580744014893271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731406727306466800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b073f14beded1f843ba63ca27da277a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sensorCameraEffect: {fileID: 0}
+  _sensorMaterial: {fileID: 2100000, guid: 8eb39bb5d5c890f46bfdf1bda7d835d3, type: 2}
+  _sensorOrigin: {fileID: 8731406727306466800}
+  _maxDistance: 50
+  _speed: 20
+  _killTime: 3
+--- !u!114 &5861749490631572183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731406727306466800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: f13927057d2bd2b4fb26b531dfc1c22d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3697580744014893271}
+        m_TargetAssemblyTypeName: TerrainScannerDEMO.SensorDetector, Assembly-CSharp
+        m_MethodName: StartSensor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8757903119108799708
 GameObject:
   m_ObjectHideFlags: 0
@@ -4866,7 +4976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4634127451460540814, guid: e8e3a6d534147474e8f9318bc053e7c1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4947039549784813204, guid: e8e3a6d534147474e8f9318bc053e7c1, type: 3}
       propertyPath: m_LocalPosition.x
