@@ -1250,8 +1250,8 @@ MonoBehaviour:
   currentStateType: 0
   _unitCanvas: {fileID: 1229326262345273606}
   _hpBarController: {fileID: 9105187874119087014}
-  _damgeNumberParent: {fileID: 0}
-  _damageNumber: {fileID: 0}
+  _damgeNumberParent: {fileID: 1229326262345273606}
+  _damageNumber: {fileID: 284784799528522495, guid: 57f6864dd5571d048bcf206ffd5cc378, type: 3}
   _hitVFXController: {fileID: 1496249544650417380}
 --- !u!95 &8722427846581001443
 Animator:

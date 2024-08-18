@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 301150133034603849}
   - component: {fileID: 5113195920388670533}
   - component: {fileID: 3667115429715317622}
+  - component: {fileID: 1567326841146418573}
   m_Layer: 0
   m_Name: ReceiveQuest
   m_TagString: Untagged
@@ -150,3 +151,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1567326841146418573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5667880772344169435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 0.94716984, g: 0.91900235, b: 0, a: 1}
+  needBoxIndicator: 1
+  needArrowIndicator: 1
+  needDistanceText: 1
+  indicator: {fileID: 0}
