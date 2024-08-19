@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Core.GamePlay.Enemy
 {
-    public class BaseEnemyData{
+    public class BaseEnemyData
+    {
         public int Level;
         public float HP = 100;
         public float Damage;
@@ -47,12 +48,12 @@ namespace Core.GamePlay.Enemy
     {
         public EnemyData initData;
 
-        public virtual GameObject Spawn(Vector3 position = default)
+        public virtual GameObject Spawn(Transform parent = null)
         {
             var go = SpawnObject();
-            go.transform.position = position;
             go.GetComponent<EnemyController>().Init(this);
-            go.transform.position = position;
+            go.transform.SetParent(parent);
+            go.transform.localPosition = Vector3.zero;
             return go;
         }
 

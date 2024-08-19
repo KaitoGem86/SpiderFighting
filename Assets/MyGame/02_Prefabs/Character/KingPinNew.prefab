@@ -1219,6 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultPosition: {x: 0, y: 0, z: 0}
+  rb: {fileID: 7070927777235297703}
   targetPosition: {x: 0, y: 0, z: 0}
   animancerComponent: {fileID: 4521190569619427038}
   navMeshAgent: {fileID: 744121902585229181}

@@ -21,7 +21,7 @@ namespace Core.GamePlay.MyPlayer
             }
             _fsm.blackBoard.Character.useRootMotion = true;
             base.EnterState();
-            _isCanChangeNextAttack = false;    
+            _isCanChangeNextAttack = false;
         }
 
         public override void ExitState()
@@ -30,9 +30,9 @@ namespace Core.GamePlay.MyPlayer
             base.ExitState();
         }
 
-         public void LateUpdate()
-        {   
-            var forward = _enemy != null  ? _enemy.TargetEnemy.position - _fsm.transform.position : _fsm.transform.forward; forward.y = 0;
+        public void LateUpdate()
+        {
+            var forward = _enemy != null ? _enemy.TargetEnemy.position - _fsm.transform.position : _fsm.transform.forward; forward.y = 0;
             _fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, Quaternion.LookRotation(forward), 0.2f);
         }
 
@@ -41,9 +41,17 @@ namespace Core.GamePlay.MyPlayer
             _isCanChangeNextAttack = true;
         }
 
-        public void ApplyDamage()
+        public void ApplyDamage(int typeAttackIndicator)
         {
-            _enemy?.HittedByPlayer(FSMState.KnockBack);
+            switch (typeAttackIndicator)
+            {
+                case 0:
+                    _enemy?.HittedByPlayer(FSMState.Hit);
+                    break;
+                case 1:
+                    _enemy?.HittedByPlayer(FSMState.KnockBack);
+                    break;
+            }
         }
 
         public override void Attack()

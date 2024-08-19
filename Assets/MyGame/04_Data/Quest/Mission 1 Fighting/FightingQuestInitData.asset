@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bc7744877321145998799642b7004e, type: 3}
   m_Name: FightingQuestInitData
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
+  position: {x: -22.31, y: 0.09899998, z: 164.97}
   data:
   - enemySO: {fileID: 11400000, guid: 6a1b8aab1c7ed9144b5ac14e5b99f9c0, type: 2}
     count: 1

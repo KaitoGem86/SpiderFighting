@@ -14,6 +14,7 @@ namespace Core.GamePlay.Enemy
 
         [Header("========= General =========")]
         public Vector3 defaultPosition;
+        public Rigidbody rb;
         public Vector3 targetPosition;
         public AnimancerComponent animancerComponent;
 
@@ -28,7 +29,9 @@ namespace Core.GamePlay.Enemy
         public float sightRange = 10f;
         public float attackRange = 2f;
         public IHitted targetToAttack;
-        public Vector3 targetPos => targetToAttack.TargetEnemy.position;
+        public Vector3 targetPos {
+            get => targetToAttack != null ? targetToAttack.TargetEnemy.position : defaultPosition;
+        }
 
         [Header("========= Weapon =========")]
         public EnemyWeaponController weaponController;

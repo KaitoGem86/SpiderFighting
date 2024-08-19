@@ -56,9 +56,17 @@ namespace Core.GamePlay.MyPlayer
             _isCanChangeNextAttack = true;
         }
 
-        public void ApplyDamage()
+        public void ApplyDamage(int typeAttackIndicator)
         {
-            _enemy?.HittedByPlayer(FSMState.Hit);
+            switch (typeAttackIndicator)
+            {
+                case 0:
+                    _enemy?.HittedByPlayer(FSMState.Hit);
+                    break;
+                case 1:
+                    _enemy?.HittedByPlayer(FSMState.KnockBack);
+                    break;
+            }
         }
 
 

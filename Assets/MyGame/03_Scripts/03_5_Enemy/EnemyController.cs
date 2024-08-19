@@ -37,6 +37,8 @@ namespace Core.GamePlay.Enemy
             IsIgnore = false;
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
             ChangeAction(_startState);
+            blackBoard.rb.position = transform.position;
+            blackBoard.defaultPosition = transform.position;
         }
 
         private void SetEnemyType(WeaponType type)

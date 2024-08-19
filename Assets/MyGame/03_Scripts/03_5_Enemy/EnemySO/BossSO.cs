@@ -21,12 +21,12 @@ namespace Core.GamePlay.Enemy{
     {   
         public BossData bossData;
 
-        public override GameObject Spawn(Vector3 position = default)
+        public override GameObject Spawn(Transform parent)
         {
             var go = SpawnObject();
-            go.transform.position = position;
+            go.transform.SetParent(parent);
+            go.transform.localPosition = Vector3.zero;
             go.GetComponent<BossController>().Init(this);
-            go.transform.position = position;
             return go;
         }
     }

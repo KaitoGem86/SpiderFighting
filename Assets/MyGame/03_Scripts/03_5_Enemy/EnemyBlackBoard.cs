@@ -19,7 +19,7 @@ namespace Core.GamePlay.Enemy
 
         void Awake()
         {
-            defaultPosition = transform.position;
+            //defaultPosition = transform.position;
         }
 
         public void Init(EnemyData data){

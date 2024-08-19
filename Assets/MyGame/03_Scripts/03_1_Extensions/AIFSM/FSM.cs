@@ -6,6 +6,7 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Extensions.SystemGame.AIFSM{
+    [System.Serializable]
     public enum FSMState{
         None = -1,
         Spawn,

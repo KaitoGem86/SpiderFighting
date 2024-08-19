@@ -19,11 +19,13 @@ namespace Core.GamePlay.Mission
         {
             base.Init(container);
             _enemyCount = 0;
+            this.transform.position = _questData.position;
             foreach (var enemyData in _questData.data)
             {
                 for (int i = 0; i < enemyData.count; i++)
                 {
-                    var go = enemyData.enemySO.Spawn(new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5))).GetComponent<BaseEnemyBlackBoard>();
+                    Debug.Log("Spawn enemy " + _questData.position);
+                    var go = enemyData.enemySO.Spawn(/*new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + _questData.position*/this.transform).GetComponent<BaseEnemyBlackBoard>();
                     go.onEnemyDead += UpdateRemainingEnemy;
                 }
                 _enemyCount += enemyData.count;
