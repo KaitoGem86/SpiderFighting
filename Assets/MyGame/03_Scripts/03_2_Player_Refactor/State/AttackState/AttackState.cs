@@ -1,14 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
 using Animancer;
+using AYellowpaper.SerializedCollections;
 using Core.GamePlay.Support;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
 {
-    public class AttackState : LinearMixerTransitionPlayerState
+    public class AttackState : ClipTransitionPlayerState
     {
+        [SerializeField] private SerializedDictionary<int, int> _comboData;
         protected bool _isCanChangeNextAttack = false;
         private int _maxHitInCombo = 0;
+        private int _currentStartHitCombo;
         private int _currentHitInCombo = 0;
         private IHitted _enemy;
 
@@ -16,26 +21,20 @@ namespace Core.GamePlay.MyPlayer
         {
             _fsm.blackBoard.GlobalVelocity = Vector3.zero;
             base.Awake();
-            _currentHitInCombo = -1;
+            _currentHitInCombo = 0;
         }
 
         public override void EnterState()
         {
             _enemy = _fsm.blackBoard.FindEnemyToAttack.FindEnemyByDistance(_fsm.transform, false);
-            
-            if (_enemy!= null && Vector3.Distance(_enemy.TargetEnemy.position, _fsm.transform.position) > 2f)
+
+            if (_enemy != null && Vector3.Distance(_enemy.TargetEnemy.position, _fsm.transform.position) > 2f)
             {
                 _fsm.ChangeAction(FSMState.StartAttack);
                 return;
             }
             _fsm.blackBoard.Character.useRootMotion = true;
             base.EnterState();
-            if (_currentHitInCombo == -1)
-            {
-                _maxHitInCombo = _transition.Animations.Length;
-            }
-            _currentHitInCombo++;
-            _transition.State.Parameter = _currentHitInCombo;
             _isCanChangeNextAttack = false;
         }
 
@@ -46,8 +45,8 @@ namespace Core.GamePlay.MyPlayer
         }
 
         public void LateUpdate()
-        {   
-            var forward = _enemy != null  ? _enemy.TargetEnemy.position - _fsm.transform.position : _fsm.transform.forward; forward.y = 0;
+        {
+            var forward = _enemy != null ? _enemy.TargetEnemy.position - _fsm.transform.position : _fsm.transform.forward; forward.y = 0;
             _fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, Quaternion.LookRotation(forward), 0.2f);
         }
 
@@ -66,34 +65,51 @@ namespace Core.GamePlay.MyPlayer
         public override void Attack()
         {
             if (!_isCanChangeNextAttack) return;
-            if (_currentHitInCombo < _maxHitInCombo - 1)
+            if (_currentHitInCombo == 0)
             {
-                _fsm.ChangeAction(FSMState.Attack);
-            }
-            else
-            {
-                _currentHitInCombo = -1;
                 _fsm.ChangeAction(FSMState.LastAttack);
+                return;
             }
+            _fsm.ChangeAction(FSMState.Attack);
         }
 
         public void CompleteAttack()
         {
-            _currentHitInCombo = -1;
+            _currentHitInCombo = 0;
             _fsm.blackBoard.Character.SetMovementDirection(Vector3.zero);
             _fsm.ChangeAction(FSMState.Idle);
         }
 
         protected override int GetIndexTransition()
         {
-            if (_currentHitInCombo == -1)
+            if (_currentHitInCombo == 0)
             {
-                return base.GetIndexTransition();
+                var element = _comboData.ElementAt(Random.Range(0, _comboData.Count));
+                _currentStartHitCombo = element.Key;
+                _maxHitInCombo = element.Value;
+                _currentHitInCombo += 1;
+                return _currentStartHitCombo;
             }
             else
             {
-                return _currentTransitionIndex;
+                var final = _currentStartHitCombo + _currentHitInCombo;
+                _currentHitInCombo = (_currentHitInCombo + 1) % _maxHitInCombo;
+                return final;
             }
+        }
+
+        private KeyValuePair<int, int> GetComboData(int currentHitIndex)
+        {
+            int previous = _comboData.First().Key;
+            foreach (var item in _comboData)
+            {
+                if (item.Key > currentHitIndex)
+                {
+                    return new KeyValuePair<int, int>(previous, item.Key);
+                }
+                previous = item.Key;
+            }
+            return _comboData.Last();
         }
     }
 }
