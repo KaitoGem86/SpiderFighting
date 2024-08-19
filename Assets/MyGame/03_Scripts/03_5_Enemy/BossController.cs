@@ -1,3 +1,6 @@
+using NodeCanvas.BehaviourTrees;
+using UnityEngine.AI;
+
 namespace Core.GamePlay.Enemy{
     public class BossController : BaseEnemyController<BossBlackBoard>{
         private BossSO _bossSO;
@@ -9,8 +12,13 @@ namespace Core.GamePlay.Enemy{
             IsIgnore = false;
             blackBoard.weaponController.SetTypeOfEnemy(WeaponType.Hand, blackBoard.bossModel.rightHand);
             _hpBarController.SetHP(_runtimeData.HP, bossSO.bossData.HP);
+            blackBoard.defaultPosition = transform.position;
             ChangeAction(_startState);
+            GetComponent<NavMeshAgent>().enabled = true;
+            GetComponent<BehaviourTreeOwner>().enabled = true;
         }
+
+
 
     }
 }

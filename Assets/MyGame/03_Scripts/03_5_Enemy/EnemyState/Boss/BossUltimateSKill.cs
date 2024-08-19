@@ -30,10 +30,9 @@ namespace Core.GamePlay.Enemy{
         public override void Update(){
             base.Update();
             _targetPos = _blackBoard.targetPos;
-            Debug.Log("BossUltimateSkill " + Vector3.Distance(_targetPos, _blackBoard.transform.position));
             if(Vector3.Distance(_targetPos, _blackBoard.transform.position) < _attackRange && !_isAttack){
                 _isAttack = true;
-                _blackBoard.targetToAttack.TargetEnemy.GetComponent<PlayerBlackBoard>().ResponeSpecialSkillAnim = _forwardResponse;
+                _blackBoard.targetToAttack.TargetEnemy.GetComponent<PlayerBlackBoard>().ResponeSpecialSkillAnim = GetResponse(_blackBoard.targetToAttack.TargetEnemy);
                 _blackBoard.weaponController.OnWeaponAttack(_blackBoard.targetToAttack.TargetEnemy, FSMState.ResponeForSpecialSkill);
             }
         }
@@ -49,6 +48,15 @@ namespace Core.GamePlay.Enemy{
         private void RotateToEnemy()
         {
             _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_targetPos - _blackBoard.navMeshAgent.transform.position), Time.deltaTime * 20);
+        }
+
+        private ClipTransitionSequence GetResponse(Transform target){
+            var angle = Vector3.SignedAngle(target.forward, _blackBoard.transform.position - target.position, Vector3.up);
+            if (angle > 90)
+                return _forwardResponse;
+            if (angle < -90)
+                return _forwardResponse;
+            return _backwardResponse;
         }
     }
 }

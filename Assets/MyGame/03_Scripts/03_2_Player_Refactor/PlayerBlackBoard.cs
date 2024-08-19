@@ -13,6 +13,7 @@ namespace Core.GamePlay.MyPlayer{
         public IPlayerState CurrentState;
         [Header("Player Data")]
         public PlayerData PlayerData;
+        public PlayerController PlayerController;
 
         [Header("Skin")]
         public PlayerModel[] PlayerModels;

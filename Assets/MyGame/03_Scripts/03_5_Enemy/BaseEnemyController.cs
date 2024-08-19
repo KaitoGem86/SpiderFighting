@@ -4,6 +4,8 @@ using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 using DamageNumbersPro;
 using Animancer;
+using UnityEngine.AI;
+using NodeCanvas.BehaviourTrees;
 
 namespace Core.GamePlay.Enemy
 {
@@ -16,6 +18,11 @@ namespace Core.GamePlay.Enemy
         [SerializeField] protected HitVFXController _hitVFXController;
         protected BaseEnemyData _initData;
         protected BaseEnemyData _runtimeData;
+
+        public void OnDisable(){
+            GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<BehaviourTreeOwner>().enabled = false;
+        }
 
         public void HittedByPlayer(FSMState state)
         {
@@ -47,7 +54,7 @@ namespace Core.GamePlay.Enemy
         }
 
         public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip){
-            
+
         }
 
         private void StunLock()

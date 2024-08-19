@@ -1052,7 +1052,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553592753768227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -1124,7 +1124,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553592753768227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aad115aca74ce3c4891b3f6de0b4aae8, type: 3}
   m_Name: 
@@ -3357,19 +3357,30 @@ MonoBehaviour:
   _forwardResponse:
     _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes: []
+      _NormalizedTimes:
+      - 1
       _Callbacks: []
       _Names: []
     _Clip: {fileID: 8897098510687974090, guid: 95a8eb5166ec46f2ae1002f344fbed9e, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
     _Others:
-    - _FadeDuration: 0.25
+    - _FadeDuration: 0.6666667
       _Events:
-        _NormalizedTimes: []
+        _NormalizedTimes:
+        - 1
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: -3956182034850162835, guid: 3313e032ba2b4b1d9cfc3e1e779fcbda, type: 3}
+      _Clip: {fileID: 7138192615501677084, guid: 0b9a51c7befe4242b50e315eebaa0e41, type: 3}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+    - _FadeDuration: 0.06666667
+      _Events:
+        _NormalizedTimes:
+        - 1
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: -3956182034850162835, guid: cc0d18509d214875b9a52c8e1f042dfc, type: 3}
       _Speed: 1
       _NormalizedStartTime: NaN
   _backwardResponse:
@@ -3382,12 +3393,21 @@ MonoBehaviour:
     _Speed: 1
     _NormalizedStartTime: NaN
     _Others:
-    - _FadeDuration: 0.25
+    - _FadeDuration: 0.6666667
       _Events:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 116ad89f0d8848e794ac0644fe2b783b, type: 3}
+      _Clip: {fileID: 3227654453875527679, guid: ecf80428b22f427985cf15f3feda08c3, type: 3}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 1
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 1059945741301776398, guid: 77db53f659ce4d6d9daa0663afec2212, type: 3}
       _Speed: 1
       _NormalizedStartTime: NaN
   _attackRange: 1

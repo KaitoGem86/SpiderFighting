@@ -1,16 +1,31 @@
-namespace Core.GamePlay.MyPlayer{
-    public class ResponeFromSpecialSkillState : ClipTransitionPlayerState{
+using Animancer;
+
+namespace Core.GamePlay.MyPlayer
+{
+    public class ResponeFromSpecialSkillState : BasePlayerState<ClipTransitionSequence>
+    {
 
         public override void EnterState()
         {
             this.gameObject.SetActive(true);
+            _blackBoard.Character.useRootMotion = true;
             _transition = _blackBoard.ResponeSpecialSkillAnim;
-            var state = _animancer.Play(_transition );
+            _transition.AddEvent(1, true, CompleteRespone);
+            AnimancerState state = _animancer.Play(_transition);
             state.Time = 0;
+            _fsm.blackBoard.PlayerController.IsIgnore = true;
         }
 
-        public void CompleteRespone(){
+        public void CompleteRespone()
+        {
             _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Idle);
+        }
+
+        public override void ExitState()
+        {
+            _blackBoard.Character.useRootMotion = false;
+            _fsm.blackBoard.PlayerController.IsIgnore = false;
+            base.ExitState();
         }
     }
 }

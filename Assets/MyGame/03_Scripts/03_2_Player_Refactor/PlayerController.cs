@@ -77,11 +77,14 @@ namespace Core.GamePlay.MyPlayer
             hp = Mathf.Max(0, hp);
             blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP] = hp;
             blackBoard.OnAttack.Raise(hp / maxHP);
+            if(state == FSMState.ResponeForSpecialSkill){
+                ChangeAction(FSMState.ResponeForSpecialSkill);
+            }
         }
 
         public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip){
             blackBoard.ResponeSpecialSkillAnim = responseClip;
-            
+
         }
 
         public void CollectReward()
