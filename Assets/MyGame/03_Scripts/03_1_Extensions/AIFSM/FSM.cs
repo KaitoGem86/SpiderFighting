@@ -32,6 +32,7 @@ namespace Extensions.SystemGame.AIFSM{
         KnockBack,
         StunLock,
         AIM,
+        ResponeForSpecialSkill
     }
 
     public class FSM<T> : MonoBehaviour, IFSM where T : BlackBoard{

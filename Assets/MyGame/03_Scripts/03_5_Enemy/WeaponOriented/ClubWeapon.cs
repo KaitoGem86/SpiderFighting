@@ -1,4 +1,5 @@
 using Core.GamePlay.Support;
+using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 namespace Core.GamePlay.Enemy
@@ -8,7 +9,7 @@ namespace Core.GamePlay.Enemy
         [SerializeField] float _range;
         [SerializeField] float _height;
 
-        public override void OnWeaponAttack(Transform target)
+        public override void OnWeaponAttack(Transform target, FSMState state)
         {
             var hit = Physics.OverlapCapsule(transform.position, transform.position + transform.up * _height, _range, _checkLayer);
             if (hit.Length > 0)

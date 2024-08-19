@@ -3,6 +3,7 @@ using Core.GamePlay.Support;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 using DamageNumbersPro;
+using Animancer;
 
 namespace Core.GamePlay.Enemy
 {
@@ -43,6 +44,10 @@ namespace Core.GamePlay.Enemy
                     }
                     break;
             }
+        }
+
+        public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip){
+            
         }
 
         private void StunLock()

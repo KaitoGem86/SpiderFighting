@@ -1,3 +1,4 @@
+using Animancer;
 using Core.GamePlay.Support;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
@@ -76,6 +77,11 @@ namespace Core.GamePlay.MyPlayer
             hp = Mathf.Max(0, hp);
             blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP] = hp;
             blackBoard.OnAttack.Raise(hp / maxHP);
+        }
+
+        public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip){
+            blackBoard.ResponeSpecialSkillAnim = responseClip;
+            
         }
 
         public void CollectReward()

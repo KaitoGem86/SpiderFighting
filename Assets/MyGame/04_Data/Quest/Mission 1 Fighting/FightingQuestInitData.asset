@@ -16,7 +16,3 @@ MonoBehaviour:
   data:
   - enemySO: {fileID: 11400000, guid: 6a1b8aab1c7ed9144b5ac14e5b99f9c0, type: 2}
     count: 1
-  - enemySO: {fileID: 11400000, guid: 9c7289dd3f1c652459514adc4a252a10, type: 2}
-    count: 2
-  - enemySO: {fileID: 11400000, guid: 8b78cd0366f35f547b770b28b832cc60, type: 2}
-    count: 3

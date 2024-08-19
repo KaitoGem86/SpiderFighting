@@ -1024,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4967908381333475
 Transform:
   m_ObjectHideFlags: 0
@@ -1159,8 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"myAIState":{"_propertyPath":"Core.GamePlay.Enemy.BossController.currentStateType","_name":"myAIState","_id":"1b9b485a-024e-4bdd-9a4d-abade8e783f3","$type":"NodeCanvas.Framework.Variable`1[[System.Enum,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"attackDelayTime":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.attackDelayTime","_name":"attackDelayTime","_id":"030b5bf6-4d7a-461a-8585-1b6c46c6c07d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  _serializedBlackboard: '{"_variables":{"attackDelayTime":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.attackDelayTime","_name":"attackDelayTime","_id":"030b5bf6-4d7a-461a-8585-1b6c46c6c07d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"attackRange":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.attackRange","_name":"attackRange","_id":"471345b9-ca98-4748-b710-cf1be8d2cf44","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"sightRange":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.sightRange","_name":"sightRange","_id":"850ae288-2c89-42b3-9664-3e8f99b6b5e3","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"defaultPosition":{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.defaultPosition","_name":"defaultPosition","_id":"7988d4d8-eb37-4380-967d-04e8bf05db2a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
@@ -1173,9 +1172,6 @@ MonoBehaviour:
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
   _serializedVariables:
-  - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossController.currentStateType","_name":"myAIState","_id":"1b9b485a-024e-4bdd-9a4d-abade8e783f3","$type":"NodeCanvas.Framework.Variable`1[[System.Enum,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
   - _json: '{"_propertyPath":"Core.GamePlay.Enemy.BossBlackBoard.attackDelayTime","_name":"attackDelayTime","_id":"030b5bf6-4d7a-461a-8585-1b6c46c6c07d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
@@ -3358,6 +3354,43 @@ MonoBehaviour:
       _NormalizedStartTime: NaN
   _stateType: 18
   _canChangeToItself: 0
+  _forwardResponse:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 8897098510687974090, guid: 95a8eb5166ec46f2ae1002f344fbed9e, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: -3956182034850162835, guid: 3313e032ba2b4b1d9cfc3e1e779fcbda, type: 3}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  _backwardResponse:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 3226618792657046722, guid: 5aa0596fdfcc4833938a2566d15a1166, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 116ad89f0d8848e794ac0644fe2b783b, type: 3}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  _attackRange: 1
 --- !u!1 &8270088260037081166
 GameObject:
   m_ObjectHideFlags: 0

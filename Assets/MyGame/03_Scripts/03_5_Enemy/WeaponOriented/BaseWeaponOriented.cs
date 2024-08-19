@@ -1,4 +1,5 @@
 using Animancer;
+using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 namespace Core.GamePlay.Enemy
@@ -13,7 +14,7 @@ namespace Core.GamePlay.Enemy
             //_weapon.SetActive(value);
         }
 
-        public virtual void OnWeaponAttack(Transform target) { }
+        public virtual void OnWeaponAttack(Transform target, FSMState state) { }
         public WeaponType WeaponType => _weaponType;
     }
 }

@@ -1,4 +1,5 @@
 using Core.GamePlay.Support;
+using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 namespace Core.GamePlay.Enemy
@@ -27,7 +28,7 @@ namespace Core.GamePlay.Enemy
             _target = target;
         }
 
-        public override void OnWeaponAttack(Transform target)
+        public override void OnWeaponAttack(Transform target, FSMState state)
         {
             _onAim = false;
             _lineRenderer.SetPositions(new[] { Vector3.zero, Vector3.zero });

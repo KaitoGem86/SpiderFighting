@@ -45,7 +45,8 @@ namespace Core.GamePlay.MyPlayer{
         public Transform HealingBotPivot;
         public GadgetsController GadgetsController;
         public FloatEvent OnAttack;
-    
+        [HideInInspector] public ClipTransitionSequence ResponeSpecialSkillAnim;
+
         [Header("Collectible")]
         [HideInInspector] public CollectibleController CollectibleController;
     }

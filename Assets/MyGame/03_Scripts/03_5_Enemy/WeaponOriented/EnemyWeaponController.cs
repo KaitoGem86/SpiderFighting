@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 namespace Core.GamePlay.Enemy{
@@ -24,8 +25,8 @@ namespace Core.GamePlay.Enemy{
             _weaponDict[_currentWeaponType].transform.localRotation = Quaternion.identity;
         }
 
-        public void OnWeaponAttack(Transform target){
-            _weaponDict[_currentWeaponType].OnWeaponAttack(target);
+        public void OnWeaponAttack(Transform target, FSMState state){
+            _weaponDict[_currentWeaponType].OnWeaponAttack(target, state);
         }
 
         public void OnAim(Transform target){
