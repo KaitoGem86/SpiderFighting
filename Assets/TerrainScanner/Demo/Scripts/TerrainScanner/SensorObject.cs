@@ -8,6 +8,7 @@ namespace TerrainScannerDEMO
     public class SensorObject : MonoBehaviour
     {
         [SerializeField] private SensorDetector _detector;
+        [SerializeField] private Target _target;
 
         private AudioSource _audioTrigger;
         [SerializeField] AudioClip _sensorExit;
@@ -28,6 +29,10 @@ namespace TerrainScannerDEMO
             _meshRenderer = GetComponent<MeshRenderer>();
             _cachedMaterial = _meshRenderer.sharedMaterial;
             //_audioTrigger = GetComponent<AudioSource>();
+        }
+
+        private void OnDisable(){
+            StopAllCoroutines();
         }
 
         private void Update()
@@ -65,6 +70,15 @@ namespace TerrainScannerDEMO
             _timeToReset = 2 * _detector.Duration;
             //_audioTrigger.Play();
             _meshRenderer.sharedMaterial = _detectedMaterial;
+            if (_target != null)
+                StartCoroutine(ActiveTarget());
+        }
+
+        private IEnumerator ActiveTarget()
+        {
+            _target.enabled = true;
+            yield return new WaitForSeconds(_timeToReset);
+            _target.enabled = false;
         }
     }
 }

@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detector: {fileID: 0}
+  _target: {fileID: 5030269288274643582}
   _sensorExit: {fileID: 8300000, guid: ad73f5bbbbf21ee46b9c808e698c5eae, type: 3}
   _detectedMaterial: {fileID: 824015559753126921, guid: 4e4991f994f37b24487e3fdd0abce57e, type: 3}
 --- !u!1 &1552724187327596017
@@ -198,6 +199,7 @@ GameObject:
   - component: {fileID: 2886971762783920537}
   - component: {fileID: -7718148261416010005}
   - component: {fileID: -1773213118970650575}
+  - component: {fileID: 5030269288274643582}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -287,6 +289,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &5030269288274643582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891251333533220347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  needBoxIndicator: 1
+  needArrowIndicator: 1
+  needDistanceText: 1
+  indicator: {fileID: 0}
 --- !u!1 &4729161070412098429
 GameObject:
   m_ObjectHideFlags: 0
