@@ -1,3 +1,4 @@
+using System.Collections;
 using Animancer;
 using Core.GamePlay.Support;
 using DG.Tweening;
@@ -24,9 +25,10 @@ namespace Core.GamePlay.MyPlayer
                 {
                     _fsm.ChangeAction(FSMState.FallingDown);
                     return;
-                    
+
                 }
-                else {
+                else
+                {
                     _fsm.ChangeAction(FSMState.Attack);
                     return;
                 }
@@ -44,8 +46,8 @@ namespace Core.GamePlay.MyPlayer
         public void GoToEnemy(float time)
         {
             _fsm.blackBoard.rig.DOMove(_enemy.TargetEnemy.position + (_fsm.transform.position - _enemy.TargetEnemy.transform.position).normalized * 1f, time);
-            var forward = _enemy.TargetEnemy.position - _fsm.transform.position; forward.y = 0;
-            _fsm.transform.DORotateQuaternion(Quaternion.LookRotation(forward), 0.05f);
+           // var forward = _enemy.TargetEnemy.position - _fsm.transform.position;
+           // _fsm.blackBoard.rig.DORotate(forward, 0.05f);
         }
 
         public override void Attack()
@@ -64,6 +66,19 @@ namespace Core.GamePlay.MyPlayer
             _moveDirection = Vector3.zero;
             Move();
             _fsm.ChangeAction(FSMState.Idle);
+        }
+
+        void LateUpdate()
+        {
+            ReRotateCharacter();
+        }   
+
+        private void ReRotateCharacter()
+        {
+            var rotateDir = _enemy.TargetEnemy.position - _fsm.transform.position;
+            rotateDir.y = 0;
+            var targetRotation = Quaternion.LookRotation(rotateDir);
+            _fsm.blackBoard.rig.rotation = Quaternion.Slerp(_fsm.blackBoard.rig.rotation, targetRotation, Time.deltaTime * 200);
         }
 
         protected override int GetIndexTransition()

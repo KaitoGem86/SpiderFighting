@@ -33,15 +33,15 @@ namespace Core.GamePlay.MyPlayer
 
         public void LateUpdate()
         {
-            //ReRotateCharacter();
+            ReRotateCharacter();
         }
 
-        // private void ReRotateCharacter()
-        // {
-        //     var rotateDir = _fsm.blackBoard.PlayerDisplay.transform.forward;
-        //     rotateDir.y = 0;
-        //     var targetRotation = Quaternion.LookRotation(rotateDir);
-        //     _fsm.blackBoard.PlayerDisplay.transform.rotation = Quaternion.Slerp(_fsm.blackBoard.PlayerDisplay.transform.rotation, targetRotation, Time.deltaTime * 10);
-        // }
+        private void ReRotateCharacter()
+        {
+            var rotateDir = _fsm.transform.forward;
+            rotateDir.y = 0;
+            var targetRotation = Quaternion.LookRotation(rotateDir);
+            _fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, targetRotation, Time.deltaTime * 10);
+        }
     }
 }

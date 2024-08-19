@@ -27,7 +27,7 @@ namespace Core.GamePlay.MyPlayer
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.useGravity = true;
                 rigidbody.isKinematic = false;
-                rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
                 switch(_interpolateMode){
                     case InterpolateMode.None:
                         rigidbody.velocity = Vector3.zero;
@@ -45,7 +45,7 @@ namespace Core.GamePlay.MyPlayer
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.useGravity = false;
                 rigidbody.isKinematic = true;
-                rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+                rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX ;
                 switch(_interpolateMode){
                     case InterpolateMode.None:
                         _fsm.blackBoard.Character.SetMovementDirection(Vector3.zero);
