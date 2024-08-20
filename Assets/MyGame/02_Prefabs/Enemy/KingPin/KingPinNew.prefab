@@ -3331,8 +3331,24 @@ MonoBehaviour:
   _transitions:
   - _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
+      _NormalizedTimes:
+      - 0.7
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 677371837739716586}
+            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.BossUltimateSkill, Assembly-CSharp
+            m_MethodName: set_IsMoving
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 1
+            m_CallState: 2
       _Names: []
     _Clip: {fileID: 7400000, guid: a2edad18fec4f6d439d2a007872781f6, type: 2}
     _Speed: 1
@@ -3348,8 +3364,24 @@ MonoBehaviour:
       _NormalizedStartTime: NaN
     - _FadeDuration: 0.2133334
       _Events:
-        _NormalizedTimes: []
-        _Callbacks: []
+        _NormalizedTimes:
+        - 0.7
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 677371837739716586}
+              m_TargetAssemblyTypeName: Core.GamePlay.Enemy.BossUltimateSkill, Assembly-CSharp
+              m_MethodName: set_IsMoving
+              m_Mode: 6
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
         _Names: []
       _Clip: {fileID: 7400000, guid: eadac3a54b0aa5744a416cfd9b5a8e22, type: 2}
       _Speed: 1

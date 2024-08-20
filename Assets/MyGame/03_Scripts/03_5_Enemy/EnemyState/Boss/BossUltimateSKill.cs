@@ -12,24 +12,30 @@ namespace Core.GamePlay.Enemy{
         [SerializeField] private float _attackRange;
         private Vector3 _targetPos;
         private bool _isAttack;
+        private Vector3 _direction;
+        private bool _isMoving;
 
         public override void EnterState()
         {
             _isAttack = false;
-            _blackBoard.animancerComponent.Animator.applyRootMotion = true;
+            //_blackBoard.animancerComponent.Animator.applyRootMotion = true;
             base.EnterState();
             _targetPos = _blackBoard.targetPos;
+            _direction = _targetPos - _blackBoard.transform.position;
+            _isMoving = false;
         }
 
         public override void ExitState()
         {
-            _blackBoard.animancerComponent.Animator.applyRootMotion = false;
+            //_blackBoard.animancerComponent.Animator.applyRootMotion = false;
             base.ExitState();
         }
 
         public override void Update(){
             base.Update();
-            _targetPos = _blackBoard.targetPos;
+            //_targetPos = _blackBoard.targetPos;
+            if(!_isMoving) return;
+            _blackBoard.transform.position += _direction.normalized * Time.deltaTime * 10;
             if(Vector3.Distance(_targetPos, _blackBoard.transform.position) < _attackRange && !_isAttack){
                 _isAttack = true;
                 _blackBoard.targetToAttack.TargetEnemy.GetComponent<IHitted>().ResponseClip = GetResponse(_blackBoard.targetToAttack.TargetEnemy);
@@ -47,7 +53,7 @@ namespace Core.GamePlay.Enemy{
 
         private void RotateToEnemy()
         {
-            _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_targetPos - _blackBoard.navMeshAgent.transform.position), Time.deltaTime * 20);
+            //_blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_targetPos - _blackBoard.navMeshAgent.transform.position), Time.deltaTime * 20);
         }
 
         private ClipTransitionSequence GetResponse(Transform target){
@@ -58,5 +64,7 @@ namespace Core.GamePlay.Enemy{
                 return _forwardResponse;
             return _backwardResponse;
         }
+
+        public bool IsMoving { get => _isMoving; set => _isMoving = value; }
     }
 }
