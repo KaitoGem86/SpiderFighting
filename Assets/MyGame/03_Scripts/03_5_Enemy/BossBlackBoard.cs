@@ -1,5 +1,6 @@
 using Core.GamePlay.Support;
 using Extensions.SystemGame.AIFSM;
+using MyTools.Event;
 using UnityEngine;
 namespace Core.GamePlay.Enemy
 {
@@ -10,5 +11,6 @@ namespace Core.GamePlay.Enemy
         public override IFSM fsm => bossController;
         public override IHitted hitted => bossController;
         public EnemyModel bossModel;
+        public FloatEvent onBossHPChange;
     }
 }

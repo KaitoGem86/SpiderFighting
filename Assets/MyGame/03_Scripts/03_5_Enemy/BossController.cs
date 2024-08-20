@@ -2,11 +2,13 @@ using UnityEngine;
 using NodeCanvas.BehaviourTrees;
 using UnityEngine.AI;
 using MyTools.Event;
+using Extensions.SystemGame.AIFSM;
 
 namespace Core.GamePlay.Enemy{
     public class BossController : BaseEnemyController<BossBlackBoard>{
         private BossSO _bossSO;
         [SerializeField] private DefaultEvent _onBossActive;
+        
 
         public void Init(BossSO bossSO){
             _initData = bossSO.bossData;
@@ -20,6 +22,13 @@ namespace Core.GamePlay.Enemy{
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<BehaviourTreeOwner>().enabled = true;
             _onBossActive.Raise();
+            blackBoard.onBossHPChange.Raise(1);
+        }
+
+        public override void HittedByPlayer(FSMState state)
+        {
+            base.HittedByPlayer(state);
+            blackBoard.onBossHPChange.Raise(_runtimeData.HP / _initData.HP);
         }
     }
 }

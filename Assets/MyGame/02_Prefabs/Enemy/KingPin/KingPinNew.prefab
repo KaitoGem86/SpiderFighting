@@ -1229,6 +1229,7 @@ MonoBehaviour:
   weaponType: 0
   bossController: {fileID: 8818636489921025615}
   bossModel: {fileID: 8841389358949594385}
+  onBossHPChange: {fileID: 11400000, guid: e7b6493456265274ea74b2cb6962b4ac, type: 2}
 --- !u!114 &8818636489921025615
 MonoBehaviour:
   m_ObjectHideFlags: 0

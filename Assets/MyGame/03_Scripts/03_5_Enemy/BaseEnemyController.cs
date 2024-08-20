@@ -24,7 +24,7 @@ namespace Core.GamePlay.Enemy
             GetComponent<BehaviourTreeOwner>().enabled = false;
         }
 
-        public void HittedByPlayer(FSMState state)
+        public virtual void HittedByPlayer(FSMState state)
         {
             switch (state)
             {
@@ -38,7 +38,7 @@ namespace Core.GamePlay.Enemy
                     _hitVFXController.ShowHitVFX();
                     _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _initData.HP);
                     _damageNumber.Spawn(_damgeNumberParent.position, 10, _damgeNumberParent);
-                    _hpBarController.SetHP(_runtimeData.HP, _initData.HP);
+                    _hpBarController?.SetHP(_runtimeData.HP, _initData.HP);
                     blackBoard.attackDelayTime = 5;
                     if (_runtimeData.HP <= 0)
                     {
@@ -61,7 +61,7 @@ namespace Core.GamePlay.Enemy
         {
             _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _initData.HP);
             _damageNumber.Spawn(_damgeNumberParent.position, 10, _damgeNumberParent);
-            _hpBarController.SetHP(_runtimeData.HP, _initData.HP);
+            _hpBarController?.SetHP(_runtimeData.HP, _initData.HP);
             blackBoard.attackDelayTime = 5;
             if (_runtimeData.HP <= 0)
             {
@@ -79,7 +79,7 @@ namespace Core.GamePlay.Enemy
             _hitVFXController.ShowHitVFX();
             _runtimeData.HP = Mathf.Clamp(_runtimeData.HP - 10, 0, _initData.HP);
             _damageNumber.Spawn(_damgeNumberParent.position, 10, _damgeNumberParent);
-            _hpBarController.SetHP(_runtimeData.HP, _initData.HP);
+            _hpBarController?.SetHP(_runtimeData.HP, _initData.HP);
             blackBoard.attackDelayTime = 5;
             if (_runtimeData.HP <= 0)
             {
