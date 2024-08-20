@@ -1,9 +1,12 @@
+using UnityEngine;
 using NodeCanvas.BehaviourTrees;
 using UnityEngine.AI;
+using MyTools.Event;
 
 namespace Core.GamePlay.Enemy{
     public class BossController : BaseEnemyController<BossBlackBoard>{
         private BossSO _bossSO;
+        [SerializeField] private DefaultEvent _onBossActive;
 
         public void Init(BossSO bossSO){
             _initData = bossSO.bossData;
@@ -16,9 +19,7 @@ namespace Core.GamePlay.Enemy{
             ChangeAction(_startState);
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<BehaviourTreeOwner>().enabled = true;
+            _onBossActive.Raise();
         }
-
-
-
     }
 }

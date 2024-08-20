@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a90774c9fc48624eb0ca3d0f14ab290, type: 3}
+  m_Name: FightingBoss
+  m_EditorClassIdentifier: 
+  infor:
+    id: 0
+    QuestName: 
+    QuestDescription: 
+  reward:
+    exp: 0
+    currency: 0
+  _stepPrefabs:
+  - {fileID: 5667880772344169435, guid: 450acf4c42580b040aa99a47120ecc74, type: 3}
+  - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
+  _dataPrefabs:
+  - {fileID: 11400000, guid: 3ba458741a9ef0e4ca263f734cdd9fc5, type: 2}
+  - {fileID: 11400000, guid: aafab40a4262f9440aad097101e860e3, type: 2}
+  _onQuestComplete: {fileID: 11400000, guid: 91d2c1390c0b16440ba6c2a01ca027d8, type: 2}
+  _activeBossEvent: {fileID: 11400000, guid: 2cd78a7464a50c94196747da5e2f1b14, type: 2}

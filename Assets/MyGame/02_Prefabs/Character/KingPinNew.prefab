@@ -1024,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4967908381333475
 Transform:
   m_ObjectHideFlags: 0
@@ -1250,6 +1250,7 @@ MonoBehaviour:
   _damgeNumberParent: {fileID: 1229326262345273606}
   _damageNumber: {fileID: 284784799528522495, guid: 57f6864dd5571d048bcf206ffd5cc378, type: 3}
   _hitVFXController: {fileID: 1496249544650417380}
+  _onBossActive: {fileID: 11400000, guid: 2cd78a7464a50c94196747da5e2f1b14, type: 2}
 --- !u!95 &8722427846581001443
 Animator:
   serializedVersion: 5

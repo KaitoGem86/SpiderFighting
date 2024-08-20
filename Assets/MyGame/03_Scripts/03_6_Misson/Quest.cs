@@ -34,14 +34,14 @@ namespace Core.GamePlay.Mission
             }
         }
 
-        public void StartQuest()
+        public virtual void StartQuest()
         {
             _currentStepIndex = 0;
             var go = Instantiate(_steps[_currentStepIndex].GameObject);
             go.GetComponent<IQuestStep>().Init(this);
         }
 
-        public void NextQuestStep()
+        public virtual void NextQuestStep()
         {
             _currentStepIndex++;
             if (_currentStepIndex >= _steps.Length)
@@ -53,7 +53,7 @@ namespace Core.GamePlay.Mission
             go.GetComponent<IQuestStep>().Init(this);
         }
 
-        public void FinishQuest()
+        public virtual void FinishQuest()
         {
             _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult).OnShow(true);
         }
