@@ -4,6 +4,8 @@ using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 public class TestHitted : MonoBehaviour, IHitted{
+    public bool isPlayer;
+
     public void HittedByPlayer(FSMState state)
     {
         Debug.Log("Hitted by player");
@@ -25,5 +27,6 @@ public class TestHitted : MonoBehaviour, IHitted{
     }
 
     public bool IsIgnore { get; set; }
-    public bool IsPlayer { get;}
+    public bool IsPlayer { get => isPlayer;}
+    public ClipTransitionSequence ResponseClip { get; set; }
 }

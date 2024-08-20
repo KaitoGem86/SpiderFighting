@@ -83,8 +83,7 @@ namespace Core.GamePlay.MyPlayer
         }
 
         public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip){
-            blackBoard.ResponeSpecialSkillAnim = responseClip;
-
+            blackBoard.PlayerController.ResponseClip = responseClip;
         }
 
         public void CollectReward()
@@ -95,5 +94,6 @@ namespace Core.GamePlay.MyPlayer
         public Transform TargetEnemy => transform;
         public bool IsIgnore { get; set; }
         public bool IsPlayer => true;
+        public ClipTransitionSequence ResponseClip { get; set; }
     }
 }

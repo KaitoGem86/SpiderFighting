@@ -9,7 +9,7 @@ namespace Core.GamePlay.MyPlayer
         {
             this.gameObject.SetActive(true);
             _blackBoard.Character.useRootMotion = true;
-            _transition = _blackBoard.ResponeSpecialSkillAnim;
+            _transition = _blackBoard.PlayerController.ResponseClip;
             _transition.AddEvent(1, true, CompleteRespone);
             AnimancerState state = _animancer.Play(_transition);
             state.Time = 0;

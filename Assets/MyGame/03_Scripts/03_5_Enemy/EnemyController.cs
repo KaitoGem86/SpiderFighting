@@ -19,8 +19,9 @@ namespace Core.GamePlay.Enemy
             blackBoard.isReadyToAttack = false;
         }
 
-        public void OnDisable()
+        public override void OnDisable()
         {
+            base.OnDisable();
             blackBoard.onEnemyDead?.Invoke();
             blackBoard.onEnemyDead = null;
             _enemyGroupSO.RemoveEnemy(this);

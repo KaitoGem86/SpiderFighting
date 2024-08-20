@@ -19,7 +19,7 @@ namespace Core.GamePlay.Enemy
         protected BaseEnemyData _initData;
         protected BaseEnemyData _runtimeData;
 
-        public void OnDisable(){
+        public virtual void OnDisable(){
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<BehaviourTreeOwner>().enabled = false;
         }
@@ -96,5 +96,6 @@ namespace Core.GamePlay.Enemy
         public Transform TargetEnemy { get => this.transform; }
         public bool IsIgnore { get; set; }
         public bool IsPlayer { get => false; }
+        public ClipTransitionSequence ResponseClip { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using Animancer;
 using Core.GamePlay.MyPlayer;
+using Core.GamePlay.Support;
 using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
@@ -32,7 +33,7 @@ namespace Core.GamePlay.Enemy{
             _targetPos = _blackBoard.targetPos;
             if(Vector3.Distance(_targetPos, _blackBoard.transform.position) < _attackRange && !_isAttack){
                 _isAttack = true;
-                _blackBoard.targetToAttack.TargetEnemy.GetComponent<PlayerBlackBoard>().ResponeSpecialSkillAnim = GetResponse(_blackBoard.targetToAttack.TargetEnemy);
+                _blackBoard.targetToAttack.TargetEnemy.GetComponent<IHitted>().ResponseClip = GetResponse(_blackBoard.targetToAttack.TargetEnemy);
                 _blackBoard.weaponController.OnWeaponAttack(_blackBoard.targetToAttack.TargetEnemy, FSMState.ResponeForSpecialSkill);
             }
         }

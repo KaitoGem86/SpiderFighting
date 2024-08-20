@@ -14,6 +14,7 @@ namespace Core.GamePlay.Enemy
             {
                 foreach (var item in hit)
                 {
+                    Debug.Log(item.name);
                     if(item.CompareTag("Player"))
                     {
                         item.GetComponent<IHitted>().HittedByPlayer(state);

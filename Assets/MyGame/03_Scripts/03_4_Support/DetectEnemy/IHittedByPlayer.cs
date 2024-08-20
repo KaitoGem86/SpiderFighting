@@ -10,5 +10,6 @@ namespace Core.GamePlay.Support{
         Transform TargetEnemy { get; }
         bool IsIgnore { get; set;}
         bool IsPlayer { get; }
+        ClipTransitionSequence ResponseClip { get; set; }
     }
 }
