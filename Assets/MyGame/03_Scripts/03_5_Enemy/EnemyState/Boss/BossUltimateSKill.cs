@@ -25,7 +25,6 @@ namespace Core.GamePlay.Enemy{
         {
             _blackBoard.animancerComponent.Animator.applyRootMotion = false;
             base.ExitState();
-            StartCoroutine(Rotate(1));
         }
 
         public override void Update(){

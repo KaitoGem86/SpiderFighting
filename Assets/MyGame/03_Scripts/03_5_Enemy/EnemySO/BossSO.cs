@@ -20,6 +20,7 @@ namespace Core.GamePlay.Enemy{
     public class BossSO : EnemySO
     {   
         public BossData bossData;
+        public CustomEvent.DisplayInfo.DisplayInfo info;
 
         public override GameObject Spawn(Transform parent)
         {

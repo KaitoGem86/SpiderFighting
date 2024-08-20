@@ -4,6 +4,7 @@ using Core.GamePlay.Player;
 using MyTools.Event;
 using MyTools.ScreenSystem;
 using SFRemastered.InputSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,6 +17,9 @@ namespace Core.UI
         [SerializeField] private Image _gadgetIcon;
         [SerializeField] private GadgetDataSO _gadgetDataSO;
         [SerializeField] private EventTrigger _lookPanel;
+        [SerializeField] private Image _bossIcon;
+        [SerializeField] private TMP_Text _bossName;
+        [SerializeField] private GameObject _bossHPBar;
         public DefaultEvent onZip;
         public BoolEvent onSwing;
         public IntEvent onChangeSkin;
@@ -152,6 +156,12 @@ namespace Core.UI
         public void OnClickAttack()
         {
             onAttack?.Raise();
+        }
+
+        public void ActiveBossHPBar(CustomEvent.DisplayInfo.DisplayInfo info){
+            _bossHPBar.SetActive(true);
+            _bossIcon.sprite = info.icon;
+            _bossName.text = info.name;
         }
 
         public void OnClickUseGadget()

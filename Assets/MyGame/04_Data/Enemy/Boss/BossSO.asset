@@ -34,3 +34,6 @@ MonoBehaviour:
     SightRange: 10
     Speed: 0
     CooldownAttackTime: 0
+  info:
+    icon: {fileID: 21300000, guid: 98d8e6bc88e06ba488a2a70f8e48d07c, type: 2}
+    name: KingPin
