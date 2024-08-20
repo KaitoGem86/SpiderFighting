@@ -44,7 +44,7 @@ namespace Core.GamePlay.Support
             _explosion.SetActive(true);
             _normal.SetActive(false);
             _collider.enabled = false;
-            var enemy = _findEnemyToAttack.FindAllEnemyByDistance(this.transform, 10);
+            var enemy = _findEnemyToAttack.FindAllEnemyByDistance(this.transform, 10, false);
             foreach (var hitted in enemy)
             {
                 hitted.HittedByPlayer(FSMState.KnockBack);

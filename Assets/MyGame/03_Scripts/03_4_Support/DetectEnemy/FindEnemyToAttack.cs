@@ -36,14 +36,22 @@ namespace Core.GamePlay.Support
             return enemy;
         }
 
-        public List<IHitted> FindAllEnemyByDistance(Transform finder, float distance)
+        public List<IHitted> FindAllEnemyByDistance(Transform finder, float distance, bool isPlayer)
         {
             Collider[] colliders = Physics.OverlapSphere(finder.position, distance);
             var enemies = new List<IHitted>();
             for (int i = 0; i < colliders.Length; i++)
             {
                 IHitted hittedByPlayer = colliders[i].GetComponent<IHitted>();
-                if (hittedByPlayer != null && !hittedByPlayer.IsIgnore)
+                if (hittedByPlayer == null)
+                {
+                    continue;
+                }
+                if (hittedByPlayer.IsPlayer != isPlayer)
+                {
+                    continue;
+                }
+                if (!hittedByPlayer.IsIgnore)
                 {
                     enemies.Add(hittedByPlayer);
                 }

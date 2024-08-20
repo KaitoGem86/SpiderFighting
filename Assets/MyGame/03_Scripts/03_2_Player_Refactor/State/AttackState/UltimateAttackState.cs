@@ -10,8 +10,8 @@ namespace Core.GamePlay.MyPlayer{
 
         public void ApplyDamage(){
             Physics.queriesHitTriggers = true;
-            var enemies = _fsm.blackBoard.FindEnemyToAttack.FindAllEnemyByDistance(_fsm.transform, 10);
-            foreach (var enemy in _fsm.blackBoard.FindEnemyToAttack.FindAllEnemyByDistance(_fsm.transform, 10)){
+            var enemies = _fsm.blackBoard.FindEnemyToAttack.FindAllEnemyByDistance(_fsm.transform, 10, !_blackBoard.PlayerController.IsPlayer);
+            foreach (var enemy in enemies){
                 enemy.HittedByPlayer(Extensions.SystemGame.AIFSM.FSMState.KnockBack);
             }
         }
