@@ -61,6 +61,7 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.Idle);
                 return;
             }
+            GetInput();
             base.Update();
         }
 
