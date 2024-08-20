@@ -10,7 +10,8 @@ namespace CSVLoad
         public int level;
         public TypeEnemy[] typeEnemy;
         public Dictionary<TierEnemy, int> amountEnemy;
-        public int totoalEnemy;
+        public int totalEnemy;
+        public int enemyWaves;
         public int time;
 
         public static MissionConfig[] GetMissionConFig(string spreadsheetId, string gid)
@@ -19,6 +20,7 @@ namespace CSVLoad
             if (data == null || data.Length == 0) return null;
             MissionConfig[] result = new MissionConfig[data.Length - 2];
             int currentLevel = 0;
+            int enemyWaves = 0;
             for (int i = 2; i < data.Length - 1; i++)
             {
                 string[] row = data[i].Split(',');
@@ -26,8 +28,11 @@ namespace CSVLoad
                 {
                     stt = int.Parse(row[0]),
                     mission = GetMissionType(row[1]),
-                    level = int.TryParse(row[2], out currentLevel) ? currentLevel : currentLevel,
+                    level = int.TryParse(row[2], out int c) ? c : currentLevel,
+                    enemyWaves = int.TryParse(row[9], out int e) ? e : enemyWaves
                 };
+                currentLevel = partData.level;
+                enemyWaves = partData.enemyWaves;
                 switch (partData.mission)
                 {
                     case MissionType.Fighting:
@@ -38,7 +43,7 @@ namespace CSVLoad
                         if (int.TryParse(row[4], out int tier1)) { partData.amountEnemy.Add(TierEnemy.Tier1, tier1); }
                         if (int.TryParse(row[5], out int tier2)) { partData.amountEnemy.Add(TierEnemy.Tier2, tier2); }
                         if (int.TryParse(row[6], out int elite)) { partData.amountEnemy.Add(TierEnemy.Elite, elite); }
-                        if (int.TryParse(row[7], out int total)) { partData.totoalEnemy = total; }
+                        if (int.TryParse(row[7], out int total)) { partData.totalEnemy = total; }
                         else { throw new Exception("Can't parse total"); }
                         break;
                     case MissionType.Shipping:
