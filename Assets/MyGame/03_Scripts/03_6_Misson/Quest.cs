@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using Core.GamePlay.Mission.Protected;
+using MyTools.Event;
+using MyTools.ScreenSystem;
 using UnityEngine;
 
 namespace Core.GamePlay.Mission
@@ -10,6 +13,7 @@ namespace Core.GamePlay.Mission
         public RewardInfor reward;
         [SerializeField] private List<GameObject> _stepPrefabs;
         [SerializeField] private List<ScriptableObject> _dataPrefabs;
+        [SerializeField] private BoolEvent _onQuestComplete;
 
         private IQuestStep[] _steps;
         private IMissionData[] _data;
@@ -51,8 +55,7 @@ namespace Core.GamePlay.Mission
 
         public void FinishQuest()
         {
-            Debug.Log("Finish Quest " + infor.QuestName);
-            QuestManager.instance.NextQuest();
+            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult).OnShow(true);
         }
 
         public virtual void Update(){

@@ -32,6 +32,10 @@ namespace Core.GamePlay.Mission
             currentQuest.StartQuest();
         }
 
+        public void RetryQuest(){
+            quests[currentQuestIndex].StartQuest();
+        }
+
         public void Update(){
             if(currentQuest != null){
                 currentQuest.Update();

@@ -5,7 +5,7 @@ namespace MyTools.ScreenSystem{
         GamePlay,
         Selection,
         Progress,
-        LoseGame,
+        MissonResult,
         Setting,
         Tutorials,
         DailyReward

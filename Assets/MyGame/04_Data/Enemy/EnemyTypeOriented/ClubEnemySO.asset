@@ -15,7 +15,7 @@ MonoBehaviour:
   _prefab: {fileID: 1792417927769246, guid: dd9848f02208d1f42924866c6b1c7a4d, type: 3}
   initData:
     Level: 0
-    HP: 100
+    HP: 50
     Damage: 0
     BlockRate: 0
     BlockTime: 0

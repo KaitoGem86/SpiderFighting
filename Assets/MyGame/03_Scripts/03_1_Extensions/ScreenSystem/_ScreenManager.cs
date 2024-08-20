@@ -67,6 +67,19 @@ namespace MyTools.ScreenSystem
             _screenDict[_currentScreenType].Show();
         }
 
+        public T ShowScreen<T>(_ScreenTypeEnum screenType) where T : _BaseScreen{
+            if(_currentScreenType == screenType) return null;
+            if(_screenDict.ContainsKey(screenType) == false){
+                PreLoad();
+            }
+            if(_currentScreenType != _ScreenTypeEnum.None){
+                _screenDict[_currentScreenType].Hide();
+            }
+            _currentScreenType = screenType;
+            _screenDict[_currentScreenType].Show();
+            return _screenDict[_currentScreenType] as T;
+        }
+
         public void HideScreen(_ScreenTypeEnum screenType){
             if(_currentScreenType != screenType || screenType == _ScreenTypeEnum.None || _currentScreenType == _ScreenTypeEnum.None)
                 return;
