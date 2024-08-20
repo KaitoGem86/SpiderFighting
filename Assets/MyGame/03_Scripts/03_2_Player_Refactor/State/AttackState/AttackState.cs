@@ -33,14 +33,14 @@ namespace Core.GamePlay.MyPlayer
                 _fsm.ChangeAction(FSMState.StartAttack);
                 return;
             }
-            _fsm.blackBoard.Character.useRootMotion = true;
+            //_fsm.blackBoard.Character.useRootMotion = true;
             base.EnterState();
             _isCanChangeNextAttack = false;
         }
 
         public override void ExitState()
         {
-            _fsm.blackBoard.Character.useRootMotion = false;
+            //_fsm.blackBoard.Character.useRootMotion = false;
             base.ExitState();
         }
 

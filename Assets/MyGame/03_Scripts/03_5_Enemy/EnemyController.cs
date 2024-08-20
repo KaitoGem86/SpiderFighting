@@ -2,7 +2,9 @@ using System;
 using Core.GamePlay.Support;
 using DG.Tweening.Core.Easing;
 using Extensions.SystemGame.AIFSM;
+using NodeCanvas.BehaviourTrees;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Core.GamePlay.Enemy
 {
@@ -15,6 +17,7 @@ namespace Core.GamePlay.Enemy
 
         protected override void OnEnable()
         {
+            base.OnEnable();
             _enemyGroupSO.AddEnemy(this);
             blackBoard.isReadyToAttack = false;
         }
@@ -37,9 +40,11 @@ namespace Core.GamePlay.Enemy
             SetEnemyType(soConTroller.initData.enemyType);
             IsIgnore = false;
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
-            ChangeAction(_startState);
-            blackBoard.rb.position = transform.position;
             blackBoard.defaultPosition = transform.position;
+            ChangeAction(_startState);
+            
+            GetComponent<NavMeshAgent>().enabled = true;
+            GetComponent<BehaviourTreeOwner>().enabled = true;
         }
 
         private void SetEnemyType(WeaponType type)
@@ -47,9 +52,11 @@ namespace Core.GamePlay.Enemy
             blackBoard.weaponController.SetTypeOfEnemy(type, blackBoard.currentEnemyModel.rightHand);
             blackBoard.weaponType = type;
         }
-        
-        private void RandomEnemySkin(){
-            foreach (var model in blackBoard.enemyModels){
+
+        private void RandomEnemySkin()
+        {
+            foreach (var model in blackBoard.enemyModels)
+            {
                 model.gameObject.SetActive(false);
             }
             var index = UnityEngine.Random.Range(0, blackBoard.enemyModels.Length);

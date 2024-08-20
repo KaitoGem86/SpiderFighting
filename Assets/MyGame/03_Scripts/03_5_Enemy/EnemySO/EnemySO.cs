@@ -51,6 +51,8 @@ namespace Core.GamePlay.Enemy
         public virtual GameObject Spawn(Transform parent = null)
         {
             var go = SpawnObject();
+            go.transform.SetParent(parent);
+            go.transform.localPosition = Vector3.zero;
             go.GetComponent<EnemyController>().Init(this);
             go.transform.SetParent(parent);
             go.transform.localPosition = Vector3.zero;
