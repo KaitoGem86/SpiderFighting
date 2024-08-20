@@ -32,6 +32,12 @@ namespace Core.GamePlay.Mission
             currentQuest.StartQuest();
         }
 
+        public void Update(){
+            if(currentQuest != null){
+                currentQuest.Update();
+            }
+        }
+
         public void NextQuest()
         {
             currentQuestIndex = (currentQuestIndex + 1) % quests.Count;

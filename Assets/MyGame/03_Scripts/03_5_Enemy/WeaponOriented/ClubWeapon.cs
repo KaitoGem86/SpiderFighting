@@ -8,7 +8,7 @@ namespace Core.GamePlay.Enemy
     {
         [SerializeField] float _range;
         [SerializeField] float _height;
-
+ 
         public override void OnWeaponAttack(Transform target, FSMState state)
         {
             var hit = Physics.OverlapCapsule(transform.position, transform.position + transform.up * _height, _range, _checkLayer);

@@ -55,6 +55,10 @@ namespace Core.GamePlay.Mission
             QuestManager.instance.NextQuest();
         }
 
+        public virtual void Update(){
+
+        }
+
         public T GetData<T>() where T : IMissionData
         {
             if (_data[_currentStepIndex] is T t)
