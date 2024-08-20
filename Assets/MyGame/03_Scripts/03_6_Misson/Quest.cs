@@ -13,7 +13,6 @@ namespace Core.GamePlay.Mission
         public RewardInfor reward;
         [SerializeField] private List<GameObject> _stepPrefabs;
         [SerializeField] private List<ScriptableObject> _dataPrefabs;
-        [SerializeField] private BoolEvent _onQuestComplete;
 
         private IQuestStep[] _steps;
         private IMissionData[] _data;
