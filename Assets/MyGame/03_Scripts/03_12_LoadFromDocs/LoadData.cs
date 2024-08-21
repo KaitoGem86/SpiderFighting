@@ -1,3 +1,4 @@
+using Core.GamePlay.Mission;
 using UnityEngine;
 
 namespace CSVLoad
@@ -7,10 +8,21 @@ namespace CSVLoad
         public string spreadsheetId;
         public string gid;
 
-        [ContextMenu("Load CSV")]
         public void LoadCSV()
         {
-            MissionConfig.GetMissionConFig(spreadsheetId, gid);
+            var tmp = MissionConfig.GetMissionConFig(spreadsheetId, gid);
+            foreach(var mission in tmp){
+                switch(mission.mission){
+                    case MissionType.Fighting:
+                    case MissionType.FightingBoss:
+                    case MissionType.Protected:
+                        break;
+                    case MissionType.Shipping:
+                        break;
+                    case MissionType.StopCar:
+                        break;
+                }
+            }
         }
     }
 }

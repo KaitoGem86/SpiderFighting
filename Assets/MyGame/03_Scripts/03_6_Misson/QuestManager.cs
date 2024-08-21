@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AYellowpaper.SerializedCollections;
+using Core.GamePlay.Enemy;
+using CSVLoad;
 using MyTools.ScreenSystem;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -32,12 +36,15 @@ namespace Core.GamePlay.Mission
             currentQuest.StartQuest();
         }
 
-        public void RetryQuest(){
+        public void RetryQuest()
+        {
             quests[currentQuestIndex].StartQuest();
         }
 
-        public void Update(){
-            if(currentQuest != null){
+        public void Update()
+        {
+            if (currentQuest != null)
+            {
                 currentQuest.Update();
             }
         }
@@ -76,9 +83,37 @@ namespace Core.GamePlay.Mission
             FightBoss
         }
 
+        public string spreadsheetId;
+        public string gid;
+
+        // public void LoadCSV()
+        // {
+        //     var tmp = MissionConfig.GetMissionConFig(spreadsheetId, gid);
+        //     foreach(var mission in tmp){
+        //         switch(mission.mission){
+        //             case MissionType.Fighting:
+        //             case MissionType.FightingBoss:
+        //             case MissionType.Protected:
+        //                 break;
+        //             case MissionType.Shipping:
+        //                 break;
+        //             case MissionType.StopCar:
+        //                 break;
+        //         }
+        //     }
+        // }
+
         [Header("Quest data storage")]
         [SerializeField] private string questPath;
         [SerializeField] private SerializedDictionary<QuestStepType, GameObject> questStepPrefabs;
+
+        [Header("Enemy data")]
+        [SerializeField] private EnemySO unarmEnemy;
+        [SerializeField] private EnemySO clubEnemy;
+        [SerializeField] private EnemySO pistolEnemy;
+        [SerializeField] private EnemySO riffleEnemy;
+        [SerializeField] private BossSO bossEnemy;
+
 
         [Header("Quests in scene")]
         [SerializeField] private Transform questParent;
@@ -88,9 +123,10 @@ namespace Core.GamePlay.Mission
         {
             quests = new List<Quest>();
             var tmp = GetDictLocation();
-            foreach (var quest in tmp)
+            var questData = MissionConfig.GetMissionConFig(spreadsheetId, gid);
+            for (int i = 0; i < Mathf.Max(tmp.Count, questData.Length - 1); i++)
             {
-                GenerateQuestData(quest);
+                GenerateQuestData(tmp[i], questData[i + 1]);
             }
         }
 
@@ -123,7 +159,7 @@ namespace Core.GamePlay.Mission
             return dict;
         }
 
-        private void GenerateQuestData(KeyValuePair<QuestType, Transform> questObject)
+        private void GenerateQuestData(KeyValuePair<QuestType, Transform> questObject, MissionConfig data)
         {
             var folderPath = questPath + "/" + questObject.Value.name;
             if (!AssetDatabase.IsValidFolder(folderPath))
@@ -133,40 +169,169 @@ namespace Core.GamePlay.Mission
             var receiveStepData = ScriptableObject.CreateInstance<ShippingQuestInitData>();
             receiveStepData.position = questObject.Value.position;
             AssetDatabase.CreateAsset(receiveStepData, folderPath + $"/Receive_{questObject.Value.name}.asset");
-            var questData = ScriptableObject.CreateInstance<Quest>();
-            questData.infor = new QuestInfor
+            if (CheckValidTypeQuest(questObject.Key, data.mission))
             {
-                QuestName = questObject.Value.name,
-                QuestDescription = "This is a quest"
-            };
-            questData.reward = new RewardInfor
-            {
-                exp = 100,
-                currency = 100
-            };
-            questData.stepPrefabs = new List<GameObject>();
-            questData.dataPrefabs = new List<ScriptableObject>();
-            questData.stepPrefabs.Add(questStepPrefabs[QuestStepType.Receive]);
-            questData.dataPrefabs.Add(receiveStepData);
-            switch (questObject.Key)
-            {
-                case QuestType.Fighting:
-                    break;
-                case QuestType.Shipping:
-                    foreach(Transform child in questObject.Value)
-                    {
-                        var shippingStepData = ScriptableObject.CreateInstance<ShippingQuestInitData>();
-                        shippingStepData.position = child.position;
-                        AssetDatabase.CreateAsset(shippingStepData, folderPath + $"/Shipping_{child.name}.asset");
-                        questData.stepPrefabs.Add(questStepPrefabs[QuestStepType.Shipping]);
-                        questData.dataPrefabs.Add(shippingStepData);
-                    }
-                    break;
-                default:
-                    break;
+                switch (data.mission)
+                {
+                    case MissionType.Fighting:
+                    case MissionType.FightingBoss:
+                    case MissionType.Protected:
+                        var questData = ScriptableObject.CreateInstance<Quest>();
+                        questData.infor = new QuestInfor
+                        {
+                            QuestName = questObject.Value.name,
+                            QuestDescription = "This is a quest"
+                        };
+                        questData.reward = new RewardInfor
+                        {
+                            exp = 100,
+                            currency = 100
+                        };
+                        questData.stepPrefabs = new List<GameObject>();
+                        questData.dataPrefabs = new List<ScriptableObject>();
+                        questData.stepPrefabs.Add(questStepPrefabs[QuestStepType.Receive]);
+                        questData.dataPrefabs.Add(receiveStepData);
+                        Dictionary<TierEnemy, int>[] amountEnemy = new Dictionary<TierEnemy, int>[data.enemyWaves];
+                        amountEnemy[data.enemyWaves - 1] = new(data.amountEnemy);
+                        for (int i = 0; i < data.enemyWaves - 1; i++)
+                        {
+                            amountEnemy[i] = new Dictionary<TierEnemy, int>();
+                            foreach (var enemy in data.amountEnemy)
+                            {
+                                amountEnemy[i].Add(enemy.Key, enemy.Value / data.enemyWaves);
+                                amountEnemy[data.enemyWaves - 1][enemy.Key] -= enemy.Value / data.enemyWaves;
+                            }
+                        }
+
+                        for (int i = 0; i < data.enemyWaves; i++)
+                        {
+                            var fightingData = ScriptableObject.CreateInstance<FightingQuestInitData>();
+                            fightingData.position = receiveStepData.position;
+                            fightingData.data = new List<EnemyData>();
+                            foreach (var enemy in amountEnemy[i])
+                            {
+                                switch (enemy.Key)
+                                {
+                                    case TierEnemy.Tier1:
+                                        fightingData.data.Add(new EnemyData { enemySO = unarmEnemy, count = enemy.Value });
+                                        break;
+                                    case TierEnemy.Tier2:
+                                        fightingData.data.Add(new EnemyData { enemySO = clubEnemy, count = enemy.Value });
+                                        break;
+                                    case TierEnemy.Elite:
+                                        fightingData.data.Add(new EnemyData { enemySO = pistolEnemy, count = enemy.Value });
+                                        break;
+                                }
+                            }
+                            if (data.mission == MissionType.FightingBoss)
+                            {
+                                fightingData.data.Add(new EnemyData { enemySO = bossEnemy, count = 1 });
+                            }
+                            AssetDatabase.CreateAsset(fightingData, folderPath + $"/Fighting_{i}.asset");
+                            questData.stepPrefabs.Add(questStepPrefabs[QuestStepType.Fight]);
+                            questData.dataPrefabs.Add(fightingData);
+                        }
+                        AssetDatabase.CreateAsset(questData, folderPath + $"/{questObject.Value.name}.asset");
+                        quests.Add(questData);
+                        break;
+                    case MissionType.Shipping:
+                        var questDataShipping = ScriptableObject.CreateInstance<ShippingQuest>();
+                        questDataShipping.time = data.time;
+                        questDataShipping.infor = new QuestInfor
+                        {
+                            QuestName = questObject.Value.name,
+                            QuestDescription = "This is a quest"
+                        };
+                        questDataShipping.reward = new RewardInfor
+                        {
+                            exp = 100,
+                            currency = 100
+                        };
+                        questDataShipping.stepPrefabs = new List<GameObject>();
+                        questDataShipping.dataPrefabs = new List<ScriptableObject>();
+                        questDataShipping.stepPrefabs.Add(questStepPrefabs[QuestStepType.Receive]);
+                        questDataShipping.dataPrefabs.Add(receiveStepData);
+
+                        foreach (Transform child in questObject.Value)
+                        {
+                            var shippingStepData = ScriptableObject.CreateInstance<ShippingQuestInitData>();
+                            shippingStepData.position = child.position;
+                            AssetDatabase.CreateAsset(shippingStepData, folderPath + $"/Shipping_{child.name}.asset");
+                            questDataShipping.stepPrefabs.Add(questStepPrefabs[QuestStepType.Shipping]);
+                            questDataShipping.dataPrefabs.Add(shippingStepData);
+                        }
+
+                        AssetDatabase.CreateAsset(questDataShipping, folderPath + $"/{questObject.Value.name}.asset");
+                        quests.Add(questDataShipping);
+                        break;
+                    case MissionType.StopCar:
+                        break;
+                    default:
+                        break;
+                }
+
+
+                // var questData = ScriptableObject.CreateInstance<Quest>();
+                // questData.infor = new QuestInfor
+                // {
+                //     QuestName = questObject.Value.name,
+                //     QuestDescription = "This is a quest"
+                // };
+                // questData.reward = new RewardInfor
+                // {
+                //     exp = 100,
+                //     currency = 100
+                // };
+                // questData.stepPrefabs = new List<GameObject>();
+                // questData.dataPrefabs = new List<ScriptableObject>();
+                // questData.stepPrefabs.Add(questStepPrefabs[QuestStepType.Receive]);
+                // questData.dataPrefabs.Add(receiveStepData);
+                // switch (questObject.Key)
+                // {
+                //     case QuestType.Fighting:
+                //         break;
+                //     case QuestType.Shipping:
+                //         foreach (Transform child in questObject.Value)
+                //         {
+                //             var shippingStepData = ScriptableObject.CreateInstance<ShippingQuestInitData>();
+                //             shippingStepData.position = child.position;
+                //             AssetDatabase.CreateAsset(shippingStepData, folderPath + $"/Shipping_{child.name}.asset");
+                //             questData.stepPrefabs.Add(questStepPrefabs[QuestStepType.Shipping]);
+                //             questData.dataPrefabs.Add(shippingStepData);
+                //         }
+                //         break;
+                //     default:
+                //         break;
+                // }
+                // quests.Add(questData);
+                // AssetDatabase.CreateAsset(questData, folderPath + $"/{questObject.Value.name}.asset");
             }
-            quests.Add(questData);
-            AssetDatabase.CreateAsset(questData, folderPath + $"/{questObject.Value.name}.asset");
+        }
+
+
+        private bool CheckValidTypeQuest(QuestType type1, MissionType type2)
+        {
+            if (type1 == QuestType.Fighting && type2 == MissionType.Fighting)
+            {
+                return true;
+            }
+            if (type1 == QuestType.FightingBoss && type2 == MissionType.FightingBoss)
+            {
+                return true;
+            }
+            if (type1 == QuestType.Protected && type2 == MissionType.Protected)
+            {
+                return true;
+            }
+            if (type1 == QuestType.Shipping && type2 == MissionType.Shipping)
+            {
+                return true;
+            }
+            if (type1 == QuestType.StopCar && type2 == MissionType.StopCar)
+            {
+                return true;
+            }
+            return false;
         }
 #endif
         #endregion

@@ -21,5 +21,11 @@ MonoBehaviour:
     currency: 100
   _stepPrefabs:
   - {fileID: 5667880772344169435, guid: 450acf4c42580b040aa99a47120ecc74, type: 3}
+  - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
+  - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
+  - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
   _dataPrefabs:
   - {fileID: 11400000, guid: 97e63c70f03b7674686df039fddb1a27, type: 2}
+  - {fileID: 11400000, guid: e73e9a75f31e89143aa8f2682ef657e1, type: 2}
+  - {fileID: 11400000, guid: 2078a1f5f530f48498b204d1a9eeec3f, type: 2}
+  - {fileID: 11400000, guid: ec4f33db1ffa0a44283daa1f2363c465, type: 2}

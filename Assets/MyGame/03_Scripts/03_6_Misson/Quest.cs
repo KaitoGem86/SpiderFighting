@@ -52,9 +52,9 @@ namespace Core.GamePlay.Mission
             go.GetComponent<IQuestStep>().Init(this);
         }
 
-        public virtual void FinishQuest()
+        public virtual void FinishQuest(bool isWin = true)
         {
-            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult).OnShow(true);
+            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult).OnShow(isWin);
         }
 
         public virtual void Update(){

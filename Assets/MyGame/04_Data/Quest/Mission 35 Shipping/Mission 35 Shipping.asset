@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 933b89b3af4e65a4f93dc1c8525374e8, type: 3}
   m_Name: Mission 35 Shipping
   m_EditorClassIdentifier: 
   infor:
@@ -29,3 +29,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2bfcd6399272df14f95b769cd4a2ac03, type: 2}
   - {fileID: 11400000, guid: d9964d8e47f53524ca0e28d35e477c65, type: 2}
   - {fileID: 11400000, guid: da09708a0af117e4baf9ce29161b44e8, type: 2}
+  time: 70
