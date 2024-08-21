@@ -1,3 +1,4 @@
+using Core.GamePlay.Mission.Protected;
 using Core.SystemGame.Factory;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Core.GamePlay.Mission.NPC{
 
         public GameObject Spawn(Vector3 position){
             var go = SpawnObject();
+            go.GetComponent<NeedProtectedNPC>().Init(this);
             go.transform.position = position;
             return go;
         }

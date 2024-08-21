@@ -6,5 +6,6 @@ namespace Core.GamePlay.Mission.Protected{
         public AnimancerComponent animancer;
         public bool isPlayer;
         public float hp;
+        public NeedProtectedNPC controller;
     }
 }

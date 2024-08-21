@@ -6,11 +6,18 @@ namespace Core.GamePlay.Mission{
     public class ProtectedQuest : Quest{
         public NPCSO npcSO;
         public Vector3 spawnPosition;
+        private GameObject _npc;
 
         public override void StartQuest()
         {
             base.StartQuest();
-            npcSO.Spawn(spawnPosition);
+            _npc = npcSO.Spawn(spawnPosition);
+        }
+
+        public override void ResetQuest()
+        {
+            base.ResetQuest();
+            npcSO.DespawnObject(_npc);
         }
     }
 }
