@@ -45,19 +45,16 @@ namespace Core.GamePlay.Enemy
         public void OnEnemyAttack()
         {
             _currentEnemyAttack++;
-            Debug.Log("OnEnemyAttack " + _currentEnemyAttack);
         }
 
         public void OnEnemyAttackComplete()
         {
             _currentEnemyAttack--;
             _currentEnemyAttack = Mathf.Max(0, _currentEnemyAttack);
-            Debug.Log("OnEnemyAttackComplete " + _currentEnemyAttack);
         }
 
         public bool CheckAttack {
             get {
-                Debug.Log("CheckAttack " + _currentEnemyAttack + " " + _maxEnemyCanAttack);
                 return _currentEnemyAttack < _maxEnemyCanAttack;
             } 
         } 

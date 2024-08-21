@@ -44,7 +44,6 @@ namespace Core.GamePlay.Enemy
 
         public static Vector3 GetRandomPointOnCircle(Vector3 center, float radius)
         {
-            Debug.Log(radius );
             float angle = Random.Range(0f, Mathf.PI * 2);
             float x = center.x + radius * Mathf.Cos(angle);
             float y = center.y; // Assuming the circle is in the XZ plane

@@ -59,5 +59,12 @@ namespace Core.GamePlay.MyPlayer{
         public void CollectReward(CollectibleData data){
             
         }
+
+
+        #region  static method
+        public static int CalculateExpToNextLevel(){
+            return 0;              
+        }
+        #endregion
     }
 }

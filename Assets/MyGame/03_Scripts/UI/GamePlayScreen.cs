@@ -20,6 +20,19 @@ namespace Core.UI
         [SerializeField] private Image _bossIcon;
         [SerializeField] private TMP_Text _bossName;
         [SerializeField] private GameObject _bossHPBar;
+
+        [Header("Display Info")]
+        [SerializeField] private PlayerData _playerData;
+        [SerializeField] private TMP_Text _levelText;
+        [SerializeField] private TMP_Text _expText;
+        [SerializeField] private TMP_Text _cashText;
+        [SerializeField] private TMP_Text _yellowSkinPieceText;
+        [SerializeField] private TMP_Text _purpleSkinPieceText;
+        [SerializeField] private TMP_Text _skillPointText;
+
+
+
+        [Header("Controller Events")]
         public DefaultEvent onZip;
         public BoolEvent onSwing;
         public IntEvent onChangeSkin;
@@ -45,6 +58,12 @@ namespace Core.UI
             entry2.eventID = EventTriggerType.PointerUp;
             entry2.callback.AddListener((data2) => { InputManager.instance.LookReleased(); });
             _lookPanel.triggers.Add(entry2);
+        }
+
+        protected override void OnCompleteShowItSelf()
+        {
+            base.OnCompleteShowItSelf();
+            UpdatePlayerDisplayData();
         }
 
         public void Update()
@@ -173,6 +192,15 @@ namespace Core.UI
         {
             var data = _gadgetDataSO.gadgets[id];
             _gadgetIcon.sprite = data.icon;
+        }
+
+        public void UpdatePlayerDisplayData(){
+            _levelText.text = "Level : " + _playerData.playerSerializeData.Level;
+            _expText.text = "Exp : " + _playerData.playerSerializeData.Exp + "/" + PlayerData.CalculateExpToNextLevel();
+            _cashText.text = "Cash : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash];
+            _yellowSkinPieceText.text = "Yellow Skin Piece : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.YellowPiece];
+            _purpleSkinPieceText.text = "Purple Skin Piece : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.PurplePiece];
+            _skillPointText.text = "Skill Point : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.SkillPoint];
         }
 
 
