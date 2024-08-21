@@ -15,9 +15,10 @@ MonoBehaviour:
   playerStatSO: {fileID: 11400000, guid: c63212be20761b84ab9289ade83e299f, type: 2}
   playerSerializeData:
     Exp: 0
-    Level: 0
-    skinIndex: 0
+    Level: 1
+    skinIndex: 2
     gadgetIndex: 0
+    missionIndex: 0
     maxReceiveProgress: 0
     currentContinuousDay: 0
     isClaimedDailyReward: 0
@@ -38,3 +39,4 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  onUpdatePlayerData: {fileID: 11400000, guid: ea8ffbba3b278d3429aa889fff77b930, type: 2}

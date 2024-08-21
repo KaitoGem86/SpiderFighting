@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using AYellowpaper.SerializedCollections;
 using Core.GamePlay.Enemy;
+using Core.GamePlay.MyPlayer;
 using CSVLoad;
-using MyTools.ScreenSystem;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,6 +14,7 @@ namespace Core.GamePlay.Mission
         public static QuestManager instance;
 
         public List<Quest> quests;
+        public PlayerData playerData;
         private Quest currentQuest;
         private int currentQuestIndex;
 
@@ -59,7 +58,9 @@ namespace Core.GamePlay.Mission
 
         public void FinishQuest()
         {
-            currentQuest.FinishQuest();
+            playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash] += currentQuest.reward.currency;
+            playerData.playerSerializeData.UpdateExp(currentQuest.reward.exp);
+            playerData.onUpdatePlayerData.Raise();
         }
 
         #region  LOAD QUEST FROM SCENE
