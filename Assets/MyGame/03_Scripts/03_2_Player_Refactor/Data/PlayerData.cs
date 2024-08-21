@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Collectible;
 using Data.Stat.Player;
+using MyTools.Event;
 using Newtonsoft.Json;
 using ParadoxNotion.Serialization.FullSerializer.Internal.DirectConverters;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Core.GamePlay.MyPlayer{
         public PlayerSerializeData playerSerializeData;
         public Dictionary<PlayerStat, float> localStats;
         public CollectibleSerializeEventListener onCollectReward;
+        public DefaultEvent onUpdatePlayerData;
 
         public void Init(){
             if(PlayerPrefs.HasKey("PlayerData")){
