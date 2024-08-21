@@ -27,6 +27,7 @@ namespace Core.GamePlay.Mission.Protected
             if (blackBoard.hp <= 0)
             {
                 Debug.Log("NPC is dead");
+                ChangeAction(FSMState.Dead);
             }
         }
 
