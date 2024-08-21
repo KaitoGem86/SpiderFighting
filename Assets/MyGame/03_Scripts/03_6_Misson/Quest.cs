@@ -17,6 +17,8 @@ namespace Core.GamePlay.Mission
         private IQuestStep[] _steps;
         private IMissionData[] _data;
 
+        private IQuestStep _currentQuestStep;
+
         private int _currentStepIndex = 0;
 
         public void Init()
@@ -38,6 +40,7 @@ namespace Core.GamePlay.Mission
             _currentStepIndex = 0;
             var go = Instantiate(_steps[_currentStepIndex].GameObject);
             go.GetComponent<IQuestStep>().Init(this);
+            _currentQuestStep = go.GetComponent<IQuestStep>();
         }
 
         public virtual void NextQuestStep()
@@ -50,12 +53,17 @@ namespace Core.GamePlay.Mission
             }
             var go = Instantiate(_steps[_currentStepIndex].GameObject);
             go.GetComponent<IQuestStep>().Init(this);
+            _currentQuestStep = go.GetComponent<IQuestStep>();
         }
 
         public virtual void FinishQuest(bool isWin = true)
         {
             QuestManager.instance.FinishQuest();
-            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult).OnShow(isWin, reward);
+            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(isWin, reward);
+        }
+
+        public virtual void ResetQuest(){
+            _currentQuestStep.ResetStep();
         }
 
         public virtual void Update(){

@@ -1,8 +1,10 @@
 using Animancer;
+using Core.GamePlay.Mission.Protected;
 using Core.GamePlay.Support;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
 using JetBrains.Annotations;
+using MyTools.ScreenSystem;
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
@@ -74,6 +76,16 @@ namespace Core.GamePlay.MyPlayer
             var hp = blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP];
             var maxHP = blackBoard.PlayerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.HP);
             hp -= 100;
+            if (hp <= 0)
+            {
+                hp = 0;
+                if(!blackBoard.PlayerData.isInMission){
+                    _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(false, default);
+                }
+                else{
+                    //blackBoard.OnPlayerDead.Raise();
+                }
+            }
             hp = Mathf.Max(0, hp);
             blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP] = hp;
             blackBoard.OnAttack.Raise(hp / maxHP);

@@ -14,6 +14,8 @@ namespace Core.GamePlay.MyPlayer{
         public Dictionary<PlayerStat, float> localStats;
         public CollectibleSerializeEventListener onCollectReward;
         public DefaultEvent onUpdatePlayerData;
+        public bool isInMission = false;
+
 
         public void Init(){
             if(PlayerPrefs.HasKey("PlayerData")){
@@ -27,6 +29,7 @@ namespace Core.GamePlay.MyPlayer{
                 SaveData();
             }
             localStats = playerStatSO.GetInstancesStats();
+            isInMission = false;
             onCollectReward.RegisterListener();
         }
 

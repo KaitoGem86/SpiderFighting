@@ -38,7 +38,6 @@ namespace Core.GamePlay.Enemy
 
         public override void ExitState()
         {
-            _blackBoard.navMeshAgent.ResetPath();
             base.ExitState();
         }
 

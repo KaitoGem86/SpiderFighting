@@ -26,6 +26,7 @@ namespace Core.GamePlay.Enemy
         public override void OnDisable()
         {
             base.OnDisable();
+            //ChangeAction(FSMState.Idle);
             blackBoard.onEnemyDead?.Invoke();
             blackBoard.onEnemyDead = null;
             _enemyGroupSO.RemoveEnemy(this);

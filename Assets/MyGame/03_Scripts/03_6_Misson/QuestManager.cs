@@ -37,6 +37,7 @@ namespace Core.GamePlay.Mission
 
         public void RetryQuest()
         {
+            quests[currentQuestIndex].ResetQuest();
             playerData.ResetPlayerStat();
             quests[currentQuestIndex].StartQuest();
         }
