@@ -54,7 +54,7 @@ namespace Core.GamePlay.Mission
 
         public virtual void FinishQuest(bool isWin = true)
         {
-            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult).OnShow(isWin);
+            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult).OnShow(isWin, reward);
         }
 
         public virtual void Update(){
