@@ -37,6 +37,7 @@ namespace Core.GamePlay.Mission
 
         public void RetryQuest()
         {
+            playerData.ResetPlayerStat();
             quests[currentQuestIndex].StartQuest();
         }
 
@@ -58,6 +59,7 @@ namespace Core.GamePlay.Mission
 
         public void FinishQuest()
         {
+            playerData.ResetPlayerStat();
             playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash] += currentQuest.reward.currency;
             playerData.playerSerializeData.UpdateExp(currentQuest.reward.exp);
             playerData.onUpdatePlayerData.Raise();

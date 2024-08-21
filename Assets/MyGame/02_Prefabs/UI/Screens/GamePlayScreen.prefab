@@ -5069,6 +5069,7 @@ MonoBehaviour:
   _bossName: {fileID: 6967017601037866462}
   _bossHPBar: {fileID: 7758264684007885651}
   _playerData: {fileID: 11400000, guid: 0c8172207f6c02f45abdbc6ab00694e4, type: 2}
+  _hpBarController: {fileID: 4254937578506380217}
   _levelText: {fileID: 8656625511574960848}
   _expText: {fileID: 7881173293922415243}
   _cashText: {fileID: 8083189747345283720}

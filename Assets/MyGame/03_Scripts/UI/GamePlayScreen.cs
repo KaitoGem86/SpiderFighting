@@ -1,6 +1,7 @@
 using System.Collections;
 using Core.GamePlay.MyPlayer;
 using Core.GamePlay.Player;
+using Core.GamePlay.Support;
 using MyTools.Event;
 using MyTools.ScreenSystem;
 using SFRemastered.InputSystem;
@@ -23,6 +24,7 @@ namespace Core.UI
 
         [Header("Display Info")]
         [SerializeField] private PlayerData _playerData;
+        [SerializeField] private HPBarController _hpBarController;
         [SerializeField] private TMP_Text _levelText;
         [SerializeField] private TMP_Text _expText;
         [SerializeField] private TMP_Text _cashText;
@@ -195,6 +197,7 @@ namespace Core.UI
         }
 
         public void UpdatePlayerDisplayData(){
+            _hpBarController.SetHP(_playerData.localStats[Data.Stat.Player.PlayerStat.HP], _playerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.HP));
             _levelText.text = "Level : " + _playerData.playerSerializeData.Level;
             _expText.text = "Exp : " + _playerData.playerSerializeData.Exp + "/" + PlayerData.CalculateExpToNextLevel();
             _cashText.text = "Cash : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash];

@@ -60,6 +60,11 @@ namespace Core.GamePlay.MyPlayer{
             
         }
 
+        public void ResetPlayerStat(){
+            localStats = playerStatSO.GetInstancesStats();
+            onUpdatePlayerData.Raise();
+        }
+
 
         #region  static method
         public static int CalculateExpToNextLevel(){
