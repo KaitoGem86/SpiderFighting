@@ -17,6 +17,7 @@ namespace Core.GamePlay.Mission.Protected{
             _resultText.text = isMissionSuccess ? "MISSION SUCCESS" : "MISSION FAILED";
             _successButtons.SetActive(isMissionSuccess);
             _failButtons.SetActive(!isMissionSuccess);
+            if(!isMissionSuccess) return;
             _expText.text = "+ " + rewardInfor.exp.ToString();
             _cashText.text = "+ " + rewardInfor.currency.ToString();
         }
