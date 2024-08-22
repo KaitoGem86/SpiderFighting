@@ -111,12 +111,10 @@ namespace Core.GamePlay.MyPlayer
                 }
                 else
                 {
-                    Debug.Log("End Climbing by Raycast distance");
                 }
             }
             else
             {
-                Debug.Log("End Climbing by Raycast");
             }
             _isEndClimbing = true;
             EndClimbing();

@@ -9,7 +9,7 @@ namespace Core.GamePlay.MyPlayer
 {
     public class SwingState : InAirState<ClipTransitionSequence>
     {
-        [SerializeField] private ShootSilk _shootSilk;
+        private ShootSilk _shootSilk;
         private Rigidbody _rb;
         private Transform _holdPivot;
         private Vector3 _pivot;
@@ -29,6 +29,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
+            _shootSilk = _handToUse == 1 ? _blackBoard.leftSilk : _blackBoard.rightSilk;
             _leftHand = _fsm.blackBoard.CurrentPlayerModel.leftHand;
             _rightHand = _fsm.blackBoard.CurrentPlayerModel.rightHand;
             _isStartSwing = false;
@@ -40,7 +41,6 @@ namespace Core.GamePlay.MyPlayer
             if (_springJoint != null)
                 _springJoint.maxDistance = float.MaxValue;
             _shootSilk.UnUseSilk();
-
             base.ExitState();
         }
 

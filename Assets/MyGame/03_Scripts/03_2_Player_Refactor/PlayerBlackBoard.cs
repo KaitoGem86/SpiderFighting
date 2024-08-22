@@ -3,6 +3,7 @@ using Animancer;
 using Collectible;
 using Core.GamePlay.Player;
 using Core.GamePlay.Support;
+using Core.Manager;
 using EasyCharacterMovement;
 using Extensions.SystemGame.AIFSM;
 using MyTools.Event;
@@ -40,6 +41,7 @@ namespace Core.GamePlay.MyPlayer{
         public Rigidbody SwingPivot;
         public Vector3 GlobalVelocity;
         public Rigidbody rig;
+        public CameraFindZipPoint CameraFindZipPoint;
 
         [Header("Combat")]
         public FindEnemyToAttack FindEnemyToAttack;
@@ -49,5 +51,9 @@ namespace Core.GamePlay.MyPlayer{
 
         [Header("Collectible")]
         [HideInInspector] public CollectibleController CollectibleController;
+
+        [Header("Modules")]
+        public ShootSilk leftSilk;
+        public ShootSilk rightSilk;
     }
 }

@@ -48,6 +48,8 @@ namespace Core.UI
             entry2.eventID = EventTriggerType.PointerUp;
             entry2.callback.AddListener((data2) => { InputManager.instance.LookReleased(); });
             _lookPanel.triggers.Add(entry2);
+
+            GameManager.Instance.playerBlackBoard.CameraFindZipPoint = _findZipPoint;
         }
 
         protected override void OnCompleteShowItSelf()
