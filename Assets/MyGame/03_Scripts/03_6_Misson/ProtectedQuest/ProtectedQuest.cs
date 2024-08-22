@@ -14,6 +14,12 @@ namespace Core.GamePlay.Mission{
             _npc = npcSO.Spawn(spawnPosition);
         }
 
+        public override void FinishQuest(bool isWin = true)
+        {
+            base.FinishQuest(isWin);
+            npcSO.DespawnObject(_npc);
+        }
+
         public override void ResetQuest()
         {
             base.ResetQuest();
