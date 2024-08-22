@@ -31,5 +31,11 @@ namespace Core.GamePlay.MyPlayer
             }
             base.Update();
         }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            Rotate();
+        }
     }
 }

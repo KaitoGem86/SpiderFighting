@@ -27,12 +27,11 @@ namespace Core.GamePlay.MyPlayer
             {
                 var rigidbody = _fsm.blackBoard.Character.GetCharacterMovement().rigidbody;
                 rigidbody.velocity = Vector3.Lerp(rigidbody.velocity, _moveDirection * _speed, Time.deltaTime * 10);
-                Rotate();
+                //Rotate();
             }
             else
             {
                 _fsm.blackBoard.Character.SetMovementDirection(_moveDirection * _speed);
-
             }
         }
 

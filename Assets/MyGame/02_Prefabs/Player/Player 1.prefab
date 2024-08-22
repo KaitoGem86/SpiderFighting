@@ -685,7 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsm: {fileID: 4369872665408434342}
   _animancer: {fileID: 872527583909876332}
-  _blackBoard: {fileID: 0}
+  _blackBoard: {fileID: 2918740459164932081}
   _transitions:
   - _FadeDuration: 0.64000005
     _Events:
@@ -1268,6 +1268,7 @@ GameObject:
   - component: {fileID: 3321229646103155394}
   - component: {fileID: 4937733726271395945}
   - component: {fileID: 7257622088831719347}
+  - component: {fileID: 3639451822783059439}
   m_Layer: 0
   m_Name: UseGadgetState
   m_TagString: Untagged
@@ -1425,6 +1426,35 @@ MonoBehaviour:
           Animancer
         m_MethodName: UltimateAttackState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3639451822783059439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290448017565936362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a309d31daba28e64d93cd2bf3a1ea452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 6607810dc14c8aa4fb253424620b6fb2, type: 2}
+  _unregisterOnDisable: 0
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4937733726271395945}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.UseGadgetState, Assembly-CSharp
+        m_MethodName: ChangeGadget
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1734,7 +1764,7 @@ MonoBehaviour:
       _NormalizedStartTime: NaN
   _stateType: 12
   _canChangeToItself: 0
-  _movementMode: 2
+  _movementMode: 1
   _interpolateMode: 1
   _speed: 40
 --- !u!114 &7419429048511183263
@@ -2194,16 +2224,6 @@ MonoBehaviour:
   HealingBotPivot: {fileID: 934142211166127097}
   GadgetsController: {fileID: 0}
   OnAttack: {fileID: 11400000, guid: c39f637dcb61cf34799514968403f73e, type: 2}
-  ResponeSpecialSkillAnim:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 0}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    _Others: []
   CollectibleController: {fileID: 0}
 --- !u!114 &4369872665408434342
 MonoBehaviour:
@@ -2237,7 +2257,7 @@ MonoBehaviour:
   _rotationMode: 1
   _rotationRate: 540
   _defaultMovementMode: 1
-  _maxWalkSpeed: 40
+  _maxWalkSpeed: 10
   _minAnalogWalkSpeed: 0
   _maxAcceleration: 20
   _brakingDecelerationWalking: 20
