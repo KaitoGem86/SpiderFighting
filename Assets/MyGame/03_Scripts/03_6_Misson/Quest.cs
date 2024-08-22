@@ -19,7 +19,7 @@ namespace Core.GamePlay.Mission
 
         private IQuestStep _currentQuestStep;
 
-        private int _currentStepIndex = 0;
+        protected int _currentStepIndex = 0;
 
         public void Init()
         {
