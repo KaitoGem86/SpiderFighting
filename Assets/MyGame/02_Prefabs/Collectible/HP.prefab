@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3336605704467624005}
-  - component: {fileID: 2886971762783920537}
   - component: {fileID: -7718148261416010005}
+  - component: {fileID: 3280859573304277514}
+  - component: {fileID: 608859438173173685}
   m_Layer: 0
   m_Name: HP
   m_TagString: Untagged
@@ -34,26 +35,6 @@ Transform:
   - {fileID: 7946462496321426372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2886971762783920537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891251333533220347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7334097e926cccb44ac6023c38aec6de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data:
-    rewardType: 6
-    id: 0
-    rewardValue: 0
-    position: {x: 0, y: 0, z: 0}
-  remainingTimeToSpawn: 0
-  onCollectEvent: {fileID: 11400000, guid: fb9bf3f608756d943bb1e229e17b2d76, type: 2}
-  onCanCollect: {fileID: 11400000, guid: ef44ca96b600b504588ae44f6a7eb316, type: 2}
 --- !u!205 &-7718148261416010005
 LODGroup:
   m_ObjectHideFlags: 0
@@ -78,6 +59,49 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
+--- !u!136 &3280859573304277514
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891251333533220347}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &608859438173173685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891251333533220347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074bccbcdfef39241947f24b0e07c2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    rewardType: 6
+    id: 0
+    rewardValue: 10
+    position: {x: 0, y: 0, z: 0}
+  remainingTimeToSpawn: 5
+  onCollectEvent: {fileID: 11400000, guid: fb9bf3f608756d943bb1e229e17b2d76, type: 2}
+  onCanCollect: {fileID: 0}
 --- !u!1001 &3339060060138650846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,7 +154,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 883517081580965078, guid: acc591f3f3af45842beb61b22a2ee1c0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
