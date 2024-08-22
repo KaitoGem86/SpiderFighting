@@ -637,6 +637,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8708320252920606176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1293170896781113825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5501326366203972365}
+  - component: {fileID: 5207608809968603527}
+  m_Layer: 0
+  m_Name: ZipState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5501326366203972365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293170896781113825}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8581614525833004515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5207608809968603527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293170896781113825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173b2ecc74ef16f40831f449abe0dedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 4369872665408434342}
+  _animancer: {fileID: 872527583909876332}
+  _blackBoard: {fileID: 2918740459164932081}
+  _transitions:
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 95426a703202c2741b3025bbdd42eb23, type: 2}
+    _Speed: 1.5
+    _NormalizedStartTime: NaN
+    _Others:
+    - _FadeDuration: 0.076666676
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 2ec7850709ef0784f8b892fb5f0fd7d7, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+    - _FadeDuration: 0.1866667
+      _Events:
+        _NormalizedTimes:
+        - 0.95
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 5207608809968603527}
+              m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipState, Assembly-CSharp
+              m_MethodName: CompleteGroundZip
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 5e96b0710d4466d41a0529b4bd1d258e, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+  _stateType: 24
+  _canChangeToItself: 0
+  _movementMode: 0
+  _interpolateMode: 1
+  _speed: 0
 --- !u!1 &1429277764550251448
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +953,7 @@ Transform:
   - {fileID: 3321229646103155394}
   - {fileID: 5274893179072751371}
   - {fileID: 704335531708414758}
+  - {fileID: 5501326366203972365}
   m_Father: {fileID: 2032646152031061193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748185086807915265
@@ -2240,7 +2335,7 @@ MonoBehaviour:
   _stateContainer: {fileID: 8581614525833004515}
   _startState: 0
   blackBoard: {fileID: 2918740459164932081}
-  currentStateType: 0
+  currentStateType: -1
 --- !u!114 &8917293616794470225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4469,6 +4564,7 @@ GameObject:
   - component: {fileID: 2821369535886208512}
   - component: {fileID: 1453922404266495861}
   - component: {fileID: 202460682033024730}
+  - component: {fileID: 770358372860521042}
   m_Layer: 0
   m_Name: IdleState
   m_TagString: Untagged
@@ -4512,7 +4608,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 11c1f43d261c9da49bfb64150a985f18, type: 2}
+    _Clip: {fileID: 7400000, guid: 5d92ab30ee0732242b4dedb921abd0fa, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
   _stateType: 1
@@ -4657,6 +4753,35 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
           Animancer
         m_MethodName: UseGadget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &770358372860521042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414098350887397751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19902aaa12edae4aa2933a9fb6e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 71c7e6fd360d2d7499a19c5aa65232d4, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2793011893209144442}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.ClipTransition,
+          Animancer
+        m_MethodName: Zip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
