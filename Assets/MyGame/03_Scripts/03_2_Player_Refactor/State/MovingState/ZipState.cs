@@ -9,10 +9,12 @@ namespace Core.GamePlay.MyPlayer
         private Vector3 _zipPoint;
         private Vector3 _forward;
         private Vector3 _upward;
+        private bool _isChangeState;
 
         public override void EnterState()
         {
             base.EnterState();
+            _isChangeState = false;
             _zipPoint = _blackBoard.CameraFindZipPoint.zipPoint;
             _forward = _zipPoint - _fsm.transform.position;
             _forward = _forward.normalized;
@@ -38,9 +40,10 @@ namespace Core.GamePlay.MyPlayer
                         _blackBoard.leftSilk.UnUseSilk();
                         _forward.y = 0;
                         _blackBoard.rig.rotation = Quaternion.LookRotation(_forward, Vector3.up);
-                        _blackBoard.rig.velocity = Vector3.zero;
                         _blackBoard.rig.position = _zipPoint;
+                        _blackBoard.rig.velocity = Vector3.zero;
                         _blackBoard.rig.angularVelocity = Vector3.zero;
+                        _isChangeState = true;
                     }
                 );
         }
@@ -48,6 +51,12 @@ namespace Core.GamePlay.MyPlayer
         public void CompleteGroundZip()
         {
             _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Idle);
+        }
+
+        public void Launch(){
+            if(_isChangeState){
+                _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Launch);
+            }
         }
     }
 }

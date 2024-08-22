@@ -34,6 +34,7 @@ namespace Extensions.SystemGame.AIFSM{
         AIM,
         ResponeForSpecialSkill,
         Zip,
+        Launch,
     }
 
     public class FSM<T> : MonoBehaviour, IFSM where T : BlackBoard{

@@ -647,6 +647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5501326366203972365}
   - component: {fileID: 5207608809968603527}
+  - component: {fileID: 4361497952733029417}
   m_Layer: 0
   m_Name: ZipState
   m_TagString: Untagged
@@ -685,10 +686,26 @@ MonoBehaviour:
   _animancer: {fileID: 872527583909876332}
   _blackBoard: {fileID: 2918740459164932081}
   _transitions:
-  - _FadeDuration: 0.25
+  - _FadeDuration: 0.062000006
     _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
+      _NormalizedTimes:
+      - 0.4
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 5207608809968603527}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipState, Assembly-CSharp
+            m_MethodName: ShootSilk
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       _Names: []
     _Clip: {fileID: 7400000, guid: 95426a703202c2741b3025bbdd42eb23, type: 2}
     _Speed: 1.5
@@ -744,9 +761,38 @@ MonoBehaviour:
       _NormalizedStartTime: NaN
   _stateType: 24
   _canChangeToItself: 0
-  _movementMode: 0
+  _movementMode: 1
   _interpolateMode: 1
   _speed: 0
+--- !u!114 &4361497952733029417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293170896781113825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca91edaa871b23449b522e2d19d7aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 2c7b89c9ffc74e34e839bb3f781e671b, type: 2}
+  _unregisterOnDisable: 1
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5207608809968603527}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipState, Assembly-CSharp
+        m_MethodName: Launch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1429277764550251448
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +1016,7 @@ Transform:
   - {fileID: 5274893179072751371}
   - {fileID: 704335531708414758}
   - {fileID: 5501326366203972365}
+  - {fileID: 5376754597104171783}
   m_Father: {fileID: 2032646152031061193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748185086807915265
@@ -2278,7 +2325,7 @@ MonoBehaviour:
   _useFlatBaseForGroundChecks: 0
   _collisionLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 129
   _triggerInteraction: 1
   _advanced:
     minMoveDistance: 0
@@ -4191,6 +4238,155 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2032646152031061193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7821908159213517437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5376754597104171783}
+  - component: {fileID: 1791902285019822486}
+  m_Layer: 0
+  m_Name: PointLaunch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5376754597104171783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821908159213517437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8581614525833004515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791902285019822486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821908159213517437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9033e754036164cb207ab67d72f9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 4369872665408434342}
+  _animancer: {fileID: 872527583909876332}
+  _blackBoard: {fileID: 2918740459164932081}
+  _transitions:
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.960595
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1791902285019822486}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipLaunchState, Assembly-CSharp
+            m_MethodName: CompleteLaunch
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 977bac4ff08705148ae5c8237bdc3f57, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.9560282
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1791902285019822486}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipLaunchState, Assembly-CSharp
+            m_MethodName: CompleteLaunch
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: d7ab9e8882d3c8f4888dfae7e7659b35, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.94180584
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1791902285019822486}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipLaunchState, Assembly-CSharp
+            m_MethodName: CompleteLaunch
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: d250706eed29102438d0146827d2b0b7, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.95167077
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1791902285019822486}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipLaunchState, Assembly-CSharp
+            m_MethodName: CompleteLaunch
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 96546dbf6be74e94e97e52acaf8dfd9a, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _stateType: 25
+  _canChangeToItself: 0
+  _movementMode: 1
+  _interpolateMode: 1
+  _speed: 10
 --- !u!1 &7885659455278267336
 GameObject:
   m_ObjectHideFlags: 0
