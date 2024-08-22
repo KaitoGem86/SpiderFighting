@@ -6,10 +6,13 @@ using Newtonsoft.Json;
 using ParadoxNotion.Serialization.FullSerializer.Internal.DirectConverters;
 using UnityEngine;
 
-namespace Core.GamePlay.MyPlayer{
+namespace Core.GamePlay.MyPlayer
+{
     [CreateAssetMenu(menuName = "PlayerData")]
-    public class PlayerData : ScriptableObject{
+    public class PlayerData : ScriptableObject
+    {
         public PlayerStatSO playerStatSO;
+        public PlayerDataConfig playerDataConfig;
         public PlayerSerializeData playerSerializeData;
         public Dictionary<PlayerStat, float> localStats;
         public CollectibleSerializeEventListener onCollectReward;
@@ -17,13 +20,16 @@ namespace Core.GamePlay.MyPlayer{
         public bool isInMission = false;
 
 
-        public void Init(){
-            if(PlayerPrefs.HasKey("PlayerData")){
+        public void Init()
+        {
+            if (PlayerPrefs.HasKey("PlayerData"))
+            {
                 Debug.Log("Init Data 1");
                 LoadData();
                 playerSerializeData.UpdateDataWhenStartGame();
             }
-            else{
+            else
+            {
                 Debug.Log("Init Data 2");
                 playerSerializeData.InitData();
                 SaveData();
@@ -43,36 +49,51 @@ namespace Core.GamePlay.MyPlayer{
             SaveData();
         }
 
-        private void SaveData(){
+        private void SaveData()
+        {
             var json = JsonConvert.SerializeObject(playerSerializeData);
             Debug.Log(json);
             PlayerPrefs.SetString("PlayerData", json);
         }
 
-        private void LoadData(){
+        private void LoadData()
+        {
             var json = PlayerPrefs.GetString("PlayerData");
             playerSerializeData = JsonConvert.DeserializeObject<PlayerSerializeData>(json);
         }
 
-        public void UpdateStat(PlayerStat key, float value){
+        public void UpdateStat(PlayerStat key, float value)
+        {
             localStats[key] = value;
             SaveData();
         }
 
-        public void CollectReward(CollectibleData data){
-            
+        public void CollectReward(CollectibleData data)
+        {
+
         }
 
-        public void ResetPlayerStat(){
+        public void ResetPlayerStat()
+        {
             localStats = playerStatSO.GetInstancesStats();
             onUpdatePlayerData.Raise();
         }
 
-
-        #region  static method
-        public static int CalculateExpToNextLevel(){
-            return 0;              
+        public void UpdateExp(int value)
+        {
+            playerSerializeData.Exp += value;
+            int expToNextLevel = GetExpToNextLevel();
+            if (playerSerializeData.Exp >= expToNextLevel)
+            {
+                playerSerializeData.Exp -= expToNextLevel;
+                playerSerializeData.Level++;
+            }
         }
-        #endregion
+
+        public int GetExpToNextLevel()
+        {
+            int tmp = playerSerializeData.Level + playerDataConfig.levelCoefficients[playerSerializeData.Level];
+            return tmp * tmp;
+        }
     }
 }

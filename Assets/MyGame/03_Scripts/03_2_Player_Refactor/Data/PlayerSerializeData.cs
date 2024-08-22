@@ -48,15 +48,5 @@ namespace Core.GamePlay.MyPlayer
                 isClaimedDailyReward = false;
             }
         }
-
-        public void UpdateExp(int value)
-        {
-            Exp += value;
-            if (Exp >= 1000)
-            {
-                Exp -= 1000;
-                Level++;
-            }
-        }
     }
 }

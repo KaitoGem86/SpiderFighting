@@ -199,7 +199,7 @@ namespace Core.UI
         public void UpdatePlayerDisplayData(){
             _hpBarController.SetHP(_playerData.localStats[Data.Stat.Player.PlayerStat.HP], _playerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.HP));
             _levelText.text = "Level : " + _playerData.playerSerializeData.Level;
-            _expText.text = "Exp : " + _playerData.playerSerializeData.Exp + "/" + PlayerData.CalculateExpToNextLevel();
+            _expText.text = "Exp : " + _playerData.playerSerializeData.Exp + "/" + _playerData.GetExpToNextLevel();
             _cashText.text = "Cash : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash];
             _yellowSkinPieceText.text = "Yellow Skin Piece : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.YellowPiece];
             _purpleSkinPieceText.text = "Purple Skin Piece : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.PurplePiece];

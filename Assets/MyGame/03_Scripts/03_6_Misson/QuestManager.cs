@@ -63,7 +63,7 @@ namespace Core.GamePlay.Mission
         {
             playerData.ResetPlayerStat();
             playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash] += currentQuest.reward.currency;
-            playerData.playerSerializeData.UpdateExp(currentQuest.reward.exp);
+            playerData.UpdateExp(currentQuest.reward.exp);
             playerData.onUpdatePlayerData.Raise();
         }
 

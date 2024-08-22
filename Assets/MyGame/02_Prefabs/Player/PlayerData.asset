@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   playerStatSO: {fileID: 11400000, guid: c63212be20761b84ab9289ade83e299f, type: 2}
+  playerDataConfig: {fileID: 11400000, guid: 86651a70566fd2046b9d02bec5fbf30a, type: 2}
   playerSerializeData:
     Exp: 0
     Level: 1
@@ -40,3 +41,4 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   onUpdatePlayerData: {fileID: 11400000, guid: ea8ffbba3b278d3429aa889fff77b930, type: 2}
+  isInMission: 0
