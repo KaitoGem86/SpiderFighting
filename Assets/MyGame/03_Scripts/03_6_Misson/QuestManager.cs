@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using AYellowpaper.SerializedCollections;
 using Core.GamePlay.Enemy;
+using Core.GamePlay.Mission.NPC;
+using Core.GamePlay.MyPlayer;
 using CSVLoad;
-using MyTools.ScreenSystem;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,6 +15,7 @@ namespace Core.GamePlay.Mission
         public static QuestManager instance;
 
         public List<Quest> quests;
+        public PlayerData playerData;
         private Quest currentQuest;
         private int currentQuestIndex;
 
@@ -38,6 +38,8 @@ namespace Core.GamePlay.Mission
 
         public void RetryQuest()
         {
+            quests[currentQuestIndex].ResetQuest();
+            playerData.ResetPlayerStat();
             quests[currentQuestIndex].StartQuest();
         }
 
@@ -59,7 +61,10 @@ namespace Core.GamePlay.Mission
 
         public void FinishQuest()
         {
-            currentQuest.FinishQuest();
+            playerData.ResetPlayerStat();
+            playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash] += currentQuest.reward.currency;
+            playerData.UpdateExp(currentQuest.reward.exp);
+            playerData.onUpdatePlayerData.Raise();
         }
 
         #region  LOAD QUEST FROM SCENE
@@ -113,7 +118,9 @@ namespace Core.GamePlay.Mission
         [SerializeField] private EnemySO pistolEnemy;
         [SerializeField] private EnemySO riffleEnemy;
         [SerializeField] private BossSO bossEnemy;
-
+        
+        [Header("NPC data")]
+        [SerializeField] private NPCSO npcSO;
 
         [Header("Quests in scene")]
         [SerializeField] private Transform questParent;
@@ -175,7 +182,6 @@ namespace Core.GamePlay.Mission
                 {
                     case MissionType.Fighting:
                     case MissionType.FightingBoss:
-                    case MissionType.Protected:
                         var questData = ScriptableObject.CreateInstance<Quest>();
                         questData.infor = new QuestInfor
                         {
@@ -233,6 +239,69 @@ namespace Core.GamePlay.Mission
                         }
                         AssetDatabase.CreateAsset(questData, folderPath + $"/{questObject.Value.name}.asset");
                         quests.Add(questData);
+                        break;
+                    case MissionType.Protected:
+                        var questDataProtect = ScriptableObject.CreateInstance<ProtectedQuest>();
+                        questDataProtect.infor = new QuestInfor
+                        {
+                            QuestName = questObject.Value.name,
+                            QuestDescription = "This is a quest"
+                        };
+                        questDataProtect.reward = new RewardInfor
+                        {
+                            exp = 100,
+                            currency = 100
+                        };
+                        questDataProtect.stepPrefabs = new List<GameObject>();
+                        questDataProtect.dataPrefabs = new List<ScriptableObject>();
+                        questDataProtect.stepPrefabs.Add(questStepPrefabs[QuestStepType.Receive]);
+                        questDataProtect.dataPrefabs.Add(receiveStepData);
+                        Dictionary<TierEnemy, int>[] amountEnemyProtected = new Dictionary<TierEnemy, int>[data.enemyWaves];
+                        amountEnemyProtected[data.enemyWaves - 1] = new(data.amountEnemy);
+                        for (int i = 0; i < data.enemyWaves - 1; i++)
+                        {
+                            amountEnemyProtected[i] = new Dictionary<TierEnemy, int>();
+                            foreach (var enemy in data.amountEnemy)
+                            {
+                                amountEnemyProtected[i].Add(enemy.Key, enemy.Value / data.enemyWaves);
+                                amountEnemyProtected[data.enemyWaves - 1][enemy.Key] -= enemy.Value / data.enemyWaves;
+                            }
+                        }
+
+                        for (int i = 0; i < data.enemyWaves; i++)
+                        {
+                            var fightingData = ScriptableObject.CreateInstance<FightingQuestInitData>();
+                            fightingData.position = receiveStepData.position;
+                            fightingData.data = new List<EnemyData>();
+                            foreach (var enemy in amountEnemyProtected[i])
+                            {
+                                switch (enemy.Key)
+                                {
+                                    case TierEnemy.Tier1:
+                                        fightingData.data.Add(new EnemyData { enemySO = unarmEnemy, count = enemy.Value });
+                                        break;
+                                    case TierEnemy.Tier2:
+                                        fightingData.data.Add(new EnemyData { enemySO = clubEnemy, count = enemy.Value });
+                                        break;
+                                    case TierEnemy.Elite:
+                                        fightingData.data.Add(new EnemyData { enemySO = pistolEnemy, count = enemy.Value });
+                                        break;
+                                }
+                            }
+                            if (data.mission == MissionType.FightingBoss)
+                            {
+                                fightingData.data.Add(new EnemyData { enemySO = bossEnemy, count = 1 });
+                            }
+                            AssetDatabase.CreateAsset(fightingData, folderPath + $"/Fighting_{i}.asset");
+                            questDataProtect.stepPrefabs.Add(questStepPrefabs[QuestStepType.Fight]);
+                            questDataProtect.dataPrefabs.Add(fightingData);
+                        }
+                        questDataProtect.npcSO = npcSO;
+                        var random = UnityEngine.Random.insideUnitSphere * 5;
+                        random.y = 0;
+                        questDataProtect.spawnPosition = receiveStepData.position + random;
+                        AssetDatabase.CreateAsset(questDataProtect, folderPath + $"/{questObject.Value.name}.asset");
+                        quests.Add(questDataProtect);
                         break;
                     case MissionType.Shipping:
                         var questDataShipping = ScriptableObject.CreateInstance<ShippingQuest>();

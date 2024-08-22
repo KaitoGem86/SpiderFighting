@@ -11,6 +11,7 @@ namespace Core.GamePlay.MyPlayer
         public int Level;
         public int skinIndex;
         public int gadgetIndex;
+        public int missionIndex;
         public Dictionary<RewardType, int> rewards;
         public Dictionary<AchivementType, int> achivements;
         public int maxReceiveProgress;
@@ -22,6 +23,7 @@ namespace Core.GamePlay.MyPlayer
         {
             Exp = 0;
             Level = 1;
+            missionIndex = 0;
             skinIndex = 2;
             gadgetIndex = 0;
             rewards = new Dictionary<RewardType, int>();
@@ -44,16 +46,6 @@ namespace Core.GamePlay.MyPlayer
             if (DateTime.Now.Date - lastReceiveData.Date == TimeSpan.FromDays(1))
             {
                 isClaimedDailyReward = false;
-            }
-        }
-
-        public void UpdateExp(int value)
-        {
-            Exp += value;
-            if (Exp >= 1000)
-            {
-                Exp -= 1000;
-                Level++;
             }
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using Animancer;
 using Core.GamePlay.Support;
 using DG.Tweening.Core.Easing;
 using Extensions.SystemGame.AIFSM;
@@ -25,6 +26,7 @@ namespace Core.GamePlay.Enemy
         public override void OnDisable()
         {
             base.OnDisable();
+            //ChangeAction(FSMState.Idle);
             blackBoard.onEnemyDead?.Invoke();
             blackBoard.onEnemyDead = null;
             _enemyGroupSO.RemoveEnemy(this);
@@ -43,6 +45,9 @@ namespace Core.GamePlay.Enemy
             blackBoard.defaultPosition = transform.position;
             ChangeAction(_startState);
             
+            this.enabled = true;
+            GetComponent<Animator>().enabled = true;
+            GetComponent<AnimancerComponent>().enabled = true;
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<BehaviourTreeOwner>().enabled = true;
         }

@@ -20,19 +20,19 @@ namespace Collectible{
         }
 
         public void OnDisable(){
-            onCanCollect.Raise(false);
+            onCanCollect?.Raise(false);
         }
 
-        public void OnTriggerEnter(Collider other){
+        public virtual void OnTriggerEnter(Collider other){
             if(other.CompareTag("Player")){
                 other.GetComponent<PlayerBlackBoard>().CollectibleController = this;
-                onCanCollect.Raise(true);
+                onCanCollect?.Raise(true);
             }
         }
 
         public void OnTriggerExit(Collider other){
             if(other.CompareTag("Player")){
-                onCanCollect.Raise(false);
+                onCanCollect?.Raise(false);
             }
         }
 

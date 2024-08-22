@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
-  - {fileID: 11400000, guid: 4d9d938b54f7b5c4588fed547dfd3fc4, type: 2}
+  - {fileID: 11400000, guid: a0dd2cc25a60f8c4a856c219da16b6f4, type: 2}
   - {fileID: 11400000, guid: bb6ab6cba34c4fa45b60f88e4475ffff, type: 2}
   - {fileID: 11400000, guid: 0e0de9fe6e40f18478f05ae2e66d0ad7, type: 2}
   - {fileID: 11400000, guid: b306761185fec3b4d995a3e6800cc6d6, type: 2}
@@ -539,6 +539,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 253406e1923afa041ac91d22f6913f4c, type: 2}
   - {fileID: 11400000, guid: 6d4c48fd12abd6c40a5bf98000ea95af, type: 2}
   - {fileID: 11400000, guid: e1bf8dcf0ddbd1b4592a402b7e0480ba, type: 2}
+  playerData: {fileID: 11400000, guid: 0c8172207f6c02f45abdbc6ab00694e4, type: 2}
   spreadsheetId: 1d-2YGcEt-ocJWtHpvsru1aXatq3D3KSHsg2rDjbUBL0
   gid: 2140016624
   questPath: Assets/MyGame/04_Data/Quest
@@ -555,6 +556,7 @@ MonoBehaviour:
   pistolEnemy: {fileID: 11400000, guid: b334e9d6eef276249a70fad88dd9fa08, type: 2}
   riffleEnemy: {fileID: 11400000, guid: aa90c3b4d32d8174e97aa27da63af760, type: 2}
   bossEnemy: {fileID: 11400000, guid: 6a1b8aab1c7ed9144b5ac14e5b99f9c0, type: 2}
+  npcSO: {fileID: 11400000, guid: a663fad9b1922ab49a34d46aeb4f58c4, type: 2}
   questParent: {fileID: 0}
 --- !u!114 &6459026474800652578
 MonoBehaviour:

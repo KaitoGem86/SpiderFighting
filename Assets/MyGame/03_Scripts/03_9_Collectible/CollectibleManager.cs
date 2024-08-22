@@ -51,10 +51,12 @@ namespace Collectible{
 
         private void LoadCollectible(Transform parent, CollectibleSO collectible){
             collectible.collectibleDatas.Clear();
+            var type = GetRewardType(parent);
             for (int i = 0; i < parent.childCount; i++){
                 var child = parent.GetChild(i);
                 var data = new CollectibleData
                 {
+                    rewardType = type,
                     position = child.position,
                     rewardValue = 10,
                     id = i,
@@ -62,6 +64,16 @@ namespace Collectible{
                 collectible.collectibleDatas.Add(data);
             }
             EditorUtility.SetDirty(collectible);
+        }
+
+        private RewardType GetRewardType(Transform parent){
+            if(parent.name.Contains("Chest")){
+                return RewardType.EXP;
+            }
+            if(parent.name.Contains("HP")){
+                return RewardType.HP;
+            }
+            return RewardType.HP;
         }
 #endif
     }

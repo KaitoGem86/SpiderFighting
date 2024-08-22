@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 235b087e2134a3141ac64946bb5a8423, type: 3}
   m_Name: Mission 24 Protect
   m_EditorClassIdentifier: 
   infor:
@@ -27,3 +27,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9043de5b79633c549845e18526cebe87, type: 2}
   - {fileID: 11400000, guid: 0b3ba7463023537458530ea30c01fdeb, type: 2}
   - {fileID: 11400000, guid: 8cf90250e0ab3c14aadbb58091604ea3, type: 2}
+  npcSO: {fileID: 0}
+  spawnPosition: {x: 114.83112, y: 67.95, z: -290.3276}

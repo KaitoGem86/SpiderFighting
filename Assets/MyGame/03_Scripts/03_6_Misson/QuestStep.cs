@@ -14,11 +14,17 @@ namespace Core.GamePlay.Mission
             _questData = _container.GetData<T>();
         }
 
-        public void FinishStep()
+        public virtual void FinishStep()
         {
             if (_isCompletedStep) return;
             _isCompletedStep = true;
             _container.NextQuestStep();
+            Destroy(this.gameObject);
+        }
+
+        public virtual void ResetStep()
+        {
+            _isCompletedStep = false;
             Destroy(this.gameObject);
         }
 

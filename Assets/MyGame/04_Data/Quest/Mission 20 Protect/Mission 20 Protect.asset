@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 235b087e2134a3141ac64946bb5a8423, type: 3}
   m_Name: Mission 20 Protect
   m_EditorClassIdentifier: 
   infor:
@@ -27,3 +27,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e7b130ed8d6c8346b82f814c705d99c, type: 2}
   - {fileID: 11400000, guid: 9a96c7b1b2a3f0340b406d7e01c4f5af, type: 2}
   - {fileID: 11400000, guid: 2243f238e72e43e4a8068735b6893d27, type: 2}
+  npcSO: {fileID: 0}
+  spawnPosition: {x: 375.31183, y: 0.099999905, z: 153.86795}

@@ -15,80 +15,99 @@ MonoBehaviour:
   _prefab: {fileID: 1891251333533220347, guid: 3c0db1a520d3a204da22b9d9c674b8b1, type: 3}
   timeToSpawn: 5
   collectibleDatas:
-  - rewardType: 0
+  - rewardType: 6
     id: 0
     rewardValue: 10
     position: {x: -376.11, y: 0.103820324, z: 194.12999}
-  - rewardType: 0
+  - rewardType: 6
     id: 1
     rewardValue: 10
     position: {x: -285, y: 0.103820324, z: 87.7}
-  - rewardType: 0
+  - rewardType: 6
     id: 2
     rewardValue: 10
     position: {x: -185.7, y: 86.43382, z: 239.59999}
-  - rewardType: 0
+  - rewardType: 6
     id: 3
     rewardValue: 10
     position: {x: -21.05, y: 14.85382, z: 305.16}
-  - rewardType: 0
+  - rewardType: 6
     id: 4
     rewardValue: 10
     position: {x: 120.5, y: 95.65382, z: 232.7}
-  - rewardType: 0
+  - rewardType: 6
     id: 5
     rewardValue: 10
     position: {x: -139.95, y: 68.23382, z: 147.79999}
-  - rewardType: 0
+  - rewardType: 6
     id: 6
     rewardValue: 10
     position: {x: 18.6, y: 23.753819, z: 99.2}
-  - rewardType: 0
+  - rewardType: 6
     id: 7
     rewardValue: 10
     position: {x: 61.120003, y: 2.4638202, z: 159.79999}
-  - rewardType: 0
+  - rewardType: 6
     id: 8
     rewardValue: 10
     position: {x: 185.77, y: 0.103820324, z: 60.789993}
-  - rewardType: 0
+  - rewardType: 6
     id: 9
     rewardValue: 10
     position: {x: 320.55, y: 0.103820324, z: 122.21999}
-  - rewardType: 0
+  - rewardType: 6
     id: 10
     rewardValue: 10
     position: {x: 328.6, y: 0.103820324, z: 296.59998}
-  - rewardType: 0
+  - rewardType: 6
     id: 11
     rewardValue: 10
     position: {x: 442.6, y: 0.103820324, z: 215.7}
-  - rewardType: 0
+  - rewardType: 6
     id: 12
     rewardValue: 10
     position: {x: 568.1, y: 0.103820324, z: 300.09998}
-  - rewardType: 0
+  - rewardType: 6
     id: 13
     rewardValue: 10
     position: {x: 28.900002, y: 0.103820324, z: -59.200012}
-  - rewardType: 0
+  - rewardType: 6
     id: 14
     rewardValue: 10
     position: {x: -3.82, y: 42.90382, z: -195.80002}
-  - rewardType: 0
+  - rewardType: 6
     id: 15
     rewardValue: 10
     position: {x: -73.76, y: 46.84382, z: -274.46}
-  - rewardType: 0
+  - rewardType: 6
     id: 16
     rewardValue: 10
     position: {x: -89, y: 0.053820133, z: -409.37003}
-  - rewardType: 0
+  - rewardType: 6
     id: 17
     rewardValue: 10
     position: {x: 35.1, y: 135.87383, z: -380.56003}
-  - rewardType: 0
+  - rewardType: 6
     id: 18
     rewardValue: 10
     position: {x: 117.33, y: 67.96382, z: -274.46}
-  collectibles: []
+  collectibles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -23,6 +23,20 @@ namespace Core.UI
         [SerializeField] private TMP_Text _bossName;
         [SerializeField] private GameObject _bossHPBar;
         [SerializeField] private CameraFindZipPoint _findZipPoint;
+
+        [Header("Display Info")]
+        [SerializeField] private PlayerData _playerData;
+        [SerializeField] private HPBarController _hpBarController;
+        [SerializeField] private TMP_Text _levelText;
+        [SerializeField] private TMP_Text _expText;
+        [SerializeField] private TMP_Text _cashText;
+        [SerializeField] private TMP_Text _yellowSkinPieceText;
+        [SerializeField] private TMP_Text _purpleSkinPieceText;
+        [SerializeField] private TMP_Text _skillPointText;
+
+
+
+        [Header("Controller Events")]
         public DefaultEvent onZip;
         public BoolEvent onSwing;
         public IntEvent onChangeSkin;
@@ -55,13 +69,14 @@ namespace Core.UI
         protected override void OnCompleteShowItSelf()
         {
             base.OnCompleteShowItSelf();
+            UpdatePlayerDisplayData();
             _findZipPoint.camera = GameManager.Instance.playerCamera;
         }
 
         public void Update()
         {
-            
-            
+
+
             if (_isSwing)
             {
                 onSwing?.Raise(value: true);
@@ -135,7 +150,8 @@ namespace Core.UI
             onUseScan?.Raise();
         }
 
-        public void OnClickCollect(){
+        public void OnClickCollect()
+        {
             onCollect?.Raise();
         }
 
@@ -169,7 +185,8 @@ namespace Core.UI
             onAttack?.Raise();
         }
 
-        public void ActiveBossHPBar(CustomEvent.DisplayInfo.DisplayInfo info){
+        public void ActiveBossHPBar(CustomEvent.DisplayInfo.DisplayInfo info)
+        {
             _bossHPBar.SetActive(true);
             _bossIcon.sprite = info.icon;
             _bossName.text = info.name;
@@ -184,6 +201,17 @@ namespace Core.UI
         {
             var data = _gadgetDataSO.gadgets[id];
             _gadgetIcon.sprite = data.icon;
+        }
+
+        public void UpdatePlayerDisplayData()
+        {
+            _hpBarController.SetHP(_playerData.localStats[Data.Stat.Player.PlayerStat.HP], _playerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.HP));
+            _levelText.text = "Level : " + _playerData.playerSerializeData.Level;
+            _expText.text = "Exp : " + _playerData.playerSerializeData.Exp + "/" + _playerData.GetExpToNextLevel();
+            _cashText.text = "Cash : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash];
+            _yellowSkinPieceText.text = "Yellow Skin Piece : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.YellowPiece];
+            _purpleSkinPieceText.text = "Purple Skin Piece : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.PurplePiece];
+            _skillPointText.text = "Skill Point : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.SkillPoint];
         }
 
 

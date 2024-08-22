@@ -1,4 +1,5 @@
 using Animancer;
+using Core.GamePlay.Mission.NPC;
 using Core.GamePlay.Support;
 using DamageNumbersPro;
 using Extensions.SystemGame.AIFSM;
@@ -14,19 +15,31 @@ namespace Core.GamePlay.Mission.Protected
 
         protected override void OnEnable()
         {
+            Debug.Log("NPC is enabled");
             base.OnEnable();
+        }
+
+        public void OnDisable(){
+            _currentState = null;
+            currentStateType = FSMState.None;
+        }
+
+        public void Init(NPCSO so)
+        {
             blackBoard.hp = 100;
             _hpBarController.SetHP(1);
         }
+
 
         public void HittedByPlayer(FSMState state)
         {
             blackBoard.hp -= 10;
             _hpBarController.SetHP(blackBoard.hp / 100);
-            _dameNumber.Spawn(_unitCanvas.transform.position, 10 , _unitCanvas.transform);
+            _dameNumber.Spawn(_unitCanvas.transform.position, 10, _unitCanvas.transform);
             if (blackBoard.hp <= 0)
             {
                 Debug.Log("NPC is dead");
+                ChangeAction(FSMState.Dead);
             }
         }
 
