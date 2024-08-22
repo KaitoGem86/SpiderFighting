@@ -96,6 +96,10 @@ namespace Core.GamePlay.MyPlayer
         public virtual void UseGadget(){
             _fsm.ChangeAction(FSMState.UseGadget);
         }
+
+        public virtual void Zip(){
+            _fsm.ChangeAction(FSMState.Zip);
+        }
     }
 
     public class ClipTransitionPlayerState : BasePlayerState<ClipTransition> { }
