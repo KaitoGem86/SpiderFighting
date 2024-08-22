@@ -36,7 +36,11 @@ namespace Core.GamePlay.MyPlayer
                     () => {
                         _blackBoard.rightSilk.UnUseSilk();
                         _blackBoard.leftSilk.UnUseSilk();
-                        _blackBoard.rig.transform.up = Vector3.up;
+                        _forward.y = 0;
+                        _blackBoard.rig.rotation = Quaternion.LookRotation(_forward, Vector3.up);
+                        _blackBoard.rig.velocity = Vector3.zero;
+                        _blackBoard.rig.position = _zipPoint;
+                        _blackBoard.rig.angularVelocity = Vector3.zero;
                     }
                 );
         }
