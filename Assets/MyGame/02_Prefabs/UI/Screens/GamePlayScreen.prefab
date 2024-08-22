@@ -380,7 +380,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7731026701457337415
 CanvasRenderer:
@@ -2261,14 +2261,13 @@ GameObject:
   - component: {fileID: 8113753708256919351}
   - component: {fileID: 8607131549143128244}
   - component: {fileID: 2872269935081478466}
-  - component: {fileID: 6477342049797224886}
   m_Layer: 5
-  m_Name: Image
+  m_Name: FocusZipPointRect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8113753708256919351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2288,7 +2287,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 130, y: 108}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8607131549143128244
 CanvasRenderer:
@@ -2328,20 +2327,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6477342049797224886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5182784358428124445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2bd323700de13b4c9fbfa148513f3db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _displayZipPoint: {fileID: 8113753708256919351}
-  TargetZipPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &5296432418975786714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,7 +3242,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 81}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &280707656787265365
 CanvasRenderer:
@@ -4336,6 +4321,7 @@ GameObject:
   - component: {fileID: 8671461180585147851}
   - component: {fileID: 2982841698882513100}
   - component: {fileID: 762496653155281772}
+  - component: {fileID: 1360957409641433421}
   m_Layer: 5
   m_Name: GamePlayScreen
   m_TagString: Untagged
@@ -4391,6 +4377,7 @@ MonoBehaviour:
   _bossIcon: {fileID: 3065763825526762581}
   _bossName: {fileID: 6967017601037866462}
   _bossHPBar: {fileID: 7758264684007885651}
+  _findZipPoint: {fileID: 1360957409641433421}
   onZip: {fileID: 11400000, guid: 71c7e6fd360d2d7499a19c5aa65232d4, type: 2}
   onSwing: {fileID: 11400000, guid: 2c7b89c9ffc74e34e839bb3f781e671b, type: 2}
   onChangeSkin: {fileID: 11400000, guid: 90c0864d4dd0e114fb1032bba20e8fe2, type: 2}
@@ -4508,6 +4495,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1360957409641433421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200792813347899596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a46fe9505388f64b858fd801ba2101d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  distance: 40
+  projectDistance: 40
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  inwardsOffset: 0.1
+  zipPoint: {x: 0, y: 0, z: 0}
+  pointSetBack: {x: 0, y: 0, z: 0}
+  upPoint: {x: 0, y: 0, z: 0}
+  forwardPoint: {x: 0, y: 0, z: 0}
+  forwardPointDistance: 10
+  backPOffset: 0.2
+  floorDistance: 40
+  cameraSphereRadius: 0.5
+  upPointSphereRadius: 0.5
+  upSphereCastHeight: 50
+  focusPrefabRectTransform: {fileID: 8113753708256919351}
 --- !u!1 &8222829468134793007
 GameObject:
   m_ObjectHideFlags: 0

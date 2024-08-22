@@ -1,6 +1,8 @@
 using System.Collections;
 using Core.GamePlay.MyPlayer;
 using Core.GamePlay.Player;
+using Core.GamePlay.Support;
+using Core.Manager;
 using MyTools.Event;
 using MyTools.ScreenSystem;
 using SFRemastered.InputSystem;
@@ -20,6 +22,7 @@ namespace Core.UI
         [SerializeField] private Image _bossIcon;
         [SerializeField] private TMP_Text _bossName;
         [SerializeField] private GameObject _bossHPBar;
+        [SerializeField] private CameraFindZipPoint _findZipPoint;
         public DefaultEvent onZip;
         public BoolEvent onSwing;
         public IntEvent onChangeSkin;
@@ -45,6 +48,12 @@ namespace Core.UI
             entry2.eventID = EventTriggerType.PointerUp;
             entry2.callback.AddListener((data2) => { InputManager.instance.LookReleased(); });
             _lookPanel.triggers.Add(entry2);
+        }
+
+        protected override void OnCompleteShowItSelf()
+        {
+            base.OnCompleteShowItSelf();
+            _findZipPoint.camera = GameManager.Instance.playerCamera;
         }
 
         public void Update()

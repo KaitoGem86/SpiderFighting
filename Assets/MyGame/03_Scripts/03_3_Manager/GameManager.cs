@@ -41,6 +41,7 @@ namespace Core.Manager {
         }
 
         public SensorDetector detector;
+        public Camera playerCamera;
 
     }
 }
