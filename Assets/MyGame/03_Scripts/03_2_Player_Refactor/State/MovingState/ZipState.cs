@@ -54,6 +54,7 @@ namespace Core.GamePlay.MyPlayer
         }
 
         public void Launch(){
+            Debug.Log("Launch " + _isChangeState);
             if(_isChangeState){
                 _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Launch);
             }

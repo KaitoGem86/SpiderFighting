@@ -4,12 +4,18 @@ using Extensions.SystemGame.AIFSM;
 
 namespace Core.GamePlay.MyPlayer
 {
-    public class ZipLaunchState : InAirState<ClipTransition>
+    public class ZipLaunchState : LocalmotionState<ClipTransition>
     {
         public override void EnterState()
         {
             base.EnterState();
-            _blackBoard.Character.Jump();
+            _blackBoard.Character.AddForce(Vector3.up * 50, ForceMode.Impulse);
+        }
+
+        public override void ExitState()
+        {
+            base.ExitState();
+            _blackBoard.Character.StopJumping();
         }
 
         public void CompleteLaunch(){
