@@ -120,15 +120,18 @@ namespace Core.GamePlay.Mission
         [SerializeField] private EnemySO riffleEnemy;
         [SerializeField] private BossSO bossEnemy;
         
-        [Header("NPC data")]
+        [Header("=========== NPC data ===============")]
         [SerializeField] private NPCSO npcSO;
 
-        [Header("Quests in scene")]
+        [Header("=========== Quests in scene ===========")]
         [SerializeField] private Transform questParent;
 
-        [Header("Quest events")]
+        [Header("========== Quest events =============")]
+        [Header("Shipping Quest")]
         [SerializeField] private DefaultEvent _onShippingQuestStart;
         [SerializeField] private DefaultEvent _onShippingQuestFinish;
+        [SerializeField] private FloatEvent _onShippingQuestUpdate;
+        [SerializeField] private IntEvent _onShippingQuestStepChange;
 
         [ContextMenu("Load Quests")]
         public void LoadQuests()
@@ -336,6 +339,8 @@ namespace Core.GamePlay.Mission
                         }
                         questDataShipping.onFinishShippingQuest = _onShippingQuestFinish;
                         questDataShipping.onStartShippingQuest = _onShippingQuestStart;
+                        questDataShipping.onUpdateTime = _onShippingQuestUpdate;
+                        questDataShipping.onStepChange = _onShippingQuestStepChange;
                         AssetDatabase.CreateAsset(questDataShipping, folderPath + $"/{questObject.Value.name}.asset");
                         quests.Add(questDataShipping);
                         break;

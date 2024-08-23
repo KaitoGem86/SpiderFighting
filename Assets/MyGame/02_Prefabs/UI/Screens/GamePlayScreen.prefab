@@ -1955,7 +1955,7 @@ GameObject:
   - component: {fileID: 6945745099457209226}
   - component: {fileID: 6752605972730921002}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Off3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2182,7 +2182,7 @@ GameObject:
   - component: {fileID: 8324472439467972772}
   - component: {fileID: 1278124597383046421}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: On3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3109,7 +3109,7 @@ GameObject:
   - component: {fileID: 6840020284249931071}
   - component: {fileID: 4812024766067406745}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: On1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3318,7 +3318,7 @@ GameObject:
   - component: {fileID: 3375532650275148688}
   - component: {fileID: 1130344816717853039}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: On2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3525,6 +3525,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4972337590029761896}
+  - component: {fileID: 3416920372181825357}
+  - component: {fileID: 4307528801524868344}
+  - component: {fileID: 3030520122354145364}
   m_Layer: 5
   m_Name: ShippingPanel
   m_TagString: Untagged
@@ -3555,6 +3558,85 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 1000, y: 800}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &3416920372181825357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071182415719974734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c1fd716c64df244b04654fb8c78ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeText: {fileID: 17226027729058155}
+  _stepOns:
+  - {fileID: 5681146089665747948}
+  - {fileID: 5991191238166326312}
+  - {fileID: 4150497667448300009}
+  _stepOffs:
+  - {fileID: 8670755126007778383}
+  - {fileID: 6420438854203594252}
+  - {fileID: 3296079215554753146}
+--- !u!114 &4307528801524868344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071182415719974734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f9b201a50132f48ba228c3d3bdaa21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 47cda9e3d98f8ba4d9b05942a34995db, type: 2}
+  _unregisterOnDisable: 1
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3416920372181825357}
+        m_TargetAssemblyTypeName: Core.UI.ShippingQuestPanel, Assembly-CSharp
+        m_MethodName: SetTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3030520122354145364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071182415719974734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a309d31daba28e64d93cd2bf3a1ea452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: d6d629869e90efb4c88e68c859062a9c, type: 2}
+  _unregisterOnDisable: 1
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3416920372181825357}
+        m_TargetAssemblyTypeName: Core.UI.ShippingQuestPanel, Assembly-CSharp
+        m_MethodName: SetStep
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6211484946975369760
 GameObject:
   m_ObjectHideFlags: 0
@@ -3610,7 +3692,7 @@ GameObject:
   - component: {fileID: 7428668220680445755}
   - component: {fileID: 8897609474992795462}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Off2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5596,7 +5678,7 @@ GameObject:
   - component: {fileID: 965811285551481064}
   - component: {fileID: 5216199867677362871}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Off1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

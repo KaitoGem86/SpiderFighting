@@ -32,3 +32,5 @@ MonoBehaviour:
   time: 120
   onStartShippingQuest: {fileID: 11400000, guid: c83769cb7e03b8348a90d0cbf329aa2a, type: 2}
   onFinishShippingQuest: {fileID: 11400000, guid: 929c31a6fd2a71d46b9f77f088ef130d, type: 2}
+  onUpdateTime: {fileID: 11400000, guid: 47cda9e3d98f8ba4d9b05942a34995db, type: 2}
+  onStepChange: {fileID: 11400000, guid: d6d629869e90efb4c88e68c859062a9c, type: 2}

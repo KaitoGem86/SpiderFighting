@@ -9,6 +9,8 @@ namespace Core.GamePlay.Mission
         public float time;
         public DefaultEvent onStartShippingQuest;
         public DefaultEvent onFinishShippingQuest;
+        public FloatEvent onUpdateTime;
+        public IntEvent onStepChange;
         private float currentTime;
         private bool _isStartQuest = false;
 
@@ -24,6 +26,7 @@ namespace Core.GamePlay.Mission
             base.Update();
             if (!_isStartQuest) return;
             currentTime -= UnityEngine.Time.deltaTime;
+            onUpdateTime.Raise(currentTime);
             if (currentTime <= 0)
             {
                 FinishQuest(false);
@@ -44,6 +47,7 @@ namespace Core.GamePlay.Mission
                 _isStartQuest = true;
                 onStartShippingQuest.Raise();
             }
+            onStepChange.Raise(_currentStepIndex - 2);
         }
     }
 }
