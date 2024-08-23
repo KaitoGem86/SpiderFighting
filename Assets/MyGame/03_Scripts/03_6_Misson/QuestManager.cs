@@ -5,6 +5,7 @@ using Core.GamePlay.Enemy;
 using Core.GamePlay.Mission.NPC;
 using Core.GamePlay.MyPlayer;
 using CSVLoad;
+using MyTools.Event;
 using UnityEditor;
 using UnityEngine;
 
@@ -124,6 +125,10 @@ namespace Core.GamePlay.Mission
 
         [Header("Quests in scene")]
         [SerializeField] private Transform questParent;
+
+        [Header("Quest events")]
+        [SerializeField] private DefaultEvent _onShippingQuestStart;
+        [SerializeField] private DefaultEvent _onShippingQuestFinish;
 
         [ContextMenu("Load Quests")]
         public void LoadQuests()
@@ -329,7 +334,8 @@ namespace Core.GamePlay.Mission
                             questDataShipping.stepPrefabs.Add(questStepPrefabs[QuestStepType.Shipping]);
                             questDataShipping.dataPrefabs.Add(shippingStepData);
                         }
-
+                        questDataShipping.onFinishShippingQuest = _onShippingQuestFinish;
+                        questDataShipping.onStartShippingQuest = _onShippingQuestStart;
                         AssetDatabase.CreateAsset(questDataShipping, folderPath + $"/{questObject.Value.name}.asset");
                         quests.Add(questDataShipping);
                         break;

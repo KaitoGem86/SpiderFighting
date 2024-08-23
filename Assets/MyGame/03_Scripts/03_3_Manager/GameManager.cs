@@ -24,6 +24,7 @@ namespace Core.Manager {
         }
 
         private void OnApplicationQuit(){
+            playerBlackBoard.PlayerData.SaveData();
             _enemyGroupSO.Dispose();
         }
 

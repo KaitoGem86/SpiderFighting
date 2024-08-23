@@ -30,3 +30,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f7c3251f25be45842834dbe67e050628, type: 2}
   - {fileID: 11400000, guid: 12af4b57abcfae84b9ffc268d1431f4a, type: 2}
   time: 120
+  onStartShippingQuest: {fileID: 11400000, guid: c83769cb7e03b8348a90d0cbf329aa2a, type: 2}
+  onFinishShippingQuest: {fileID: 11400000, guid: 929c31a6fd2a71d46b9f77f088ef130d, type: 2}

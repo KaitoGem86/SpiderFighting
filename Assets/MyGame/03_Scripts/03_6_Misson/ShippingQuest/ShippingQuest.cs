@@ -1,12 +1,14 @@
 using MyTools.Event;
 using UnityEngine;
 
-namespace Core.GamePlay.Mission{
+namespace Core.GamePlay.Mission
+{
     [CreateAssetMenu(fileName = "New Quest", menuName = "Quest/Shipping Quest")]
-    public class ShippingQuest : Quest {
+    public class ShippingQuest : Quest
+    {
         public float time;
-        [SerializeField] private DefaultEvent _onStartShippingQuest;
-        [SerializeField] private DefaultEvent _onFinishShippingQuest;
+        public DefaultEvent onStartShippingQuest;
+        public DefaultEvent onFinishShippingQuest;
         private float currentTime;
         private bool _isStartQuest = false;
 
@@ -20,25 +22,27 @@ namespace Core.GamePlay.Mission{
         public override void Update()
         {
             base.Update();
-            if(!_isStartQuest) return;
+            if (!_isStartQuest) return;
             currentTime -= UnityEngine.Time.deltaTime;
-            if(currentTime <= 0){
+            if (currentTime <= 0)
+            {
                 FinishQuest(false);
             }
         }
 
         public override void FinishQuest(bool isWin = true)
         {
+            onFinishShippingQuest.Raise();
             base.FinishQuest(isWin);
-            _onFinishShippingQuest.Raise();
         }
 
         public override void NextQuestStep()
         {
             base.NextQuestStep();
-            if(_currentStepIndex == 1){
+            if (_currentStepIndex == 1)
+            {
                 _isStartQuest = true;
-                _onStartShippingQuest.Raise();
+                onStartShippingQuest.Raise();
             }
         }
     }
