@@ -186,7 +186,13 @@ namespace Core.UI
             onAttack?.Raise();
         }
 
-        public void OnShowHitCounter(int hit){
+        public void OnShowHitCounter(int hit)
+        {
+            if (hit == -1)
+            {
+                _hitNumber.gameObject.SetActive(false);
+                return;
+            }
             _hitNumber.text = "HITS: x" + hit;
             _hitNumber.gameObject.SetActive(false);
             _hitNumber.gameObject.SetActive(true);
