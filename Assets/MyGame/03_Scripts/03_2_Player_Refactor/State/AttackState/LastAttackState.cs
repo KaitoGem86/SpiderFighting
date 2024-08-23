@@ -43,6 +43,9 @@ namespace Core.GamePlay.MyPlayer
 
         public void ApplyDamage(int typeAttackIndicator)
         {
+            _blackBoard.AttackCount += 1;
+            _blackBoard.ResetTime();
+            _blackBoard.OnShowHitCounter.Raise(_blackBoard.AttackCount);
             switch (typeAttackIndicator)
             {
                 case 0:

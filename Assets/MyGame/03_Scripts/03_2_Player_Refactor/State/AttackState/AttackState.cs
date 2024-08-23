@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Animancer;
+using DG.Tweening;
 using AYellowpaper.SerializedCollections;
 using Core.GamePlay.Support;
 using Extensions.SystemGame.AIFSM;
@@ -35,9 +35,9 @@ namespace Core.GamePlay.MyPlayer
             }
             //_fsm.blackBoard.Character.useRootMotion = true;
             base.EnterState();
+            var forward = _enemy != null ? _enemy.TargetEnemy.position - _fsm.transform.position : _fsm.transform.forward; forward.y = 0;
+            _blackBoard.rig.DORotate(forward, 0.1f);
             _isCanChangeNextAttack = false;
-            _blackBoard.AttackCount += 1;
-            _blackBoard.OnShowHitCounter.Raise(_blackBoard.AttackCount);
         }
 
         public override void ExitState()
@@ -49,7 +49,7 @@ namespace Core.GamePlay.MyPlayer
         public void FixedUpdate()
         {
             var forward = _enemy != null ? _enemy.TargetEnemy.position - _fsm.transform.position : _fsm.transform.forward; forward.y = 0;
-            _fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, Quaternion.LookRotation(forward), 0.2f);
+            //_fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, Quaternion.LookRotation(forward), 0.2f);
         }
 
 
@@ -60,6 +60,9 @@ namespace Core.GamePlay.MyPlayer
 
         public void ApplyDamage(int typeAttackIndicator)
         {
+            _blackBoard.AttackCount += 1;
+            _blackBoard.ResetTime();
+            _blackBoard.OnShowHitCounter.Raise(_blackBoard.AttackCount);
             switch (typeAttackIndicator)
             {
                 case 0:

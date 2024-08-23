@@ -72,6 +72,7 @@ namespace Core.UI
             base.OnCompleteShowItSelf();
             UpdatePlayerDisplayData();
             _findZipPoint.camera = GameManager.Instance.playerCamera;
+            _hitNumber.gameObject.SetActive(false);
         }
 
         public void Update()

@@ -73,6 +73,9 @@ namespace Core.GamePlay.MyPlayer
                 Debug.Log("------------------- Miss -----------------");
                 return;
             }
+            blackBoard.AttackCount = 0;
+            blackBoard.ResetTime();
+            blackBoard.OnShowHitCounter.Raise(-1);
             var hp = blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP];
             var maxHP = blackBoard.PlayerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.HP);
             hp -= 100;
@@ -95,6 +98,9 @@ namespace Core.GamePlay.MyPlayer
         }
 
         public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip){
+            blackBoard.AttackCount = 0;
+            blackBoard.ResetTime();
+            blackBoard.OnShowHitCounter.Raise(-1);
             blackBoard.PlayerController.ResponseClip = responseClip;
         }
 

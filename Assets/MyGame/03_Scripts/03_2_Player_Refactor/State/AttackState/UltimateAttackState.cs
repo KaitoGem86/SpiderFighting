@@ -13,7 +13,10 @@ namespace Core.GamePlay.MyPlayer{
             var enemies = _fsm.blackBoard.FindEnemyToAttack.FindAllEnemyByDistance(_fsm.transform, 10, !_blackBoard.PlayerController.IsPlayer);
             foreach (var enemy in enemies){
                 enemy.HittedByPlayer(Extensions.SystemGame.AIFSM.FSMState.KnockBack);
+                _blackBoard.AttackCount += 1;
             }
+            _blackBoard.ResetTime();
+            _blackBoard.OnShowHitCounter.Raise(_blackBoard.AttackCount);
         }
     }
 }

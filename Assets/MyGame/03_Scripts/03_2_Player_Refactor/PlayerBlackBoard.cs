@@ -50,6 +50,8 @@ namespace Core.GamePlay.MyPlayer{
         public FloatEvent OnAttack;
         public int AttackCount;
         public IntEvent OnShowHitCounter;   
+        public float timeToResetAttackCount = 0.5f;
+        public float defaultTime = 0.5f;
 
         [Header("Collectible")]
         [HideInInspector] public CollectibleController CollectibleController;
@@ -57,5 +59,17 @@ namespace Core.GamePlay.MyPlayer{
         [Header("Modules")]
         public ShootSilk leftSilk;
         public ShootSilk rightSilk;
+
+        public void FixedUpdate(){
+            timeToResetAttackCount -= Time.fixedDeltaTime;
+            if(timeToResetAttackCount <= 0){
+                AttackCount = 0;
+                timeToResetAttackCount = defaultTime;
+            }
+        }
+
+        public void ResetTime(){
+            timeToResetAttackCount = defaultTime;
+        }
     }
 }
