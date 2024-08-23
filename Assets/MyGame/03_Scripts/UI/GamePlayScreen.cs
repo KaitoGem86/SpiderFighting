@@ -34,7 +34,7 @@ namespace Core.UI
         [SerializeField] private TMP_Text _yellowSkinPieceText;
         [SerializeField] private TMP_Text _purpleSkinPieceText;
         [SerializeField] private TMP_Text _skillPointText;
-        [SerializeField] private DamageNumber _hitNumber;
+        [SerializeField] private TMP_Text _hitNumber;
         [SerializeField] private Transform _hitNumberParent;
 
         [Header("Controller Events")]
@@ -187,7 +187,9 @@ namespace Core.UI
         }
 
         public void OnShowHitCounter(int hit){
-            _hitNumber.Spawn(_hitNumberParent.position, newLeftText: "Hits " + hit, _hitNumberParent, Color.green); 
+            _hitNumber.text = "HITS: x" + hit;
+            _hitNumber.gameObject.SetActive(false);
+            _hitNumber.gameObject.SetActive(true);
         }
 
         public void ActiveBossHPBar(CustomEvent.DisplayInfo.DisplayInfo info)

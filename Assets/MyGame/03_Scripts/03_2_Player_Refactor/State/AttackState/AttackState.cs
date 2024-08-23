@@ -36,6 +36,8 @@ namespace Core.GamePlay.MyPlayer
             //_fsm.blackBoard.Character.useRootMotion = true;
             base.EnterState();
             _isCanChangeNextAttack = false;
+            _blackBoard.AttackCount += 1;
+            _blackBoard.OnShowHitCounter.Raise(_blackBoard.AttackCount);
         }
 
         public override void ExitState()
