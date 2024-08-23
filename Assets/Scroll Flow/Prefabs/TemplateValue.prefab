@@ -265,8 +265,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "200 \u0433\u0440\u0430\u043C\u043C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 936a02e094e9d184ea3f05f70c70002b, type: 2}
-  m_sharedMaterial: {fileID: -2430634899121131788, guid: 936a02e094e9d184ea3f05f70c70002b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a8df2caccd8dff14aa5f09beaad6cc52, type: 2}
+  m_sharedMaterial: {fileID: -7900790466791434564, guid: a8df2caccd8dff14aa5f09beaad6cc52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.25
+  m_fontSize: 65.55
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1

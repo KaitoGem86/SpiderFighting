@@ -1,5 +1,6 @@
 using Animancer;
 using Extensions.SystemGame.AIFSM;
+using UnityEngine.AI;
 
 namespace Core.GamePlay.Mission.Protected{
     public class ProtectedNPCBlackBoard : BlackBoard{
@@ -7,5 +8,6 @@ namespace Core.GamePlay.Mission.Protected{
         public bool isPlayer;
         public float hp;
         public NeedProtectedNPC controller;
+        public NavMeshAgent navMeshAgent;
     }
 }

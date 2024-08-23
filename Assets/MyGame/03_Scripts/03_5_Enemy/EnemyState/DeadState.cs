@@ -7,6 +7,7 @@ namespace Core.GamePlay.Enemy{
         public override void EnterState()
         {
             base.EnterState();
+            _blackBoard.navMeshAgent.isStopped = true;
         }
     }
 }

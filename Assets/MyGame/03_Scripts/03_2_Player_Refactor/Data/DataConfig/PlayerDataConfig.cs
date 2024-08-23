@@ -1,5 +1,7 @@
 using CSVLoad;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Core.GamePlay.MyPlayer
@@ -26,6 +28,7 @@ namespace Core.GamePlay.MyPlayer
         }
     }
 
+#if UNITY_EDITOR
     [CustomEditor(typeof(PlayerDataConfig))]
     public class PlayerDataConfigEditor : Editor
     {
@@ -40,6 +43,5 @@ namespace Core.GamePlay.MyPlayer
             }
         }
     }
-
-
+#endif
 }

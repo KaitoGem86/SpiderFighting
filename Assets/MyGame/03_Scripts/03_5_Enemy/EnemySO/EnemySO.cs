@@ -52,10 +52,8 @@ namespace Core.GamePlay.Enemy
         {
             var go = SpawnObject();
             go.transform.SetParent(parent);
-            go.transform.localPosition = Vector3.zero;
+            go.transform.localPosition = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
             go.GetComponent<EnemyController>().Init(this);
-            go.transform.SetParent(parent);
-            go.transform.localPosition = Vector3.zero;
             return go;
         }
 

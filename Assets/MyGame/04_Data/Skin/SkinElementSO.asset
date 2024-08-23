@@ -20,7 +20,7 @@ MonoBehaviour:
     index: 0
   - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
     selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
-    avatar: {fileID: 21300000, guid: aeba042b5d829fa4f91ecbd03422fd67, type: 2}
+    avatar: {fileID: 21300000, guid: 9d3d07bc640870549b0e3f55935b641d, type: 2}
     index: 1
   - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
     selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
@@ -60,15 +60,15 @@ MonoBehaviour:
     index: 10
   - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
     selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
-    avatar: {fileID: 21300000, guid: aeba042b5d829fa4f91ecbd03422fd67, type: 2}
+    avatar: {fileID: 21300000, guid: d723fd68720e5f04b917e70828d745f5, type: 3}
     index: 11
   - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
     selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
-    avatar: {fileID: 21300000, guid: aeba042b5d829fa4f91ecbd03422fd67, type: 2}
+    avatar: {fileID: 21300000, guid: 0a81bfcb72e83f14a8fcf4d8d67fc78e, type: 3}
     index: 12
   - defaultBackground: {fileID: 21300000, guid: 26e1654743e7f2a4aa77be03f7c6dae2, type: 2}
     selectBackground: {fileID: 21300000, guid: e8b4dfdcce386cb49a47172241d4a0c5, type: 2}
-    avatar: {fileID: 21300000, guid: aeba042b5d829fa4f91ecbd03422fd67, type: 2}
+    avatar: {fileID: 21300000, guid: c78e1c542a4b637418c6654585c0661b, type: 3}
     index: 13
   SkinElements:
   - {fileID: 0}
