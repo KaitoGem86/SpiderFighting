@@ -46,6 +46,7 @@ namespace Core.GamePlay.MyPlayer
             var angle = Vector3.Angle(Vector3.up, surfaceNormal);
             if (angle < 45)
             {
+                if ((_blackBoard.GroundLayer.value & (1 << collision.collider.gameObject.layer)) == 0) return;
                 _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Landing);
             }
             else
@@ -60,10 +61,10 @@ namespace Core.GamePlay.MyPlayer
                 //         _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Climbing);
                 //     }
                 // }
+                if((_blackBoard.ClimbLayer.value & (1 << collision.collider.gameObject.layer)) == 0) return;
                 _surfaceNormal = surfaceNormal;
                 _fsm.blackBoard.RuntimeSurfaceNormal = _surfaceNormal;
                 _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.Climbing);
-
             }
         }
 
