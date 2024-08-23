@@ -3,6 +3,7 @@ using Core.GamePlay.MyPlayer;
 using Core.GamePlay.Player;
 using Core.GamePlay.Support;
 using Core.Manager;
+using DamageNumbersPro;
 using MyTools.Event;
 using MyTools.ScreenSystem;
 using SFRemastered.InputSystem;
@@ -33,8 +34,8 @@ namespace Core.UI
         [SerializeField] private TMP_Text _yellowSkinPieceText;
         [SerializeField] private TMP_Text _purpleSkinPieceText;
         [SerializeField] private TMP_Text _skillPointText;
-
-
+        [SerializeField] private DamageNumber _hitNumber;
+        [SerializeField] private Transform _hitNumberParent;
 
         [Header("Controller Events")]
         public DefaultEvent onZip;
@@ -183,6 +184,10 @@ namespace Core.UI
         public void OnClickAttack()
         {
             onAttack?.Raise();
+        }
+
+        public void OnShowHitCounter(int hit){
+            _hitNumber.Spawn(_hitNumberParent.position, newLeftText: "Hits " + hit, _hitNumberParent, Color.green); 
         }
 
         public void ActiveBossHPBar(CustomEvent.DisplayInfo.DisplayInfo info)

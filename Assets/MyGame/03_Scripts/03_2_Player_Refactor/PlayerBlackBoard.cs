@@ -48,6 +48,8 @@ namespace Core.GamePlay.MyPlayer{
         public Transform HealingBotPivot;
         public GadgetsController GadgetsController;
         public FloatEvent OnAttack;
+        public int AttackCount;
+        public IntEvent OnShowHitCounter;   
 
         [Header("Collectible")]
         [HideInInspector] public CollectibleController CollectibleController;
