@@ -48,7 +48,7 @@ namespace Core.GamePlay.MyPlayer
                 rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX ;
                 switch(_interpolateMode){
                     case InterpolateMode.None:
-                        _fsm.blackBoard.Character.SetVelocity(Vector3.zero);
+                        _fsm.blackBoard.Character.SetMovementDirection(Vector3.zero);
                         break;
                     case InterpolateMode.ByGlobalSpeed:
                         _fsm.blackBoard.Character.SetVelocity(_fsm.blackBoard.GlobalVelocity);
