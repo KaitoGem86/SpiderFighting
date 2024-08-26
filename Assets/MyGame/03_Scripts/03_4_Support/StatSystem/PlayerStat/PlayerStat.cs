@@ -10,5 +10,8 @@ namespace Data.Stat.Player{
         DiveVelocityThreshold,
         WallRunSpeed,
         HP,
+        UltimateCooldown,
+        WebShooterCooldown,
+        ConclusiveBlastCooldown,
     }
 }

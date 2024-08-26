@@ -4,6 +4,8 @@ using Core.GamePlay.Player;
 using Core.GamePlay.Support;
 using Core.Manager;
 using DamageNumbersPro;
+using DG.Tweening;
+using Extensions.CooldownButton;
 using MyTools.Event;
 using MyTools.ScreenSystem;
 using SFRemastered.InputSystem;
@@ -16,6 +18,7 @@ namespace Core.UI
 {
     public class GamePlayScreen : _BaseScreen
     {
+        [Header("========== CONTROL UI ==========")]
         [SerializeField] private Joystick _joystick;
         [SerializeField] private Image _gadgetIcon;
         [SerializeField] private GadgetDataSO _gadgetDataSO;
@@ -24,8 +27,11 @@ namespace Core.UI
         [SerializeField] private TMP_Text _bossName;
         [SerializeField] private GameObject _bossHPBar;
         [SerializeField] private CameraFindZipPoint _findZipPoint;
+        [SerializeField] private CoolDownButton _ultimateButton;
+        [SerializeField] private CoolDownButton _gadgetButton;
 
-        [Header("Display Info")]
+
+        [Header("========== DISPLAY INFO ==========")]
         [SerializeField] private PlayerData _playerData;
         [SerializeField] private HPBarController _hpBarController;
         [SerializeField] private TMP_Text _levelText;
@@ -37,7 +43,7 @@ namespace Core.UI
         [SerializeField] private TMP_Text _hitNumber;
         [SerializeField] private Transform _hitNumberParent;
 
-        [Header("Controller Events")]
+        [Header("========== CONTROL EVENTS ==========")]
         public DefaultEvent onZip;
         public BoolEvent onSwing;
         public IntEvent onChangeSkin;
@@ -140,6 +146,7 @@ namespace Core.UI
         public void OnClickUltilmateAttack()
         {
             onUltilmateAttack?.Raise();
+            _ultimateButton.SetCoolDown(_playerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.UltimateCooldown));
         }
 
         public void OnClickZip()

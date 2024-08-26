@@ -38,3 +38,5 @@ MonoBehaviour:
       Value: 10
     - Key: 8
       Value: 0
+    - Key: 10
+      Value: 12
