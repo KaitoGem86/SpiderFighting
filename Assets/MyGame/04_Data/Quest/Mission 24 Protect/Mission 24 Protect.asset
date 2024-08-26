@@ -28,4 +28,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b3ba7463023537458530ea30c01fdeb, type: 2}
   - {fileID: 11400000, guid: 8cf90250e0ab3c14aadbb58091604ea3, type: 2}
   npcSO: {fileID: 11400000, guid: a663fad9b1922ab49a34d46aeb4f58c4, type: 2}
-  spawnPosition: {x: 119.06936, y: 67.95, z: -283.37332}
+  spawnPosition: {x: 114.99722, y: 67.95, z: -289.10437}

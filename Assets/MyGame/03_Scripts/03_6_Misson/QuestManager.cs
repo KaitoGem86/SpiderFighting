@@ -112,6 +112,7 @@ namespace Core.GamePlay.Mission
         [Header("Quest data storage")]
         [SerializeField] private string questPath;
         [SerializeField] private SerializedDictionary<QuestStepType, GameObject> questStepPrefabs;
+        [SerializeField] private GameObject shippingReceiveStepPrefab;
 
         [Header("Enemy data")]
         [SerializeField] private EnemySO unarmEnemy;
@@ -181,7 +182,7 @@ namespace Core.GamePlay.Mission
             {
                 AssetDatabase.CreateFolder(questPath, questObject.Value.name);
             }
-            var receiveStepData = ScriptableObject.CreateInstance<ShippingQuestInitData>();
+            var receiveStepData = ScriptableObject.CreateInstance<ReceiveQuestInitData>();
             receiveStepData.position = questObject.Value.position;
             AssetDatabase.CreateAsset(receiveStepData, folderPath + $"/Receive_{questObject.Value.name}.asset");
             if (CheckValidTypeQuest(questObject.Key, data.mission))
@@ -326,17 +327,18 @@ namespace Core.GamePlay.Mission
                         };
                         questDataShipping.stepPrefabs = new List<GameObject>();
                         questDataShipping.dataPrefabs = new List<ScriptableObject>();
-                        questDataShipping.stepPrefabs.Add(questStepPrefabs[QuestStepType.Receive]);
+                        questDataShipping.stepPrefabs.Add(shippingReceiveStepPrefab);
                         questDataShipping.dataPrefabs.Add(receiveStepData);
 
+                        var shippingStepData = ScriptableObject.CreateInstance<ShippingQuestInitData>();
+                        shippingStepData.positions = new List<Vector3>();
                         foreach (Transform child in questObject.Value)
                         {
-                            var shippingStepData = ScriptableObject.CreateInstance<ShippingQuestInitData>();
-                            shippingStepData.position = child.position;
-                            AssetDatabase.CreateAsset(shippingStepData, folderPath + $"/Shipping_{child.name}.asset");
-                            questDataShipping.stepPrefabs.Add(questStepPrefabs[QuestStepType.Shipping]);
-                            questDataShipping.dataPrefabs.Add(shippingStepData);
+                            shippingStepData.positions.Add(child.position);
                         }
+                        AssetDatabase.CreateAsset(shippingStepData, folderPath + $"/Shipping_{questObject.Value.name}.asset");
+                        questDataShipping.stepPrefabs.Add(questStepPrefabs[QuestStepType.Shipping]);
+                        questDataShipping.dataPrefabs.Add(shippingStepData);
                         questDataShipping.onFinishShippingQuest = _onShippingQuestFinish;
                         questDataShipping.onStartShippingQuest = _onShippingQuestStart;
                         questDataShipping.onUpdateTime = _onShippingQuestUpdate;
