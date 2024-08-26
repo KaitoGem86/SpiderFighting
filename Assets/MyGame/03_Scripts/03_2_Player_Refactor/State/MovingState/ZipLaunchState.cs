@@ -9,7 +9,8 @@ namespace Core.GamePlay.MyPlayer
         public override void EnterState()
         {
             base.EnterState();
-            _blackBoard.Character.AddForce(Vector3.up * 40 + _blackBoard.transform.forward * 20, ForceMode.Impulse);
+            _blackBoard.Character.SetVelocity(Vector3.zero);
+            _blackBoard.Character.AddForce(Vector3.up * 20 + _blackBoard.transform.forward * 20, ForceMode.Impulse);
         }
 
         public override void ExitState()

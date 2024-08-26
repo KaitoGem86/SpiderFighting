@@ -90,5 +90,14 @@ namespace Core.GamePlay.MyPlayer
                 }
             }
         }
+
+        public override void Zip()
+        {
+            if(_blackBoard.CameraFindZipPoint.zipPoint != Vector3.zero)
+                base.Zip();
+            else{
+                _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.AirZip);
+            }
+        }
     }
 }
