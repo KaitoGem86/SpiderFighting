@@ -1,26 +1,51 @@
 using UnityEngine;
 using Animancer;
 using Extensions.SystemGame.AIFSM;
+using EasyCharacterMovement;
 
 namespace Core.GamePlay.MyPlayer
 {
-    public class ZipLaunchState : LocalmotionState<ClipTransition>
+    public class ZipLaunchState : InAirState<ClipTransition>
     {
+        private bool _isAfterLaunch = false;
+
         public override void EnterState()
         {
             base.EnterState();
-            _blackBoard.Character.SetVelocity(Vector3.zero);
-            _blackBoard.Character.AddForce(Vector3.up * 20 + _blackBoard.transform.forward * 20, ForceMode.Impulse);
+            _isAfterLaunch = false;
         }
 
-        public override void ExitState()
+        public override void FixedUpdate()
         {
-            base.ExitState();
-            _blackBoard.Character.StopJumping();
+            //base.FixedUpdate();
+            Rotate();
         }
 
-        public void CompleteLaunch(){
+        public void Launch()
+        {
+            _isAfterLaunch = true;
+            //_blackBoard.Character.GetCharacterMovement().rigidbody.AddForce(Vector3.up * 100 + _blackBoard.transform.forward * 60, ForceMode.Impulse);
+            _blackBoard.Character.AddForce(Vector3.up * 30, ForceMode.Impulse);
+            _blackBoard.Character.AddForce(_blackBoard.transform.forward * 30, ForceMode.Impulse);
+        }
+
+        public void CompleteLaunch()
+        {
             _fsm.ChangeAction(FSMState.Dive);
+        }
+
+        public override void OnCollided(ref CollisionResult collision)
+        {
+            if (!_isAfterLaunch)
+                return;
+            base.OnCollided(ref collision);
+        }
+
+        public override void OnCollisionEnter(Collision collision)
+        {
+            if (!_isAfterLaunch)
+                return;
+            base.OnCollisionEnter(collision);
         }
     }
 }
