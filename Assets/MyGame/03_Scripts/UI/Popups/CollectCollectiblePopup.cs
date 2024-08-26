@@ -21,8 +21,10 @@ namespace Core.UI.Popup
         [SerializeField] private TMP_Text _cashText;
         [SerializeField] private TMP_Text _expText;
 
-        public void ShowPopup(CollectibleData data)
+        public void ShowPopup(CollectibleRewardData data)
         {
+            _cashText.text = "+" + data.cash.ToString();
+            _expText.text = "+" + data.exp.ToString();
             Show(AnimationShow);
         }
 
@@ -35,25 +37,25 @@ namespace Core.UI.Popup
         {
             _backgroundImage.fillAmount = 0;
             _backgroundImage.gameObject.SetActive(true);
-            _backgroundImage.DOFillAmount(1, 0.5f).OnComplete(
+            _backgroundImage.DOFillAmount(1, 0.3f).OnComplete(
                 () =>
                 {
                     _titleFrame.localScale = new Vector3(1, 0, 1);
                     _titleFrame.gameObject.SetActive(true);
-                    _titleFrame.DOScaleY(1, 0.5f).OnComplete(
+                    _titleFrame.DOScaleY(1, 0.2f).OnComplete(
                         () =>
                         {
                             _cash.localScale = new Vector3(0, 0, 0);
                             _cash.gameObject.SetActive(true);
-                            _cash.DOScale(Vector3.one, 0.5f);
+                            _cash.DOScale(Vector3.one, 0.2f);
                             _exp.localScale = new Vector3(0, 0, 0);
                             _exp.gameObject.SetActive(true);
-                            _exp.DOScale(Vector3.one, 0.5f).OnComplete(
+                            _exp.DOScale(Vector3.one, 0.2f).OnComplete(
                                 () =>
                                 {
                                     _acceptButton.localScale = new Vector3(0, 0, 0);
                                     _acceptButton.gameObject.SetActive(true);
-                                    _acceptButton.DOScale(Vector3.one, 0.5f);
+                                    _acceptButton.DOScale(Vector3.one, 0.3f);
                                 }
                             );
                         }
