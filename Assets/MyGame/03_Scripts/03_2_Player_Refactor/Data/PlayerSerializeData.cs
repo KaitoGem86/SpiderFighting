@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Data.Reward;
+using Data.Stat.Player;
 
 namespace Core.GamePlay.MyPlayer
 {
@@ -18,8 +19,9 @@ namespace Core.GamePlay.MyPlayer
         public DateTime lastReceiveData;
         public int currentContinuousDay;
         public bool isClaimedDailyReward;
+        public Dictionary<PlayerStat, DateTime> lastUseGadgetTime;
 
-        public void InitData()
+        public void InitData(PlayerData playerData)
         {
             Exp = 0;
             Level = 1;
@@ -40,6 +42,10 @@ namespace Core.GamePlay.MyPlayer
             lastReceiveData = DateTime.Now;
             currentContinuousDay = 0;
             isClaimedDailyReward = false;
+            lastUseGadgetTime = new Dictionary<PlayerStat, DateTime>{
+                {PlayerStat.WebShooterCooldown, DateTime.Now - TimeSpan.FromSeconds(playerData.playerStatSO.GetGlobalStat(PlayerStat.WebShooterCooldown) + 1)},
+                {PlayerStat.ConclusiveBlastCooldown, DateTime.Now - TimeSpan.FromSeconds(playerData.playerStatSO.GetGlobalStat(PlayerStat.ConclusiveBlastCooldown) + 1)},
+            };
         }
 
         public void UpdateDataWhenStartGame(){

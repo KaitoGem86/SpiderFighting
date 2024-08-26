@@ -30,10 +30,19 @@ namespace Extensions.CooldownButton{
 
         public void SetCoolDown(float startNormalizeTime, float duration)
         {
+            if(startNormalizeTime < 0)
+            {
+                throw new System.Exception("StartNormalizeTime must be more than 1");
+            }
+            if(startNormalizeTime >= 1)
+            {
+                StopCoolDown();
+                return;
+            }
             button.interactable = false;
             fillImage.fillAmount = startNormalizeTime;
             fillImage.gameObject.SetActive(true);
-            fillImage.DOFillAmount(startNormalizeTime, duration)
+            fillImage.DOFillAmount(0, duration)
                 .OnComplete(() =>
                 {
                     button.interactable = true;

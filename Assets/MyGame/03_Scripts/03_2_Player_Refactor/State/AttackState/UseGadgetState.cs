@@ -18,6 +18,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
+            _currentGadget = _blackBoard.PlayerData.playerSerializeData.gadgetIndex;
             if (_currentGadget == 2)
             {
                 _fsm.ChangeAction(FSMState.Idle);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Collectible;
 using Data.Stat.Player;
@@ -31,7 +32,7 @@ namespace Core.GamePlay.MyPlayer
             else
             {
                 Debug.Log("Init Data 2");
-                playerSerializeData.InitData();
+                playerSerializeData.InitData(this);
                 SaveData();
             }
             localStats = playerStatSO.GetInstancesStats();
@@ -59,6 +60,7 @@ namespace Core.GamePlay.MyPlayer
         private void LoadData()
         {
             var json = PlayerPrefs.GetString("PlayerData");
+            Debug.Log(json);
             playerSerializeData = JsonConvert.DeserializeObject<PlayerSerializeData>(json);
         }
 
@@ -94,6 +96,12 @@ namespace Core.GamePlay.MyPlayer
         {
             int tmp = playerSerializeData.Level + playerDataConfig.levelCoefficients[playerSerializeData.Level];
             return tmp * tmp;
+        }
+
+        public double GetTimeFromLastUseGadget(PlayerStat key)
+        {
+            var time = DateTime.Now - playerSerializeData.lastUseGadgetTime[key];
+            return time.TotalSeconds;
         }
     }
 }

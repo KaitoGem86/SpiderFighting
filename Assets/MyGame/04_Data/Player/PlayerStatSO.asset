@@ -40,3 +40,7 @@ MonoBehaviour:
       Value: 0
     - Key: 10
       Value: 12
+    - Key: 11
+      Value: 50
+    - Key: 12
+      Value: 50

@@ -4,6 +4,7 @@ using Core.GamePlay.Player;
 using Core.GamePlay.Support;
 using Core.Manager;
 using DamageNumbersPro;
+using Data.Stat.Player;
 using DG.Tweening;
 using Extensions.CooldownButton;
 using MyTools.Event;
@@ -77,6 +78,7 @@ namespace Core.UI
         {
             base.OnCompleteShowItSelf();
             UpdatePlayerDisplayData();
+            OnChangeEquipGadget(_playerData.playerSerializeData.gadgetIndex);
             _findZipPoint.camera = GameManager.Instance.playerCamera;
             _hitNumber.gameObject.SetActive(false);
         }
@@ -216,12 +218,41 @@ namespace Core.UI
         public void OnClickUseGadget()
         {
             onUseGadget?.Raise();
+            PlayerStat stat = _playerData.playerSerializeData.gadgetIndex switch
+            {
+                0 => PlayerStat.WebShooterCooldown,
+                _ => PlayerStat.ConclusiveBlastCooldown,
+            };
+            Debug.Log("Use Gadget " + stat);
+            _playerData.playerSerializeData.lastUseGadgetTime[stat] = System.DateTime.Now;
+            float duration = _playerData.playerStatSO.GetGlobalStat(stat);
+            _gadgetButton.SetCoolDown(duration);
         }
 
         public void OnChangeEquipGadget(int id)
         {
             var data = _gadgetDataSO.gadgets[id];
             _gadgetIcon.sprite = data.icon;
+            _gadgetButton.StopCoolDown();
+            _playerData.playerSerializeData.gadgetIndex = id;
+            if (id == 2) return;
+            PlayerStat stat = id switch
+            {
+                0 => PlayerStat.WebShooterCooldown,
+                _ => PlayerStat.ConclusiveBlastCooldown,
+            };
+            double timeFromLastUseGadget = _playerData.GetTimeFromLastUseGadget(stat);
+            float duration = _playerData.playerStatSO.GetGlobalStat(stat);
+            if (timeFromLastUseGadget >= duration)
+            {
+                Debug.Log("1 Time from last use gadget " + timeFromLastUseGadget + " duration " + duration);
+                _gadgetButton.SetCoolDown(1, duration);
+            }
+            else{
+                Debug.Log("2 Time from last use gadget " + timeFromLastUseGadget + " duration " + duration);
+                _gadgetButton.SetCoolDown((duration - (float)timeFromLastUseGadget)/duration, duration);
+            }
+                
         }
 
         public void UpdatePlayerDisplayData()
@@ -234,7 +265,6 @@ namespace Core.UI
             _purpleSkinPieceText.text = "Purple Skin Piece : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.PurplePiece];
             _skillPointText.text = "Skill Point : " + _playerData.playerSerializeData.rewards[Data.Reward.RewardType.SkillPoint];
         }
-
 
         private IEnumerator AfterClickJump()
         {
