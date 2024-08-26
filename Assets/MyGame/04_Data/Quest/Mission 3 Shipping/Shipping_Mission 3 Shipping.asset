@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Shipping_Mission 3 Shipping
   m_EditorClassIdentifier: 
   positions:
-  - {x: -142.86, y: 30.719, z: 57.179993}
+  - {x: -142.86, y: 32, z: 57.179993}
   - {x: -40.59999, y: 71.499, z: 252.46}
   - {x: 23.330002, y: 23.588999, z: 98.399994}

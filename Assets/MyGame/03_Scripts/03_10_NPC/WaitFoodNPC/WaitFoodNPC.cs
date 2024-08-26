@@ -10,13 +10,16 @@ namespace Core.GamePlay.Mission.NPC
         [SerializeField] private ClipTransition[] _receiveClip;
         [SerializeField] private Animator[] _animators;
         [SerializeField] private Target _targetComponent;
+        [SerializeField] private Collider _collider;
 
         private WaitFoodNPCSO _so;
+        private ShippingQuestStep _stepContainer;
 
-        public void Init(WaitFoodNPCSO so)
+        public void Init(WaitFoodNPCSO so, ShippingQuestStep stepContainer)
         {
             _so = so;
             _targetComponent.enabled = true;
+            _stepContainer = stepContainer;
             int index = Random.Range(0, _animators.Length);
             foreach (var animator in _animators)
             {
@@ -37,7 +40,9 @@ namespace Core.GamePlay.Mission.NPC
             {
                 //_so.DespawnObject(gameObject);
                 ReceiveFood();
+                _stepContainer.OnCompleteAnShipping();
                 _targetComponent.enabled = false;
+                _collider.enabled = false;
             }
         }
     }

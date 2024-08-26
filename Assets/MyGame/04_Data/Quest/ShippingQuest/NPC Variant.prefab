@@ -152,6 +152,7 @@ MonoBehaviour:
   - {fileID: 2268922222270018073}
   - {fileID: 2268228736856487414}
   _targetComponent: {fileID: 6908386207276680906}
+  _collider: {fileID: 8634802834166083310}
 --- !u!95 &-2024189606786023112
 Animator:
   serializedVersion: 5

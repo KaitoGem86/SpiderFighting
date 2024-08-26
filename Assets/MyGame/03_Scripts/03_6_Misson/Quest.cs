@@ -48,6 +48,7 @@ namespace Core.GamePlay.Mission
             _currentStepIndex++;
             if (_currentStepIndex >= _steps.Length)
             {
+                _currentQuestStep.FinishStep();
                 FinishQuest();
                 return;
             }

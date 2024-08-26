@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _npcSO: {fileID: 11400000, guid: 98e8592012c03cb43b831d64fd43dfd1, type: 2}
+  _onCompleteAnShipping: {fileID: 11400000, guid: d6d629869e90efb4c88e68c859062a9c, type: 2}
