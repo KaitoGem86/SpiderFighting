@@ -10685,8 +10685,16 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4334924659873019823, guid: ac46c7e39bf4da44184fc551e3314519, type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4335250039981042031, guid: ac46c7e39bf4da44184fc551e3314519, type: 3}
       propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335250039981042031, guid: ac46c7e39bf4da44184fc551e3314519, type: 3}
+      propertyPath: m_FillOrigin
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4447612948191886182, guid: ac46c7e39bf4da44184fc551e3314519, type: 3}

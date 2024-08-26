@@ -17,13 +17,17 @@ namespace Core.GamePlay.Enemy{
             _runtimeData = new BossData(bossSO.bossData);
             IsIgnore = false;
             blackBoard.weaponController.SetTypeOfEnemy(WeaponType.Hand, blackBoard.bossModel.rightHand);
-            _hpBarController.SetHP(_runtimeData.HP, bossSO.bossData.HP);
             blackBoard.defaultPosition = transform.position;
             ChangeAction(_startState);
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<BehaviourTreeOwner>().enabled = true;
             _onBossActive.Raise(_bossSO.info);
             blackBoard.onBossHPChange.Raise(1);
+        }
+
+        public override void OnDisable(){
+            base.OnDisable();
+            blackBoard.onBossHPChange.Raise(-1);
         }
 
         public override void HittedByPlayer(FSMState state)

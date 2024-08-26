@@ -1031,6 +1031,7 @@ MonoBehaviour:
   _hpBar: {fileID: 5191240408020245977}
   _lerpHpBar: {fileID: 4983373634815253142}
   _isInCanvas: 1
+  _activeObject: {fileID: 7758264684007885651}
 --- !u!1 &1836439013399006691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,6 +2550,7 @@ MonoBehaviour:
   _hpBar: {fileID: 7800488641522292659}
   _lerpHpBar: {fileID: 3285624120323903626}
   _isInCanvas: 1
+  _activeObject: {fileID: 0}
 --- !u!114 &4810753556947632866
 MonoBehaviour:
   m_ObjectHideFlags: 0

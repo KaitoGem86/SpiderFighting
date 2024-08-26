@@ -8,6 +8,7 @@ namespace Core.GamePlay.Support
         [SerializeField] private Image _hpBar;
         [SerializeField] private Image _lerpHpBar;
         [SerializeField] private bool _isInCanvas;
+        [SerializeField] private GameObject _activeObject;
 
         public void Init(float currentHP, float maxHP)
         {
@@ -22,6 +23,10 @@ namespace Core.GamePlay.Support
 
         public void SetHP(float coeficient)
         {
+            if(coeficient == -1) {
+                _activeObject.SetActive(false);
+                return;
+            }
             _hpBar.fillAmount = coeficient;
         }
 
