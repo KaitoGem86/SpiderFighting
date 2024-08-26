@@ -1,4 +1,5 @@
 using Core.GamePlay.MyPlayer;
+using Core.UI.Popup;
 using Data.Reward;
 using MyTools.Event;
 using UnityEngine;
@@ -40,6 +41,7 @@ namespace Collectible{
             remainingTimeToSpawn = _so.timeToSpawn;
             onCollectEvent.Raise(data);
             this.gameObject.SetActive(false);
+            CollectCollectiblePopup.Instance.ShowPopup(data);
         }
     }
 }
