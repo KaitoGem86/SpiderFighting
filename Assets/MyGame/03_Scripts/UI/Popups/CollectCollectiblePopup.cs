@@ -30,7 +30,7 @@ namespace Core.UI.Popup
 
         public void HidePopup()
         {
-            AnimationHide();
+            LoadingAdsPopup.Instance.ShowPopup(AnimationHide);
         }
 
         private void AnimationShow()
