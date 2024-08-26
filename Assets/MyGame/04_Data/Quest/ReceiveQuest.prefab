@@ -163,8 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 0.94716984, g: 0.91900235, b: 0, a: 1}
+  targetColor: {r: 0.9490196, g: 0.2084392, b: 0, a: 1}
   needBoxIndicator: 1
   needArrowIndicator: 1
   needDistanceText: 1
+  targetSprite: {fileID: 21300000, guid: a023ed273121e8f4eb4945492ba24478, type: 3}
   indicator: {fileID: 0}

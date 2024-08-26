@@ -18,6 +18,8 @@ public class Target : MonoBehaviour
     [Tooltip("Select if distance text is required for this target")]
     [SerializeField] private bool needDistanceText = true;
 
+    [SerializeField] private Sprite targetSprite;
+
     /// <summary>
     /// Please do not assign its value yourself without understanding its use.
     /// A reference to the target's indicator, 
@@ -66,6 +68,14 @@ public class Target : MonoBehaviour
         get
         {
             return needDistanceText;
+        }
+    }
+
+    public Sprite TargetSprite
+    {
+        get
+        {
+            return targetSprite;
         }
     }
 

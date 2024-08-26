@@ -73,6 +73,10 @@ public class Indicator : MonoBehaviour
     {
         transform.gameObject.SetActive(value);
     }
+
+    public void SetSprite(Sprite sprite){
+        indicatorImage.sprite = sprite;
+    }
 }
 
 public enum IndicatorType

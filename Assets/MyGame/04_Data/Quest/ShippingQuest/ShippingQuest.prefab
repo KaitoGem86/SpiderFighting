@@ -80,10 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 0.017205715, g: 0, b: 1, a: 1}
+  targetColor: {r: 1, g: 0.7270335, b: 0, a: 1}
   needBoxIndicator: 1
   needArrowIndicator: 1
   needDistanceText: 1
+  targetSprite: {fileID: 21300000, guid: de28d120cb170a845be7a22e42d0c368, type: 2}
   indicator: {fileID: 0}
 --- !u!1001 &1039733865726692867
 PrefabInstance:
