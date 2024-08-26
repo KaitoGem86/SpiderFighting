@@ -45,7 +45,8 @@ namespace Core.GamePlay.MyPlayer
         {
             _blackBoard.AttackCount += 1;
             _blackBoard.ResetTime();
-            _blackBoard.OnShowHitCounter.Raise(_blackBoard.AttackCount);
+            if (_enemy != null)
+                _blackBoard.OnShowHitCounter.Raise(_blackBoard.AttackCount);
             switch (typeAttackIndicator)
             {
                 case 0:
