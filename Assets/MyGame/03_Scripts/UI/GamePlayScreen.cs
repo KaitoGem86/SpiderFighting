@@ -72,6 +72,7 @@ namespace Core.UI
             _lookPanel.triggers.Add(entry2);
 
             GameManager.Instance.playerBlackBoard.CameraFindZipPoint = _findZipPoint;
+            _findZipPoint.camera = GameManager.Instance.playerCamera;
         }
 
         protected override void OnCompleteShowItSelf()
@@ -79,7 +80,6 @@ namespace Core.UI
             base.OnCompleteShowItSelf();
             UpdatePlayerDisplayData();
             OnChangeEquipGadget(_playerData.playerSerializeData.gadgetIndex);
-            _findZipPoint.camera = GameManager.Instance.playerCamera;
             _hitNumber.gameObject.SetActive(false);
         }
 
@@ -248,11 +248,12 @@ namespace Core.UI
                 Debug.Log("1 Time from last use gadget " + timeFromLastUseGadget + " duration " + duration);
                 _gadgetButton.SetCoolDown(1, duration);
             }
-            else{
+            else
+            {
                 Debug.Log("2 Time from last use gadget " + timeFromLastUseGadget + " duration " + duration);
-                _gadgetButton.SetCoolDown((duration - (float)timeFromLastUseGadget)/duration, duration);
+                _gadgetButton.SetCoolDown((duration - (float)timeFromLastUseGadget) / duration, duration);
             }
-                
+
         }
 
         public void UpdatePlayerDisplayData()

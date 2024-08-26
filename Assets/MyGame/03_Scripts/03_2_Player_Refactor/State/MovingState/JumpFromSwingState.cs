@@ -35,6 +35,12 @@ namespace Core.GamePlay.MyPlayer
             base.Update();
         }
 
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            Rotate();
+        }
+
         // private Vector3 JumpVelocityFromSwing()
         // {
         //     // var forward = _fsm.transform.forward;
