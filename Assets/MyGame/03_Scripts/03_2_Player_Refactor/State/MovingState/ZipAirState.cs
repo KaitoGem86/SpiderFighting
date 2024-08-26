@@ -29,5 +29,11 @@ namespace Core.GamePlay.MyPlayer
             _blackBoard.Character.gravityScale = 3;
             base.ExitState();
         }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            Rotate();
+        }
     }
 }
