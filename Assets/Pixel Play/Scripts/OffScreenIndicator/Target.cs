@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 /// <summary>
 /// Attach this script to all the target game objects in the scene.
@@ -84,10 +85,7 @@ public class Target : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        if(OffScreenIndicator.TargetStateChanged != null)
-        {
-            OffScreenIndicator.TargetStateChanged.Invoke(this, true);
-        }
+        StartCoroutine(OnEnableRoutine());
     }
 
     /// <summary>
@@ -95,7 +93,7 @@ public class Target : MonoBehaviour
     /// </summary>
     private void OnDisable()
     {
-        if(OffScreenIndicator.TargetStateChanged != null)
+        if (OffScreenIndicator.TargetStateChanged != null)
         {
             OffScreenIndicator.TargetStateChanged.Invoke(this, false);
         }
@@ -110,5 +108,12 @@ public class Target : MonoBehaviour
     {
         float distanceFromCamera = Vector3.Distance(cameraPosition, transform.position);
         return distanceFromCamera;
+    }
+
+    private IEnumerator OnEnableRoutine()
+    {
+        while (OffScreenIndicator.TargetStateChanged == null)
+            yield return new WaitForEndOfFrame();
+        OffScreenIndicator.TargetStateChanged.Invoke(this, true);
     }
 }
