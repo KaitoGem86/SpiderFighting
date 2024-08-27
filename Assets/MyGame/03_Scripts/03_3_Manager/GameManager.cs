@@ -18,7 +18,6 @@ namespace Core.Manager {
         }
 
         private void Start(){
-            MySoundManager.Instance.PlayMusic();
             _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.GamePlay);
             _enemyGroupSO.Init();
         }

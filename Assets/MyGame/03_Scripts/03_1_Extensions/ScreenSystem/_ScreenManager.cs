@@ -45,9 +45,11 @@ namespace MyTools.ScreenSystem
         }
 #endif
 
-        public void PreLoad(){
-            foreach(var screen in _screens){
-                if(_screenDict.ContainsKey(screen.ScreenType)) continue;
+        public void PreLoad()
+        {
+            foreach (var screen in _screens)
+            {
+                if (_screenDict.ContainsKey(screen.ScreenType)) continue;
                 var go = Instantiate(screen.gameObject, Vector3.zero, Quaternion.identity, _screenCanvas);
                 go.SetActive(false);
                 _screenDict.Add(screen.ScreenType, go.GetComponent<_BaseScreen>());
@@ -55,24 +57,46 @@ namespace MyTools.ScreenSystem
             }
         }
 
-        public void ShowScreen(_ScreenTypeEnum screenType){
-            if(_currentScreenType == screenType) return;
-            if(_screenDict.ContainsKey(screenType) == false){
-                PreLoad();
+        public void PreLoad(_ScreenTypeEnum screenType)
+        {
+            if (_screenDict.ContainsKey(screenType)) return;
+            foreach (var screen in _screens)
+            {
+                if (screen.ScreenType == screenType)
+                {
+                    var go = Instantiate(screen.gameObject, Vector3.zero, Quaternion.identity, _screenCanvas);
+                    go.SetActive(false);
+                    _screenDict.Add(screen.ScreenType, go.GetComponent<_BaseScreen>());
+                    go.transform.localPosition = Vector3.zero;
+                    return;
+                }
             }
-            if(_currentScreenType != _ScreenTypeEnum.None){
+        }
+
+        public void ShowScreen(_ScreenTypeEnum screenType)
+        {
+            if (_currentScreenType == screenType) return;
+            if (_screenDict.ContainsKey(screenType) == false)
+            {
+                PreLoad(screenType);
+            }
+            if (_currentScreenType != _ScreenTypeEnum.None)
+            {
                 _screenDict[_currentScreenType].Hide();
             }
             _currentScreenType = screenType;
             _screenDict[_currentScreenType].Show();
         }
 
-        public T ShowScreen<T>(_ScreenTypeEnum screenType) where T : _BaseScreen{
-            if(_currentScreenType == screenType) return null;
-            if(_screenDict.ContainsKey(screenType) == false){
-                PreLoad();
+        public T ShowScreen<T>(_ScreenTypeEnum screenType) where T : _BaseScreen
+        {
+            if (_currentScreenType == screenType) return null;
+            if (_screenDict.ContainsKey(screenType) == false)
+            {
+                PreLoad(screenType);
             }
-            if(_currentScreenType != _ScreenTypeEnum.None){
+            if (_currentScreenType != _ScreenTypeEnum.None)
+            {
                 _screenDict[_currentScreenType].Hide();
             }
             _currentScreenType = screenType;
@@ -80,39 +104,42 @@ namespace MyTools.ScreenSystem
             return _screenDict[_currentScreenType] as T;
         }
 
-        public void HideScreen(_ScreenTypeEnum screenType){
-            if(_currentScreenType != screenType || screenType == _ScreenTypeEnum.None || _currentScreenType == _ScreenTypeEnum.None)
+        public void HideScreen(_ScreenTypeEnum screenType)
+        {
+            if (_currentScreenType != screenType || screenType == _ScreenTypeEnum.None || _currentScreenType == _ScreenTypeEnum.None)
                 return;
             _screenDict[screenType].Hide();
             _currentScreenType = _ScreenTypeEnum.None;
         }
 
-        public void HideCurrentScreen(){
-            if(_currentScreenType == _ScreenTypeEnum.None)
+        public void HideCurrentScreen()
+        {
+            if (_currentScreenType == _ScreenTypeEnum.None)
                 return;
             _screenDict[_currentScreenType].Hide();
             _currentScreenType = _ScreenTypeEnum.None;
         }
 
-        public float GetScreenHeight(){
+        public float GetScreenHeight()
+        {
             return _screenCanvas.GetComponent<RectTransform>().sizeDelta.y;
         }
 
-// #if UNITY_EDITOR
-//         private void Update(){
-//             if(Input.GetKeyDown(KeyCode.A)){
-//                 _screenDict[_currentScreenType].Hide();
-//             }
-//             else if(Input.GetKeyDown(KeyCode.S)){
-//                 ShowScreen(_currentScreenType);
-//             }
-//             if(Input.GetKeyDown(KeyCode.D)){
-//                 ShowScreen(_ScreenTypeEnum.SelectPlant);
-//             }
-//             if(Input.GetKeyDown(KeyCode.F)){
-//                 ShowScreen(_ScreenTypeEnum.Recipe);
-//             }
-//         }
-// #endif
+        // #if UNITY_EDITOR
+        //         private void Update(){
+        //             if(Input.GetKeyDown(KeyCode.A)){
+        //                 _screenDict[_currentScreenType].Hide();
+        //             }
+        //             else if(Input.GetKeyDown(KeyCode.S)){
+        //                 ShowScreen(_currentScreenType);
+        //             }
+        //             if(Input.GetKeyDown(KeyCode.D)){
+        //                 ShowScreen(_ScreenTypeEnum.SelectPlant);
+        //             }
+        //             if(Input.GetKeyDown(KeyCode.F)){
+        //                 ShowScreen(_ScreenTypeEnum.Recipe);
+        //             }
+        //         }
+        // #endif
     }
 }

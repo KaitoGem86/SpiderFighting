@@ -102,5 +102,5 @@ Material:
     - _Color: {r: 0.8113208, g: 0.3023318, b: 0.3023318, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OverlayColor: {r: 1, g: 0.9638554, b: 0, a: 1}
-    - _RevealOrigin: {r: -172.76547, g: 102.83154, b: 246.72934, a: 0}
+    - _RevealOrigin: {r: -38.635265, g: 0.021553185, b: 179.45462, a: 0}
   m_BuildTextureStacks: []
