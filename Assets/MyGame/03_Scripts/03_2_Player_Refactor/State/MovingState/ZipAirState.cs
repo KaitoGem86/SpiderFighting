@@ -9,6 +9,7 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
+            _blackBoard.leftSilk.Init();
             base.EnterState();
         }
 
@@ -24,9 +25,16 @@ namespace Core.GamePlay.MyPlayer
             _fsm.ChangeAction(FSMState.FallingDown);
         }
 
+        public void ShootSilk()
+        {
+            Vector3 target = _blackBoard.CurrentPlayerModel.leftHand.position + _blackBoard.transform.forward * 50;
+            _blackBoard.leftSilk.ShootSilkToTarget(_blackBoard.CurrentPlayerModel.leftHand, target, 0.3f);
+        }
+
         public override void ExitState()
         {
             _blackBoard.Character.gravityScale = 3;
+            _blackBoard.leftSilk.UnUseSilk();
             base.ExitState();
         }
 

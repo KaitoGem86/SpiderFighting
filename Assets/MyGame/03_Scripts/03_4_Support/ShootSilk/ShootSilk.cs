@@ -31,6 +31,7 @@ namespace Core.GamePlay.Support{
 
         public Tween ShootSilkToTarget(Vector3 startPos, Vector3 endPos, float duration)
         {
+            if(!_isInit) Init();
             _silkController.UpdateSilk(_origin, endPos);
 
             return DOTween.To(() => startPos, x => _lineRenderer.SetPosition(1, x), endPos, duration);
@@ -38,6 +39,7 @@ namespace Core.GamePlay.Support{
 
         public Tween ShootSilkToTarget(Transform origin, Vector3 endPos, float duration)
         {
+            if(!_isInit) Init();
             _origin = origin;
             return ShootSilkToTarget(_origin.position, endPos, duration);
         }
