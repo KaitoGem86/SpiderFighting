@@ -215,20 +215,43 @@ namespace Core.UI
             _bossName.text = info.name;
         }
 
-        private int _tempStackGadget = 5;
+        private int _currentGadgetStack = 0;
 
         public void OnClickUseGadget()
         {
             onUseGadget?.Raise();
-            PlayerStat stat = _playerData.playerSerializeData.gadgetIndex switch
+            PlayerStat timeStat = _playerData.playerSerializeData.gadgetIndex switch
             {
                 0 => PlayerStat.WebShooterCooldown,
                 _ => PlayerStat.ConclusiveBlastCooldown,
             };
-            Debug.Log("Use Gadget " + stat);
-            _playerData.playerSerializeData.lastUseGadgetTime[stat] = System.DateTime.Now;
-            float duration = _playerData.playerStatSO.GetGlobalStat(stat);
-            _gadgetButton.SetCoolDown(duration, _tempStackGadget--);
+            PlayerStat stackStat = _playerData.playerSerializeData.gadgetIndex switch
+            {
+                0 => PlayerStat.MaxWebShooterStack,
+                _ => PlayerStat.MaxConclusiveBlastStack,
+            };
+            Debug.Log("Use Gadget " + timeStat);
+            _playerData.playerSerializeData.lastUseGadgetTime[timeStat] = System.DateTime.Now;
+            _playerData.playerSerializeData.lastRemainGadgetStack[stackStat]--;
+            float duration = _playerData.playerStatSO.GetGlobalStat(timeStat);
+            _currentGadgetStack = _playerData.playerSerializeData.lastRemainGadgetStack[stackStat];
+            _gadgetButton.SetCoolDown(duration, ref _currentGadgetStack,
+                () =>
+                {
+                    UpdateStackGadget(ref _currentGadgetStack, duration, stackStat);
+                });
+        }
+
+        private void UpdateStackGadget(ref int stack, float duration, PlayerStat stackStat)
+        {
+            _playerData.playerSerializeData.lastRemainGadgetStack[stackStat] = stack;
+            if (stack < _playerData.playerStatSO.GetGlobalStat(stackStat))
+            {
+                _gadgetButton.SetCoolDown(duration, ref stack, () =>
+                {
+                    UpdateStackGadget(ref _currentGadgetStack, duration, stackStat);
+                });
+            }
         }
 
         public void OnChangeEquipGadget(int id)
@@ -243,19 +266,41 @@ namespace Core.UI
                 0 => PlayerStat.WebShooterCooldown,
                 _ => PlayerStat.ConclusiveBlastCooldown,
             };
+            PlayerStat stackStat = id switch
+            {
+                0 => PlayerStat.MaxWebShooterStack,
+                _ => PlayerStat.MaxConclusiveBlastStack,
+            };
             double timeFromLastUseGadget = _playerData.GetTimeFromLastUseGadget(stat);
             float duration = _playerData.playerStatSO.GetGlobalStat(stat);
+            _currentGadgetStack = _playerData.playerSerializeData.lastRemainGadgetStack[stackStat];
             if (timeFromLastUseGadget >= duration)
             {
                 Debug.Log("1 Time from last use gadget " + timeFromLastUseGadget + " duration " + duration);
-                _gadgetButton.SetCoolDown(1, duration);
+                int addStack = (int)(timeFromLastUseGadget / duration);
+                _currentGadgetStack += addStack;
+                _currentGadgetStack = Mathf.Min(_currentGadgetStack, (int)_playerData.playerStatSO.GetGlobalStat(stackStat));
+                _playerData.playerSerializeData.lastRemainGadgetStack[stackStat] = _currentGadgetStack;
+                if(_currentGadgetStack == _playerData.playerStatSO.GetGlobalStat(stackStat))
+                {
+                    _gadgetButton.SetCoolDown(0, _currentGadgetStack - 1);
+                    return;
+                }
+                _gadgetButton.SetCoolDown(1 - (float)((float)timeFromLastUseGadget/duration - addStack), duration, ref _currentGadgetStack,
+                    () =>
+                    {
+                        UpdateStackGadget(ref _currentGadgetStack, duration, stackStat);
+                    });
             }
             else
             {
                 Debug.Log("2 Time from last use gadget " + timeFromLastUseGadget + " duration " + duration);
-                _gadgetButton.SetCoolDown((duration - (float)timeFromLastUseGadget) / duration, duration);
+                _gadgetButton.SetCoolDown((duration - (float)timeFromLastUseGadget) / duration, duration, ref _currentGadgetStack,
+                    () =>
+                    {
+                        UpdateStackGadget(ref _currentGadgetStack, duration, stackStat);
+                    });
             }
-
         }
 
         public void UpdatePlayerDisplayData()

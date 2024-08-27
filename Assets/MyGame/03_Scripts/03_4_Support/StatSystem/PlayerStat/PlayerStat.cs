@@ -13,5 +13,7 @@ namespace Data.Stat.Player{
         UltimateCooldown,
         WebShooterCooldown,
         ConclusiveBlastCooldown,
+        MaxWebShooterStack,
+        MaxConclusiveBlastStack,
     }
 }

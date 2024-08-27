@@ -20,6 +20,7 @@ namespace Core.GamePlay.MyPlayer
         public int currentContinuousDay;
         public bool isClaimedDailyReward;
         public Dictionary<PlayerStat, DateTime> lastUseGadgetTime;
+        public Dictionary<PlayerStat, int> lastRemainGadgetStack;
 
         public void InitData(PlayerData playerData)
         {
@@ -45,6 +46,10 @@ namespace Core.GamePlay.MyPlayer
             lastUseGadgetTime = new Dictionary<PlayerStat, DateTime>{
                 {PlayerStat.WebShooterCooldown, DateTime.Now - TimeSpan.FromSeconds(playerData.playerStatSO.GetGlobalStat(PlayerStat.WebShooterCooldown) + 1)},
                 {PlayerStat.ConclusiveBlastCooldown, DateTime.Now - TimeSpan.FromSeconds(playerData.playerStatSO.GetGlobalStat(PlayerStat.ConclusiveBlastCooldown) + 1)},
+            };
+            lastRemainGadgetStack = new Dictionary<PlayerStat, int>{
+                {PlayerStat.MaxWebShooterStack, (int)playerData.playerStatSO.GetGlobalStat(PlayerStat.MaxWebShooterStack)},
+                {PlayerStat.MaxConclusiveBlastStack, (int)playerData.playerStatSO.GetGlobalStat(PlayerStat.MaxConclusiveBlastStack)},
             };
         }
 
