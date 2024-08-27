@@ -4334,10 +4334,25 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
+      - 0.14387183
       - 0.24420348
       - 0.95
       - NaN
       _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 657783822522452863}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipAirState, Assembly-CSharp
+            m_MethodName: ShootSilk
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       - m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 657783822522452863}
@@ -4373,10 +4388,25 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.19498418
+      - 0.10601082
+      - 0.21770078
       - 0.95
       - NaN
       _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 657783822522452863}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.ZipAirState, Assembly-CSharp
+            m_MethodName: ShootSilk
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       - m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 657783822522452863}
