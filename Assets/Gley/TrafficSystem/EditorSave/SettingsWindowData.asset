@@ -34,7 +34,7 @@ MonoBehaviour:
     waypointDistance: 4
   roadDefaults:
     nrOfLanes: 2
-    laneWidth: 4
+    laneWidth: 6
     waypointDistance: 4
   roadColors:
     textColor: {r: 1, g: 1, b: 1, a: 1}
