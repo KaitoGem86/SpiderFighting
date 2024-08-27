@@ -42,6 +42,8 @@ namespace Core.GamePlay.MyPlayer{
         public Vector3 GlobalVelocity;
         public Rigidbody rig;
         public CameraFindZipPoint CameraFindZipPoint;
+        public LayerMask ClimbLayer;
+        public LayerMask GroundLayer;
 
         [Header("Combat")]
         public FindEnemyToAttack FindEnemyToAttack;
