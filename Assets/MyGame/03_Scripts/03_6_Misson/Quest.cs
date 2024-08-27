@@ -60,7 +60,8 @@ namespace Core.GamePlay.Mission
         public virtual void FinishQuest(bool isWin = true)
         {
             QuestManager.instance.FinishQuest();
-            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(isWin, reward);
+            //_ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(isWin, reward);
+            MissionResultPanel.Instance.Show(isWin, reward);
         }
 
         public virtual void ResetQuest(){

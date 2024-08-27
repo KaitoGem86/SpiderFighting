@@ -83,7 +83,8 @@ namespace Core.GamePlay.MyPlayer
             {
                 hp = 0;
                 if(!blackBoard.PlayerData.isInMission){
-                    _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(false, default);
+                    //_ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(false, default);
+                    MissionResultPanel.Instance.Show(false, default);
                 }
                 else{
                     //blackBoard.OnPlayerDead.Raise();

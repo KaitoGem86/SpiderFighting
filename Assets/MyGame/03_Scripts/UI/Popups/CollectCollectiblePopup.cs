@@ -31,6 +31,7 @@ namespace Core.UI.Popup
         public void HidePopup()
         {
             LoadingAdsPopup.Instance.ShowPopup(AnimationHide);
+            //AnimationHide();
         }
 
         private void AnimationShow()

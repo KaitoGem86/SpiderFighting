@@ -9,6 +9,7 @@ namespace Core.UI.Popup{
         [SerializeField] private Image _fadeImage;
 
         public void Show(float delayTime, float fadeTime){
+            Show();
             _fadeImage.gameObject.SetActive(true);
             _fadeImage.DOFade(1f, fadeTime).OnComplete(() => {
                 _fadeImage.DOFade(0f, fadeTime).SetDelay(delayTime).OnComplete(() => {

@@ -13,7 +13,8 @@ namespace Core.GamePlay.Mission.Protected
     
         public void LoseGame()
         {
-            _ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(false, default);
+            //_ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(false, default);
+            MissionResultPanel.Instance.Show(false, default);
         }
     }
 }
