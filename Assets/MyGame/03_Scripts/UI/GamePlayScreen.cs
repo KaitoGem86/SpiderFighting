@@ -230,7 +230,6 @@ namespace Core.UI
                 0 => PlayerStat.MaxWebShooterStack,
                 _ => PlayerStat.MaxConclusiveBlastStack,
             };
-            Debug.Log("Use Gadget " + timeStat);
             _playerData.playerSerializeData.lastUseGadgetTime[timeStat] = System.DateTime.Now;
             _playerData.playerSerializeData.lastRemainGadgetStack[stackStat]--;
             float duration = _playerData.playerStatSO.GetGlobalStat(timeStat);
@@ -276,7 +275,6 @@ namespace Core.UI
             _currentGadgetStack = _playerData.playerSerializeData.lastRemainGadgetStack[stackStat];
             if (timeFromLastUseGadget >= duration)
             {
-                Debug.Log("1 Time from last use gadget " + timeFromLastUseGadget + " duration " + duration);
                 int addStack = (int)(timeFromLastUseGadget / duration);
                 _currentGadgetStack += addStack;
                 _currentGadgetStack = Mathf.Min(_currentGadgetStack, (int)_playerData.playerStatSO.GetGlobalStat(stackStat));
@@ -294,7 +292,6 @@ namespace Core.UI
             }
             else
             {
-                Debug.Log("2 Time from last use gadget " + timeFromLastUseGadget + " duration " + duration);
                 _gadgetButton.SetCoolDown((duration - (float)timeFromLastUseGadget) / duration, duration, ref _currentGadgetStack,
                     () =>
                     {
