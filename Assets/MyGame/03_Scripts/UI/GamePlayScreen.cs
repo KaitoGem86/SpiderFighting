@@ -215,6 +215,8 @@ namespace Core.UI
             _bossName.text = info.name;
         }
 
+        private int _tempStackGadget = 5;
+
         public void OnClickUseGadget()
         {
             onUseGadget?.Raise();
@@ -226,7 +228,7 @@ namespace Core.UI
             Debug.Log("Use Gadget " + stat);
             _playerData.playerSerializeData.lastUseGadgetTime[stat] = System.DateTime.Now;
             float duration = _playerData.playerStatSO.GetGlobalStat(stat);
-            _gadgetButton.SetCoolDown(duration);
+            _gadgetButton.SetCoolDown(duration, _tempStackGadget--);
         }
 
         public void OnChangeEquipGadget(int id)
