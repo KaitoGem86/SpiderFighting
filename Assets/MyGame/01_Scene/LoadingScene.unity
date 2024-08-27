@@ -307,6 +307,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4442267901500361838, guid: 9979c7eb66caeb24485b5a9cf3509319, type: 3}
+      propertyPath: prefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442267901500361838, guid: 9979c7eb66caeb24485b5a9cf3509319, type: 3}
+      propertyPath: prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5765947357998546537, guid: addb5527efb464646a85f860cc2a845a, type: 3}
+    - target: {fileID: 4442267901500361838, guid: 9979c7eb66caeb24485b5a9cf3509319, type: 3}
+      propertyPath: prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 119265966090408677, guid: 651e2f5d6f9e756438d1ca561e5a9657, type: 3}
     - target: {fileID: 8843086498835657755, guid: 9979c7eb66caeb24485b5a9cf3509319, type: 3}
       propertyPath: m_Name
       value: ===  GLOBAL MANAGER  ===

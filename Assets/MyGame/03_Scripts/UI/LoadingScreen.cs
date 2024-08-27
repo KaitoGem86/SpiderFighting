@@ -1,4 +1,5 @@
 using System.Collections;
+using Core.UI.Popup;
 using MyTools.ScreenSystem;
 using TMPro;
 using UnityEngine;
@@ -26,6 +27,8 @@ namespace Core.UI{
                 yield return null;
             }
             _loadingBar.fillAmount = 1f;
+            FadeScenePopup.Instance.Show(0.5f, 0.5f);
+            yield return new WaitForSeconds(0.5f);
             SceneManager.LoadScene("Gameplay");
         }       
     }
