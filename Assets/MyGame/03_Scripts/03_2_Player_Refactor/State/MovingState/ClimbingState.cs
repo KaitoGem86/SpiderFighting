@@ -102,7 +102,7 @@ namespace Core.GamePlay.MyPlayer
                 return;
             }
             RaycastHit hit;
-            if (Physics.Raycast(_fsm.blackBoard.CheckWallPivot.position, _fsm.transform.forward, out hit, 100))
+            if (Physics.Raycast(_fsm.blackBoard.CheckWallPivot.position, _fsm.transform.forward, out hit, 100, _blackBoard.ClimbLayer))
             {
                 if (hit.distance < 0.8f)
                 {

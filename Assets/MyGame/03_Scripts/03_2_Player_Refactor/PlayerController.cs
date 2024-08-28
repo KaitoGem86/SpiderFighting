@@ -54,6 +54,11 @@ namespace Core.GamePlay.MyPlayer
                 blackBoard.Animancer.Play(blackBoard.CurrentAnimancerState);
         }
 
+        public void OnRetryMission(){
+            blackBoard.rig.position = Vector3.zero;
+            blackBoard.rig.rotation = Quaternion.identity;
+        }
+
         protected void Update()
         {
             if (blackBoard.GetVelocity.magnitude > 60)

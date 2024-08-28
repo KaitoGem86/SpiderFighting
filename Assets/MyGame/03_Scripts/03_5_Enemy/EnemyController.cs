@@ -27,7 +27,7 @@ namespace Core.GamePlay.Enemy
         {
             base.OnDisable();
             //ChangeAction(FSMState.Idle);
-            blackBoard.onEnemyDead?.Invoke();
+            //blackBoard.onEnemyDead?.Invoke();
             blackBoard.onEnemyDead = null;
             _enemyGroupSO.RemoveEnemy(this);
         }

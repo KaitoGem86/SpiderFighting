@@ -153,7 +153,7 @@ namespace Core.UI
 
         public void OnClickZip()
         {
-            onZip?.Raise();
+             onZip?.Raise();
         }
 
         public void OnClickScan()

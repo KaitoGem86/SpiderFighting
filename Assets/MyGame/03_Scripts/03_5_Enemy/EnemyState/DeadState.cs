@@ -8,6 +8,7 @@ namespace Core.GamePlay.Enemy{
         {
             base.EnterState();
             _blackBoard.navMeshAgent.isStopped = true;
+            _blackBoard.onEnemyDead?.Invoke();
         }
     }
 }
