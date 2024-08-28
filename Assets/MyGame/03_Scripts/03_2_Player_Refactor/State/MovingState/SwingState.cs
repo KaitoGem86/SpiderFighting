@@ -90,6 +90,13 @@ namespace Core.GamePlay.MyPlayer
 
         public override void FixedUpdate()
         {
+            if (Physics.Raycast(_blackBoard.transform.position, Vector3.down, out var hit, 100, _fsm.blackBoard.GroundLayer))
+            {
+                if (_springJoint != null && hit.distance + (_rb.position.y - _blackBoard.transform.position.y) < _springJoint.maxDistance)
+                {
+                    _springJoint.maxDistance = Mathf.Lerp(_springJoint.maxDistance, hit.distance + (_rb.position.y - _blackBoard.transform.position.y) - 5, Time.fixedDeltaTime * 20);
+                }
+            }
             _fsm.blackBoard.Character.GetCharacterMovement().rigidbody.AddForce(_moveDirection * _speed, ForceMode.Force);
             Rotate();
         }

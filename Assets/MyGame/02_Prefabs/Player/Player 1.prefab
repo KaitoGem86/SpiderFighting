@@ -2472,10 +2472,10 @@ MonoBehaviour:
   CameraFindZipPoint: {fileID: 0}
   ClimbLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 769
   defaultPriority: 10
   topPriority: 20
   CameraDefault: {fileID: 0}
