@@ -13,6 +13,7 @@ namespace Core.GamePlay.MyPlayer
         {
             base.EnterState();
             _isAfterLaunch = false;
+            _blackBoard.Character.StopJumping();
             _blackBoard.Character.Jump();
             Launch();
         }
