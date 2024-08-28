@@ -14,6 +14,7 @@ namespace Core.GamePlay.Support
             _countEnemyReady++;
             warningEnemyReadyToAttack.SetActive(true);
             warningEnemyAttack.SetActive(false);
+            Debug.Log("OnEnemyReadyToAttack " + _countEnemyAttack + " " + _countEnemyReady);
         }
 
         public void OnEnemyAttack()
@@ -22,12 +23,14 @@ namespace Core.GamePlay.Support
             _countEnemyReady = Mathf.Max(0, --_countEnemyReady);
             warningEnemyReadyToAttack.SetActive(false);
             warningEnemyAttack.SetActive(true);
+            Debug.Log("OnEnemyAttack " + _countEnemyAttack + " " + _countEnemyReady);
         }
 
         public void OnEnemyAttackEnd()
         {
             _countEnemyAttack = Mathf.Max(0, --_countEnemyAttack);
             warningEnemyAttack.SetActive(false);
+            Debug.Log("OnEnemyAttackEnd " + _countEnemyAttack + " " + _countEnemyReady);
             if (_countEnemyAttack > 0)
             {
                 warningEnemyAttack.SetActive(true);

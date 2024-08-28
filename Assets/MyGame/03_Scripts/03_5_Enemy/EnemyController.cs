@@ -26,8 +26,6 @@ namespace Core.GamePlay.Enemy
         public override void OnDisable()
         {
             base.OnDisable();
-            //ChangeAction(FSMState.Idle);
-            //blackBoard.onEnemyDead?.Invoke();
             blackBoard.onEnemyDead = null;
             _enemyGroupSO.RemoveEnemy(this);
         }
@@ -43,13 +41,19 @@ namespace Core.GamePlay.Enemy
             IsIgnore = false;
             _hpBarController.SetHP(_runtimeData.HP, _soController.initData.HP);
             blackBoard.defaultPosition = transform.position;
-            ChangeAction(_startState);
-            
-            this.enabled = true;
             GetComponent<Animator>().enabled = true;
             GetComponent<AnimancerComponent>().enabled = true;
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<BehaviourTreeOwner>().enabled = true;
+            ChangeAction(_startState);
+            this.enabled = true;
+        }
+
+        public override void HittedByPlayer(FSMState state)
+        {
+            if(_currentState.StateType == FSMState.Attack) 
+                blackBoard.onCompleteAttack?.Raise();
+            base.HittedByPlayer(state);
         }
 
         private void SetEnemyType(WeaponType type)

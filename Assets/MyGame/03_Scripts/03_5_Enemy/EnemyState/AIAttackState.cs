@@ -16,7 +16,7 @@ namespace Core.GamePlay.Enemy
             base.EnterState();
             _blackBoard.navMeshAgent.ResetPath();
             _blackBoard.isReadyToAttack = false;
-            _onAttack?.Raise();
+            //_onAttack?.Raise();
             _targetPos = _blackBoard.targetPos;
         }
 
@@ -33,7 +33,7 @@ namespace Core.GamePlay.Enemy
 
         public override void ExitState()
         {
-            _onCompleteAttack?.Raise();
+            //_onCompleteAttack?.Raise();
             _blackBoard.attackDelayTime = 5f;
             base.ExitState();
         }

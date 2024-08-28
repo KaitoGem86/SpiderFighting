@@ -17,6 +17,9 @@ namespace Core.GamePlay.Enemy
         public EnemyModel[] enemyModels;
         public EnemyModel currentEnemyModel;
 
+        public DefaultEvent onAttack;
+        public DefaultEvent onCompleteAttack;
+
         void Awake()
         {
             //defaultPosition = transform.position;

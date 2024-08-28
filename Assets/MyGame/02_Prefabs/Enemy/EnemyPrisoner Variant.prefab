@@ -6754,6 +6754,8 @@ MonoBehaviour:
   - {fileID: 3675605673572816074}
   - {fileID: 5553284004334903804}
   currentEnemyModel: {fileID: 0}
+  onAttack: {fileID: 11400000, guid: 91c05fb0d3169de4593d085f26d9c340, type: 2}
+  onCompleteAttack: {fileID: 11400000, guid: c61098f8c67115d4ebe5ca26615a0b85, type: 2}
 --- !u!54 &2005348536997286667
 Rigidbody:
   m_ObjectHideFlags: 0

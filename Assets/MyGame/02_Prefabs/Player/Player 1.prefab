@@ -2476,6 +2476,10 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 0
+  defaultPriority: 10
+  topPriority: 20
+  CameraDefault: {fileID: 0}
+  CameraLerpInAir: {fileID: 0}
   FindEnemyToAttack: {fileID: 11400000, guid: 327121c53c1175a4b888ab80a3f244ed, type: 2}
   HealingBotPivot: {fileID: 934142211166127097}
   GadgetsController: {fileID: 0}
@@ -6489,15 +6493,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4685290749308025163, guid: e129180041c3e1043b592468f69fbb4a, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.4666667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4685290749308025163, guid: e129180041c3e1043b592468f69fbb4a, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.49125138
+      value: 0.042036626
       objectReference: {fileID: 0}
     - target: {fileID: 4685290749308025163, guid: e129180041c3e1043b592468f69fbb4a, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
+      value: 0.9528302
       objectReference: {fileID: 0}
     - target: {fileID: 4685290749386938144, guid: e129180041c3e1043b592468f69fbb4a, type: 3}
       propertyPath: m_IsActive
@@ -6923,15 +6927,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1918286296985047378, guid: 3e866612bf9a2c942b69aae5596ad203, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.3931559
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1918286296985047378, guid: 3e866612bf9a2c942b69aae5596ad203, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.8962264
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1918286296985047378, guid: 3e866612bf9a2c942b69aae5596ad203, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.52819467
+      value: 0.45348847
       objectReference: {fileID: 0}
     - target: {fileID: 1918286296985047379, guid: 3e866612bf9a2c942b69aae5596ad203, type: 3}
       propertyPath: m_LocalScale.x
