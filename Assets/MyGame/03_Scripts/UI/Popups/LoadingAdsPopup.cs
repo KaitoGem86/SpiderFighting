@@ -22,7 +22,7 @@ namespace Core.UI.Popup{
 
         private void AnimationShow(Action callBack){
             _loading.SetActive(true);
-            _loadingIcon.DORotate(new Vector3(0, 0, -360), 1f, RotateMode.FastBeyond360)
+            _loadingIcon.DORotate(new Vector3(0, 0, 360), 1f, RotateMode.FastBeyond360)
                 .SetLoops(5, LoopType.Incremental)
                 .OnComplete(() => {
                     _loading.SetActive(false);

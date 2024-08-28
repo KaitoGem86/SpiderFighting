@@ -1,3 +1,4 @@
+using Core.UI.Popup;
 using MyTools.Event;
 using TMPro;
 using UnityEngine;
@@ -57,12 +58,17 @@ namespace Progress
 
         public void ClaimReward()
         {
-            Debug.Log("Claim Reward");
-            _onClaimReward?.Raise(_level);
-            _background.sprite = _data.receivedBackground;
-            _claimButton.SetActive(false);
-            _receivedIcon.SetActive(true);
-            _lockedIcon.SetActive(false);
+            LoadingAdsPopup.Instance.ShowPopup(
+                () =>
+                {
+                    Debug.Log("Claim Reward");
+                    _onClaimReward?.Raise(_level);
+                    _background.sprite = _data.receivedBackground;
+                    _claimButton.SetActive(false);
+                    _receivedIcon.SetActive(true);
+                    _lockedIcon.SetActive(false);
+                }
+            );
         }
 
     }
