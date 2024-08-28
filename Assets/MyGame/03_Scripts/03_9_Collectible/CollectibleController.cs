@@ -18,14 +18,17 @@ namespace Collectible{
         private CollectibleSO _so;
         private int _id;
         
-        public void Init(CollectibleData data, CollectibleSO so, int id){
+        public virtual void Init(CollectibleData data, CollectibleSO so, int id){
             this.data = data;
             _so = so;
             transform.position = data.position;
             _id = id;
         }
 
-        public void OnDisable(){
+        public virtual void OnEnable(){
+        }
+
+        public virtual void OnDisable(){
             onCanCollect?.Raise(false);
         }
 
@@ -42,10 +45,11 @@ namespace Collectible{
             }
         }
 
-        public void OnCollect(){
+        public virtual void OnCollect(){
             remainingTimeToSpawn = _so.timeToSpawn;
             onCollectEvent.Raise(data);
             this.gameObject.SetActive(false);
+            onCanCollect?.Raise(false);
         }
     }
 }

@@ -5882,6 +5882,7 @@ MonoBehaviour:
     fillImage: {fileID: 2990933982659730800}
     text: {fileID: 1252647578173076979}
     stackText: {fileID: 661400671389051429}
+  _claimRewardButton: {fileID: 470478595458672181}
   _playerData: {fileID: 11400000, guid: 0c8172207f6c02f45abdbc6ab00694e4, type: 2}
   _hpBarController: {fileID: 4254937578506380217}
   _levelText: {fileID: 8656625511574960848}

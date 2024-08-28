@@ -30,6 +30,7 @@ namespace Core.UI
         [SerializeField] private CameraFindZipPoint _findZipPoint;
         [SerializeField] private CoolDownButton _ultimateButton;
         [SerializeField] private CoolDownButton _gadgetButton;
+        [SerializeField] private GameObject _claimRewardButton;
 
 
         [Header("========== DISPLAY INFO ==========")]
@@ -163,6 +164,7 @@ namespace Core.UI
 
         public void OnClickCollect()
         {
+            _claimRewardButton.SetActive(false);
             onCollect?.Raise();
         }
 
