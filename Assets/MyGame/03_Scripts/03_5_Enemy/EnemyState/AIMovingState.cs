@@ -9,7 +9,9 @@ namespace Core.GamePlay.Enemy
         public override void EnterState()
         {
             base.EnterState();
+            _blackBoard.navMeshAgent.isStopped = false;
             _blackBoard.navMeshAgent.SetDestination(_blackBoard.targetPosition);
+            Debug.Log("Enter Moving");
             //RotateDisplayWithVelocity();
         }
 

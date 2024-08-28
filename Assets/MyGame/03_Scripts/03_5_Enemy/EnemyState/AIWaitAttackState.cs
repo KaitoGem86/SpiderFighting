@@ -17,6 +17,7 @@ namespace Core.GamePlay.Enemy
             base.EnterState();
             _blackBoard.targetPosition = GetRandomPointOnCircle(_blackBoard.targetPos, 5f);
             _blackBoard.navMeshAgent.SetDestination(_blackBoard.targetPosition);
+            _blackBoard.navMeshAgent.isStopped = false;
             _blackBoard.navMeshAgent.speed = _moveSpeed;
             if (!_blackBoard.isReadyToAttack)
             {
