@@ -13,6 +13,9 @@ namespace Core.GamePlay.MyPlayer
         {
             base.EnterState();
             _isAfterLaunch = false;
+            _blackBoard.Character.StopJumping();
+            _blackBoard.Character.Jump();
+            Launch();
         }
 
         public override void FixedUpdate()
@@ -23,6 +26,7 @@ namespace Core.GamePlay.MyPlayer
 
         public void Launch()
         {
+            Debug.Log("Launch");
             _isAfterLaunch = true;
             //_blackBoard.Character.GetCharacterMovement().rigidbody.AddForce(Vector3.up * 100 + _blackBoard.transform.forward * 60, ForceMode.Impulse);
             _blackBoard.Character.AddForce(Vector3.up * 30, ForceMode.Impulse);
