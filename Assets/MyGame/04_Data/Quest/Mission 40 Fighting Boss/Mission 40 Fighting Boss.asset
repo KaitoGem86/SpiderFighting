@@ -17,15 +17,13 @@ MonoBehaviour:
     QuestName: Mission 40 Fighting Boss
     QuestDescription: This is a quest
   reward:
-    exp: 100
-    currency: 100
+    exp: 0
+    currency: 0
   _stepPrefabs:
   - {fileID: 5667880772344169435, guid: 450acf4c42580b040aa99a47120ecc74, type: 3}
-  - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
   - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
   - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
   _dataPrefabs:
   - {fileID: 11400000, guid: 7cf9f0c3c2cf65f419d90f42c0e37f80, type: 2}
   - {fileID: 11400000, guid: d0df017085929db4cb6c0b2ca1cd0e6a, type: 2}
   - {fileID: 11400000, guid: 1da4efaa884a44b4f87a1abaf4b5667a, type: 2}
-  - {fileID: 11400000, guid: 93d101eb16ff3d44b9e309f34b63e18e, type: 2}

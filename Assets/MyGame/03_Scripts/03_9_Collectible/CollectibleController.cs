@@ -5,7 +5,7 @@ using MyTools.Event;
 using UnityEngine;
 
 namespace Collectible{
-    public struct CollectibleRewardData{
+    public struct RuntimeRewardData{
         public int cash;
         public int exp;
     }
@@ -46,10 +46,6 @@ namespace Collectible{
             remainingTimeToSpawn = _so.timeToSpawn;
             onCollectEvent.Raise(data);
             this.gameObject.SetActive(false);
-            CollectCollectiblePopup.Instance.ShowPopup(new CollectibleRewardData{
-                cash = data.rewardValue,
-                exp = data.rewardValue
-            });
         }
     }
 }

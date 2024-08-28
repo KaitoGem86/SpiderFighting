@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Collectible;
+using Core.UI.Popup;
 using Data.Stat.Player;
 using MyTools.Event;
 using Newtonsoft.Json;
@@ -72,7 +73,15 @@ namespace Core.GamePlay.MyPlayer
 
         public void CollectReward(CollectibleData data)
         {
-
+            int exp = GetExpToNextLevel() * playerDataConfig.levelCoefficients[playerSerializeData.Level] / 100;
+            int cash = exp + 50;
+            playerSerializeData.Exp += exp;
+            playerSerializeData.rewards[Data.Reward.RewardType.Cash] += cash;
+            onUpdatePlayerData.Raise();
+            CollectCollectiblePopup.Instance.ShowPopup(new RuntimeRewardData{
+                cash = cash,
+                exp = exp
+            });
         }
 
         public void ResetPlayerStat()

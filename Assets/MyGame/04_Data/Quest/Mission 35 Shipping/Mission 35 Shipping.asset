@@ -17,15 +17,15 @@ MonoBehaviour:
     QuestName: Mission 35 Shipping
     QuestDescription: This is a quest
   reward:
-    exp: 100
-    currency: 100
+    exp: 843
+    currency: 866
   _stepPrefabs:
   - {fileID: 8290581765462956383, guid: c3f80a6937f73944092022575323c1ac, type: 3}
   - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
   _dataPrefabs:
   - {fileID: 11400000, guid: 989c445351a30034dbedd538f6e42d6c, type: 2}
   - {fileID: 11400000, guid: e8e4e010cd109f343a569c37c12f6772, type: 2}
-  time: 70
+  time: 80
   onStartShippingQuest: {fileID: 11400000, guid: c83769cb7e03b8348a90d0cbf329aa2a, type: 2}
   onFinishShippingQuest: {fileID: 11400000, guid: 929c31a6fd2a71d46b9f77f088ef130d, type: 2}
   onUpdateTime: {fileID: 11400000, guid: 47cda9e3d98f8ba4d9b05942a34995db, type: 2}

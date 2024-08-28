@@ -17,15 +17,15 @@ MonoBehaviour:
     QuestName: Mission 38 Shipping
     QuestDescription: This is a quest
   reward:
-    exp: 100
-    currency: 100
+    exp: 866
+    currency: 889
   _stepPrefabs:
   - {fileID: 8290581765462956383, guid: c3f80a6937f73944092022575323c1ac, type: 3}
   - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}
   _dataPrefabs:
   - {fileID: 11400000, guid: eb5139949c950244aa280eadefc4d206, type: 2}
   - {fileID: 11400000, guid: 4fd1f80738f98744bb522ac721ad753c, type: 2}
-  time: 60
+  time: 75
   onStartShippingQuest: {fileID: 11400000, guid: c83769cb7e03b8348a90d0cbf329aa2a, type: 2}
   onFinishShippingQuest: {fileID: 11400000, guid: 929c31a6fd2a71d46b9f77f088ef130d, type: 2}
   onUpdateTime: {fileID: 11400000, guid: 47cda9e3d98f8ba4d9b05942a34995db, type: 2}

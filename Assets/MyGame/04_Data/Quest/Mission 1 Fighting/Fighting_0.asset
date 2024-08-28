@@ -15,6 +15,6 @@ MonoBehaviour:
   position: {x: -22.310001, y: 0.09899998, z: 164.97}
   data:
   - enemySO: {fileID: 11400000, guid: 8b78cd0366f35f547b770b28b832cc60, type: 2}
-    count: 3
-  - enemySO: {fileID: 11400000, guid: 9c7289dd3f1c652459514adc4a252a10, type: 2}
     count: 2
+  - enemySO: {fileID: 11400000, guid: 9c7289dd3f1c652459514adc4a252a10, type: 2}
+    count: 1

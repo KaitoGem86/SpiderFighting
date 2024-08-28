@@ -73,8 +73,31 @@ namespace CSVLoad
             if (type.Contains("Gangster")) result.Add(TypeEnemy.Gangster);
             if (type.Contains("Prisoner")) result.Add(TypeEnemy.Prisoner);
             if (type.Contains("Kingpin")) result.Add(TypeEnemy.Kingpin);
-            if (type.Contains("Venom")) result.Add(TypeEnemy.Venom);
+            if (type.Contains("Venom")) result.Add(TypeEnemy.Kingpin);
             return result.ToArray();
+        }
+    }
+
+    public class MissionRewardData{
+        public int cash;
+        public int exp;
+
+        public static MissionRewardData[] GetMissionRewardDatas(string spreadsheetId, string gid)
+        {
+            string[] data = CSVLoader.LoadCSV(spreadsheetId, gid);
+            if (data == null || data.Length == 0) return null;
+            MissionRewardData[] result = new MissionRewardData[data.Length - 2];
+            for (int i = 2; i < data.Length - 1; i++)
+            {
+                string[] row = data[i].Split(',');
+                var partData = new MissionRewardData
+                {
+                    cash = int.TryParse(row[5], out int c) ? c : 0,
+                    exp = int.TryParse(row[6], out int e) ? e : 0
+                };
+                result[i - 1] = partData;
+            }
+            return result;
         }
     }
 }

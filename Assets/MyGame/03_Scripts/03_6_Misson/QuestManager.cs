@@ -90,7 +90,8 @@ namespace Core.GamePlay.Mission
         }
 
         public string spreadsheetId;
-        public string gid;
+        public string gidMissionConfig;
+        public string gidMissionReward;
 
         // public void LoadCSV()
         // {
@@ -139,10 +140,11 @@ namespace Core.GamePlay.Mission
         {
             quests = new List<Quest>();
             var tmp = GetDictLocation();
-            var questData = MissionConfig.GetMissionConFig(spreadsheetId, gid);
-            for (int i = 0; i < Mathf.Max(tmp.Count, questData.Length - 1); i++)
+            var questData = MissionConfig.GetMissionConFig(spreadsheetId, gidMissionConfig);
+            var rewardData = MissionRewardData.GetMissionRewardDatas(spreadsheetId, gidMissionReward);
+            for (int i = 0; i < Mathf.Max(tmp.Count, questData.Length - 1, rewardData.Length - 1); i++)
             {
-                GenerateQuestData(tmp[i], questData[i + 1]);
+                GenerateQuestData(tmp[i], questData[i + 1], rewardData[i + 1]);
             }
         }
 
@@ -165,7 +167,7 @@ namespace Core.GamePlay.Mission
                 }
                 else if (child.name.Contains("Stop Car"))
                 {
-                    dict.Add(new KeyValuePair<QuestType, Transform>(QuestType.StopCar, child));
+                    dict.Add(new KeyValuePair<QuestType, Transform>(QuestType.Fighting, child));
                 }
                 else if (child.name.Contains("Protect"))
                 {
@@ -175,7 +177,7 @@ namespace Core.GamePlay.Mission
             return dict;
         }
 
-        private void GenerateQuestData(KeyValuePair<QuestType, Transform> questObject, MissionConfig data)
+        private void GenerateQuestData(KeyValuePair<QuestType, Transform> questObject, MissionConfig data, MissionRewardData rewardData)
         {
             var folderPath = questPath + "/" + questObject.Value.name;
             if (!AssetDatabase.IsValidFolder(folderPath))
@@ -199,8 +201,8 @@ namespace Core.GamePlay.Mission
                         };
                         questData.reward = new RewardInfor
                         {
-                            exp = 100,
-                            currency = 100
+                            exp = rewardData.exp,
+                            currency = rewardData.cash
                         };
                         questData.stepPrefabs = new List<GameObject>();
                         questData.dataPrefabs = new List<ScriptableObject>();
@@ -258,8 +260,8 @@ namespace Core.GamePlay.Mission
                         };
                         questDataProtect.reward = new RewardInfor
                         {
-                            exp = 100,
-                            currency = 100
+                            exp = rewardData.exp,
+                            currency = rewardData.cash
                         };
                         questDataProtect.stepPrefabs = new List<GameObject>();
                         questDataProtect.dataPrefabs = new List<ScriptableObject>();
@@ -322,8 +324,8 @@ namespace Core.GamePlay.Mission
                         };
                         questDataShipping.reward = new RewardInfor
                         {
-                            exp = 100,
-                            currency = 100
+                            exp = rewardData.exp,
+                            currency = rewardData.cash
                         };
                         questDataShipping.stepPrefabs = new List<GameObject>();
                         questDataShipping.dataPrefabs = new List<ScriptableObject>();

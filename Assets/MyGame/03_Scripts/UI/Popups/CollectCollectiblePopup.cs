@@ -21,7 +21,7 @@ namespace Core.UI.Popup
         [SerializeField] private TMP_Text _cashText;
         [SerializeField] private TMP_Text _expText;
 
-        public void ShowPopup(CollectibleRewardData data)
+        public void ShowPopup(RuntimeRewardData data)
         {
             _cashText.text = "+" + data.cash.ToString();
             _expText.text = "+" + data.exp.ToString();

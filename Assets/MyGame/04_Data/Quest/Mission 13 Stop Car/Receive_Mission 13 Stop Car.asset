@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cb172d1feeed74f9621c423a1b93f4, type: 3}
   m_Name: Receive_Mission 13 Stop Car
   m_EditorClassIdentifier: 
-  position: {x: 388.4, y: 0.010000229, z: 118.8}
+  position: {x: 371.93, y: 0.010000229, z: 151.43}

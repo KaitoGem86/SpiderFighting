@@ -17,15 +17,13 @@ MonoBehaviour:
     QuestName: Mission 7 Protect
     QuestDescription: This is a quest
   reward:
-    exp: 100
-    currency: 100
+    exp: 368
+    currency: 392
   _stepPrefabs:
   - {fileID: 5667880772344169435, guid: 450acf4c42580b040aa99a47120ecc74, type: 3}
-  - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
   - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
   _dataPrefabs:
   - {fileID: 11400000, guid: c749f5e6e10fe0346af572a4ecd63c80, type: 2}
   - {fileID: 11400000, guid: a8b66d73b2719ae4a939e72e03bb3b48, type: 2}
-  - {fileID: 11400000, guid: 8445c936e99b2e04b9bf080de4aaaf62, type: 2}
   npcSO: {fileID: 11400000, guid: a663fad9b1922ab49a34d46aeb4f58c4, type: 2}
-  spawnPosition: {x: -187.83119, y: 45.5, z: 90.58998}
+  spawnPosition: {x: -190.14009, y: 45.5, z: 96.56427}

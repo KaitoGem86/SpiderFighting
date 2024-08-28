@@ -17,8 +17,8 @@ MonoBehaviour:
     QuestName: Mission 10 Shipping
     QuestDescription: This is a quest
   reward:
-    exp: 100
-    currency: 100
+    exp: 504
+    currency: 527
   _stepPrefabs:
   - {fileID: 8290581765462956383, guid: c3f80a6937f73944092022575323c1ac, type: 3}
   - {fileID: 4722470221656309449, guid: 06f33861fe544a1468ad1e38c5a0829f, type: 3}

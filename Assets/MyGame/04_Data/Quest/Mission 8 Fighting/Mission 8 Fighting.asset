@@ -17,13 +17,11 @@ MonoBehaviour:
     QuestName: Mission 8 Fighting
     QuestDescription: This is a quest
   reward:
-    exp: 100
-    currency: 100
+    exp: 414
+    currency: 437
   _stepPrefabs:
   - {fileID: 5667880772344169435, guid: 450acf4c42580b040aa99a47120ecc74, type: 3}
-  - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
   - {fileID: 8121544065399611478, guid: 071c0e2509dbb9547b293651565eaefc, type: 3}
   _dataPrefabs:
   - {fileID: 11400000, guid: 9fdaa8419f2399d41917f41bdf2d817e, type: 2}
   - {fileID: 11400000, guid: 1a57475378fa4b34fb135eae9b818a04, type: 2}
-  - {fileID: 11400000, guid: 5238c24737964fa4285c5e7e13fb7370, type: 2}
