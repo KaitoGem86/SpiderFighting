@@ -10,6 +10,8 @@ namespace Core.GamePlay.MyPlayer
         public override void EnterState()
         {
             _blackBoard.leftSilk.Init();
+            _blackBoard.CameraDefault.Priority = _blackBoard.defaultPriority;
+            _blackBoard.CameraLerpInAir.Priority = _blackBoard.topPriority;
             base.EnterState();
         }
 
@@ -35,6 +37,8 @@ namespace Core.GamePlay.MyPlayer
         {
             _blackBoard.Character.gravityScale = 3;
             _blackBoard.leftSilk.UnUseSilk();
+            _blackBoard.CameraDefault.Priority = _blackBoard.topPriority;
+            _blackBoard.CameraLerpInAir.Priority = _blackBoard.defaultPriority;
             base.ExitState();
         }
 

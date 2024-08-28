@@ -3842,7 +3842,7 @@ MonoBehaviour:
     _Animations:
     - {fileID: 7400000, guid: 57e777489b9010240b5a24efd46be69b, type: 2}
     - {fileID: 7400000, guid: 280ab1a26af5492488e80f0280c5e397, type: 2}
-    - {fileID: 7400000, guid: ed4c7a859a65ea349b6b5f2d0ac208eb, type: 2}
+    - {fileID: 7400000, guid: 34c442cf0c1912944871031e65690a70, type: 3}
     _Speeds: []
     _SynchronizeChildren: 
     _Thresholds:

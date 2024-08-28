@@ -49,7 +49,7 @@ namespace Core.GamePlay.MyPlayer
         public void FixedUpdate()
         {
             var forward = _enemy != null ? _enemy.TargetEnemy.position - _fsm.transform.position : _fsm.transform.forward; forward.y = 0;
-            //_fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, Quaternion.LookRotation(forward), 0.2f);
+            _fsm.transform.rotation = Quaternion.Slerp(_fsm.transform.rotation, Quaternion.LookRotation(forward), 0.2f);
         }
 
 

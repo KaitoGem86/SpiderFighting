@@ -33,6 +33,11 @@ namespace Core.GamePlay.MyPlayer
             _leftHand = _fsm.blackBoard.CurrentPlayerModel.leftHand;
             _rightHand = _fsm.blackBoard.CurrentPlayerModel.rightHand;
             _isStartSwing = false;
+            // _blackBoard.CameraLerpInAir.transform.SetPositionAndRotation(_blackBoard.CameraDefault.transform.position, _blackBoard.CameraDefault.transform.rotation);
+            // _blackBoard.CameraDefault.gameObject.SetActive(false);
+            // _blackBoard.CameraLerpInAir.gameObject.SetActive(true);
+            _blackBoard.CameraDefault.Priority = _blackBoard.defaultPriority;
+            _blackBoard.CameraLerpInAir.Priority = _blackBoard.topPriority;
             base.EnterState();
         }
 
@@ -41,6 +46,11 @@ namespace Core.GamePlay.MyPlayer
             if (_springJoint != null)
                 _springJoint.maxDistance = float.MaxValue;
             _shootSilk.UnUseSilk();
+            // _blackBoard.CameraDefault.transform.SetPositionAndRotation(_blackBoard.CameraLerpInAir.transform.position, _blackBoard.CameraLerpInAir.transform.rotation);
+            // _blackBoard.CameraDefault.gameObject.SetActive(true);
+            // _blackBoard.CameraLerpInAir.gameObject.SetActive(false);
+            _blackBoard.CameraDefault.Priority = _blackBoard.topPriority;
+            _blackBoard.CameraLerpInAir.Priority = _blackBoard.defaultPriority;
             base.ExitState();
         }
 

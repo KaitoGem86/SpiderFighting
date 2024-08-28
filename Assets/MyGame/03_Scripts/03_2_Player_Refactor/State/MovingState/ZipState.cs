@@ -13,6 +13,8 @@ namespace Core.GamePlay.MyPlayer
 
         public override void EnterState()
         {
+            _blackBoard.CameraDefault.Priority = _blackBoard.defaultPriority;
+            _blackBoard.CameraLerpInAir.Priority = _blackBoard.topPriority;
             base.EnterState();
             _isChangeState = false;
             _zipPoint = _blackBoard.CameraFindZipPoint.zipPoint;
@@ -21,6 +23,13 @@ namespace Core.GamePlay.MyPlayer
             Vector3 temp = Vector3.Cross(_forward, Vector3.up);
             _upward = Vector3.Cross(temp, _forward).normalized;
             _blackBoard.rig.DORotate(Quaternion.LookRotation(_forward, _upward).eulerAngles, 0.05f);
+        }
+
+        public override void ExitState()
+        {
+            _blackBoard.CameraDefault.Priority = _blackBoard.topPriority;
+            _blackBoard.CameraLerpInAir.Priority = _blackBoard.defaultPriority;
+            base.ExitState();
         }
 
         public void ShootSilk()

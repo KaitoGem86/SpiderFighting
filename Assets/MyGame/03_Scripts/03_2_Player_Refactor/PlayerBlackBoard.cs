@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using Animancer;
+using Cinemachine;
 using Collectible;
 using Core.GamePlay.Player;
 using Core.GamePlay.Support;
@@ -44,6 +45,10 @@ namespace Core.GamePlay.MyPlayer{
         public CameraFindZipPoint CameraFindZipPoint;
         public LayerMask ClimbLayer;
         public LayerMask GroundLayer;
+        public int defaultPriority = 10;
+        public int topPriority = 20;
+        public CinemachineVirtualCamera CameraDefault;
+        public CinemachineVirtualCamera CameraLerpInAir;
 
         [Header("Combat")]
         public FindEnemyToAttack FindEnemyToAttack;
