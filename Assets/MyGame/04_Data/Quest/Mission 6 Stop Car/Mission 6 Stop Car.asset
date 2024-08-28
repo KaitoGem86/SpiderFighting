@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cc36984fcdbbd443986e1614fcd1b6f, type: 3}
   m_Name: Mission 6 Stop Car
   m_EditorClassIdentifier: 
   infor:
@@ -25,3 +25,4 @@ MonoBehaviour:
   _dataPrefabs:
   - {fileID: 11400000, guid: 24e73a9fee0804a48a6c98be2dd4ff39, type: 2}
   - {fileID: 11400000, guid: 05442a7670cbeed4b84b69f516651f25, type: 2}
+  range: 40

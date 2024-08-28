@@ -82,6 +82,7 @@ MonoBehaviour:
   _failedPanel: {fileID: 8670186514618345405}
   _watchAdsButtonFailed: {fileID: 7447797546453933309}
   _retryButton: {fileID: 6831239952748633073}
+  _failedText: {fileID: 7462776030539089947}
   _resultText: {fileID: 520156262196168216}
   _expText: {fileID: 5918983272944586148}
   _cashText: {fileID: 147613235993694061}

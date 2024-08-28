@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cc36984fcdbbd443986e1614fcd1b6f, type: 3}
   m_Name: Mission 39 Fighting
   m_EditorClassIdentifier: 
   infor:
@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddb13f98a9626d04ca9924a457ff21b4, type: 2}
   - {fileID: 11400000, guid: e450389d0f5a0924292efeb2c4deb2b2, type: 2}
   - {fileID: 11400000, guid: 5813af9ca51ddff4798bd8a1f8f4dfdc, type: 2}
+  range: 40

@@ -60,11 +60,14 @@ namespace Core.GamePlay.Mission
             currentQuest.StartQuest();
         }
 
-        public void FinishQuest()
+        public void FinishQuest(bool isWin = true)
         {
             playerData.ResetPlayerStat();
-            playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash] += currentQuest.reward.currency;
-            playerData.UpdateExp(currentQuest.reward.exp);
+            if (isWin)
+            {
+                playerData.playerSerializeData.rewards[Data.Reward.RewardType.Cash] += currentQuest.reward.currency;
+                playerData.UpdateExp(currentQuest.reward.exp);
+            }
             playerData.onUpdatePlayerData.Raise();
         }
 
@@ -121,7 +124,7 @@ namespace Core.GamePlay.Mission
         [SerializeField] private EnemySO pistolEnemy;
         [SerializeField] private EnemySO riffleEnemy;
         [SerializeField] private BossSO bossEnemy;
-        
+
         [Header("=========== NPC data ===============")]
         [SerializeField] private NPCSO npcSO;
 
@@ -193,7 +196,7 @@ namespace Core.GamePlay.Mission
                 {
                     case MissionType.Fighting:
                     case MissionType.FightingBoss:
-                        var questData = ScriptableObject.CreateInstance<Quest>();
+                        var questData = ScriptableObject.CreateInstance<FightingQuest>();
                         questData.infor = new QuestInfor
                         {
                             QuestName = questObject.Value.name,
@@ -204,6 +207,7 @@ namespace Core.GamePlay.Mission
                             exp = rewardData.exp,
                             currency = rewardData.cash
                         };
+                        questData.range = 40;
                         questData.stepPrefabs = new List<GameObject>();
                         questData.dataPrefabs = new List<ScriptableObject>();
                         questData.stepPrefabs.Add(questStepPrefabs[QuestStepType.Receive]);

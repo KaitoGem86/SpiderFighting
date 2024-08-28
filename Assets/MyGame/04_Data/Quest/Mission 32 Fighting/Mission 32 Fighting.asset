@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cc36984fcdbbd443986e1614fcd1b6f, type: 3}
   m_Name: Mission 32 Fighting
   m_EditorClassIdentifier: 
   infor:
@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d22b40621672a9745a5cb7d1ab5e3401, type: 2}
   - {fileID: 11400000, guid: 045ffd37060938f469bad8beed4b8698, type: 2}
   - {fileID: 11400000, guid: 5cf986e332860624296b140611291482, type: 2}
+  range: 40

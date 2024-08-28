@@ -29,14 +29,14 @@ namespace Core.GamePlay.Mission
             onUpdateTime.Raise(currentTime);
             if (currentTime <= 0)
             {
-                FinishQuest(false);
+                FinishQuest(false, "Time out!" + "\n" + "You will lose all rewards!" + "\n" + "Do you want to retry?");
             }
         }
 
-        public override void FinishQuest(bool isWin = true)
+        public override void FinishQuest(bool isWin = true, string questText = null)
         {
             onFinishShippingQuest.Raise();
-            base.FinishQuest(isWin);
+            base.FinishQuest(isWin, questText);
         }
 
         public override void NextQuestStep()

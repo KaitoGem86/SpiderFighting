@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cc36984fcdbbd443986e1614fcd1b6f, type: 3}
   m_Name: Mission 40 Fighting Boss
   m_EditorClassIdentifier: 
   infor:
@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7cf9f0c3c2cf65f419d90f42c0e37f80, type: 2}
   - {fileID: 11400000, guid: d0df017085929db4cb6c0b2ca1cd0e6a, type: 2}
   - {fileID: 11400000, guid: 1da4efaa884a44b4f87a1abaf4b5667a, type: 2}
+  range: 40

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cc36984fcdbbd443986e1614fcd1b6f, type: 3}
   m_Name: Mission 33 Fighting Boss
   m_EditorClassIdentifier: 
   infor:
@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2627ba507c9ea6443b58513ae88f1cd7, type: 2}
   - {fileID: 11400000, guid: 4d95038bda79ae9409847a4d3fe9f7a1, type: 2}
   - {fileID: 11400000, guid: 29ec9adad6b2e68409cb73df1ad5e64d, type: 2}
+  range: 40

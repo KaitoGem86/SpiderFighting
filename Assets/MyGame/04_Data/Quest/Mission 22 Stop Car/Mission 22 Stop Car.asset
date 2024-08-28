@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318750040f2b55e478b096a772040182, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cc36984fcdbbd443986e1614fcd1b6f, type: 3}
   m_Name: Mission 22 Stop Car
   m_EditorClassIdentifier: 
   infor:
@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e3103e659c325047bdf52590d21e31a, type: 2}
   - {fileID: 11400000, guid: e996d778091ff0149b1d5aaa2fb351b2, type: 2}
   - {fileID: 11400000, guid: 7ce056fc0c11c754ebffa31c1b4b97fd, type: 2}
+  range: 40

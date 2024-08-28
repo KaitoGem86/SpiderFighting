@@ -21,6 +21,7 @@ namespace Core.GamePlay.Mission.Protected
         [SerializeField] private RectTransform _failedPanel;
         [SerializeField] private RectTransform _watchAdsButtonFailed;
         [SerializeField] private RectTransform _retryButton;
+        [SerializeField] private TMP_Text _failedText;
 
 
         [Header("========= CONTROL ELEMENTS =========")]
@@ -34,11 +35,14 @@ namespace Core.GamePlay.Mission.Protected
 
         private bool _isCompleted = false;
 
-        public void Show(bool isMissionSuccess, RewardInfor rewardInfor)
+        public void Show(bool isMissionSuccess, RewardInfor rewardInfor, string missionText = null)
         {
+            Debug.Log("Show Mission Result Panel");
             _isCompleted = isMissionSuccess;
             Show();
             OnShow(isMissionSuccess, rewardInfor);
+            if(!string.IsNullOrEmpty(missionText))
+                _failedText.text = missionText;
             AnimationShow();
         }
 
@@ -65,13 +69,16 @@ namespace Core.GamePlay.Mission.Protected
 
         public void OnNextMission()
         {
+            Debug.Log("OnNextMission");
             AnimationHide();
             _onNextMission.Raise();
         }
 
         public void OnRetryMission()
         {
+            Debug.Log("OnRetryMission");
             AnimationHide();
+            //Hide();
             _onRetryMission.Raise();
         }
 
