@@ -91,3 +91,4 @@ MonoBehaviour:
     targetAmount: 10
     name: Graffiti
   levelStart: 1
+  icon: {fileID: 21300000, guid: 8110ede1a64df8f4d9f9d9b3e0635aef, type: 2}

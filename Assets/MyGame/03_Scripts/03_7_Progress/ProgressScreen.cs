@@ -28,6 +28,8 @@ namespace Progress.UI
         [SerializeField] private TMP_Text _progressText;
         [SerializeField] private TMP_Text _progressLevelText;
         [SerializeField] private TMP_Text _progressNextLevelText;
+        [SerializeField] private TMP_Text _maxProgressLevelText;
+        [SerializeField] private Image _maxProgressIcon;
 
         private List<ProgressElement> _progressElements = new List<ProgressElement>();
         [SerializeField] private PlayerData _playerData;
@@ -40,7 +42,7 @@ namespace Progress.UI
         protected override void OnCompleteShowItSelf()
         {
             base.OnCompleteShowItSelf();
-            var _progressSO = _progressSOs[GetIndexProgressSO(_playerData.playerSerializeData.Level)];
+            _progressSO = _progressSOs[GetIndexProgressSO(_playerData.playerSerializeData.Level)];
             _progressSO.Init(1980, _progressContainer);
             ShowProgress(_progressSO);
         }
@@ -96,6 +98,8 @@ namespace Progress.UI
             _progressText.text = $"{exp}/{maxProgress}";
             _progressLevelText.text = "LEVEL " + level.ToString();
             _progressNextLevelText.text = "LEVEL " + nextLevel.ToString();
+            _maxProgressLevelText.text = "LEVEL " + (_progressSO.levelStart + _progressSO.ProgressDatas.Count).ToString();
+            _maxProgressIcon.sprite = _progressSO.icon;
         }
 
         private int GetIndexProgressSO(int level)
