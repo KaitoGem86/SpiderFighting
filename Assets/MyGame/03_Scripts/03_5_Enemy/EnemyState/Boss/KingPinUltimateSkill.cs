@@ -36,6 +36,7 @@ namespace Core.GamePlay.Enemy{
             //_targetPos = _blackBoard.targetPos;
             if(!_isMoving) return;
             _blackBoard.transform.position += _direction.normalized * Time.deltaTime * 10;
+            _blackBoard.transform.rotation = Quaternion.LookRotation(_direction);
             if(Vector3.Distance(_targetPos, _blackBoard.transform.position) < _attackRange && !_isAttack){
                 _isAttack = true;
                 _blackBoard.targetToAttack.TargetEnemy.GetComponent<IHitted>().ResponseClip = GetResponse(_blackBoard.targetToAttack.TargetEnemy);
@@ -53,7 +54,7 @@ namespace Core.GamePlay.Enemy{
 
         private void RotateToEnemy()
         {
-            //_blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_targetPos - _blackBoard.navMeshAgent.transform.position), Time.deltaTime * 20);
+            _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_targetPos - _blackBoard.navMeshAgent.transform.position), Time.fixedDeltaTime * 20);
         }
 
         private ClipTransitionSequence GetResponse(Transform target){
