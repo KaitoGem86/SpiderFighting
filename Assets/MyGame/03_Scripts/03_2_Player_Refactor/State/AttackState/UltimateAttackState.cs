@@ -10,15 +10,15 @@ namespace Core.GamePlay.MyPlayer{
         public override void EnterState()
         {
             base.EnterState();
-            _blackBoard.CameraUltimate.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = 0;
-            _blackBoard.CameraDefault.Priority = _blackBoard.defaultPriority;
-            _blackBoard.CameraUltimate.Priority = _blackBoard.topPriority;
+            //_blackBoard.CameraUltimate.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = 0;
+           //_blackBoard.CameraDefault.Priority = _blackBoard.defaultPriority;
+            //_blackBoard.CameraUltimate.Priority = _blackBoard.topPriority;
         }
 
         public override void ExitState()
         {
-            _blackBoard.CameraDefault.Priority = _blackBoard.topPriority;
-            _blackBoard.CameraUltimate.Priority = _blackBoard.defaultPriority;
+            //_blackBoard.CameraDefault.Priority = _blackBoard.topPriority;
+            //_blackBoard.CameraUltimate.Priority = _blackBoard.defaultPriority;
             base.ExitState();
         }
 
