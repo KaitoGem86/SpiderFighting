@@ -705,6 +705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4282239631287567928}
   - {fileID: 4034349732948388004}
   - {fileID: 4072850675361189429}
   - {fileID: 5779178960741696910}
@@ -720,7 +721,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623093551077220945}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -792,7 +793,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623093551077220945}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aad115aca74ce3c4891b3f6de0b4aae8, type: 3}
   m_Name: 
@@ -896,8 +897,10 @@ MonoBehaviour:
   attackRange: 2
   weaponController: {fileID: 5738608396141191998}
   weaponType: 0
+  bossSO: {fileID: 11400000, guid: 8769e38f37bda854fb365b7c4647fd41, type: 2}
   bossController: {fileID: 4579125359624373493}
   onBossHPChange: {fileID: 11400000, guid: e7b6493456265274ea74b2cb6962b4ac, type: 2}
+  onBossActive: {fileID: 11400000, guid: e29aa133bbfe60e4b887935701bad186, type: 2}
 --- !u!114 &4579125359624373493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,6 +923,7 @@ MonoBehaviour:
   _damageNumber: {fileID: 284784799528522495, guid: 57f6864dd5571d048bcf206ffd5cc378, type: 3}
   _hitVFXController: {fileID: 7118571867792028740}
   _onBossActive: {fileID: 11400000, guid: e29aa133bbfe60e4b887935701bad186, type: 2}
+  _isSpawnInMission: 1
 --- !u!1 &4903219117278165061
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsm: {fileID: 0}
-  _animancer: {fileID: 0}
+  _animancer: {fileID: 1109424433304844287}
   _blackBoard: {fileID: 3778117426876484360}
   _transitions:
   - _FadeDuration: 0.06000001
@@ -1252,6 +1256,73 @@ MonoBehaviour:
     _ExtrapolateSpeed: 1
   _stateType: 2
   _canChangeToItself: 0
+--- !u!1 &7055303838536408463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4282239631287567928}
+  - component: {fileID: 810526164931574691}
+  - component: {fileID: 8377166522726248639}
+  m_Layer: 8
+  m_Name: DetectPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4282239631287567928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055303838536408463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5233537474324162676}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &810526164931574691
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055303838536408463}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8377166522726248639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055303838536408463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52695e34b15985b408d133b6721c9c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blackBoard: {fileID: 3778117426876484360}
 --- !u!1 &8017925501909018700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1500,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: a3f275accf984ff409b88e9c4145a59d, type: 2}
+    _Clip: {fileID: 7400000, guid: 45229bb83245c3446b3204c0c11f6465, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
     _Others: []
