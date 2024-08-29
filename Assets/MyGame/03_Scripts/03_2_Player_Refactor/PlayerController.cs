@@ -85,7 +85,7 @@ namespace Core.GamePlay.MyPlayer
             blackBoard.OnShowHitCounter.Raise(-1);
             var hp = blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP];
             var maxHP = blackBoard.PlayerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.HP);
-            hp -= 100;
+            hp -= damage;
             if (hp <= 0)
             {
                 hp = 0;

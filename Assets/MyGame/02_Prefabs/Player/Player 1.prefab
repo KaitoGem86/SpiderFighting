@@ -4277,8 +4277,8 @@ MonoBehaviour:
     _Speed: 1
     _NormalizedStartTime: NaN
   _stateType: 5
-  _canChangeToItself: 0
-  _movementMode: 0
+  _canChangeToItself: 1
+  _movementMode: 1
   _interpolateMode: 0
   _speed: 0
 --- !u!1 &7136247102644778278
