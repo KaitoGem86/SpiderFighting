@@ -49,6 +49,8 @@ namespace Core.GamePlay.MyPlayer{
         public int topPriority = 20;
         public CinemachineVirtualCamera CameraDefault;
         public CinemachineVirtualCamera CameraLerpInAir;
+        public CinemachineVirtualCamera CameraUltimate;
+        public CinemachineSmoothPath path;
 
         [Header("Combat")]
         public FindEnemyToAttack FindEnemyToAttack;

@@ -31,7 +31,7 @@ namespace Core.GamePlay.Mission.Protected
         }
 
 
-        public void HittedByPlayer(FSMState state)
+        public void HittedByPlayer(FSMState state, float damage = 10)
         {
             blackBoard.hp -= 10;
             _hpBarController.SetHP(blackBoard.hp / 100);
@@ -43,7 +43,7 @@ namespace Core.GamePlay.Mission.Protected
             }
         }
 
-        public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip)
+        public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip, float damage = 10)
         {
             Debug.Log("Hitted by special skill");
         }

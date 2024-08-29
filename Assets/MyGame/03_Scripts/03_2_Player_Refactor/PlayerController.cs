@@ -71,7 +71,7 @@ namespace Core.GamePlay.MyPlayer
             }
         }
 
-        public void HittedByPlayer(FSMState state)
+        public void HittedByPlayer(FSMState state, float damage = 10)
         {
             if (currentStateType == FSMState.Dodge || currentStateType == FSMState.UltimateAttack)
             {
@@ -83,13 +83,13 @@ namespace Core.GamePlay.MyPlayer
             blackBoard.OnShowHitCounter.Raise(-1);
             var hp = blackBoard.PlayerData.localStats[Data.Stat.Player.PlayerStat.HP];
             var maxHP = blackBoard.PlayerData.playerStatSO.GetGlobalStat(Data.Stat.Player.PlayerStat.HP);
-            hp -= 100;
+            hp -= damage;
             if (hp <= 0)
             {
                 hp = 0;
                 if(!blackBoard.PlayerData.isInMission){
                     //_ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(false, default);
-                    MissionResultPanel.Instance.Show(false, default);
+                    MissionResultPanel.Instance.Show(false, default, "REVIVE??");
                 }
                 else{
                     //blackBoard.OnPlayerDead.Raise();
@@ -100,10 +100,15 @@ namespace Core.GamePlay.MyPlayer
             blackBoard.OnAttack.Raise(hp / maxHP);
             if(state == FSMState.ResponeForSpecialSkill){
                 ChangeAction(FSMState.ResponeForSpecialSkill);
+                return;
+            }
+            if(state == FSMState.Hit){
+                ChangeAction(FSMState.Hit);
+                return;
             }
         }
 
-        public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip){
+        public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip, float damage = 10){
             blackBoard.AttackCount = 0;
             blackBoard.ResetTime();
             blackBoard.OnShowHitCounter.Raise(-1);

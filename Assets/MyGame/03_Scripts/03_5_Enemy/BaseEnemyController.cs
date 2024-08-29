@@ -24,7 +24,7 @@ namespace Core.GamePlay.Enemy
             GetComponent<BehaviourTreeOwner>().enabled = false;
         }
 
-        public virtual void HittedByPlayer(FSMState state)
+        public virtual void HittedByPlayer(FSMState state, float damage = 10)
         {
             switch (state)
             {
@@ -53,7 +53,7 @@ namespace Core.GamePlay.Enemy
             }
         }
 
-        public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip){
+        public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip, float damage = 10){
 
         }
 

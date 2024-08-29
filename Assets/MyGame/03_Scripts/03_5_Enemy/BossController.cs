@@ -30,7 +30,7 @@ namespace Core.GamePlay.Enemy{
             blackBoard.onBossHPChange.Raise(-1);
         }
 
-        public override void HittedByPlayer(FSMState state)
+        public override void HittedByPlayer(FSMState state, float damage = 10)
         {
             base.HittedByPlayer(state);
             blackBoard.onBossHPChange.Raise(_runtimeData.HP / _initData.HP);

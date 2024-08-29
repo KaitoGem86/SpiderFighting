@@ -49,7 +49,7 @@ namespace Core.GamePlay.Enemy
             this.enabled = true;
         }
 
-        public override void HittedByPlayer(FSMState state)
+        public override void HittedByPlayer(FSMState state, float damage = 10)
         {
             if(_currentState.StateType == FSMState.Attack) 
                 blackBoard.onCompleteAttack?.Raise();

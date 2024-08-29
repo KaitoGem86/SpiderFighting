@@ -6,12 +6,12 @@ using UnityEngine;
 public class TestHitted : MonoBehaviour, IHitted{
     public bool isPlayer;
 
-    public void HittedByPlayer(FSMState state)
+    public void HittedByPlayer(FSMState state, float damage = 10)
     {
         Debug.Log("Hitted by player");
     }
 
-    public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip)
+    public void HittedBySpecialSkill(FSMState state, ClipTransitionSequence responseClip, float damage = 10)
     {
         Debug.Log("Hitted by special skill");
     }
