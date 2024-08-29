@@ -1823,7 +1823,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 655cf98028bcea24d91e325ffc5da69a, type: 2}
+    _Clip: {fileID: 7400000, guid: 075b570e9295c9f47a5f7a2a6618ac4e, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
   _stateType: 0
@@ -3137,8 +3137,8 @@ MonoBehaviour:
     _SynchronizeChildren: 
     _Thresholds:
     - 0
-    - 2
-    - 4
+    - 3
+    - 7
     _DefaultParameter: 0
     _ExtrapolateSpeed: 1
   _stateType: 2

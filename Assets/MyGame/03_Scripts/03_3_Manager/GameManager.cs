@@ -5,38 +5,47 @@ using MyTools.Sound;
 using TerrainScannerDEMO;
 using UnityEngine;
 
-namespace Core.Manager {
+namespace Core.Manager
+{
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private EnemyGroupSO _enemyGroupSO;
-        
+
         public static GameManager Instance { get; private set; }
 
-        private void Awake(){
+        private void Awake()
+        {
             Application.targetFrameRate = 60;
             Instance = this;
         }
 
-        private void Start(){
+        private void Start()
+        {
             _ScreenManager.Instance.ShowScreen(_ScreenTypeEnum.GamePlay);
+            MySoundManager.Instance.PlayMusic();
             _enemyGroupSO.Init();
         }
 
-        private void OnApplicationQuit(){
+        private void OnApplicationQuit()
+        {
             playerBlackBoard.PlayerData.SaveData();
             _enemyGroupSO.Dispose();
         }
 
-        private void Update(){
-            if(Input.GetKeyDown(KeyCode.F)){
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
                 FocusOnPlayer(true);
             }
-            if(Input.GetKeyUp(KeyCode.F)){
+            if (Input.GetKeyUp(KeyCode.F))
+            {
                 FocusOnPlayer(false);
             }
         }
 
-        public void FocusOnPlayer(bool value){
+        public void FocusOnPlayer(bool value)
+        {
             Time.timeScale = value ? 0.3f : 1;
         }
 

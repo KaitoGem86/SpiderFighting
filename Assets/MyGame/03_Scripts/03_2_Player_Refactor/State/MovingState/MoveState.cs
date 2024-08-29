@@ -41,7 +41,7 @@ namespace Core.GamePlay.MyPlayer
         {
             Move();
             //Rotate();
-            _transition.State.Parameter = _moveDirection.magnitude * _speed;
+            _transition.State.Parameter = _blackBoard.Character.GetVelocity().magnitude;
         }
 
         protected virtual void OnDontMove()

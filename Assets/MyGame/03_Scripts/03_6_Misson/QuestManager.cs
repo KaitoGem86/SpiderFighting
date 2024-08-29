@@ -4,6 +4,7 @@ using AYellowpaper.SerializedCollections;
 using Core.GamePlay.Enemy;
 using Core.GamePlay.Mission.NPC;
 using Core.GamePlay.MyPlayer;
+using Core.Manager;
 using CSVLoad;
 using MyTools.Event;
 using UnityEditor;
@@ -23,10 +24,10 @@ namespace Core.GamePlay.Mission
         /// <summary>
         /// Awake is called when the script instance is being loaded.
         /// </summary>
-        void Awake()
+        void Start()
         {
             instance = this;
-            StartQuest(0);
+            StartQuest(GameManager.Instance.playerBlackBoard.PlayerData.playerSerializeData.missionIndex);
         }
 
         public void StartQuest(int questID)
@@ -35,6 +36,7 @@ namespace Core.GamePlay.Mission
             currentQuest = quests[questID];
             quests[questID].Init();
             currentQuest.StartQuest();
+            GameManager.Instance.playerBlackBoard.PlayerData.playerSerializeData.missionIndex = questID;
         }
 
         public void RetryQuest()
@@ -55,6 +57,7 @@ namespace Core.GamePlay.Mission
         public void NextQuest()
         {
             currentQuestIndex = (currentQuestIndex + 1) % quests.Count;
+            GameManager.Instance.playerBlackBoard.PlayerData.playerSerializeData.missionIndex = currentQuestIndex;
             currentQuest = quests[currentQuestIndex];
             currentQuest.Init();
             currentQuest.StartQuest();

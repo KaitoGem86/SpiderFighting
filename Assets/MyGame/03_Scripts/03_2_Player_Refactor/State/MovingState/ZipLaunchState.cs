@@ -29,7 +29,7 @@ namespace Core.GamePlay.MyPlayer
             Debug.Log("Launch");
             _isAfterLaunch = true;
             //_blackBoard.Character.GetCharacterMovement().rigidbody.AddForce(Vector3.up * 100 + _blackBoard.transform.forward * 60, ForceMode.Impulse);
-            _blackBoard.Character.AddForce(Vector3.up * 30, ForceMode.Impulse);
+            //_blackBoard.Character.AddForce(Vector3.up * 30, ForceMode.Impulse);
             _blackBoard.Character.AddForce(_blackBoard.transform.forward * 30, ForceMode.Impulse);
         }
 

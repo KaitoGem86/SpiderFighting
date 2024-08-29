@@ -1,3 +1,4 @@
+using System.Collections;
 using Animancer;
 using Core.GamePlay.Mission.Protected;
 using Core.GamePlay.Support;
@@ -23,6 +24,7 @@ namespace Core.GamePlay.MyPlayer
             OnChangePlayerModel(blackBoard.PlayerData.playerSerializeData.skinIndex);
             blackBoard.GadgetsController.ChangeGadget(blackBoard.PlayerData.playerSerializeData.gadgetIndex);
             base.OnEnable();
+            StartCoroutine(TempFixBugs());
         }
 
         public override void ChangeAction(FSMState newState)
@@ -126,5 +128,11 @@ namespace Core.GamePlay.MyPlayer
         public bool IsIgnore { get; set; }
         public bool IsPlayer => true;
         public ClipTransitionSequence ResponseClip { get; set; }
+
+        private IEnumerator TempFixBugs(){
+            ChangeAction(FSMState.Moving);
+            yield return new WaitForSeconds(0.5f);
+            ChangeAction(FSMState.Spawn);
+        }
     }
 }
