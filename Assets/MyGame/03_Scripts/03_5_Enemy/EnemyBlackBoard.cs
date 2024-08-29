@@ -15,7 +15,7 @@ namespace Core.GamePlay.Enemy
         [Header("========= General =========")]
         public EnemyController enemyController;
         public EnemyModel[] enemyModels;
-        public EnemyModel currentEnemyModel;
+        public EnemyModel currentEnemyModel {get => currentModel; set => currentModel = value;}
 
         public DefaultEvent onAttack;
         public DefaultEvent onCompleteAttack;

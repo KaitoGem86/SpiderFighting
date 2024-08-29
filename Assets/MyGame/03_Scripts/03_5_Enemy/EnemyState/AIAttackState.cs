@@ -43,9 +43,10 @@ namespace Core.GamePlay.Enemy
             _blackBoard.navMeshAgent.transform.rotation = Quaternion.Slerp(_blackBoard.navMeshAgent.transform.rotation, Quaternion.LookRotation(_targetPos - _blackBoard.navMeshAgent.transform.position), Time.deltaTime * 2);
         }
 
-        public void ApplyDamage()
+        public void ApplyDamage(int handIndex)
         {
             Debug.Log("Apply Damage");
+            _blackBoard.weaponController.SetHandEnemy(handIndex == 0 ? _blackBoard.currentModel.leftHand : _blackBoard.currentModel.rightHand);
             _blackBoard.weaponController.OnWeaponAttack(_blackBoard.targetToAttack.TargetEnemy, FSMState.Hit);
         }
     }

@@ -17,6 +17,7 @@ namespace Core.GamePlay.Enemy
         public Rigidbody rb;
         public Vector3 targetPosition;
         public AnimancerComponent animancerComponent;
+        public EnemyModel currentModel;
 
         [Header("========= Movement =========")]
         public NavMeshAgent navMeshAgent;

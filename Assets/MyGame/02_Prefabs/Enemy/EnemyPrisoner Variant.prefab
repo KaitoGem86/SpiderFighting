@@ -6739,6 +6739,7 @@ MonoBehaviour:
   rb: {fileID: 2005348536997286667}
   targetPosition: {x: 0, y: 0, z: 0}
   animancerComponent: {fileID: 3833721888932012638}
+  currentModel: {fileID: 0}
   navMeshAgent: {fileID: 7962744550671859998}
   speed: 5
   damage: 0
@@ -6753,7 +6754,6 @@ MonoBehaviour:
   - {fileID: 7393792978358920259}
   - {fileID: 3675605673572816074}
   - {fileID: 5553284004334903804}
-  currentEnemyModel: {fileID: 0}
   onAttack: {fileID: 11400000, guid: 91c05fb0d3169de4593d085f26d9c340, type: 2}
   onCompleteAttack: {fileID: 11400000, guid: c61098f8c67115d4ebe5ca26615a0b85, type: 2}
 --- !u!54 &2005348536997286667
@@ -9584,7 +9584,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: a3f275accf984ff409b88e9c4145a59d, type: 2}
+    _Clip: {fileID: 7400000, guid: 45229bb83245c3446b3204c0c11f6465, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
     _Others: []
@@ -9827,8 +9827,7 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.5
-      - 0.87594694
+      - 0.40665188
       - NaN
       _Callbacks:
       - m_PersistentCalls:
@@ -9836,25 +9835,11 @@ MonoBehaviour:
           - m_Target: {fileID: 2867093695785342668}
             m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
             m_MethodName: ApplyDamage
-            m_Mode: 1
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 2867093695785342668}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
-            m_MethodName: CompleteAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
@@ -9866,8 +9851,7 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.42
-      - 0.87594694
+      - 0.54146343
       - NaN
       _Callbacks:
       - m_PersistentCalls:
@@ -9875,25 +9859,11 @@ MonoBehaviour:
           - m_Target: {fileID: 2867093695785342668}
             m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
             m_MethodName: ApplyDamage
-            m_Mode: 1
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 2867093695785342668}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
-            m_MethodName: CompleteAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
@@ -9906,7 +9876,6 @@ MonoBehaviour:
     _Events:
       _NormalizedTimes:
       - 0.6368371
-      - 0.87594694
       - NaN
       _Callbacks:
       - m_PersistentCalls:
@@ -9914,25 +9883,11 @@ MonoBehaviour:
           - m_Target: {fileID: 2867093695785342668}
             m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
             m_MethodName: ApplyDamage
-            m_Mode: 1
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 2867093695785342668}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
-            m_MethodName: CompleteAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
@@ -9944,8 +9899,7 @@ MonoBehaviour:
   - _FadeDuration: 0.25
     _Events:
       _NormalizedTimes:
-      - 0.6368371
-      - 0.87594694
+      - 0.61875653
       - NaN
       _Callbacks:
       - m_PersistentCalls:
@@ -9953,25 +9907,11 @@ MonoBehaviour:
           - m_Target: {fileID: 2867093695785342668}
             m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
             m_MethodName: ApplyDamage
-            m_Mode: 1
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 2867093695785342668}
-            m_TargetAssemblyTypeName: Core.GamePlay.Enemy.AIAttackState, Assembly-CSharp
-            m_MethodName: CompleteAttack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0

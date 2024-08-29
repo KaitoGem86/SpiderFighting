@@ -6,7 +6,7 @@ using Extensions.SystemGame.AIFSM;
 using UnityEngine;
 
 namespace Core.GamePlay.Enemy{
-    public class BossUltimateSkill : BaseEnemyState<ClipTransitionSequence>{
+    public class KingPinUltimateSkill : BaseEnemyState<ClipTransitionSequence>{
         public ClipTransitionSequence _forwardResponse;
         public ClipTransitionSequence _backwardResponse;
         [SerializeField] private float _attackRange;

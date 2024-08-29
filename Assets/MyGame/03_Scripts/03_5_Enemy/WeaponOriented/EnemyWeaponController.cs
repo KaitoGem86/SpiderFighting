@@ -25,6 +25,12 @@ namespace Core.GamePlay.Enemy{
             _weaponDict[_currentWeaponType].transform.localRotation = Quaternion.identity;
         }
 
+        public void SetHandEnemy(Transform hand){
+            _weaponDict[_currentWeaponType].transform.SetParent(hand);
+            _weaponDict[_currentWeaponType].transform.localPosition = Vector3.zero;
+            _weaponDict[_currentWeaponType].transform.localRotation = Quaternion.identity;
+        }
+
         public void OnWeaponAttack(Transform target, FSMState state){
             _weaponDict[_currentWeaponType].OnWeaponAttack(target, state);
         }
