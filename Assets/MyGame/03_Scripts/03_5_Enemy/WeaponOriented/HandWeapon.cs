@@ -19,6 +19,7 @@ namespace Core.GamePlay.Enemy
                     if(item.CompareTag("Player"))
                     {
                         item.GetComponent<IHitted>().HittedByPlayer(state);
+                        _particle.gameObject.SetActive(false);
                         _particle.gameObject.SetActive(true);
                     }
                 }

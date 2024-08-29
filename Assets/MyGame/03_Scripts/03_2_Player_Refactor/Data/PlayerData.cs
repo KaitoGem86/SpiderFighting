@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Collectible;
+using Core.Manager;
 using Core.UI.Popup;
 using Data.Stat.Player;
 using MyTools.Event;

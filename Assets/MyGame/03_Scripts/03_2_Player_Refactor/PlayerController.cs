@@ -56,6 +56,7 @@ namespace Core.GamePlay.MyPlayer
 
         public void OnRetryMission()
         {
+            ChangeAction(_startState);
             blackBoard.rig.position = Vector3.zero;
             blackBoard.rig.rotation = Quaternion.identity;
         }

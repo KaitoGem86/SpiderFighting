@@ -14,10 +14,17 @@ namespace Core.GamePlay.Enemy
         public override void EnterState()
         {
             base.EnterState();
+            _animancer.Animator.applyRootMotion = true;
             _targetPos = _blackBoard.targetPos;
             _blackBoard.navMeshAgent.ResetPath();
             _blackBoard.navMeshAgent.isStopped = true;
             _blackBoard.transform.DORotateQuaternion(Quaternion.LookRotation(_targetPos - _blackBoard.transform.position), 0.1f);
+        }
+
+        public override void ExitState()
+        {
+            _animancer.Animator.applyRootMotion = false;
+            base.ExitState();
         }
 
         public void ApplyFirstDamage(int handIndex)
@@ -26,6 +33,10 @@ namespace Core.GamePlay.Enemy
             _blackBoard.targetToAttack.TargetEnemy.GetComponent<IHitted>().ResponseClip = respone[2];
             _blackBoard.targetToAttack.TargetEnemy.GetComponent<Rigidbody>().rotation = Quaternion.LookRotation(_blackBoard.transform.position - _blackBoard.targetToAttack.TargetEnemy.position);
             _blackBoard.weaponController.OnWeaponAttack(_blackBoard.targetToAttack.TargetEnemy, FSMState.ResponeForSpecialSkill);
+        }
+
+        public void ApplyDamage(){
+            _blackBoard.weaponController.OnWeaponAttack(_blackBoard.targetToAttack.TargetEnemy, FSMState.None);
         }
 
         public void FixedUpdate()
