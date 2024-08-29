@@ -1050,6 +1050,7 @@ Transform:
   - {fileID: 648296287272364582}
   - {fileID: 4948277584590430123}
   - {fileID: 2883753637999169366}
+  - {fileID: 7636685015924117124}
   m_Father: {fileID: 2032646152031061193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748185086807915265
@@ -2990,6 +2991,84 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &6459642104403662934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7636685015924117124}
+  - component: {fileID: 1257539200448457873}
+  m_Layer: 0
+  m_Name: JumpFromClimb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7636685015924117124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6459642104403662934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8581614525833004515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257539200448457873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6459642104403662934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e4cb5754dddfa4cae9ec35dd07e8b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsm: {fileID: 4369872665408434342}
+  _animancer: {fileID: 872527583909876332}
+  _blackBoard: {fileID: 2918740459164932081}
+  _transitions:
+  - _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.4403153
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1257539200448457873}
+            m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.JumpFromClimbState,
+              Assembly-CSharp
+            m_MethodName: CompleteClimbing
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 458e17b3ecc8e01488c5376bdda15559, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _stateType: 29
+  _canChangeToItself: 0
+  _movementMode: 1
+  _interpolateMode: 0
+  _speed: 10
 --- !u!1 &6496610246800478664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3889,6 +3968,7 @@ GameObject:
   - component: {fileID: 5274893179072751371}
   - component: {fileID: 6562762266675954474}
   - component: {fileID: 8423897598976024784}
+  - component: {fileID: 5021407622644110542}
   m_Layer: 0
   m_Name: Climbing
   m_TagString: Untagged
@@ -4006,6 +4086,36 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
           Animancer
         m_MethodName: Zip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5021407622644110542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715436542355007867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca91edaa871b23449b522e2d19d7aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subject: {fileID: 11400000, guid: 2c7b89c9ffc74e34e839bb3f781e671b, type: 2}
+  _unregisterOnDisable: 1
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6562762266675954474}
+        m_TargetAssemblyTypeName: Core.GamePlay.MyPlayer.BasePlayerState`1[[Animancer.LinearMixerTransition,
+          Animancer
+        m_MethodName: Jump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

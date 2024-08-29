@@ -38,6 +38,7 @@ namespace Extensions.SystemGame.AIFSM{
         AirZip,
         WallZip,
         DiveZip,
+        JumpFromClimb,
     }
 
     public class FSM<T> : MonoBehaviour, IFSM where T : BlackBoard{

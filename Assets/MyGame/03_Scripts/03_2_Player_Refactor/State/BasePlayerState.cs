@@ -77,7 +77,7 @@ namespace Core.GamePlay.MyPlayer
             _fsm.ChangeAction(FSMState.Swing);
         }
 
-        public void Jump(){
+        public virtual void Jump(){
             _fsm.ChangeAction(FSMState.Jumping);
         }
 

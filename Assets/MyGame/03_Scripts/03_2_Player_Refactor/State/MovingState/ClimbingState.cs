@@ -120,6 +120,8 @@ namespace Core.GamePlay.MyPlayer
             EndClimbing();
         }
 
+        
+
         // private void StartClimbing()
         // {
         //     GetInput();
@@ -154,6 +156,11 @@ namespace Core.GamePlay.MyPlayer
                 angle = -angle;
             }
             return angle;
+        }
+
+        public override void Jump()
+        {
+            _fsm.ChangeAction(Extensions.SystemGame.AIFSM.FSMState.JumpFromClimb);
         }
 
         public void CompleteClimbing()
