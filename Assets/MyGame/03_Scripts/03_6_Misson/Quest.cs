@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Core.GamePlay.Mission.Protected;
+using Core.Manager;
 using MyTools.Event;
 using MyTools.ScreenSystem;
 using UnityEngine;
@@ -52,6 +53,10 @@ namespace Core.GamePlay.Mission
                 FinishQuest();
                 return;
             }
+            if (_currentStepIndex == 1)
+            {
+                GameManager.Instance.playerBlackBoard.PlayerData.isInMission = true;
+            }
             var go = Instantiate(_steps[_currentStepIndex].GameObject);
             go.GetComponent<IQuestStep>().Init(this);
             _currentQuestStep = go.GetComponent<IQuestStep>();
@@ -60,15 +65,18 @@ namespace Core.GamePlay.Mission
         public virtual void FinishQuest(bool isWin = true, string questText = null)
         {
             QuestManager.instance.FinishQuest(isWin);
+            GameManager.Instance.playerBlackBoard.PlayerData.isInMission = false;
             //_ScreenManager.Instance.ShowScreen<MissionResultPanel>(_ScreenTypeEnum.MissonResult)?.OnShow(isWin, reward);
             MissionResultPanel.Instance.Show(isWin, reward, questText);
         }
 
-        public virtual void ResetQuest(){
+        public virtual void ResetQuest()
+        {
             _currentQuestStep.ResetStep();
         }
 
-        public virtual void Update(){
+        public virtual void Update()
+        {
 
         }
 
