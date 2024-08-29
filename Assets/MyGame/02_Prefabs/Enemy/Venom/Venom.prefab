@@ -731,7 +731,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2.5
+  m_Height: 2.1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -755,9 +755,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2.5
+  m_Height: 2.1
   m_Direction: 1
-  m_Center: {x: 0, y: 1.25, z: 0}
+  m_Center: {x: 0, y: 1.05, z: 0}
 --- !u!54 &103969101945685641
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -812,7 +812,7 @@ MonoBehaviour:
   _lockBoundGraphPrefabOverrides: 1
   _preInitializeSubGraphs: 0
   _updateMode: 0
-  _graph: {fileID: 11400000, guid: 8ad8cff79137c66468898c4f27e2395a, type: 2}
+  _graph: {fileID: 11400000, guid: 931e0d69cc68ddc449ed99539ca26235, type: 2}
   _blackboard: {fileID: 4942393677506890824}
 --- !u!114 &4942393677506890824
 MonoBehaviour:
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   _checkLayer:
     serializedVersion: 2
     m_Bits: 64
-  _range: 1.5
+  _range: 3
 --- !u!1 &6931474905467971392
 GameObject:
   m_ObjectHideFlags: 0
