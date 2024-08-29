@@ -8,6 +8,7 @@ namespace Core.GamePlay.Enemy
     {
         [SerializeField] float _range;
         [SerializeField] float _height;
+        [SerializeField] private ParticleSystem _particle;
  
         public override void OnWeaponAttack(Transform target, FSMState state)
         {
@@ -19,6 +20,7 @@ namespace Core.GamePlay.Enemy
                     if (item.CompareTag("Player"))
                     {
                         item.GetComponent<IHitted>().HittedByPlayer(Extensions.SystemGame.AIFSM.FSMState.Hit);
+                        _particle.gameObject.SetActive(true);
                     }
                 }
             }

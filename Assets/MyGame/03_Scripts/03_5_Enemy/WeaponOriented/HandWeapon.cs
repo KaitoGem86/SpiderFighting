@@ -7,6 +7,7 @@ namespace Core.GamePlay.Enemy
     public class HandWeapon : BaseWeaponOriented
     {
         [SerializeField] private float _range;
+        [SerializeField] private ParticleSystem _particle;
         public override void OnWeaponAttack(Transform target, FSMState state)
         {
             var hit = Physics.OverlapSphere(transform.position, _range, _checkLayer);
@@ -18,6 +19,7 @@ namespace Core.GamePlay.Enemy
                     if(item.CompareTag("Player"))
                     {
                         item.GetComponent<IHitted>().HittedByPlayer(state);
+                        _particle.gameObject.SetActive(true);
                     }
                 }
             }
