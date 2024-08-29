@@ -1,9 +1,12 @@
+using Core.UI.Popup;
 using UnityEngine;
 
 namespace Core.GamePlay.Mission
 {
     public class ReceiveQuestStep : QuestStep<ReceiveQuestInitData>
     {
+        public bool isFade = false;
+
         public override void Init(Quest container)
         {
             base.Init(container);
@@ -14,7 +17,7 @@ namespace Core.GamePlay.Mission
         {
             if (other.CompareTag("Player"))
             {
-                FinishStep();
+                FadeScenePopup.Instance.Show(0.3f, 0.1f, FinishStep);
             }
         }
     }
