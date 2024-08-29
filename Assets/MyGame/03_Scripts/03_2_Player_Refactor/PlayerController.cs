@@ -131,7 +131,7 @@ namespace Core.GamePlay.MyPlayer
 
         private IEnumerator TempFixBugs(){
             ChangeAction(FSMState.Moving);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             ChangeAction(FSMState.Spawn);
         }
     }
